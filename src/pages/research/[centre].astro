@@ -133,7 +133,7 @@ const related = [...programs.filter((p) => p.data.centres.includes(centre.id)), 
         <AsideNav heading="Other verticals" links={centres.filter((c) => c.id !== centre.id).map((c) => ({ label: c.data.title, href: href.centre(c) }))} />
         <div class="aside-box">
           <h2>Share</h2>
-          <Share title={d.title} />
+          <Share title={d.title} heading={false} />
         </div>
       </aside>
     </div>

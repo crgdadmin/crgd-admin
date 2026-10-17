@@ -33,6 +33,6 @@ Each intern completes an internship report, and the best are published in our [I
 
 ## How to apply
 
-Email a CV, a short note on which research verticals interest you and why, and a writing sample to the careers address, with "Winter Internship" in the subject line.
+Email a CV, a short note on which research verticals interest you and why, and a writing sample to the careers address, with "Winter Research Internship" in the subject line (the Apply by email button fills it in for you).
 
 *[Placeholder program.]*

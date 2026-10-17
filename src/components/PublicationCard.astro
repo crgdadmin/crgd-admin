@@ -13,6 +13,7 @@ interface Props {
 const { item, variant = 'card', image = true, level: Tag = 'h3', eager = false } = Astro.props;
 const d = item.data;
 const authors = await resolvePeople(d.authors);
+const searchText = [d.title, d.summary ?? '', ...authors.map((a) => a.name), ...d.authors, ...d.tags].join(' ').toLowerCase();
 const typeLabel = publicationTypeLabel(d.type);
 const mark = d.type === 'podcasts' ? '◉' : d.type === 'videos' ? '▶' : '';
 ---
@@ -22,7 +23,7 @@ const mark = d.type === 'podcasts' ? '◉' : d.type === 'videos' ? '▶' : '';
   data-type={d.type}
   data-centres={d.centres.join(' ')}
   data-year={formatDate(d.date, 'year')}
-  data-text={`${d.title} ${d.summary ?? ''} ${d.authors.join(' ')} ${d.tags.join(' ')}`.toLowerCase()}
+  data-text={searchText}
 >
   {image && (
     <Picture src={d.image} alt={d.imageAlt} label={typeLabel} mark={mark} seed={item.id} placeholder={d.placeholder} eager={eager} />

@@ -16,7 +16,7 @@ const { Content } = await render(item);
 const label = categoryLabel('programs', d.category);
 const siblings = (await getPrograms()).filter((p) => p.data.category === d.category);
 const applyEmail = d.applyEmail || site.careersEmail;
-const closed = /closed/i.test(d.status);
+const canApply = /open|rolling/i.test(d.status) && !/closed/i.test(d.status);
 ---
 
 <DetailPage
@@ -39,7 +39,7 @@ const closed = /closed/i.test(d.status);
     { label: 'Location', value: d.location },
     { label: 'Stipend', value: d.stipend },
   ]}
-  actions={closed ? [] : [
+  actions={!canApply ? [] : [
     { label: 'Apply now', href: d.applyUrl, primary: true, icon: 'external' },
     { label: 'Apply by email', href: applyEmail ? `mailto:${applyEmail}?subject=${encodeURIComponent(`Application: ${d.title}`)}` : undefined, primary: !d.applyUrl, icon: 'mail' },
   ]}

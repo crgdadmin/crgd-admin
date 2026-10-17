@@ -9,6 +9,8 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const base = url('/').replace(/\/$/, '');
 const local = path.startsWith(base) ? path.slice(base.length) || '/' : path;
 
+const owner = navigation.menus.find((m) => m.href !== '/' && m.href.split('/')[1] === local.split('/')[1]);
+
 const menus = navigation.menus.map((menu, index) => {
   const columns = menu.columns.map((column) => ({
     ...column,
@@ -21,8 +23,8 @@ const menus = navigation.menus.map((menu, index) => {
         : column.links.map((l) => ({ ...l, number: '' })),
   }));
   const hrefs = [menu.href, ...columns.flatMap((c) => c.links.map((l) => l.href))];
-  const section = menu.href.split('/')[1];
-  const active = hrefs.some((h) => h !== '/' && (local === h || local.startsWith(`${h}/`))) || local.split('/')[1] === section;
+  // The menu whose overview page owns this section is the one marked active.
+  const active = owner ? menu === owner : hrefs.some((h) => h !== '/' && (local === h || local.startsWith(`${h}/`)));
   return { ...menu, columns, active, id: `mega-${index}` };
 });
 ---
@@ -124,7 +126,7 @@ const menus = navigation.menus.map((menu, index) => {
                 <div class="mega-intro">
                   <h2>{menu.label}</h2>
                   {menu.intro && <p>{menu.intro}</p>}
-                  <a class="text-link" href={url(menu.href)}>Overview</a>
+                  <a class="text-link" href={url(menu.href)}>Overview<span class="sr-only"> of {menu.label}</span></a>
                 </div>
                 <div class:list={['mega-columns', { 'is-wide': menu.columns.some((c) => c.autoFill === 'centres') }]}>
                   {menu.columns.map((column) => (
@@ -181,6 +183,7 @@ const menus = navigation.menus.map((menu, index) => {
   if (nav) {
     const desktop = window.matchMedia('(min-width: 1024px)');
     const items = Array.from(nav.querySelectorAll<HTMLElement>('[data-dropdown]'));
+    const collapse = nav.querySelector<HTMLElement>('.nav-collapse');
     const menuToggle = nav.querySelector<HTMLButtonElement>('.nav-toggle');
     const searchToggle = nav.querySelector<HTMLButtonElement>('.nav-search-toggle');
     const searchInput = nav.querySelector<HTMLInputElement>('#nav-q');
@@ -198,6 +201,12 @@ const menus = navigation.menus.map((menu, index) => {
         closeAll();
         window.setTimeout(() => searchInput?.focus(), 30);
       }
+    };
+    const setMenu = (open: boolean) => {
+      nav.dataset.menu = open ? 'open' : 'closed';
+      menuToggle?.setAttribute('aria-expanded', String(open));
+      menuToggle?.setAttribute('aria-label', open ? 'Close the menu' : 'Open the menu');
+      document.body.style.overflow = open && !desktop.matches ? 'hidden' : '';
     };
 
     items.forEach((item) => {
@@ -228,11 +237,14 @@ const menus = navigation.menus.map((menu, index) => {
 
     menuToggle?.addEventListener('click', () => {
       const open = nav.dataset.menu !== 'open';
-      nav.dataset.menu = open ? 'open' : 'closed';
-      menuToggle.setAttribute('aria-expanded', String(open));
-      menuToggle.setAttribute('aria-label', open ? 'Close the menu' : 'Open the menu');
-      document.body.style.overflow = open && !desktop.matches ? 'hidden' : '';
+      if (open && !desktop.matches) {
+        // Bring the menu bar to the top of the screen so the whole panel fits below it.
+        window.scrollTo({ top: nav.getBoundingClientRect().top + window.scrollY, behavior: 'instant' as ScrollBehavior });
+      }
+      setMenu(open);
       setSearch(false);
+      // The panel sits before the toggle in the page, so take keyboard focus into it.
+      if (open) collapse?.querySelector<HTMLElement>('.nav-trigger')?.focus({ preventScroll: true });
     });
 
     searchToggle?.addEventListener('click', () => setSearch(nav.dataset.search !== 'open'));
@@ -245,14 +257,24 @@ const menus = navigation.menus.map((menu, index) => {
     });
     document.addEventListener('keydown', (event) => {
       if (event.key !== 'Escape') return;
-      const open = items.find((i) => i.dataset.open === 'true');
-      closeAll();
-      setSearch(false);
-      open?.querySelector<HTMLButtonElement>('.nav-trigger')?.focus();
+      const openItem = items.find((i) => i.dataset.open === 'true');
+      if (openItem) {
+        closeAll();
+        openItem.querySelector<HTMLButtonElement>('.nav-trigger')?.focus();
+        return;
+      }
+      if (nav.dataset.search === 'open') {
+        setSearch(false);
+        searchToggle?.focus();
+        return;
+      }
+      if (nav.dataset.menu === 'open') {
+        setMenu(false);
+        menuToggle?.focus();
+      }
     });
     desktop.addEventListener('change', () => {
-      nav.dataset.menu = 'closed';
-      document.body.style.overflow = '';
+      setMenu(false);
       closeAll();
     });
 

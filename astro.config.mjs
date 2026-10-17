@@ -17,10 +17,16 @@ const base = process.env.BASE_PATH || '/';
  * wide tables scroll on small screens.
  */
 const prefix = base.replace(/\/$/, '');
-const withBase = (value) =>
-  typeof value === 'string' && prefix && value.startsWith('/') && !value.startsWith('//') && !value.startsWith(`${prefix}/`)
-    ? `${prefix}${value}`
-    : value;
+const withSlash = (value) => {
+  const [, pathname, rest] = value.match(/^([^?#]*)(.*)$/) ?? ['', value, ''];
+  const last = pathname.split('/').pop() ?? '';
+  return pathname.endsWith('/') || last.includes('.') ? value : `${pathname}/${rest}`;
+};
+const withBase = (value) => {
+  if (typeof value !== 'string' || !value.startsWith('/') || value.startsWith('//')) return value;
+  const path = withSlash(value);
+  return prefix && !path.startsWith(`${prefix}/`) ? `${prefix}${path}` : path;
+};
 
 /**
  * Page text can say {{email}}, {{phone}} and so on; the value from Site

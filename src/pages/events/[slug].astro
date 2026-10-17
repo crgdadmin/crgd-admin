@@ -3,7 +3,7 @@ import DetailPage from '../../components/DetailPage.astro';
 import Picture from '../../components/Picture.astro';
 import EventCard from '../../components/EventCard.astro';
 import { render, getEntry } from 'astro:content';
-import { getEvents, isUpcoming, resolvePeople, centresFor, href, type EventEntry } from '../../lib/content';
+import { getEvents, splitEvents, isUpcoming, resolvePeople, centresFor, href, type EventEntry } from '../../lib/content';
 import { url, asset, dateRange, timeRange, embedUrl, isoDate, site, orgFullName } from '../../lib/site';
 
 export async function getStaticPaths() {
@@ -18,7 +18,9 @@ const moderators = await resolvePeople(d.moderators);
 const centres = await centresFor(d.centres);
 const recording = embedUrl(d.recordingUrl);
 const gallery = d.gallery ? await getEntry('galleries', d.gallery) : undefined;
-const others = (await getEvents()).filter((e) => e.id !== item.id && isUpcoming(e) === upcoming).slice(0, 3);
+// Upcoming events come soonest first; past events most recent first.
+const split = await splitEvents();
+const others = (upcoming ? split.upcoming : split.past).filter((e) => e.id !== item.id).slice(0, 3);
 const where = [d.venue, d.city].filter(Boolean).join(', ');
 const startIso = d.startTime ? `${isoDate(d.startDate)}T${d.startTime.padStart(5, '0')}:00+05:30` : isoDate(d.startDate);
 const endIso = d.endTime ? `${isoDate(d.endDate ?? d.startDate)}T${d.endTime.padStart(5, '0')}:00+05:30` : d.endDate ? isoDate(d.endDate) : undefined;
@@ -59,6 +61,7 @@ const schema = {
   placeholder={d.placeholder}
   what="event"
   schema={schema}
+  headMeta={[dateRange(d.startDate, d.endDate), timeRange(d.startTime, d.endTime), where]}
   factsHeading={upcoming ? 'Date and place' : 'Event record'}
   facts={[
     { label: 'Date', value: dateRange(d.startDate, d.endDate) },
@@ -118,7 +121,7 @@ const schema = {
   </Fragment>
   <Fragment slot="below">
     {others.length > 0 && (
-      <section class="band band-tint">
+      <section class="band band-tint related">
         <div class="wrap">
           <div class="section-head"><h2>{upcoming ? 'Also coming up' : 'More from the archive'}</h2></div>
           <div class="grid grid-3">{others.map((e) => <EventCard event={e} />)}</div>

@@ -32,7 +32,8 @@ const player = embedUrl(d.mediaUrl);
 const toc = headings.filter((h) => h.depth === 2);
 const canonical = new URL(url(href.publication(item)), Astro.site).toString();
 const year = formatDate(d.date, 'year');
-const citation = `${authors.length ? joinNames(authors.map((a) => a.name)) : orgFullName} (${year}). ${d.title}. ${typeLabel}. ${orgTitle}, Thiruvananthapuram.${d.isbn ? ` ISBN ${d.isbn}.` : ''} ${canonical}`;
+const titleEnd = /[.?!]$/.test(d.title) ? '' : '.';
+const citation = `${authors.length ? joinNames(authors.map((a) => a.name)) : orgFullName} (${year}). ${d.title}${titleEnd} ${typeLabel}. ${orgTitle}, Thiruvananthapuram.${d.isbn ? ` ISBN ${d.isbn}.` : ''} ${canonical}`;
 
 const schema = {
   '@context': 'https://schema.org',
@@ -113,6 +114,13 @@ const schema = {
           </p>
         )}
 
+        {toc.length >= 3 && (
+          <details class="toc toc-inline">
+            <summary>Contents</summary>
+            <ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+          </details>
+        )}
+
         <div class="prose"><Content /></div>
 
         {d.tags.length > 0 && (
@@ -176,7 +184,7 @@ const schema = {
         </div>
         <div class="aside-box">
           <h2>Share</h2>
-          <Share title={d.title} />
+          <Share title={d.title} heading={false} />
           <p class="meta" style="margin:1rem 0 0">Free to republish with credit. <a href={url('/copyright-and-republishing')}>Republishing rules</a></p>
         </div>
       </aside>
@@ -197,13 +205,15 @@ const schema = {
 
 <script>
   document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((button) => {
+    const label = button.textContent ?? 'Copy citation';
+    let timer: number | undefined;
     button.addEventListener('click', async () => {
       const text = document.querySelector(button.dataset.copy!)?.textContent ?? '';
       try {
         await navigator.clipboard.writeText(text.trim());
-        const label = button.textContent;
         button.textContent = 'Copied';
-        window.setTimeout(() => (button.textContent = label), 1600);
+        window.clearTimeout(timer);
+        timer = window.setTimeout(() => (button.textContent = label), 1600);
       } catch {
         window.prompt('Copy this citation', text.trim());
       }

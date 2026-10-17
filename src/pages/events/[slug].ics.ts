@@ -43,5 +43,5 @@ export const GET: APIRoute = ({ props, site: siteUrl }) => {
     'END:VEVENT',
     'END:VCALENDAR',
   ];
-  return new Response(lines.map(fold).join('\r\n'), { headers: { 'Content-Type': 'text/calendar; charset=utf-8' } });
+  return new Response(`${lines.map(fold).join('\r\n')}\r\n`, { headers: { 'Content-Type': 'text/calendar; charset=utf-8' } });
 };

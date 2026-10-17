@@ -29,6 +29,7 @@ interface Props {
   schema?: Record<string, unknown>;
   type?: 'website' | 'article';
   published?: Date;
+  headMeta?: string[];
 }
 const {
   title,
@@ -49,13 +50,18 @@ const {
   schema,
   type = 'website',
   published,
+  headMeta = [],
 } = Astro.props;
 const shownFacts = facts.filter((f) => f.value);
 const shownActions = actions.filter((a) => a.href);
 ---
 
 <Base title={title} description={description} image={image} imageAlt={imageAlt} schema={schema} type={type} published={published}>
-  <PageHead eyebrow={eyebrow} title={title} lede={description} crumbs={crumbs} image={image} />
+  <PageHead eyebrow={eyebrow} title={title} lede={description} crumbs={crumbs} image={image}>
+    {headMeta.filter(Boolean).length > 0 && (
+      <p class="head-meta">{headMeta.filter(Boolean).map((m, i) => <span class:list={{ dot: i > 0 }}>{m}</span>)}</p>
+    )}
+  </PageHead>
 
   <section class="band">
     <div class="wrap layout-main">
@@ -101,7 +107,7 @@ const shownActions = actions.filter((a) => a.href);
         <AsideNav heading={navHeading} links={navLinks} />
         <div class="aside-box">
           <h2>Share</h2>
-          <Share title={title} />
+          <Share title={title} heading={false} />
         </div>
       </aside>
     </div>

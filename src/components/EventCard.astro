@@ -22,7 +22,7 @@ const upcoming = isUpcoming(event);
       <span class="y">{parts.year}</span>
     </div>
     <div class="event-text">
-      <p class="label card-type">{d.type}<span class="dot">{d.mode}</span></p>
+      <p class="label card-type"><span class="nw">{d.type}</span><span class="dot nw">{d.mode}</span></p>
       <h3><a href={url(href.event(event))}>{d.title}</a></h3>
       <p class="meta">
         <time datetime={d.startDate.toISOString()}>{dateRange(d.startDate, d.endDate)}</time>

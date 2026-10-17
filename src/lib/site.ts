@@ -56,12 +56,19 @@ export function categoryLabel(section: SectionKey, slug: string | undefined, sin
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 /** Every internal link goes through here so the site also works from a sub folder. */
+/** Page addresses end in a slash, which is how the built folders are served, so links never redirect. */
+function withSlash(path: string): string {
+  const [, pathname, rest] = path.match(/^([^?#]*)(.*)$/) ?? ['', path, ''];
+  const last = pathname.split('/').pop() ?? '';
+  return pathname.endsWith('/') || last.includes('.') ? path : `${pathname}/${rest}`;
+}
+
 export function url(path = '/'): string {
-  if (!path) return base || '/';
+  if (!path) return `${base}/`;
   if (/^(https?:|mailto:|tel:|#|\/\/|data:|whatsapp:)/.test(path)) return path;
-  const clean = path.startsWith('/') ? path : `/${path}`;
-  if (base && (clean === base || clean.startsWith(`${base}/`))) return clean;
-  return `${base}${clean}` || '/';
+  const clean = withSlash(path.startsWith('/') ? path : `/${path}`);
+  if (base && clean.startsWith(`${base}/`)) return clean;
+  return `${base}${clean}`;
 }
 
 /** Images and files uploaded in the CMS are stored as /uploads/name.ext. */

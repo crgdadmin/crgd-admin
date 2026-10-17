@@ -49,8 +49,8 @@ const schema = {
     { label: 'Apply online', href: d.applyUrl, primary: true, icon: 'external' },
     { label: 'Apply by email', href: email ? `mailto:${email}?subject=${encodeURIComponent(`Application: ${d.title}`)}` : undefined, primary: !d.applyUrl, icon: 'mail' },
   ] : []}
-  navHeading="Other openings"
-  navLinks={openings.filter((o) => o.id !== item.id).map((o) => ({ label: o.data.title, href: href.opening(o) }))}
+  navHeading="Other open positions"
+  navLinks={openings.filter((o) => o.id !== item.id && o.data.status === 'Open').map((o) => ({ label: o.data.title, href: href.opening(o) }))}
 >
   <Content />
   <Fragment slot="after">

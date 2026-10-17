@@ -112,6 +112,7 @@ const personSchema = profile && person
     <section class="band">
       <div class="wrap layout-main">
         <div>
+          <h2 class="sr-only">Members</h2>
           <PeopleGroup people={people} groups={groupView.groups ?? []} split={(groupView.groups?.length ?? 0) > 1} showBio />
         </div>
         <aside class="aside">
@@ -230,7 +231,7 @@ const personSchema = profile && person
           )}
           <div class="aside-box">
             <h2>Share this profile</h2>
-            <Share title={`${profile.d.name}, ${sections.people.title}`} />
+            <Share title={`${profile.d.name}, ${sections.people.title}`} heading={false} />
           </div>
         </aside>
       </div>

@@ -6,6 +6,8 @@ interface Props {
   opacity?: number;
 }
 const { class: className = 'waves', lines = 14, opacity = 0.16 } = Astro.props;
+// Each drawing needs its own gradient id, as several can appear on one page.
+const gradientId = `wave-fade-${Math.random().toString(36).slice(2, 8)}`;
 const paths = Array.from({ length: lines }, (_, i) => {
   const y = 120 + i * 26;
   const a = 60 + i * 9;
@@ -15,13 +17,13 @@ const paths = Array.from({ length: lines }, (_, i) => {
 
 <svg class={className} viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
   <defs>
-    <linearGradient id="wave-fade" x1="0" x2="1" y1="0" y2="0">
+    <linearGradient id={gradientId} x1="0" x2="1" y1="0" y2="0">
       <stop offset="0" stop-color="#c4d2e1" stop-opacity="0" />
       <stop offset="0.35" stop-color="#c4d2e1" stop-opacity="1" />
       <stop offset="1" stop-color="#c4d2e1" stop-opacity="0.2" />
     </linearGradient>
   </defs>
-  <g fill="none" stroke="url(#wave-fade)" stroke-width="1" opacity={opacity * 4}>
+  <g fill="none" stroke={`url(#${gradientId})`} stroke-width="1" opacity={opacity * 4}>
     {paths.map((d, i) => <path d={d} opacity={(0.25 + (i % 5) * 0.12).toFixed(2)} />)}
   </g>
 </svg>

@@ -33,7 +33,7 @@ const isPartner = cat.slug === 'collaborations';
           imageAlt={i.data.imageAlt}
           status={i.data.status}
           placeholder={i.data.placeholder}
-          meta={[i.data.startDate ? formatDate(i.data.startDate) : undefined, i.data.format, i.data.duration]}
+          meta={[i.data.startDate ? `Starts ${formatDate(i.data.startDate)}` : undefined, i.data.format, i.data.duration]}
         />
       ))}
     </div>

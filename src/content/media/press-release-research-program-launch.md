@@ -22,4 +22,4 @@ Alongside its research, CRGD will run fellowships, internships, campus Policy Cl
 **About CRGD**
 CRGD is an independent public policy research institution based in Thiruvananthapuram. It does not take positions on behalf of any political party.
 
-**Media contact:** {{mediaEmail}}
+**Media contact:** [{{mediaEmail}}](mailto:{{mediaEmail}})

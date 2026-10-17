@@ -4,8 +4,9 @@ import Icon from './Icon.astro';
 interface Props {
   title: string;
   label?: string;
+  heading?: boolean;
 }
-const { title, label = 'Share' } = Astro.props;
+const { title, label = 'Share', heading = true } = Astro.props;
 const link = new URL(Astro.url.pathname, Astro.site).toString();
 const t = encodeURIComponent(title);
 const u = encodeURIComponent(link);
@@ -19,7 +20,7 @@ const targets = [
 ---
 
 <div class="share-block">
-  <h2 class="sr-only">{label}</h2>
+  {heading && <h2 class="sr-only">{label}</h2>}
   <ul class="share" aria-label={label}>
     {targets.map((s) => (
       <li>

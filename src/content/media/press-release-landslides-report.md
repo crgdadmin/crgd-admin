@@ -15,4 +15,4 @@ placeholder: true
 
 The report, [After the Landslides: Building Safer Hill Communities](/publications/special-reports/after-the-landslides), brings together research on geology, land use, early warning and rehabilitation.
 
-**Media contact:** {{mediaEmail}}
+**Media contact:** [{{mediaEmail}}](mailto:{{mediaEmail}})

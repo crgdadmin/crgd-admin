@@ -15,4 +15,4 @@ Fellows will join one of CRGD's research verticals and design, carry out and pub
 
 The closing date for applications is 30 November 2026.
 
-**Media contact:** {{mediaEmail}}
+**Media contact:** [{{mediaEmail}}](mailto:{{mediaEmail}})

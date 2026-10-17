@@ -30,12 +30,12 @@ const external = d.category === 'in-the-news' || d.category === 'mentions';
   imageCaption={d.imageCaption}
   showImage={!player}
   placeholder={d.placeholder}
-  what={label.toLowerCase()}
+  what="entry"
   type="article"
   published={d.date}
   facts={[
     { label: 'Date', value: formatDate(d.date) },
-    { label: external ? 'Published in' : 'Outlet', value: d.outlet },
+    { label: d.category === 'speeches' ? 'Delivered at' : external ? 'Published in' : 'Outlet', value: d.outlet },
     { label: 'Featuring', value: joinNames(people.map((p) => p.name)) || undefined },
   ]}
   actions={[
