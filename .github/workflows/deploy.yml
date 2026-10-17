@@ -1,5 +1,8 @@
 name: Build and deploy the website
 
+# The built site is published to the gh-pages branch, which GitHub Pages
+# serves (Settings > Pages > Deploy from a branch > gh-pages, / (root)).
+
 on:
   # Every save in Pages CMS is a commit to main, so the site rebuilds after each edit.
   push:
@@ -11,16 +14,14 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repository
@@ -32,9 +33,26 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Read the GitHub Pages address
-        id: pages
-        uses: actions/configure-pages@v5
+      - name: Work out the website address
+        id: address
+        run: |
+          # A custom domain is read from public/CNAME, or from the CNAME file
+          # GitHub writes to gh-pages when a domain is set in Settings > Pages.
+          CNAME=""
+          if [ -f public/CNAME ]; then
+            CNAME=$(tr -d ' \r\n' < public/CNAME)
+          elif git fetch --depth 1 origin gh-pages 2>/dev/null && git cat-file -e FETCH_HEAD:CNAME 2>/dev/null; then
+            CNAME=$(git show FETCH_HEAD:CNAME | tr -d ' \r\n')
+          fi
+          if [ -n "$CNAME" ]; then
+            echo "site=https://$CNAME" >> "$GITHUB_OUTPUT"
+            echo "base=/" >> "$GITHUB_OUTPUT"
+          else
+            OWNER=$(echo "${GITHUB_REPOSITORY%%/*}" | tr '[:upper:]' '[:lower:]')
+            echo "site=https://$OWNER.github.io" >> "$GITHUB_OUTPUT"
+            echo "base=/${GITHUB_REPOSITORY#*/}" >> "$GITHUB_OUTPUT"
+          fi
+          echo "cname=$CNAME" >> "$GITHUB_OUTPUT"
 
       - name: Install
         run: npm ci
@@ -45,26 +63,26 @@ jobs:
       - name: Build the website
         run: npm run build
         env:
-          SITE_URL: ${{ steps.pages.outputs.origin }}
-          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          SITE_URL: ${{ steps.address.outputs.site }}
+          BASE_PATH: ${{ steps.address.outputs.base }}
 
       - name: Check internal links
         run: npm run check-links
         env:
-          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          BASE_PATH: ${{ steps.address.outputs.base }}
 
-      - name: Upload the website
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Publish to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Publish to the gh-pages branch
+        env:
+          CNAME: ${{ steps.address.outputs.cname }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd dist
+          touch .nojekyll
+          if [ -n "$CNAME" ]; then echo "$CNAME" > CNAME; fi
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Deploy ${GITHUB_SHA::7}"
+          git push -q -f "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
+          echo "Published to ${{ steps.address.outputs.site }}${{ steps.address.outputs.base }}"

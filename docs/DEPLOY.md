@@ -2,15 +2,19 @@
 
 The site is a static website built by GitHub Actions and served by GitHub Pages, free of charge.
 
-## 1. Switch on GitHub Pages
+## 1. How publishing works
 
-1. In the repository on GitHub, open **Settings > Pages**.
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-3. Open the **Actions** tab and run **Build and deploy the website** (or push any change). When it finishes, the site is live at `https://irijournal.github.io/Website-for-Amal/`.
+The site is live at **https://irijournal.github.io/Website-for-Amal/**.
 
-The workflow reads the address from GitHub Pages, so links work both at that address and on a custom domain without any change to the code.
+1. Every save in Pages CMS (and every push to `main`) runs the **Build and deploy the website** workflow in the Actions tab.
+2. The workflow checks the content files, builds the site, checks every internal link, and publishes the result to the `gh-pages` branch.
+3. GitHub Pages serves the `gh-pages` branch (Settings > Pages > Build and deployment > **Deploy from a branch**, branch `gh-pages`, folder `/ (root)`). A second run called **pages build and deployment** appears in the Actions tab each time; when it turns green the change is online.
+
+If a build fails (for example a required field was left empty), the live site stays on the previous version and the Actions tab shows a red mark with the reason.
 
 The site also rebuilds every night at midnight India time, so that events move from Upcoming to Past on their own.
+
+Do not edit the `gh-pages` branch by hand: it is replaced on every deploy.
 
 ## 2. Connect Pages CMS
 
@@ -37,12 +41,13 @@ Choose one:
 ## 5. A custom domain
 
 1. Buy the domain from any registrar.
-2. In the repository, **Settings > Pages > Custom domain**, enter it (for example `www.crgd.org`) and save. GitHub shows the DNS records to add.
-3. At the registrar, add the records GitHub lists: a `CNAME` record for `www` pointing to `irijournal.github.io`, and the four `A` records for the bare domain.
-4. When the check passes, tick **Enforce HTTPS**.
-5. Update Site settings > **Website address** and the email addresses.
+2. In the repository, create the file `public/CNAME` containing only the domain, for example `www.crgd.org` (in Pages CMS or on GitHub: Add file > Create new file).
+3. In **Settings > Pages > Custom domain**, enter the same domain and save. GitHub shows the DNS records to add.
+4. At the registrar, add the records GitHub lists: a `CNAME` record for `www` pointing to `irijournal.github.io`, and the four `A` records for the bare domain.
+5. When the DNS check passes, tick **Enforce HTTPS**.
+6. Update Site settings > **Website address** and the email addresses.
 
-The next build automatically uses the new domain for links, the sitemap and sharing previews.
+The next build notices the `CNAME` file and switches every link, the sitemap and the sharing previews to the new domain automatically.
 
 ## Local development
 

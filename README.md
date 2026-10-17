@@ -2,6 +2,8 @@
 
 The complete website for CRGD, an independent public policy research institution in Thiruvananthapuram. Front end, written content, placeholders for everything still to come, search, feeds, and a browser based CMS so the whole site can be edited without touching code.
 
+**Live at https://irijournal.github.io/Website-for-Amal/**
+
 Built with [Astro](https://astro.build), edited with [Pages CMS](https://pagescms.org), hosted free on GitHub Pages. It follows the same approach as the International Research Insights website, at roughly twice the size.
 
 ## Start here
@@ -47,7 +49,7 @@ src/layouts/Base.astro       HTML shell, metadata, fonts, structured data
 src/pages/                   Routes built from the content
 src/styles/global.css        The palette and all styling
 scripts/                     Content and link checks run on every deploy
-.github/workflows/deploy.yml Build and deploy on every save, and nightly
+.github/workflows/deploy.yml Build on every save and nightly, publish to gh-pages
 ```
 
 ## Design

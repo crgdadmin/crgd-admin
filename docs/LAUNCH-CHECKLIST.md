@@ -51,4 +51,5 @@ Everything below is a placeholder or an assumption that must be confirmed. All o
 
 ## Domain
 
-- [ ] Connect a domain (see `DEPLOY.md`) and set Site settings > Website address.
+- [x] The site is live at https://irijournal.github.io/Website-for-Amal/
+- [ ] Optional: connect a domain (see `DEPLOY.md`, section 5) and set Site settings > Website address.
