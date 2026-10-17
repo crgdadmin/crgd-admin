@@ -1,0 +1,122 @@
+---
+import Brand from './Brand.astro';
+import Icon from './Icon.astro';
+import SubscribeForm from './SubscribeForm.astro';
+import { getCentres, getPages, href } from '../lib/content';
+import { site, navigation, url, telHref, socialLinks, orgName, orgTitle } from '../lib/site';
+
+const centres = await getCentres();
+const policies = (await getPages()).filter((p) => p.data.section === 'Policies');
+const year = new Date().getFullYear();
+
+const columns = navigation.menus.map((menu) => {
+  const links = menu.columns.flatMap((column) =>
+    column.autoFill === 'centres'
+      ? [...centres.slice(0, 6).map((c) => ({ label: c.data.title, href: href.centre(c) })), { label: 'All research centres', href: '/research' }]
+      : column.links,
+  );
+  const unique = links.filter((l, i) => links.findIndex((x) => x.href === l.href) === i);
+  return { heading: menu.label, links: unique.slice(0, 8) };
+});
+---
+
+<footer class="footer">
+  <div class="palette-strip" aria-hidden="true">
+    {Array.from({ length: 10 }, () => <span></span>)}
+  </div>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <Brand dark />
+        {site.footerNote && <p class="footer-about">{site.footerNote}</p>}
+        <ul class="footer-contact">
+          {site.address && (
+            <li>
+              <Icon name="pin" />
+              <span>
+                {site.address}
+                {site.mapLink && <><br /><a href={site.mapLink} target="_blank" rel="noopener noreferrer">Open in maps</a></>}
+              </span>
+            </li>
+          )}
+          {site.email && (
+            <li><Icon name="mail" /><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          )}
+          {site.phone && (
+            <li><Icon name="phone" /><a href={telHref(site.phone)}>{site.phone}</a></li>
+          )}
+          {site.officeHours && (
+            <li><Icon name="clock" /><span>{site.officeHours}</span></li>
+          )}
+        </ul>
+      </div>
+      <div class="footer-subscribe on-dark">
+        <h2>{site.subscribeLabel || 'Subscribe to email updates'}</h2>
+        <p>New research, events and calls for applications from {orgName}, about twice a month.</p>
+        <SubscribeForm id="footer-subscribe" />
+        <p style="margin-top:1.4rem">
+          <a class="btn btn-ghost btn-small" href={url('/support')}>
+            <Icon name="heart" />
+            {site.supportLabel || `Support ${orgName}`}
+          </a>
+        </p>
+        {socialLinks.length > 0 && (
+          <ul class="social" aria-label="Social media">
+            {socialLinks.map((s) => (
+              <li>
+                <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={`${orgName} on ${s.label}`}>
+                  <Icon name={s.key} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+
+    <nav class="footer-links" aria-label="Footer">
+      {columns.map((column) => (
+        <div>
+          <h2>{column.heading}</h2>
+          <ul>
+            {column.links.map((link) => (
+              <li><a href={url(link.href)}>{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </nav>
+
+    <div class="footer-bottom">
+      <div>
+        <span>© {year} {site.copyrightHolder || orgName}. {orgTitle}.</span>
+        {site.registration && <p class="footer-legal">{site.registration}</p>}
+      </div>
+      <ul>
+        {policies.map((p) => (
+          <li><a href={url(href.page(p))}>{p.data.navLabel || p.data.title}</a></li>
+        ))}
+        <li><a href={url('/contact')}>Contact</a></li>
+        <li><a href={url('/rss.xml')}>RSS</a></li>
+        <li><a href={url('/sitemap.xml')}>Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" type="button" aria-label="Back to top">
+  <Icon name="arrow-up" />
+</button>
+
+<script>
+  const top = document.querySelector<HTMLButtonElement>('.to-top');
+  if (top) {
+    const onScroll = () => top.classList.toggle('is-visible', window.scrollY > 900);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    top.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      document.querySelector<HTMLElement>('#main')?.focus({ preventScroll: true });
+    });
+  }
+</script>

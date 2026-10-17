@@ -1,0 +1,42 @@
+---
+import ListingPage from '../../../components/ListingPage.astro';
+import ItemCard from '../../../components/ItemCard.astro';
+import { getImpact, href } from '../../../lib/content';
+import { sections, categories, formatDate, type Category } from '../../../lib/site';
+
+export function getStaticPaths() {
+  return categories('impact').map((c) => ({ params: { category: c.slug }, props: { cat: c } }));
+}
+const { cat } = Astro.props as { cat: Category };
+const items = (await getImpact()).filter((i) => i.data.category === cat.slug);
+---
+
+<ListingPage
+  title={cat.label}
+  description={cat.description}
+  eyebrow={sections.impact.title}
+  crumbs={[{ label: 'Impact', href: '/impact' }, { label: cat.label }]}
+  siblings={categories('impact').map((c) => ({ label: c.label, href: `/impact/${c.slug}` }))}
+  allHref="/impact"
+  allLabel="All impact"
+>
+  {items.length > 0 ? (
+    <div class="grid grid-3">
+      {items.map((i) => (
+        <ItemCard
+          title={i.data.title}
+          link={href.impact(i)}
+          label={cat.label}
+          summary={i.data.summary}
+          image={i.data.image}
+          imageAlt={i.data.imageAlt}
+          status={i.data.status}
+          placeholder={i.data.placeholder}
+          meta={[i.data.period || (i.data.date ? formatDate(i.data.date, 'month') : undefined), i.data.awardedBy]}
+        />
+      ))}
+    </div>
+  ) : (
+    <div class="empty"><p>Entries under {cat.label} will be added here.</p></div>
+  )}
+</ListingPage>

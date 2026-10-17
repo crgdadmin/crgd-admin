@@ -1,0 +1,43 @@
+---
+import ListingPage from '../../../components/ListingPage.astro';
+import ItemCard from '../../../components/ItemCard.astro';
+import { getLearning, href } from '../../../lib/content';
+import { sections, categories, formatDate, type Category } from '../../../lib/site';
+
+export function getStaticPaths() {
+  return categories('learning').map((c) => ({ params: { category: c.slug }, props: { cat: c } }));
+}
+const { cat } = Astro.props as { cat: Category };
+const items = (await getLearning()).filter((i) => i.data.category === cat.slug);
+const isPartner = cat.slug === 'collaborations';
+---
+
+<ListingPage
+  title={cat.label}
+  description={cat.description}
+  eyebrow={sections.learning.title}
+  crumbs={[{ label: 'Learning', href: '/learning' }, { label: cat.label }]}
+  siblings={categories('learning').map((c) => ({ label: c.label, href: `/learning/${c.slug}` }))}
+  allHref="/learning"
+  allLabel="All learning"
+>
+  {items.length > 0 ? (
+    <div class="grid grid-3">
+      {items.map((i) => (
+        <ItemCard
+          title={i.data.title}
+          link={href.learning(i)}
+          label={isPartner ? i.data.partner || cat.label : cat.label}
+          summary={i.data.summary}
+          image={i.data.image || (isPartner ? i.data.partnerLogo : undefined)}
+          imageAlt={i.data.imageAlt}
+          status={i.data.status}
+          placeholder={i.data.placeholder}
+          meta={[i.data.startDate ? formatDate(i.data.startDate) : undefined, i.data.format, i.data.duration]}
+        />
+      ))}
+    </div>
+  ) : (
+    <div class="empty"><p>Nothing is listed under {cat.label} yet. Subscribe to email updates to hear about new offerings.</p></div>
+  )}
+</ListingPage>

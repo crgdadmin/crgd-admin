@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Picture from '../components/Picture.astro';
+import PlaceholderNote from '../components/PlaceholderNote.astro';
+import CtaPair from '../components/CtaPair.astro';
+import Icon from '../components/Icon.astro';
+import { render } from 'astro:content';
+import { getLocations } from '../lib/content';
+import { sections, telHref, orgName } from '../lib/site';
+
+const s = sections.locations;
+const locations = await getLocations();
+const rendered = await Promise.all(locations.map(async (l) => ({ l, Content: (await render(l)).Content })));
+---
+
+<Base title={s.title} description={s.intro}>
+  <PageHead eyebrow={s.eyebrow} title={s.title} lede={s.intro} image={s.image} crumbs={[{ label: 'About', href: '/about' }, { label: s.title }]} />
+  {rendered.map(({ l, Content }, i) => (
+    <section class:list={['band', { 'band-tint': i % 2 === 1 }]} id={l.id}>
+      <div class="wrap split" style="align-items:start">
+        <div>
+          <PlaceholderNote show={l.data.placeholder} what="location" />
+          <span class:list={['status', l.data.status === 'Headquarters' ? 'is-open' : l.data.status === 'Planned' ? 'is-soon' : '']}>{l.data.status}</span>
+          <h2 style="margin-top:1rem">{l.data.name}</h2>
+          {l.data.summary && <p class="lede">{l.data.summary}</p>}
+          <div class="prose"><Content /></div>
+          <ul class="footer-contact" style="margin-top:1.6rem">
+            {l.data.address && <li><Icon name="pin" /><span>{l.data.address}</span></li>}
+            {l.data.email && <li><Icon name="mail" /><a href={`mailto:${l.data.email}`}>{l.data.email}</a></li>}
+            {l.data.phone && <li><Icon name="phone" /><a href={telHref(l.data.phone)}>{l.data.phone}</a></li>}
+            {l.data.hours && <li><Icon name="clock" /><span>{l.data.hours}</span></li>}
+          </ul>
+          {l.data.mapLink && <p style="margin-top:1.4rem"><a class="btn btn-outline" href={l.data.mapLink} target="_blank" rel="noopener noreferrer"><Icon name="pin" />Directions</a></p>}
+        </div>
+        <div>
+          {l.data.mapEmbedUrl ? (
+            <iframe class="map" src={l.data.mapEmbedUrl} title={`Map: ${l.data.name}`} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          ) : (
+            <Picture src={l.data.image} alt={l.data.imageAlt} label={l.data.city || l.data.name} seed={l.id} mark={l.data.city?.slice(0, 3).toUpperCase()} />
+          )}
+        </div>
+      </div>
+    </section>
+  ))}
+  {locations.length === 0 && (
+    <section class="band"><div class="wrap"><div class="empty"><p>{orgName} works from Thiruvananthapuram.</p></div></div></section>
+  )}
+  <CtaPair id="locations" />
+</Base>

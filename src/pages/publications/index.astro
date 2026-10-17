@@ -1,0 +1,126 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import PublicationCard from '../../components/PublicationCard.astro';
+import CtaPair from '../../components/CtaPair.astro';
+import { getPublications, getCentres } from '../../lib/content';
+import { sections, categories, formatDate, url } from '../../lib/site';
+
+const s = sections.publications;
+const [publications, centres] = await Promise.all([getPublications(), getCentres()]);
+const types = categories('publications');
+const years = [...new Set(publications.map((p) => formatDate(p.data.date, 'year')))].sort().reverse();
+const counts = new Map(types.map((t) => [t.slug, publications.filter((p) => p.data.type === t.slug).length]));
+---
+
+<Base title={s.title} description={s.intro}>
+  <PageHead eyebrow={s.eyebrow} title={s.title} lede={s.intro} image={s.image} crumbs={[{ label: 'Publications' }]} />
+
+  <section class="band">
+    <div class="wrap">
+      <ul class="pills" aria-label="Publication types">
+        {types.map((t) => (
+          <li><a href={url(`/publications/${t.slug}`)}>{t.label}<span class="meta">{counts.get(t.slug)}</span></a></li>
+        ))}
+      </ul>
+
+      <form class="filters" id="pub-filters" role="search" aria-label="Filter publications">
+        <div class="filter-search">
+          <label for="f-q">Search</label>
+          <input type="search" id="f-q" name="q" placeholder="Title, author or keyword" autocomplete="off" />
+        </div>
+        <div>
+          <label for="f-type">Type</label>
+          <select id="f-type" name="type">
+            <option value="">All types</option>
+            {types.map((t) => <option value={t.slug}>{t.label}</option>)}
+          </select>
+        </div>
+        <div>
+          <label for="f-centre">Research vertical</label>
+          <select id="f-centre" name="centre">
+            <option value="">All verticals</option>
+            {centres.map((c) => <option value={c.id}>{c.data.title}</option>)}
+          </select>
+        </div>
+        <div>
+          <label for="f-year">Year</label>
+          <select id="f-year" name="year">
+            <option value="">All years</option>
+            {years.map((y) => <option value={y}>{y}</option>)}
+          </select>
+        </div>
+        <div>
+          <button class="btn btn-outline" type="reset">Clear</button>
+        </div>
+      </form>
+
+      <p class="result-count" id="pub-count" role="status" aria-live="polite">{publications.length} publications</p>
+      <div class="grid grid-3" id="pub-list">
+        {publications.map((p) => <PublicationCard item={p} />)}
+      </div>
+      <div class="empty" id="pub-empty" hidden><p>No publication matches these filters. Try removing one, or search for a single keyword.</p></div>
+      <div class="load-more"><button class="btn btn-outline" type="button" id="pub-more" hidden>Show more</button></div>
+    </div>
+  </section>
+
+  <CtaPair id="publications" />
+</Base>
+
+<script>
+  const PAGE = 12;
+  const form = document.getElementById('pub-filters') as HTMLFormElement | null;
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('#pub-list > article'));
+  const count = document.getElementById('pub-count');
+  const empty = document.getElementById('pub-empty');
+  const more = document.getElementById('pub-more');
+  let limit = PAGE;
+
+  const read = () => {
+    const data = new FormData(form!);
+    return {
+      q: String(data.get('q') ?? '').trim().toLowerCase(),
+      type: String(data.get('type') ?? ''),
+      centre: String(data.get('centre') ?? ''),
+      year: String(data.get('year') ?? ''),
+    };
+  };
+
+  const apply = (resetLimit = true) => {
+    if (!form) return;
+    if (resetLimit) limit = PAGE;
+    const f = read();
+    const words = f.q.split(/\s+/).filter(Boolean);
+    const matches = cards.filter((card) => {
+      const ok =
+        (!f.type || card.dataset.type === f.type) &&
+        (!f.centre || (card.dataset.centres ?? '').split(' ').includes(f.centre)) &&
+        (!f.year || card.dataset.year === f.year) &&
+        words.every((w) => (card.dataset.text ?? '').includes(w));
+      return ok;
+    });
+    cards.forEach((c) => (c.hidden = true));
+    matches.slice(0, limit).forEach((c) => (c.hidden = false));
+    if (count) count.textContent = `${matches.length} ${matches.length === 1 ? 'publication' : 'publications'}`;
+    if (empty) empty.hidden = matches.length > 0;
+    if (more) more.hidden = matches.length <= limit;
+
+    const params = new URLSearchParams(Object.entries(f).filter(([, v]) => v) as [string, string][]);
+    const query = params.toString();
+    history.replaceState(null, '', query ? `?${query}` : window.location.pathname);
+  };
+
+  if (form) {
+    const initial = new URLSearchParams(window.location.search);
+    for (const key of ['q', 'type', 'centre', 'year']) {
+      const field = form.elements.namedItem(key) as HTMLInputElement | HTMLSelectElement | null;
+      if (field && initial.get(key)) field.value = initial.get(key)!;
+    }
+    form.addEventListener('input', () => apply());
+    form.addEventListener('change', () => apply());
+    form.addEventListener('submit', (e) => { e.preventDefault(); apply(); });
+    form.addEventListener('reset', () => window.setTimeout(() => apply(), 0));
+    more?.addEventListener('click', () => { limit += PAGE; apply(false); });
+    apply();
+  }
+</script>

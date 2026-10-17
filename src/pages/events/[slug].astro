@@ -1,0 +1,129 @@
+---
+import DetailPage from '../../components/DetailPage.astro';
+import Picture from '../../components/Picture.astro';
+import EventCard from '../../components/EventCard.astro';
+import { render, getEntry } from 'astro:content';
+import { getEvents, isUpcoming, resolvePeople, centresFor, href, type EventEntry } from '../../lib/content';
+import { url, asset, dateRange, timeRange, embedUrl, isoDate, site, orgFullName } from '../../lib/site';
+
+export async function getStaticPaths() {
+  return (await getEvents()).map((item) => ({ params: { slug: item.id }, props: { item } }));
+}
+const { item } = Astro.props as { item: EventEntry };
+const d = item.data;
+const { Content } = await render(item);
+const upcoming = isUpcoming(item);
+const speakers = await resolvePeople(d.speakers);
+const moderators = await resolvePeople(d.moderators);
+const centres = await centresFor(d.centres);
+const recording = embedUrl(d.recordingUrl);
+const gallery = d.gallery ? await getEntry('galleries', d.gallery) : undefined;
+const others = (await getEvents()).filter((e) => e.id !== item.id && isUpcoming(e) === upcoming).slice(0, 3);
+const where = [d.venue, d.city].filter(Boolean).join(', ');
+const startIso = d.startTime ? `${isoDate(d.startDate)}T${d.startTime.padStart(5, '0')}:00+05:30` : isoDate(d.startDate);
+const endIso = d.endTime ? `${isoDate(d.endDate ?? d.startDate)}T${d.endTime.padStart(5, '0')}:00+05:30` : d.endDate ? isoDate(d.endDate) : undefined;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: d.title,
+  description: d.summary,
+  startDate: startIso,
+  endDate: endIso,
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode:
+    d.mode === 'Online'
+      ? 'https://schema.org/OnlineEventAttendanceMode'
+      : d.mode === 'Hybrid'
+        ? 'https://schema.org/MixedEventAttendanceMode'
+        : 'https://schema.org/OfflineEventAttendanceMode',
+  location:
+    d.mode === 'Online'
+      ? { '@type': 'VirtualLocation', url: d.registrationUrl || new URL(url(href.event(item)), Astro.site).toString() }
+      : { '@type': 'Place', name: d.venue || d.city, address: where || site.address },
+  image: d.image ? new URL(asset(d.image), Astro.site).toString() : undefined,
+  organizer: { '@type': 'Organization', name: orgFullName, url: new URL(url('/'), Astro.site).toString() },
+  performer: speakers.map((s) => ({ '@type': 'Person', name: s.name })),
+};
+---
+
+<DetailPage
+  title={d.title}
+  description={d.summary}
+  eyebrow={`${upcoming ? 'Upcoming' : 'Past'} ${d.type.toLowerCase()} · ${d.mode}`}
+  crumbs={[{ label: 'Events', href: '/events' }, { label: upcoming ? 'Upcoming' : 'Past events', href: upcoming ? '/events/upcoming' : '/events/past' }, { label: d.title }]}
+  image={d.image}
+  imageAlt={d.imageAlt}
+  imageCaption={d.imageCaption}
+  showImage={!recording}
+  placeholder={d.placeholder}
+  what="event"
+  schema={schema}
+  factsHeading={upcoming ? 'Date and place' : 'Event record'}
+  facts={[
+    { label: 'Date', value: dateRange(d.startDate, d.endDate) },
+    { label: 'Time', value: timeRange(d.startTime, d.endTime) || undefined },
+    { label: 'Format', value: d.mode },
+    { label: 'Venue', value: where || undefined },
+    { label: 'Entry', value: upcoming ? d.registrationNote : undefined },
+  ]}
+  actions={[
+    ...(upcoming
+      ? [
+          { label: 'Register', href: d.registrationUrl, primary: true, icon: 'external' },
+          { label: 'Add to calendar', href: `/events/${item.id}.ics`, icon: 'calendar' },
+        ]
+      : [
+          { label: 'Watch the recording', href: !recording ? d.recordingUrl : undefined, primary: true, icon: 'video' },
+          { label: 'Event report (PDF)', href: d.reportPdf, icon: 'download' },
+          { label: 'Photographs', href: gallery ? href.gallery(gallery) : undefined, icon: 'globe' },
+        ]),
+  ]}
+  navHeading={upcoming ? 'More upcoming events' : 'Other past events'}
+  navLinks={others.map((e) => ({ label: e.data.title, href: href.event(e) }))}
+>
+  <Content />
+  <Fragment slot="before">
+    {recording && (
+      <div class="embed" style="margin-bottom:2.5rem">
+        <iframe src={recording} title={`Recording: ${d.title}`} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    )}
+  </Fragment>
+  <Fragment slot="after">
+    {(speakers.length > 0 || moderators.length > 0) && (
+      <div class="group-block">
+        <div class="group-head"><h2>Speakers</h2></div>
+        <div class="grid grid-2">
+          {[...speakers.map((s) => ({ ...s, tag: 'Speaker' })), ...moderators.map((m) => ({ ...m, tag: 'Moderator' }))].map((s) => (
+            <div class="person-row">
+              <div class="avatar large"><Picture src={s.person?.data.photo} alt="" name={s.name} variant="fill" /></div>
+              <div>
+                {s.href ? <a href={url(s.href)} style="font-weight:600">{s.name}</a> : <strong>{s.name}</strong>}
+                <div class="meta">{s.tag}{s.person?.data.role && <span class="dot">{s.person.data.role}</span>}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+  </Fragment>
+  <Fragment slot="aside">
+    {centres.length > 0 && (
+      <nav class="aside-box aside-nav" aria-label="Research areas">
+        <h2>Research areas</h2>
+        <ul>{centres.map((c) => <li><a href={url(href.centre(c))}>{c.data.title}</a></li>)}</ul>
+      </nav>
+    )}
+  </Fragment>
+  <Fragment slot="below">
+    {others.length > 0 && (
+      <section class="band band-tint">
+        <div class="wrap">
+          <div class="section-head"><h2>{upcoming ? 'Also coming up' : 'More from the archive'}</h2></div>
+          <div class="grid grid-3">{others.map((e) => <EventCard event={e} />)}</div>
+        </div>
+      </section>
+    )}
+  </Fragment>
+</DetailPage>

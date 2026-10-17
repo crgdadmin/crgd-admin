@@ -1,0 +1,64 @@
+---
+import DetailPage from '../../../components/DetailPage.astro';
+import { render } from 'astro:content';
+import { getPrograms, href, type Program } from '../../../lib/content';
+import { categoryLabel, categories, formatDate, site } from '../../../lib/site';
+
+export async function getStaticPaths() {
+  const valid = new Set(categories('programs').map((c) => c.slug));
+  return (await getPrograms())
+    .filter((p) => valid.has(p.data.category))
+    .map((item) => ({ params: { category: item.data.category, slug: item.id }, props: { item } }));
+}
+const { item } = Astro.props as { item: Program };
+const d = item.data;
+const { Content } = await render(item);
+const label = categoryLabel('programs', d.category);
+const siblings = (await getPrograms()).filter((p) => p.data.category === d.category);
+const applyEmail = d.applyEmail || site.careersEmail;
+const closed = /closed/i.test(d.status);
+---
+
+<DetailPage
+  title={d.title}
+  description={d.summary}
+  eyebrow={label}
+  crumbs={[{ label: 'Programs', href: '/programs' }, { label, href: `/programs/${d.category}` }, { label: d.title }]}
+  image={d.image}
+  imageAlt={d.imageAlt}
+  imageCaption={d.imageCaption}
+  placeholder={d.placeholder}
+  what="program"
+  factsHeading="At a glance"
+  facts={[
+    { label: 'Status', value: d.status },
+    { label: 'Apply by', value: d.deadline ? formatDate(d.deadline) : undefined },
+    { label: 'Starts', value: d.startDate ? formatDate(d.startDate) : undefined },
+    { label: 'Duration', value: d.duration },
+    { label: 'Commitment', value: d.commitment },
+    { label: 'Location', value: d.location },
+    { label: 'Stipend', value: d.stipend },
+  ]}
+  actions={closed ? [] : [
+    { label: 'Apply now', href: d.applyUrl, primary: true, icon: 'external' },
+    { label: 'Apply by email', href: applyEmail ? `mailto:${applyEmail}?subject=${encodeURIComponent(`Application: ${d.title}`)}` : undefined, primary: !d.applyUrl, icon: 'mail' },
+  ]}
+  navHeading={label}
+  navLinks={siblings.map((p) => ({ label: p.data.title, href: href.program(p) }))}
+>
+  <Content />
+  <Fragment slot="after">
+    {d.eligibility.length > 0 && (
+      <div class="group-block">
+        <div class="group-head"><h2>Who can apply</h2></div>
+        <ul class="prose">{d.eligibility.map((e) => <li>{e}</li>)}</ul>
+      </div>
+    )}
+    {d.benefits.length > 0 && (
+      <div class="group-block">
+        <div class="group-head"><h2>What you receive</h2></div>
+        <ul class="prose">{d.benefits.map((e) => <li>{e}</li>)}</ul>
+      </div>
+    )}
+  </Fragment>
+</DetailPage>

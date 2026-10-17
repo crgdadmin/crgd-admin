@@ -1,0 +1,50 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import PeopleGroup from '../../components/PeopleGroup.astro';
+import PersonCard from '../../components/PersonCard.astro';
+import CtaPair from '../../components/CtaPair.astro';
+import { getPeople } from '../../lib/content';
+import { sections, categories, url } from '../../lib/site';
+
+const people = await getPeople();
+const founders = people.filter((p) => p.data.groups.includes('founder'));
+const groups = categories('people');
+const s = sections.people;
+---
+
+<Base title={s.title} description={s.intro}>
+  <PageHead eyebrow={s.eyebrow} title={s.title} lede={s.intro} image={s.image} crumbs={[{ label: 'About', href: '/about' }, { label: s.title }]} />
+
+  <section class="band">
+    <div class="wrap">
+      <ul class="anchor-nav">
+        {founders.length > 0 && <li><a href="#founder">Founder</a></li>}
+        {groups.map((g) => <li><a href={`#${g.slug}`}>{g.label}</a></li>)}
+      </ul>
+
+      {founders.length > 0 && (
+        <div class="group-block" id="founder">
+          <div class="group-head">
+            <h2>Founder</h2>
+            <a class="text-link" href={url('/our-founder')}>A message from the founder</a>
+          </div>
+          <div class="grid grid-4">{founders.map((p) => <PersonCard person={p} />)}</div>
+        </div>
+      )}
+
+      {groups.map((g) => (
+        <div class="group-block" id={g.slug}>
+          <div class="group-head">
+            <h2>{g.label}</h2>
+            <a class="text-link" href={url(`/people/${g.slug}`)}>View page</a>
+            {g.description && <p>{g.description}</p>}
+          </div>
+          <PeopleGroup people={people} groups={g.groups ?? []} split={(g.groups?.length ?? 0) > 1} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CtaPair id="people" />
+</Base>

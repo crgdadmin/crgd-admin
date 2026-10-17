@@ -1,0 +1,38 @@
+---
+import ListingPage from '../../../components/ListingPage.astro';
+import ItemCard from '../../../components/ItemCard.astro';
+import { getGalleries, href } from '../../../lib/content';
+import { sections, categories, category, formatDate } from '../../../lib/site';
+
+const cat = category('media', 'photographs') ?? { slug: 'photographs', label: 'Photographs', description: '' };
+const galleries = await getGalleries();
+---
+
+<ListingPage
+  title={cat.label}
+  description={cat.description}
+  eyebrow={sections.media.title}
+  crumbs={[{ label: 'Media', href: '/media' }, { label: cat.label }]}
+  siblings={categories('media').map((c) => ({ label: c.label, href: `/media/${c.slug}` }))}
+  allHref="/media"
+  allLabel="Media centre"
+>
+  {galleries.length > 0 ? (
+    <div class="grid grid-3">
+      {galleries.map((g) => (
+        <ItemCard
+          title={g.data.title}
+          link={href.gallery(g)}
+          label={g.data.location || 'Album'}
+          summary={g.data.summary}
+          image={g.data.image || g.data.photos.find((p) => p.image)?.image}
+          imageAlt={g.data.imageAlt}
+          placeholder={g.data.placeholder}
+          meta={[formatDate(g.data.date), `${g.data.photos.length} photographs`]}
+        />
+      ))}
+    </div>
+  ) : (
+    <div class="empty"><p>Photograph albums will appear here.</p></div>
+  )}
+</ListingPage>

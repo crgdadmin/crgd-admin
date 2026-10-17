@@ -1,0 +1,83 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import ItemCard from '../../components/ItemCard.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import CtaPair from '../../components/CtaPair.astro';
+import { getOpenings, getPrograms, href } from '../../lib/content';
+import { sections, formatDate, url, site, categoryLabel } from '../../lib/site';
+
+const s = sections.careers;
+const openings = await getOpenings();
+const open = openings.filter((o) => o.data.status === 'Open');
+const closed = openings.filter((o) => o.data.status !== 'Open');
+const programs = (await getPrograms()).filter((p) => ['fellowships', 'internships'].includes(p.data.category));
+---
+
+<Base title={s.title} description={s.intro}>
+  <PageHead eyebrow={s.eyebrow} title={s.title} lede={s.intro} image={s.image} crumbs={[{ label: 'About', href: '/about' }, { label: 'Careers' }]} />
+
+  <section class="band" id="openings">
+    <div class="wrap">
+      <SectionHead eyebrow="Work with us" title="Current openings" link="/work-with-us" linkLabel="How we hire" />
+      {open.length > 0 ? (
+        <div class="grid grid-3">
+          {open.map((o) => (
+            <ItemCard
+              title={o.data.title}
+              link={href.opening(o)}
+              label={[o.data.type, o.data.team].filter(Boolean).join(' · ')}
+              summary={o.data.summary}
+              status={o.data.deadline ? `Apply by ${formatDate(o.data.deadline)}` : 'Open'}
+              placeholder={o.data.placeholder}
+              showImage={false}
+              meta={[o.data.location, o.data.workMode]}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="empty">
+          <p>There are no open positions at the moment. You are welcome to send a CV and a short note on what you would like to work on to <a href={`mailto:${site.careersEmail}`}>{site.careersEmail}</a>.</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="band band-tint">
+    <div class="wrap">
+      <SectionHead eyebrow="Earlier in your career?" title="Fellowships and internships" link="/programs" linkLabel="All programs" />
+      <div class="grid grid-3">
+        {programs.map((p) => (
+          <ItemCard
+            title={p.data.title}
+            link={href.program(p)}
+            label={categoryLabel('programs', p.data.category)}
+            summary={p.data.summary}
+            image={p.data.image}
+            imageAlt={p.data.imageAlt}
+            status={p.data.status}
+            placeholder={p.data.placeholder}
+            meta={[p.data.deadline ? `Apply by ${formatDate(p.data.deadline)}` : undefined, p.data.duration]}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {closed.length > 0 && (
+    <section class="band">
+      <div class="wrap">
+        <SectionHead eyebrow="Archive" title="Recently closed" />
+        <ul class="item-list">
+          {closed.map((o) => (
+            <li>
+              <p class="meta">{o.data.type}{o.data.deadline && <span class="dot">Closed {formatDate(o.data.deadline)}</span>}</p>
+              <h3><a href={url(href.opening(o))}>{o.data.title}</a></h3>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+  <CtaPair id="careers" />
+</Base>

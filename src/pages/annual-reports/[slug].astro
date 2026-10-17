@@ -1,0 +1,43 @@
+---
+import DetailPage from '../../components/DetailPage.astro';
+import { render } from 'astro:content';
+import { getReports, href, type Report } from '../../lib/content';
+import { formatDate } from '../../lib/site';
+
+export async function getStaticPaths() {
+  return (await getReports()).map((item) => ({ params: { slug: item.id }, props: { item } }));
+}
+const { item } = Astro.props as { item: Report };
+const d = item.data;
+const { Content } = await render(item);
+const reports = await getReports();
+---
+
+<DetailPage
+  title={d.title}
+  description={d.summary}
+  eyebrow={`Annual Report ${d.year}`}
+  crumbs={[{ label: 'About', href: '/about' }, { label: 'Annual Reports', href: '/annual-reports' }, { label: d.year }]}
+  image={d.image}
+  imageAlt={d.imageAlt}
+  showImage={false}
+  placeholder={d.placeholder}
+  what="annual report"
+  facts={[
+    { label: 'Period', value: d.year },
+    { label: 'Published', value: formatDate(d.date) },
+  ]}
+  actions={[{ label: 'Download the report (PDF)', href: d.pdf, primary: true, icon: 'download' }]}
+  navHeading="All annual reports"
+  navLinks={reports.map((r) => ({ label: `${r.data.year}: ${r.data.title}`, href: href.report(r) }))}
+>
+  <Content />
+  <Fragment slot="before">
+    {d.highlights.length > 0 && (
+      <div class="aside-box" style="margin-bottom:2.5rem">
+        <h2>Highlights of the year</h2>
+        <ul class="prose" style="margin:0">{d.highlights.map((h) => <li>{h}</li>)}</ul>
+      </div>
+    )}
+  </Fragment>
+</DetailPage>

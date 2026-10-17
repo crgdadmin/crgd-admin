@@ -1,0 +1,24 @@
+---
+import ListingPage from '../../components/ListingPage.astro';
+import { getUpdates, href } from '../../lib/content';
+import { sections, formatDate, url } from '../../lib/site';
+
+const s = sections.updates;
+const updates = await getUpdates();
+---
+
+<ListingPage title={s.title} description={s.intro} eyebrow={s.eyebrow} image={s.image} crumbs={[{ label: s.title }]}>
+  {updates.length > 0 ? (
+    <ul class="item-list" style="max-width:52rem">
+      {updates.map((u) => (
+        <li>
+          <p class="meta"><time datetime={u.data.date.toISOString()}>{formatDate(u.data.date)}</time>{u.data.pinned && <span class="dot">Pinned</span>}{u.data.placeholder && <span class="dot">Placeholder</span>}</p>
+          <h3><a href={url(href.update(u))}>{u.data.title}</a></h3>
+          {u.data.summary && <p>{u.data.summary}</p>}
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <div class="empty"><p>No updates yet.</p></div>
+  )}
+</ListingPage>

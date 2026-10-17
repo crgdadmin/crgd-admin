@@ -1,0 +1,63 @@
+---
+import Picture from './Picture.astro';
+import { url } from '../lib/site';
+
+/* A general purpose card for programs, courses, impact stories, media items and reports. */
+interface Props {
+  title: string;
+  link: string;
+  label?: string;
+  summary?: string;
+  image?: string;
+  imageAlt?: string;
+  seed?: string;
+  meta?: (string | undefined)[];
+  status?: string;
+  placeholder?: boolean;
+  variant?: 'cover' | 'square' | 'portrait' | 'wide' | 'tall';
+  mark?: string;
+  showImage?: boolean;
+  data?: Record<string, string>;
+}
+const {
+  title,
+  link,
+  label,
+  summary,
+  image,
+  imageAlt,
+  seed = link,
+  meta = [],
+  status,
+  placeholder = false,
+  variant = 'cover',
+  mark,
+  showImage = true,
+  data = {},
+} = Astro.props;
+
+const statusClass = status
+  ? /open|rolling|ongoing|registrations/i.test(status)
+    ? 'is-open'
+    : /soon|upcoming|planned/i.test(status)
+      ? 'is-soon'
+      : 'is-closed'
+  : '';
+const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data-${k}`, v]));
+---
+
+<article class="card" {...dataAttrs}>
+  {showImage && <Picture src={image} alt={imageAlt} label={label} seed={seed} placeholder={placeholder} variant={variant} mark={mark} />}
+  <div class="card-body">
+    {label && <p class="label card-type">{label}</p>}
+    <h3><a href={url(link)}>{title}</a></h3>
+    {status && <span class:list={['status', statusClass]}>{status}</span>}
+    {summary && <p>{summary}</p>}
+    {meta.filter(Boolean).length > 0 && (
+      <p class="card-foot">
+        {meta.filter(Boolean).map((m, i) => <span class:list={{ dot: i > 0 }}>{m}</span>)}
+      </p>
+    )}
+    {!showImage && placeholder && <p class="meta"><span class="tag">Placeholder</span></p>}
+  </div>
+</article>

@@ -1,0 +1,32 @@
+---
+import { site, asset, url, orgName, orgFullName, orgTagline } from '../lib/site';
+
+/*
+ * The uploaded logo when there is one (Site settings > Logo), otherwise a
+ * typographic wordmark so the site never shows an empty space.
+ */
+interface Props {
+  dark?: boolean;
+  compact?: boolean;
+  showFull?: boolean;
+}
+const { dark = false, compact = false, showFull = true } = Astro.props;
+const logo = dark ? site.logoOnDark || site.logo : site.logo;
+const height = Number(site.logoHeight) || 56;
+const showName = !logo || site.showNameBesideLogo !== false;
+---
+
+<a class="brand" href={url('/')} aria-label={`${orgName}, ${orgTagline}: home`}>
+  {logo ? (
+    <img src={asset(logo)} alt={site.logoAlt || `${orgName} logo`} style={`max-height:${compact ? Math.min(height, 32) : height}px`} />
+  ) : (
+    <span class="brand-mark" aria-hidden="true">{orgName.slice(0, 4)}</span>
+  )}
+  {showName && !compact && (
+    <span class="brand-text">
+      <span class="brand-name">{orgName}</span>
+      {orgTagline && <span class="brand-tagline">{orgTagline}</span>}
+      {showFull && orgFullName !== orgName && <span class="brand-full">{orgFullName}</span>}
+    </span>
+  )}
+</a>

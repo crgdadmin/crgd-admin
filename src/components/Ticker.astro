@@ -1,0 +1,53 @@
+---
+import Icon from './Icon.astro';
+import { getUpdates, href } from '../lib/content';
+import { site, url, formatDate } from '../lib/site';
+
+/* "Latest Updates" strip under the menu. Items come from the Updates collection. */
+const items = (await getUpdates()).filter((u) => u.data.ticker).slice(0, 10);
+const enabled = site.tickerEnabled !== false && items.length > 0;
+const label = site.tickerLabel || 'Latest Updates';
+const linkFor = (u: (typeof items)[number]) => (u.data.link ? url(u.data.link) : url(href.update(u)));
+const duration = Math.max(30, items.reduce((n, u) => n + u.data.title.length, 0) / 4);
+---
+
+{enabled && (
+  <section class="ticker" aria-label={label} data-paused="false">
+    <div class="wrap">
+      <p class="ticker-label"><span class="pulse" aria-hidden="true"></span><span class="text">{label}</span></p>
+      <div class="ticker-viewport">
+        <ul class="ticker-track" style={`--ticker-duration:${duration}s`}>
+          {[0, 1].map((copy) =>
+            items.map((item) => (
+              <li aria-hidden={copy === 1 ? 'true' : undefined}>
+                <time datetime={item.data.date.toISOString()}>{formatDate(item.data.date, 'short')}</time>
+                <a href={linkFor(item)} tabindex={copy === 1 ? -1 : undefined}>{item.data.title}</a>
+              </li>
+            )),
+          )}
+        </ul>
+      </div>
+      <div class="ticker-controls">
+        <button class="icon-button ticker-pause" type="button" aria-label="Pause the updates" aria-pressed="false">
+          <Icon name="pause" />
+        </button>
+        <a class="label ticker-all" href={url('/updates')}>All updates</a>
+      </div>
+    </div>
+  </section>
+)}
+
+<script>
+  document.querySelectorAll<HTMLElement>('.ticker').forEach((ticker) => {
+    const button = ticker.querySelector<HTMLButtonElement>('.ticker-pause');
+    button?.addEventListener('click', () => {
+      const paused = ticker.dataset.paused !== 'true';
+      ticker.dataset.paused = String(paused);
+      button.setAttribute('aria-pressed', String(paused));
+      button.setAttribute('aria-label', paused ? 'Play the updates' : 'Pause the updates');
+      button.innerHTML = paused
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>';
+    });
+  });
+</script>

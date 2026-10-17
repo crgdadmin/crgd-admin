@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from './PageHead.astro';
+import CtaPair from './CtaPair.astro';
+import { url } from '../lib/site';
+
+/* A category listing: intro, a row of sibling categories, then the entries. */
+interface Props {
+  title: string;
+  description?: string;
+  eyebrow?: string;
+  image?: string;
+  crumbs: { label: string; href?: string }[];
+  siblings?: { label: string; href: string }[];
+  allHref?: string;
+  allLabel?: string;
+}
+const { title, description, eyebrow, image, crumbs, siblings = [], allHref, allLabel = 'All' } = Astro.props;
+const here = Astro.url.pathname.replace(/\/$/, '');
+---
+
+<Base title={title} description={description}>
+  <PageHead eyebrow={eyebrow} title={title} lede={description} image={image} crumbs={crumbs} />
+  <section class="band">
+    <div class="wrap">
+      {siblings.length > 0 && (
+        <ul class="pills" aria-label="Categories">
+          {allHref && <li><a href={url(allHref)} aria-current={url(allHref).replace(/\/$/, '') === here ? 'page' : undefined}>{allLabel}</a></li>}
+          {siblings.map((s) => (
+            <li><a href={url(s.href)} aria-current={url(s.href).replace(/\/$/, '') === here ? 'page' : undefined}>{s.label}</a></li>
+          ))}
+        </ul>
+      )}
+      <slot />
+    </div>
+  </section>
+  <slot name="below" />
+  <CtaPair id="listing" />
+</Base>

@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+import { url, spectrumColor } from '../lib/site';
+
+/* Numbered rows shaded from Deep Navy to Arctic Haze, after the CRGD palette card. */
+interface Props {
+  items: { title: string; href: string; summary?: string }[];
+  twoColumns?: boolean;
+  descriptions?: boolean;
+}
+const { items, twoColumns = false, descriptions = true } = Astro.props;
+const rows = Math.ceil(items.length / 2);
+---
+
+<ol class:list={['spectrum', { 'two-col': twoColumns }]} style={twoColumns ? `--rows:${rows}` : undefined}>
+  {items.map((item, i) => {
+    const c = spectrumColor(i, items.length);
+    return (
+      <li class:list={{ 'is-light': c.isLight }}>
+        <a href={url(item.href)} style={`--bg:${c.bg};--fg:${c.fg}`}>
+          <span class="numeral">{String(i + 1).padStart(2, '0')}</span>
+          <span class="rule" aria-hidden="true"></span>
+          <span class="name">
+            {item.title}
+            {descriptions && item.summary && <span class="desc">{item.summary}</span>}
+          </span>
+          <Icon name="arrow" class="go" />
+        </a>
+      </li>
+    );
+  })}
+</ol>

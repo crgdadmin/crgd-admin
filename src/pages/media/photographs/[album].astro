@@ -1,0 +1,87 @@
+---
+import DetailPage from '../../../components/DetailPage.astro';
+import Picture from '../../../components/Picture.astro';
+import { render, getEntry } from 'astro:content';
+import { getGalleries, href, type Gallery } from '../../../lib/content';
+import { formatDate, asset } from '../../../lib/site';
+
+export async function getStaticPaths() {
+  return (await getGalleries()).map((item) => ({ params: { album: item.id }, props: { item } }));
+}
+const { item } = Astro.props as { item: Gallery };
+const d = item.data;
+const { Content } = await render(item);
+const albums = await getGalleries();
+const event = d.event ? await getEntry('events', d.event) : undefined;
+---
+
+<DetailPage
+  title={d.title}
+  description={d.summary}
+  eyebrow="Photographs"
+  crumbs={[{ label: 'Media', href: '/media' }, { label: 'Photographs', href: '/media/photographs' }, { label: d.title }]}
+  image={d.image}
+  imageAlt={d.imageAlt}
+  showImage={false}
+  placeholder={d.placeholder}
+  what="album"
+  facts={[
+    { label: 'Date', value: formatDate(d.date) },
+    { label: 'Place', value: d.location },
+    { label: 'Photographs', value: String(d.photos.length) },
+  ]}
+  actions={[{ label: 'About the event', href: event ? href.event(event) : undefined, icon: 'calendar' }]}
+  navHeading="Other albums"
+  navLinks={albums.filter((a) => a.id !== item.id).map((a) => ({ label: a.data.title, href: href.gallery(a) }))}
+>
+  <Content />
+  <Fragment slot="after">
+    <ul class="gallery" style="margin-top:2rem" data-gallery>
+      {d.photos.map((p, i) => (
+        <li>
+          <figure style="margin:0">
+            {p.image ? (
+              <button type="button" data-full={asset(p.image)} data-caption={[p.caption, p.credit && `Photo: ${p.credit}`].filter(Boolean).join(' · ')} aria-label={`Open photograph ${i + 1}${p.caption ? `: ${p.caption}` : ''}`}>
+                <img src={asset(p.image)} alt={p.caption ?? ''} loading="lazy" decoding="async" />
+              </button>
+            ) : (
+              <Picture label={`Photograph ${i + 1}`} seed={`${item.id}-${i}`} mark={String(i + 1).padStart(2, '0')} variant="cover" />
+            )}
+            {(p.caption || p.credit) && <figcaption>{p.caption}{p.credit && <span class="dot">{p.credit}</span>}</figcaption>}
+          </figure>
+        </li>
+      ))}
+    </ul>
+    <dialog class="lightbox" aria-label="Photograph viewer">
+      <figure><img alt="" /><figcaption></figcaption></figure>
+      <button class="prev" type="button" aria-label="Previous photograph">‹</button>
+      <button class="next" type="button" aria-label="Next photograph">›</button>
+      <button class="close" type="button" aria-label="Close">×</button>
+    </dialog>
+  </Fragment>
+</DetailPage>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('dialog.lightbox');
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-gallery] button[data-full]'));
+  if (dialog && buttons.length) {
+    const img = dialog.querySelector('img')!;
+    const caption = dialog.querySelector('figcaption')!;
+    let index = 0;
+    const show = (i: number) => {
+      index = (i + buttons.length) % buttons.length;
+      img.src = buttons[index].dataset.full ?? '';
+      img.alt = buttons[index].querySelector('img')?.alt ?? '';
+      caption.textContent = buttons[index].dataset.caption ?? '';
+    };
+    buttons.forEach((b, i) => b.addEventListener('click', () => { show(i); dialog.showModal(); }));
+    dialog.querySelector('.close')?.addEventListener('click', () => dialog.close());
+    dialog.querySelector('.prev')?.addEventListener('click', () => show(index - 1));
+    dialog.querySelector('.next')?.addEventListener('click', () => show(index + 1));
+    dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+    dialog.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') show(index - 1);
+      if (e.key === 'ArrowRight') show(index + 1);
+    });
+  }
+</script>

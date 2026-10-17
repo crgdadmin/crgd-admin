@@ -1,0 +1,410 @@
+{
+  "menus": [
+    {
+      "label": "About",
+      "href": "/about",
+      "intro": "Who we are, why CRGD exists, the people who steer it and how to work with us.",
+      "columns": [
+        {
+          "heading": "Who we are",
+          "autoFill": "none",
+          "links": [
+            {
+              "label": "About Us: The Story",
+              "href": "/about"
+            },
+            {
+              "label": "Vision",
+              "href": "/vision"
+            },
+            {
+              "label": "Mission",
+              "href": "/mission"
+            },
+            {
+              "label": "Our Founder",
+              "href": "/our-founder"
+            },
+            {
+              "label": "How We Work",
+              "href": "/our-approach"
+            },
+            {
+              "label": "Co-Founders",
+              "href": "/people/co-founders"
+            },
+            {
+              "label": "Patrons",
+              "href": "/people/patrons"
+            }
+          ]
+        },
+        {
+          "heading": "People",
+          "autoFill": "none",
+          "links": [
+            {
+              "label": "All people",
+              "href": "/people"
+            },
+            {
+              "label": "Governing Board",
+              "href": "/people/governing-board"
+            },
+            {
+              "label": "Advisory Board",
+              "href": "/people/advisory-board"
+            },
+            {
+              "label": "Scholars",
+              "href": "/people/scholars"
+            },
+            {
+              "label": "Mentors",
+              "href": "/people/mentors"
+            },
+            {
+              "label": "Team",
+              "href": "/people/team"
+            }
+          ]
+        },
+        {
+          "heading": "Institution",
+          "autoFill": "none",
+          "links": [
+            {
+              "label": "Annual Reports",
+              "href": "/annual-reports"
+            },
+            {
+              "label": "Editorial Policy",
+              "href": "/editorial-policy"
+            },
+            {
+              "label": "Submissions",
+              "href": "/submissions"
+            },
+            {
+              "label": "Research Standards",
+              "href": "/research-standards"
+            },
+            {
+              "label": "Independence and Funding",
+              "href": "/independence-and-funding"
+            },
+            {
+              "label": "Location",
+              "href": "/locations"
+            }
+          ]
+        },
+        {
+          "heading": "Careers",
+          "autoFill": "none",
+          "links": [
+            {
+              "label": "Careers at CRGD",
+              "href": "/careers"
+            },
+            {
+              "label": "Work with us",
+              "href": "/work-with-us"
+            },
+            {
+              "label": "Fellowship",
+              "href": "/programs/fellowships"
+            },
+            {
+              "label": "Internship",
+              "href": "/programs/internships"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Research",
+      "href": "/research",
+      "intro": "Eighteen research verticals, one method: evidence first, open about its assumptions, written for the people who decide.",
+      "columns": [
+        {
+          "heading": "Research verticals and centres",
+          "autoFill": "centres",
+          "links": [
+            {
+              "label": "All research centres",
+              "href": "/research"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Learning",
+      "href": "/learning",
+      "intro": "The CRGD Academy trains students, officials and citizens in the craft of public policy.",
+      "columns": [
+        {
+          "heading": "CRGD Academy",
+          "autoFill": "none",
+          "links": [
+            {
+              "label": "CRGD Academy",
+              "href": "/learning/academy"
+            },
+            {
+              "label": "Courses",
+              "href": "/learning/courses"
+            },
+            {
+              "label": "Academic Programs",
+              "href": "/learning/academic-programs"
+            }
+          ]
+        },
+        {
+          "heading": "Conversations",
+          "autoFill": "none",
+          "links": [
+            {
+              "label": "Dialogue",
+              "href": "/learning/dialogue"
+            },
+            {
+              "label": "Colloquium",
+              "href": "/learning/colloquium"
+            },
+            {
+              "label": "Collaborations",
+              "href": "/learning/collaborations"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Programs",
+      "href": "/programs",
+      "intro": "Fellowships, internships and campus networks for people who want to do public policy, not only read about it.",
+      "columns": [
+        {
+          "heading": "Join a program",
+          "autoFill": "none",
+          "links": [
+            {
+              "label": "Fellowships",
+              "href": "/programs/fellowships"
+            },
+            {
+              "label": "Internships",
+              "href": "/programs/internships"
+            },
+            {
+              "label": "Co-ordinator Program",
+              "href": "/programs/coordinator-program"
+            },
+            {
+              "label": "Campus Clubs",
+              "href": "/programs/campus-clubs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Publications",
+      "href": "/publications",
+      "intro": "From two page briefs to book length studies, everything CRGD publishes is free to read.",
+      "columns": [
+        {
+          "heading": "Research outputs",
+          "autoFill": "none",
+          "links": [
+            {
+              "label": "Policy Briefs",
+              "href": "/publications/policy-briefs"
+            },
+            {
+              "label": "Long Form",
+              "href": "/publications/long-form"
+            },
+            {
+              "label": "Policy Reports",
+              "href": "/publications/policy-reports"
+            },
+            {
+              "label": "Analysis",
+              "href": "/publications/analysis"
+            },
+            {
+              "label": "Special Reports",
+              "href": "/publications/special-reports"
+            },
+            {
+              "label": "Books & Journals",
+              "href": "/publications/books-and-journals"
+            },
+            {
+              "label": "Internship Reports",
+              "href": "/publications/internship-reports"
+            }
+          ]
+        },
+        {
+          "heading": "Commentary",
+          "autoFill": "none",
+          "links": [
+            {
+              "label": "Commentary",
+              "href": "/publications/commentary"
+            },
+            {
+              "label": "Explainer",
+              "href": "/publications/explainers"
+            },
+            {
+              "label": "Opinion",
+              "href": "/publications/opinion"
+            },
+            {
+              "label": "Blogs",
+              "href": "/publications/blogs"
+            },
+            {
+              "label": "Young Thoughts",
+              "href": "/publications/young-thoughts"
+            },
+            {
+              "label": "Expert View",
+              "href": "/publications/expert-view"
+            },
+            {
+              "label": "Reviews",
+              "href": "/publications/reviews"
+            }
+          ]
+        },
+        {
+          "heading": "Listen and watch",
+          "autoFill": "none",
+          "links": [
+            {
+              "label": "Podcasts",
+              "href": "/publications/podcasts"
+            },
+            {
+              "label": "Videos",
+              "href": "/publications/videos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Impact",
+      "href": "/impact",
+      "intro": "What changed because of the work: campaigns, projects in progress, results delivered and recognition received.",
+      "columns": [
+        {
+          "heading": "Our impact",
+          "autoFill": "none",
+          "links": [
+            {
+              "label": "Advocacy",
+              "href": "/impact/advocacy"
+            },
+            {
+              "label": "Ongoing",
+              "href": "/impact/ongoing"
+            },
+            {
+              "label": "Accomplished",
+              "href": "/impact/accomplished"
+            },
+            {
+              "label": "Awards & Honours",
+              "href": "/impact/awards-and-honours"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Events",
+      "href": "/events",
+      "intro": "Lectures, roundtables, workshops and conferences, in Thiruvananthapuram and online.",
+      "columns": [
+        {
+          "heading": "Events",
+          "autoFill": "none",
+          "links": [
+            {
+              "label": "Upcoming",
+              "href": "/events/upcoming"
+            },
+            {
+              "label": "Past Events",
+              "href": "/events/past"
+            },
+            {
+              "label": "All events",
+              "href": "/events"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Media",
+      "href": "/media",
+      "intro": "Statements, interviews, speeches, photographs and coverage of CRGD's work.",
+      "columns": [
+        {
+          "heading": "From CRGD",
+          "autoFill": "none",
+          "links": [
+            {
+              "label": "Press Releases",
+              "href": "/media/press-releases"
+            },
+            {
+              "label": "Photographs",
+              "href": "/media/photographs"
+            },
+            {
+              "label": "Interviews",
+              "href": "/media/interviews"
+            },
+            {
+              "label": "Speeches",
+              "href": "/media/speeches"
+            },
+            {
+              "label": "Archives",
+              "href": "/media/archives"
+            }
+          ]
+        },
+        {
+          "heading": "Coverage",
+          "autoFill": "none",
+          "links": [
+            {
+              "label": "CRGD in News",
+              "href": "/media/in-the-news"
+            },
+            {
+              "label": "Mentions",
+              "href": "/media/mentions"
+            },
+            {
+              "label": "Media enquiries",
+              "href": "/media-enquiries"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

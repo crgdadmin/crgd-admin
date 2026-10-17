@@ -1,0 +1,359 @@
+{
+  "people": {
+    "eyebrow": "About CRGD",
+    "title": "People",
+    "intro": "CRGD is governed by a board, advised by people who have spent their working lives in public institutions, and run by a team of researchers, fellows and interns. Every one of them is listed here, with the work they have done for CRGD.",
+    "image": "",
+    "imageAlt": "",
+    "categories": [
+      {
+        "slug": "co-founders",
+        "label": "Co-Founders",
+        "groups": [
+          "co-founder"
+        ],
+        "description": "The people who built CRGD with the founder and continue to shape its direction."
+      },
+      {
+        "slug": "governing-board",
+        "label": "Governing Board",
+        "groups": [
+          "governing-board"
+        ],
+        "description": "The Governing Board holds final responsibility for CRGD's direction, finances and integrity. It approves the annual plan and budget, appoints the leadership and safeguards the independence of research."
+      },
+      {
+        "slug": "advisory-board",
+        "label": "Advisory Board",
+        "groups": [
+          "advisory-board"
+        ],
+        "description": "Senior practitioners and scholars who advise on research priorities, review the quality of major studies and open doors to the institutions CRGD seeks to inform. Advisers serve in a personal capacity."
+      },
+      {
+        "slug": "scholars",
+        "label": "Scholars",
+        "groups": [
+          "scholar"
+        ],
+        "description": "Academics and senior researchers who lead or anchor work in one or more of CRGD's research verticals."
+      },
+      {
+        "slug": "mentors",
+        "label": "Mentors",
+        "groups": [
+          "mentor"
+        ],
+        "description": "Experienced professionals who guide CRGD's fellows, interns and campus clubs, one conversation at a time."
+      },
+      {
+        "slug": "team",
+        "label": "Team",
+        "groups": [
+          "associate",
+          "fellow",
+          "researcher",
+          "intern",
+          "contributor"
+        ],
+        "description": "The associates, fellows, researchers, interns and contributors who do the daily work of research, writing, outreach and events."
+      },
+      {
+        "slug": "patrons",
+        "label": "Patrons",
+        "groups": [
+          "patron"
+        ],
+        "description": "Individuals whose support and standing have helped CRGD establish itself. Patrons do not direct research."
+      }
+    ]
+  },
+  "research": {
+    "eyebrow": "Research",
+    "title": "Research verticals and centres",
+    "intro": "CRGD's research is organised into eighteen verticals. Each one asks a small number of hard questions about how Kerala and India are governed, and answers them with data, field work and comparison. The verticals talk to each other: few real policy problems stay inside one subject.",
+    "image": "",
+    "imageAlt": ""
+  },
+  "learning": {
+    "eyebrow": "Learning",
+    "title": "Learning at CRGD",
+    "intro": "Good policy needs people who can read a budget, question a dataset and write a clear note to a minister. The CRGD Academy and its dialogues, colloquia and academic programs exist to build those skills in students, public servants, journalists and citizens.",
+    "image": "",
+    "imageAlt": "",
+    "categories": [
+      {
+        "slug": "academy",
+        "label": "CRGD Academy",
+        "description": "The CRGD Academy is the teaching arm of CRGD. It runs certificate programs, short courses and workshops in public policy, taught by practitioners and researchers, with an emphasis on doing rather than memorising."
+      },
+      {
+        "slug": "courses",
+        "label": "Courses",
+        "description": "Short, structured courses on specific skills and subjects: public finance, policy writing, data for governance, and more. Most run online on weekday evenings, so working people can take them."
+      },
+      {
+        "slug": "dialogue",
+        "label": "Dialogue",
+        "description": "Dialogues bring people who disagree into the same room under rules that let them speak plainly. They are small, prepared in advance and followed by a written note of what was learned."
+      },
+      {
+        "slug": "academic-programs",
+        "label": "Academic Programs",
+        "description": "Programs designed with universities and colleges: credit bearing electives, faculty development, dissertation supervision and field placements in policy research."
+      },
+      {
+        "slug": "collaborations",
+        "label": "Collaborations",
+        "description": "Joint research, teaching and events with universities, research institutions, civil society organisations and public bodies, in India and abroad."
+      },
+      {
+        "slug": "colloquium",
+        "label": "Colloquium",
+        "description": "A regular forum where researchers present work in progress to a critical audience before it is published. Open to scholars and students; papers are circulated a week in advance."
+      }
+    ]
+  },
+  "programs": {
+    "eyebrow": "Programs",
+    "title": "Programs",
+    "intro": "CRGD's programs are how new people enter public policy. Fellows take on a full research project, interns work alongside researchers, coordinators carry CRGD's work into their colleges and districts, and campus clubs make policy a subject students argue about.",
+    "image": "",
+    "imageAlt": "",
+    "categories": [
+      {
+        "slug": "fellowships",
+        "label": "Fellowships",
+        "description": "Fellowships are full time or part time research positions of six to twelve months. Fellows design and complete a policy research project under supervision, publish their findings and present them to people who can act on them."
+      },
+      {
+        "slug": "internships",
+        "label": "Internships",
+        "description": "Internships of four to twelve weeks for students and recent graduates. Interns join a research vertical, work on live projects and finish with an internship report that CRGD publishes when it meets the standard."
+      },
+      {
+        "slug": "coordinator-program",
+        "label": "Co-ordinator Program",
+        "description": "Coordinators represent CRGD in their college, university or district. They organise events, gather local evidence, recruit club members and connect their communities with CRGD's research."
+      },
+      {
+        "slug": "campus-clubs",
+        "label": "Campus Clubs",
+        "description": "CRGD Policy Clubs are student led groups in colleges and universities. They read, debate and write about public policy, run mock legislatures and budget simulations, and contribute to the Young Thoughts series."
+      }
+    ]
+  },
+  "publications": {
+    "eyebrow": "Publications",
+    "title": "Publications",
+    "intro": "Everything CRGD publishes is free to read, free to share with credit and written to be understood by people who are not specialists. Filter by type, research vertical or year, or search the full text.",
+    "image": "",
+    "imageAlt": "",
+    "categories": [
+      {
+        "slug": "policy-briefs",
+        "label": "Policy Briefs",
+        "singular": "Policy Brief",
+        "description": "Short, decision ready documents of two to six pages. Each brief states a problem, sets out the evidence and ends with specific recommendations."
+      },
+      {
+        "slug": "long-form",
+        "label": "Long Form",
+        "singular": "Long Form",
+        "description": "Extended essays and narrative studies that take the time a complex subject deserves, written for readers who want depth without jargon."
+      },
+      {
+        "slug": "policy-reports",
+        "label": "Policy Reports",
+        "singular": "Policy Report",
+        "description": "Full research reports with methods, data and findings, reviewed internally and by at least one external expert before publication."
+      },
+      {
+        "slug": "analysis",
+        "label": "Analysis",
+        "singular": "Analysis",
+        "description": "Data driven pieces that examine a budget, a bill, a scheme or a statistic and explain what it really shows."
+      },
+      {
+        "slug": "special-reports",
+        "label": "Special Reports",
+        "singular": "Special Report",
+        "description": "Flagship studies on issues of unusual importance, often produced across several research verticals and released with a public event."
+      },
+      {
+        "slug": "commentary",
+        "label": "Commentary",
+        "singular": "Commentary",
+        "description": "Quick, reasoned responses by CRGD researchers to developments in policy and public life."
+      },
+      {
+        "slug": "explainers",
+        "label": "Explainer",
+        "singular": "Explainer",
+        "description": "Plain language guides to how something works: a law, an institution, a process or a scheme."
+      },
+      {
+        "slug": "opinion",
+        "label": "Opinion",
+        "singular": "Opinion",
+        "description": "Signed opinion pieces, including those first published in newspapers and magazines. Views are the authors' own."
+      },
+      {
+        "slug": "blogs",
+        "label": "Blogs",
+        "singular": "Blog",
+        "description": "Shorter, informal writing from the CRGD team: field notes, reading lists, reflections and work in progress."
+      },
+      {
+        "slug": "young-thoughts",
+        "label": "Young Thoughts",
+        "singular": "Young Thoughts",
+        "description": "Writing by students, interns and campus club members, edited and mentored by CRGD researchers. The best new voices in public policy start here."
+      },
+      {
+        "slug": "expert-view",
+        "label": "Expert View",
+        "singular": "Expert View",
+        "description": "Invited contributions from practitioners and scholars outside CRGD, offering a perspective drawn from long experience."
+      },
+      {
+        "slug": "reviews",
+        "label": "Reviews",
+        "singular": "Review",
+        "description": "Reviews of books, reports and policy documents that matter to the way Kerala and India are governed."
+      },
+      {
+        "slug": "books-and-journals",
+        "label": "Books & Journals",
+        "singular": "Book or Journal",
+        "description": "Books, edited volumes and journal issues published by CRGD or written by its researchers."
+      },
+      {
+        "slug": "internship-reports",
+        "label": "Internship Reports",
+        "singular": "Internship Report",
+        "description": "Research reports produced by CRGD interns at the end of their internships, published when they meet CRGD's editorial standard."
+      },
+      {
+        "slug": "podcasts",
+        "label": "Podcasts",
+        "singular": "Podcast",
+        "description": "Conversations with researchers, officials and citizens about the policy questions that shape everyday life."
+      },
+      {
+        "slug": "videos",
+        "label": "Videos",
+        "singular": "Video",
+        "description": "Recorded lectures, explainers, panel discussions and short films from CRGD."
+      }
+    ]
+  },
+  "impact": {
+    "eyebrow": "Impact",
+    "title": "Impact",
+    "intro": "Research matters when it changes something: a rule, a budget line, a public conversation, the way an office works. This section records what CRGD has set out to change, what it is working on now, what has been achieved and the recognition that has followed.",
+    "image": "",
+    "imageAlt": "",
+    "categories": [
+      {
+        "slug": "advocacy",
+        "label": "Advocacy",
+        "description": "Sustained, evidence based efforts to change a specific policy or practice, carried out openly and on the record."
+      },
+      {
+        "slug": "ongoing",
+        "label": "Ongoing",
+        "description": "Projects and engagements that are under way, with their objectives, partners and current status."
+      },
+      {
+        "slug": "accomplished",
+        "label": "Accomplished",
+        "description": "Completed projects and the results they produced, stated as precisely as the evidence allows."
+      },
+      {
+        "slug": "awards-and-honours",
+        "label": "Awards & Honours",
+        "description": "Recognition received by CRGD and its people for their work."
+      }
+    ]
+  },
+  "events": {
+    "eyebrow": "Events",
+    "title": "Events",
+    "intro": "CRGD convenes lectures, roundtables, workshops and conferences in Thiruvananthapuram, across Kerala and online. Most events are free and open to the public. Recordings and written summaries are published afterwards.",
+    "image": "",
+    "imageAlt": ""
+  },
+  "media": {
+    "eyebrow": "Media",
+    "title": "Media centre",
+    "intro": "Official statements, interviews, speeches, photographs and coverage of CRGD's work. Journalists can reach the media team directly for comment, data or interviews with our researchers.",
+    "image": "",
+    "imageAlt": "",
+    "categories": [
+      {
+        "slug": "press-releases",
+        "label": "Press Releases",
+        "description": "Official statements and announcements from CRGD."
+      },
+      {
+        "slug": "photographs",
+        "label": "Photographs",
+        "description": "Photographs from CRGD events, field work and programs. Images may be used by the press with credit to CRGD."
+      },
+      {
+        "slug": "interviews",
+        "label": "Interviews",
+        "description": "Interviews given by CRGD's people to newspapers, television, radio and digital media."
+      },
+      {
+        "slug": "speeches",
+        "label": "Speeches",
+        "description": "Texts and recordings of speeches and lectures delivered by CRGD's leadership and researchers."
+      },
+      {
+        "slug": "archives",
+        "label": "Archives",
+        "description": "Older material from CRGD's history: early statements, event records and documents preserved for reference."
+      },
+      {
+        "slug": "in-the-news",
+        "label": "CRGD in News",
+        "description": "News coverage of CRGD's research, events and people."
+      },
+      {
+        "slug": "mentions",
+        "label": "Mentions",
+        "description": "Places where CRGD's work has been cited or referred to: in the press, in legislatures, in official documents and in academic writing."
+      }
+    ]
+  },
+  "careers": {
+    "eyebrow": "Careers",
+    "title": "Careers at CRGD",
+    "intro": "CRGD hires people who are curious, careful with evidence and able to write clearly for readers who are busy. Current openings are listed below, along with fellowships and internships for those earlier in their careers.",
+    "image": "",
+    "imageAlt": ""
+  },
+  "annualReports": {
+    "eyebrow": "About CRGD",
+    "title": "Annual Reports",
+    "intro": "Each year CRGD publishes an account of what it did, what it spent and what it learned, including a summary of its finances and its sources of funding.",
+    "image": "",
+    "imageAlt": ""
+  },
+  "locations": {
+    "eyebrow": "About CRGD",
+    "title": "Location",
+    "intro": "CRGD works from its headquarters in Thiruvananthapuram, close to the Government Secretariat. Regional centres are planned so that the institution can be closer to the places it studies.",
+    "image": "",
+    "imageAlt": ""
+  },
+  "updates": {
+    "eyebrow": "News",
+    "title": "Latest updates",
+    "intro": "Announcements, calls for applications and news from CRGD.",
+    "image": "",
+    "imageAlt": ""
+  }
+}

@@ -1,0 +1,53 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import CategoryTiles from '../../components/CategoryTiles.astro';
+import ItemCard from '../../components/ItemCard.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import CtaPair from '../../components/CtaPair.astro';
+import { getPrograms, href } from '../../lib/content';
+import { sections, categories, categoryLabel, formatDate } from '../../lib/site';
+
+const s = sections.programs;
+const programs = await getPrograms();
+const open = programs.filter((p) => /open|rolling/i.test(p.data.status));
+const tiles = categories('programs').map((c) => ({
+  label: c.label,
+  href: `/programs/${c.slug}`,
+  description: c.description,
+  count: programs.filter((p) => p.data.category === c.slug).length,
+  countLabel: 'programs',
+}));
+---
+
+<Base title={s.title} description={s.intro}>
+  <PageHead eyebrow={s.eyebrow} title={s.title} lede={s.intro} image={s.image} crumbs={[{ label: s.title }]} />
+  <section class="band">
+    <div class="wrap">
+      <CategoryTiles items={tiles} />
+    </div>
+  </section>
+  {open.length > 0 && (
+    <section class="band band-tint">
+      <div class="wrap">
+        <SectionHead eyebrow="Apply now" title="Open for applications" />
+        <div class="grid grid-3">
+          {open.map((p) => (
+            <ItemCard
+              title={p.data.title}
+              link={href.program(p)}
+              label={categoryLabel('programs', p.data.category)}
+              summary={p.data.summary}
+              image={p.data.image}
+              imageAlt={p.data.imageAlt}
+              status={p.data.status}
+              placeholder={p.data.placeholder}
+              meta={[p.data.deadline ? `Apply by ${formatDate(p.data.deadline)}` : undefined, p.data.duration]}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+  <CtaPair id="programs" />
+</Base>

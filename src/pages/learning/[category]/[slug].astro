@@ -1,0 +1,84 @@
+---
+import DetailPage from '../../../components/DetailPage.astro';
+import Picture from '../../../components/Picture.astro';
+import { render } from 'astro:content';
+import { getLearning, resolvePeople, href, type Learning } from '../../../lib/content';
+import { categoryLabel, categories, formatDate, url, asset, site } from '../../../lib/site';
+
+export async function getStaticPaths() {
+  const valid = new Set(categories('learning').map((c) => c.slug));
+  return (await getLearning())
+    .filter((i) => valid.has(i.data.category))
+    .map((item) => ({ params: { category: item.data.category, slug: item.id }, props: { item } }));
+}
+const { item } = Astro.props as { item: Learning };
+const d = item.data;
+const { Content } = await render(item);
+const label = categoryLabel('learning', d.category);
+const siblings = (await getLearning()).filter((i) => i.data.category === d.category);
+const faculty = await resolvePeople(d.faculty);
+const closed = /closed|completed/i.test(d.status);
+---
+
+<DetailPage
+  title={d.title}
+  description={d.summary}
+  eyebrow={label}
+  crumbs={[{ label: 'Learning', href: '/learning' }, { label, href: `/learning/${d.category}` }, { label: d.title }]}
+  image={d.image}
+  imageAlt={d.imageAlt}
+  imageCaption={d.imageCaption}
+  placeholder={d.placeholder}
+  what={label.toLowerCase()}
+  factsHeading="At a glance"
+  facts={[
+    { label: 'Status', value: d.status },
+    { label: 'Starts', value: d.startDate ? formatDate(d.startDate) : undefined },
+    { label: 'Format', value: d.format },
+    { label: 'Duration', value: d.duration },
+    { label: 'Schedule', value: d.schedule },
+    { label: 'Level', value: d.level },
+    { label: 'Fee', value: d.fee },
+    { label: 'Partner', value: d.partner },
+  ]}
+  actions={closed ? [] : [
+    { label: 'Register', href: d.registrationUrl, primary: true, icon: 'external' },
+    { label: 'Enquire by email', href: `mailto:${site.email}?subject=${encodeURIComponent(`Enquiry: ${d.title}`)}`, primary: !d.registrationUrl, icon: 'mail' },
+  ]}
+  navHeading={label}
+  navLinks={siblings.map((i) => ({ label: i.data.title, href: href.learning(i) }))}
+>
+  <Content />
+  <Fragment slot="after">
+    {d.outcomes.length > 0 && (
+      <div class="group-block">
+        <div class="group-head"><h2>What participants will be able to do</h2></div>
+        <ul class="prose">{d.outcomes.map((o) => <li>{o}</li>)}</ul>
+      </div>
+    )}
+    {faculty.length > 0 && (
+      <div class="group-block">
+        <div class="group-head"><h2>Faculty and facilitators</h2></div>
+        <div class="grid grid-2">
+          {faculty.map((f) => (
+            <div class="person-row">
+              <div class="avatar large"><Picture src={f.person?.data.photo} alt="" name={f.name} variant="fill" /></div>
+              <div>
+                {f.href ? <a href={url(f.href)} style="font-weight:600">{f.name}</a> : <strong>{f.name}</strong>}
+                {f.person?.data.role && <div class="meta">{f.person.data.role}</div>}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+  </Fragment>
+  <Fragment slot="aside">
+    {d.partnerLogo && (
+      <div class="aside-box">
+        <h2>In partnership with</h2>
+        <a href={d.partnerUrl || undefined} target="_blank" rel="noopener noreferrer"><img src={asset(d.partnerLogo)} alt={d.partner || 'Partner logo'} style="max-height:70px;width:auto" /></a>
+      </div>
+    )}
+  </Fragment>
+</DetailPage>

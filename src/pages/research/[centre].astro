@@ -1,0 +1,143 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Picture from '../../components/Picture.astro';
+import PublicationCard from '../../components/PublicationCard.astro';
+import EventCard from '../../components/EventCard.astro';
+import ItemCard from '../../components/ItemCard.astro';
+import AsideNav from '../../components/AsideNav.astro';
+import PlaceholderNote from '../../components/PlaceholderNote.astro';
+import CtaPair from '../../components/CtaPair.astro';
+import Share from '../../components/Share.astro';
+import { render } from 'astro:content';
+import { getCentres, getPublications, getEvents, getPeople, getPrograms, getImpact, resolvePeople, href, type Centre } from '../../lib/content';
+import { url, categoryLabel } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const centres = await getCentres();
+  return centres.map((centre, index) => ({ params: { centre: centre.id }, props: { centre, index } }));
+}
+
+const { centre, index } = Astro.props as { centre: Centre; index: number };
+const d = centre.data;
+const { Content } = await render(centre);
+const [centres, publications, events, people, programs, impact] = await Promise.all([
+  getCentres(),
+  getPublications(),
+  getEvents(),
+  getPeople(),
+  getPrograms(),
+  getImpact(),
+]);
+const number = String(index + 1).padStart(2, '0');
+const pubs = publications.filter((p) => p.data.centres.includes(centre.id));
+const evts = events.filter((e) => e.data.centres.includes(centre.id)).slice(0, 4);
+const leads = (await resolvePeople(d.leads)).filter((l) => l.person);
+const team = people.filter((p) => p.data.centres.includes(centre.id) && !leads.some((l) => l.person?.id === p.id));
+const related = [...programs.filter((p) => p.data.centres.includes(centre.id)), ...impact.filter((i) => i.data.centres.includes(centre.id))];
+---
+
+<Base title={d.title} description={d.summary} image={d.image}>
+  <PageHead
+    eyebrow={`Research vertical ${number}`}
+    title={d.title}
+    lede={d.summary}
+    image={d.image}
+    crumbs={[{ label: 'Research', href: '/research' }, { label: d.title }]}
+  />
+
+  <section class="band">
+    <div class="wrap layout-main">
+      <div>
+        <PlaceholderNote show={d.placeholder} what="research centre" />
+        {d.image && (
+          <figure style="margin:0 0 2.5rem">
+            <Picture src={d.image} alt={d.imageAlt} variant="wide" />
+            {d.imageCaption && <figcaption class="figure-caption">{d.imageCaption}</figcaption>}
+          </figure>
+        )}
+        <div class="prose"><Content /></div>
+
+        {d.keyQuestions.length > 0 && (
+          <div class="group-block">
+            <div class="group-head"><h2>Questions we are asking</h2></div>
+            <ol class="item-list" style="list-style:none">
+              {d.keyQuestions.map((q, i) => (
+                <li style="grid-template-columns:3rem 1fr;align-items:baseline">
+                  <span class="numeral" style="font-size:1.6rem;color:var(--dusk-blue)">{String(i + 1).padStart(2, '0')}</span>
+                  <p style="color:var(--ink);font-size:1.08rem;margin:0">{q}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+
+        <div class="group-block">
+          <div class="group-head">
+            <h2>Publications</h2>
+            {pubs.length > 4 && <a class="text-link" href={url(`/publications?centre=${centre.id}`)}>All {pubs.length}</a>}
+          </div>
+          {pubs.length > 0 ? (
+            <div class="grid grid-2">{pubs.slice(0, 6).map((p) => <PublicationCard item={p} />)}</div>
+          ) : (
+            <div class="empty"><p>Work from this vertical will appear here as it is published.</p></div>
+          )}
+        </div>
+
+        {evts.length > 0 && (
+          <div class="group-block">
+            <div class="group-head"><h2>Events</h2></div>
+            <div class="grid grid-2">{evts.map((e) => <EventCard event={e} />)}</div>
+          </div>
+        )}
+
+        {related.length > 0 && (
+          <div class="group-block">
+            <div class="group-head"><h2>Programs and impact</h2></div>
+            <div class="grid grid-2">
+              {related.map((r) =>
+                r.collection === 'programs' ? (
+                  <ItemCard title={r.data.title} link={href.program(r as any)} label={categoryLabel('programs', r.data.category)} summary={r.data.summary} status={(r.data as any).status} showImage={false} />
+                ) : (
+                  <ItemCard title={r.data.title} link={href.impact(r as any)} label={categoryLabel('impact', r.data.category)} summary={r.data.summary} showImage={false} />
+                ),
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <aside class="aside">
+        {d.focusAreas.length > 0 && (
+          <div class="aside-box">
+            <h2>Focus areas</h2>
+            <ul class="tag-row">{d.focusAreas.map((f) => <li><span class="tag">{f}</span></li>)}</ul>
+          </div>
+        )}
+        {(leads.length > 0 || team.length > 0) && (
+          <div class="aside-box">
+            <h2>People</h2>
+            <ul style="display:grid;gap:0.9rem">
+              {[...leads.map((l) => ({ p: l.person!, lead: true })), ...team.map((p) => ({ p, lead: false }))].slice(0, 8).map(({ p, lead }) => (
+                <li class="person-row">
+                  <div class="avatar"><Picture src={p.data.photo} alt="" name={p.data.name} variant="fill" /></div>
+                  <div style="line-height:1.35">
+                    <a href={url(href.person(p))} style="font-weight:600;text-decoration:none">{p.data.name}</a>
+                    <div class="meta">{lead ? 'Lead' : p.data.role}</div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        <AsideNav heading="Other verticals" links={centres.filter((c) => c.id !== centre.id).map((c) => ({ label: c.data.title, href: href.centre(c) }))} />
+        <div class="aside-box">
+          <h2>Share</h2>
+          <Share title={d.title} />
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <CtaPair id="centre" />
+</Base>

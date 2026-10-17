@@ -1,0 +1,64 @@
+---
+import Waves from './Waves.astro';
+import { url, asset } from '../lib/site';
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
+interface Props {
+  title: string;
+  lede?: string;
+  eyebrow?: string;
+  crumbs?: Crumb[];
+  image?: string;
+  imageAlt?: string;
+  light?: boolean;
+}
+const { title, lede, eyebrow, crumbs = [], image, light = false } = Astro.props;
+const trail = [{ label: 'Home', href: '/' }, ...crumbs];
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: trail.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.label,
+    ...(c.href ? { item: new URL(url(c.href), Astro.site).toString() } : {}),
+  })),
+};
+---
+
+<section class:list={['page-head', { light }]}>
+  {!light && image && (
+    <div class="page-head-image" aria-hidden="true"><img src={asset(image)} alt="" /></div>
+  )}
+  {!light && <Waves lines={10} opacity={0.1} />}
+  <div class="wrap">
+    {crumbs.length > 0 && (
+      <nav aria-label="Breadcrumb">
+        <ol class="crumbs">
+          {trail.map((crumb, i) => (
+            <li>
+              {crumb.href && i < trail.length - 1 ? (
+                <a href={url(crumb.href)}>{crumb.label}</a>
+              ) : (
+                <span aria-current="page">{crumb.label}</span>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
+    <div class="page-head-grid">
+      <div>
+        {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+        <h1>{title}</h1>
+        {lede && <p class="lede">{lede}</p>}
+        <slot />
+      </div>
+      <slot name="side" />
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+</section>

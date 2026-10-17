@@ -1,0 +1,65 @@
+---
+import { asset, initials, toneFor, showPlaceholders, orgName } from '../lib/site';
+
+/*
+ * Shows an uploaded image, or a generated placeholder in the CRGD blues
+ * until one is uploaded. Every collection uses this, so every entry can
+ * carry a picture.
+ */
+interface Props {
+  src?: string;
+  alt?: string;
+  label?: string;
+  mark?: string;
+  name?: string;
+  seed?: string;
+  variant?: 'cover' | 'square' | 'portrait' | 'wide' | 'tall' | 'fill';
+  eager?: boolean;
+  placeholder?: boolean;
+  class?: string;
+  sizes?: string;
+}
+
+const {
+  src,
+  alt = '',
+  label = '',
+  mark,
+  name,
+  seed = label || name || 'crgd',
+  variant = 'cover',
+  eager = false,
+  placeholder = false,
+  class: className = '',
+} = Astro.props;
+
+const isPerson = !!name;
+const tone = toneFor(seed);
+const big = mark ?? (isPerson ? initials(name!) : '');
+const waveSeed = toneFor(`${seed}-w`, 4);
+const variantClass = variant === 'cover' ? '' : variant;
+---
+
+<div class:list={['cover', variantClass, className]}>
+  {src ? (
+    <img src={asset(src)} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" fetchpriority={eager ? 'high' : undefined} />
+  ) : (
+    <div class:list={['art', `tone-${tone}`, { 'is-person': isPerson }]} role={isPerson ? 'img' : undefined} aria-label={isPerson ? `Photograph of ${name} to be added` : undefined}>
+      <svg class="art-waves" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+        <g fill="none" stroke="#c4d2e1" stroke-width="0.8">
+          {Array.from({ length: 9 }, (_, i) => (
+            <path
+              d={`M-20 ${40 + i * 30 + waveSeed * 6} C 90 ${10 + i * 30}, 200 ${90 + i * 28 - waveSeed * 10}, 420 ${30 + i * 32}`}
+              opacity={(0.18 + (i % 3) * 0.12).toFixed(2)}
+            />
+          ))}
+        </g>
+      </svg>
+      {!isPerson && label && <span class="art-label">{label}</span>}
+      {big && <span class="art-mark">{big}</span>}
+      {!isPerson && !big && <span class="art-brand" aria-hidden="true">{orgName}</span>}
+      {isPerson && <span class="art-label">Photo to come</span>}
+    </div>
+  )}
+  {placeholder && showPlaceholders && <span class="placeholder-tag">Placeholder</span>}
+</div>

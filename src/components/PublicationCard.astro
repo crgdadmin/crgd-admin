@@ -1,0 +1,40 @@
+---
+import Picture from './Picture.astro';
+import { href, resolvePeople, publicationTypeLabel, type Publication } from '../lib/content';
+import { url, formatDate } from '../lib/site';
+
+interface Props {
+  item: Publication;
+  variant?: 'card' | 'flat' | 'horizontal';
+  image?: boolean;
+  level?: 'h2' | 'h3';
+  eager?: boolean;
+}
+const { item, variant = 'card', image = true, level: Tag = 'h3', eager = false } = Astro.props;
+const d = item.data;
+const authors = await resolvePeople(d.authors);
+const typeLabel = publicationTypeLabel(d.type);
+const mark = d.type === 'podcasts' ? '◉' : d.type === 'videos' ? '▶' : '';
+---
+
+<article
+  class:list={['card', { 'card-flat': variant === 'flat', 'card-horizontal': variant === 'horizontal' }]}
+  data-type={d.type}
+  data-centres={d.centres.join(' ')}
+  data-year={formatDate(d.date, 'year')}
+  data-text={`${d.title} ${d.summary ?? ''} ${d.authors.join(' ')} ${d.tags.join(' ')}`.toLowerCase()}
+>
+  {image && (
+    <Picture src={d.image} alt={d.imageAlt} label={typeLabel} mark={mark} seed={item.id} placeholder={d.placeholder} eager={eager} />
+  )}
+  <div class="card-body">
+    <p class="label card-type"><a href={url(href.publicationType(d.type))}>{typeLabel}</a></p>
+    <Tag><a href={url(href.publication(item))}>{d.title}</a></Tag>
+    {d.summary && <p>{d.summary}</p>}
+    <p class="card-foot">
+      <time datetime={d.date.toISOString()}>{formatDate(d.date)}</time>
+      {authors.length > 0 && <span class="dot">{authors.map((a) => a.name).join(', ')}</span>}
+      {d.duration && <span class="dot">{d.duration}</span>}
+    </p>
+  </div>
+</article>

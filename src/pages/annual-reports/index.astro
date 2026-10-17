@@ -1,0 +1,32 @@
+---
+import ListingPage from '../../components/ListingPage.astro';
+import ItemCard from '../../components/ItemCard.astro';
+import { getReports, href } from '../../lib/content';
+import { sections } from '../../lib/site';
+
+const s = sections.annualReports;
+const reports = await getReports();
+---
+
+<ListingPage title={s.title} description={s.intro} eyebrow={s.eyebrow} image={s.image} crumbs={[{ label: 'About', href: '/about' }, { label: s.title }]}>
+  {reports.length > 0 ? (
+    <div class="grid grid-4">
+      {reports.map((r) => (
+        <ItemCard
+          title={r.data.title}
+          link={href.report(r)}
+          label={`Annual Report ${r.data.year}`}
+          summary={r.data.summary}
+          image={r.data.image}
+          imageAlt={r.data.imageAlt}
+          variant="tall"
+          mark={r.data.year}
+          placeholder={r.data.placeholder}
+          meta={[r.data.pdf ? 'PDF available' : 'PDF to follow']}
+        />
+      ))}
+    </div>
+  ) : (
+    <div class="empty"><p>The first annual report will be published at the end of the first full financial year.</p></div>
+  )}
+</ListingPage>

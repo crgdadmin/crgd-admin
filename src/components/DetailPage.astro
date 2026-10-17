@@ -1,0 +1,111 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from './PageHead.astro';
+import Picture from './Picture.astro';
+import AsideNav from './AsideNav.astro';
+import PlaceholderNote from './PlaceholderNote.astro';
+import Share from './Share.astro';
+import CtaPair from './CtaPair.astro';
+import Icon from './Icon.astro';
+import { url, isExternal } from '../lib/site';
+
+/* The shared shape of every single entry page: programs, courses, impact stories, media items and more. */
+interface Props {
+  title: string;
+  description?: string;
+  eyebrow?: string;
+  crumbs: { label: string; href?: string }[];
+  image?: string;
+  imageAlt?: string;
+  imageCaption?: string;
+  showImage?: boolean;
+  placeholder?: boolean;
+  what?: string;
+  facts?: { label: string; value?: string }[];
+  factsHeading?: string;
+  actions?: { label: string; href?: string; icon?: string; primary?: boolean }[];
+  navHeading?: string;
+  navLinks?: { label: string; href: string }[];
+  schema?: Record<string, unknown>;
+  type?: 'website' | 'article';
+  published?: Date;
+}
+const {
+  title,
+  description,
+  eyebrow,
+  crumbs,
+  image,
+  imageAlt,
+  imageCaption,
+  showImage = true,
+  placeholder = false,
+  what = 'entry',
+  facts = [],
+  factsHeading = 'Details',
+  actions = [],
+  navHeading = 'In this section',
+  navLinks = [],
+  schema,
+  type = 'website',
+  published,
+} = Astro.props;
+const shownFacts = facts.filter((f) => f.value);
+const shownActions = actions.filter((a) => a.href);
+---
+
+<Base title={title} description={description} image={image} imageAlt={imageAlt} schema={schema} type={type} published={published}>
+  <PageHead eyebrow={eyebrow} title={title} lede={description} crumbs={crumbs} image={image} />
+
+  <section class="band">
+    <div class="wrap layout-main">
+      <div>
+        <PlaceholderNote show={placeholder} what={what} />
+        <slot name="before" />
+        {showImage && image && (
+          <figure style="margin:0 0 2.5rem">
+            <Picture src={image} alt={imageAlt} variant="wide" eager />
+            {imageCaption && <figcaption class="figure-caption">{imageCaption}</figcaption>}
+          </figure>
+        )}
+        <div class="prose"><slot /></div>
+        <slot name="after" />
+      </div>
+      <aside class="aside">
+        {(shownFacts.length > 0 || shownActions.length > 0) && (
+          <div class="aside-box">
+            <h2>{factsHeading}</h2>
+            {shownFacts.length > 0 && (
+              <dl class="facts">
+                {shownFacts.map((f) => <div><dt>{f.label}</dt><dd>{f.value}</dd></div>)}
+              </dl>
+            )}
+            {shownActions.length > 0 && (
+              <div style="display:grid;gap:0.6rem;margin-top:1.2rem">
+                {shownActions.map((a) => (
+                  <a
+                    class:list={['btn', { 'btn-outline': !a.primary }]}
+                    href={url(a.href!)}
+                    target={isExternal(a.href) ? '_blank' : undefined}
+                    rel={isExternal(a.href) ? 'noopener noreferrer' : undefined}
+                  >
+                    {a.icon && <Icon name={a.icon} />}
+                    {a.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+        <slot name="aside" />
+        <AsideNav heading={navHeading} links={navLinks} />
+        <div class="aside-box">
+          <h2>Share</h2>
+          <Share title={title} />
+        </div>
+      </aside>
+    </div>
+  </section>
+  <slot name="below" />
+  <CtaPair id="detail" />
+</Base>

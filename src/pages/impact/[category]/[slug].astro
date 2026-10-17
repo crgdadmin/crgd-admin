@@ -1,0 +1,60 @@
+---
+import DetailPage from '../../../components/DetailPage.astro';
+import { render } from 'astro:content';
+import { getImpact, centresFor, resolvePeople, href, type Impact } from '../../../lib/content';
+import { categoryLabel, categories, formatDate, url, joinNames } from '../../../lib/site';
+
+export async function getStaticPaths() {
+  const valid = new Set(categories('impact').map((c) => c.slug));
+  return (await getImpact())
+    .filter((i) => valid.has(i.data.category))
+    .map((item) => ({ params: { category: item.data.category, slug: item.id }, props: { item } }));
+}
+const { item } = Astro.props as { item: Impact };
+const d = item.data;
+const { Content } = await render(item);
+const label = categoryLabel('impact', d.category);
+const siblings = (await getImpact()).filter((i) => i.data.category === d.category);
+const centres = await centresFor(d.centres);
+const people = await resolvePeople(d.people);
+---
+
+<DetailPage
+  title={d.title}
+  description={d.summary}
+  eyebrow={label}
+  crumbs={[{ label: 'Impact', href: '/impact' }, { label, href: `/impact/${d.category}` }, { label: d.title }]}
+  image={d.image}
+  imageAlt={d.imageAlt}
+  imageCaption={d.imageCaption}
+  placeholder={d.placeholder}
+  what={label.toLowerCase()}
+  facts={[
+    { label: 'Status', value: d.status },
+    { label: 'Period', value: d.period },
+    { label: 'Date', value: d.date ? formatDate(d.date) : undefined },
+    { label: 'Awarded by', value: d.awardedBy },
+    { label: 'Partners', value: d.partners.join(', ') || undefined },
+    { label: 'People', value: joinNames(people.map((p) => p.name)) || undefined },
+  ]}
+  navHeading={label}
+  navLinks={siblings.map((i) => ({ label: i.data.title, href: href.impact(i) }))}
+>
+  <Content />
+  <Fragment slot="after">
+    {d.outcomes.length > 0 && (
+      <div class="group-block">
+        <div class="group-head"><h2>Results</h2></div>
+        <ul class="prose">{d.outcomes.map((o) => <li>{o}</li>)}</ul>
+      </div>
+    )}
+  </Fragment>
+  <Fragment slot="aside">
+    {centres.length > 0 && (
+      <nav class="aside-box aside-nav" aria-label="Research areas">
+        <h2>Research areas</h2>
+        <ul>{centres.map((c) => <li><a href={url(href.centre(c))}>{c.data.title}</a></li>)}</ul>
+      </nav>
+    )}
+  </Fragment>
+</DetailPage>

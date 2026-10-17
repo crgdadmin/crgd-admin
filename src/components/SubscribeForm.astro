@@ -1,0 +1,83 @@
+---
+import { site, orgName } from '../lib/site';
+
+/*
+ * Works three ways, set in Site settings:
+ *  1. Newsletter form address (Mailchimp, Buttondown, Brevo, Zoho and others) posts straight there.
+ *  2. A Web3Forms key sends each sign up to the office inbox.
+ *  3. With neither, the button opens an email to the office.
+ */
+interface Props {
+  light?: boolean;
+  id: string;
+  showName?: boolean;
+  buttonLabel?: string;
+}
+const { light = false, id, showName = false, buttonLabel = 'Subscribe' } = Astro.props;
+const provider = site.newsletterFormUrl ? 'external' : site.web3formsKey ? 'web3forms' : 'mailto';
+const mailto = `mailto:${site.email}?subject=${encodeURIComponent(`Please subscribe me to ${orgName} email updates`)}&body=${encodeURIComponent('Name:\nEmail:\nOrganisation (optional):\n')}`;
+---
+
+{provider === 'mailto' ? (
+  <div class:list={['subscribe-form', { light }]}>
+    <a class:list={['btn', light ? '' : 'btn-light']} href={mailto}>{buttonLabel} by email</a>
+  </div>
+) : (
+  <form
+    class:list={['subscribe-form', { light }]}
+    data-subscribe={provider}
+    action={provider === 'external' ? site.newsletterFormUrl : undefined}
+    method="post"
+    target={provider === 'external' ? '_blank' : undefined}
+  >
+    {provider === 'web3forms' && (
+      <>
+        <input type="hidden" name="access_key" value={site.web3formsKey} />
+        <input type="hidden" name="subject" value={`New email updates subscriber for ${orgName}`} />
+        <input type="hidden" name="from_name" value={`${orgName} website`} />
+        <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" />
+      </>
+    )}
+    {showName && (
+      <>
+        <label class="sr-only" for={`${id}-name`}>Your name</label>
+        <input type="text" id={`${id}-name`} name="name" placeholder="Your name" autocomplete="name" />
+      </>
+    )}
+    <label class="sr-only" for={`${id}-email`}>Email address</label>
+    <input type="email" id={`${id}-email`} name={site.newsletterEmailField || 'email'} placeholder="Your email address" autocomplete="email" required />
+    <button class:list={['btn', light ? '' : 'btn-light']} type="submit">{buttonLabel}</button>
+    <p class="form-status" role="status" aria-live="polite"></p>
+  </form>
+)}
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('form[data-subscribe="web3forms"]').forEach((form) => {
+    if (form.dataset.bound) return;
+    form.dataset.bound = 'true';
+    const status = form.querySelector<HTMLElement>('.form-status');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (status) { status.className = 'form-status'; status.textContent = 'Subscribing…'; }
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        });
+        const result = await response.json();
+        if (!result.success) throw new Error(result.message);
+        form.reset();
+        if (status) { status.className = 'form-status ok'; status.textContent = 'Thank you. You are on the list for email updates.'; }
+      } catch {
+        if (status) { status.className = 'form-status error'; status.textContent = 'That did not go through. Please try again, or write to us by email.'; }
+      }
+    });
+  });
+  document.querySelectorAll<HTMLFormElement>('form[data-subscribe="external"]').forEach((form) => {
+    const status = form.querySelector<HTMLElement>('.form-status');
+    form.addEventListener('submit', () => {
+      if (status) { status.className = 'form-status ok'; status.textContent = 'Opening the sign up confirmation in a new tab.'; }
+    });
+  });
+</script>

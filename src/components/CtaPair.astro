@@ -1,0 +1,38 @@
+---
+import SubscribeForm from './SubscribeForm.astro';
+import Waves from './Waves.astro';
+import { home, site, url, orgName } from '../lib/site';
+
+/* The two calls to action from the brief: subscribe to email updates, and support CRGD. */
+interface Props {
+  id?: string;
+}
+const { id = 'cta' } = Astro.props;
+const s = home.subscribe;
+const p = home.support;
+---
+
+<section class="band band-tight">
+  <div class="wrap">
+    <div class="cta-pair">
+      <div class="cta-subscribe on-dark">
+        <p class="eyebrow">Stay informed</p>
+        <h2>{s.heading || site.subscribeLabel}</h2>
+        <p>{s.text}</p>
+        <SubscribeForm id={`${id}-subscribe`} />
+      </div>
+      <div class="cta-support">
+        <Waves lines={8} opacity={0.12} />
+        <p class="eyebrow">{orgName}: {site.tagline}</p>
+        <h2>{p.heading || site.supportLabel}</h2>
+        <p>{p.text}</p>
+        <p><a class="btn" href={url(p.buttonHref || '/support')}>{p.buttonLabel || 'Support us'}</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-support :global(.waves) { opacity: 0.35; filter: invert(0.7); }
+  .cta-support > *:not(:global(.waves)) { position: relative; }
+</style>

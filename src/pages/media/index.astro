@@ -1,0 +1,109 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import CategoryTiles from '../../components/CategoryTiles.astro';
+import ItemCard from '../../components/ItemCard.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import CtaPair from '../../components/CtaPair.astro';
+import Icon from '../../components/Icon.astro';
+import { getMedia, getGalleries, href } from '../../lib/content';
+import { sections, categories, categoryLabel, formatDate, site, url } from '../../lib/site';
+
+const s = sections.media;
+const [items, galleries] = await Promise.all([getMedia(), getGalleries()]);
+const tiles = categories('media').map((c) => ({
+  label: c.label,
+  href: `/media/${c.slug}`,
+  description: c.description,
+  count: c.slug === 'photographs' ? galleries.length : items.filter((i) => i.data.category === c.slug).length,
+  countLabel: c.slug === 'photographs' ? 'albums' : 'items',
+}));
+const releases = items.filter((i) => i.data.category === 'press-releases').slice(0, 4);
+const coverage = items.filter((i) => ['in-the-news', 'mentions', 'interviews'].includes(i.data.category)).slice(0, 6);
+---
+
+<Base title={s.title} description={s.intro}>
+  <PageHead eyebrow={s.eyebrow} title={s.title} lede={s.intro} image={s.image} crumbs={[{ label: 'Media' }]} />
+
+  <section class="band">
+    <div class="wrap layout-main">
+      <div>
+        <SectionHead eyebrow="Official" title="Press releases" link="/media/press-releases" linkLabel="All press releases" />
+        {releases.length > 0 ? (
+          <ul class="item-list">
+            {releases.map((r) => (
+              <li>
+                <p class="meta"><time datetime={r.data.date.toISOString()}>{formatDate(r.data.date)}</time></p>
+                <h3><a href={url(href.media(r))}>{r.data.title}</a></h3>
+                {r.data.summary && <p>{r.data.summary}</p>}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div class="empty"><p>Press releases will appear here.</p></div>
+        )}
+      </div>
+      <aside class="aside">
+        <div class="aside-box dark on-dark">
+          <h2>Media enquiries</h2>
+          <p>For comment, data or an interview with a CRGD researcher, contact the media team. We aim to respond the same working day.</p>
+          <ul class="footer-contact" style="margin:0 0 1.2rem">
+            {site.mediaEmail && <li><Icon name="mail" /><a href={`mailto:${site.mediaEmail}`}>{site.mediaEmail}</a></li>}
+            {site.phone && <li><Icon name="phone" /><span>{site.phone}</span></li>}
+          </ul>
+          <a class="btn btn-light" href={url('/media-enquiries')}>Press kit and guidelines</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="band band-tint">
+    <div class="wrap">
+      <SectionHead eyebrow="Browse" title="Everything in the media centre" />
+      <CategoryTiles items={tiles} />
+    </div>
+  </section>
+
+  {galleries.length > 0 && (
+    <section class="band">
+      <div class="wrap">
+        <SectionHead eyebrow="Photographs" title="Recent albums" link="/media/photographs" linkLabel="All photographs" />
+        <div class="grid grid-3">
+          {galleries.slice(0, 3).map((g) => (
+            <ItemCard
+              title={g.data.title}
+              link={href.gallery(g)}
+              label="Photographs"
+              image={g.data.image || g.data.photos.find((p) => p.image)?.image}
+              imageAlt={g.data.imageAlt}
+              placeholder={g.data.placeholder}
+              meta={[formatDate(g.data.date), `${g.data.photos.length} photographs`]}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {coverage.length > 0 && (
+    <section class="band band-tint">
+      <div class="wrap">
+        <SectionHead eyebrow="Coverage" title="CRGD in the news" link="/media/in-the-news" linkLabel="All coverage" />
+        <div class="grid grid-3">
+          {coverage.map((m) => (
+            <ItemCard
+              title={m.data.title}
+              link={href.media(m)}
+              label={m.data.outlet || categoryLabel('media', m.data.category)}
+              summary={m.data.summary}
+              showImage={false}
+              placeholder={m.data.placeholder}
+              meta={[formatDate(m.data.date), categoryLabel('media', m.data.category)]}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+  <CtaPair id="media" />
+</Base>

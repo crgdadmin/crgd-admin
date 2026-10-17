@@ -1,0 +1,836 @@
+# Pages CMS configuration for the CRGD website.
+# Sign in at https://app.pagescms.org with GitHub and open this repository.
+# Every entry below appears in the CMS sidebar. Saving an entry commits it to
+# GitHub, and the website rebuilds itself within a few minutes.
+
+media:
+  input: public/uploads
+  output: /uploads
+  extensions: [jpg, jpeg, png, webp, gif, svg, avif, pdf, doc, docx, ppt, pptx, xls, xlsx, mp3, m4a]
+
+content:
+  # ------------------------------------------------------------------ #
+  # Site wide settings                                                  #
+  # ------------------------------------------------------------------ #
+  - name: settings
+    label: Site settings
+    type: file
+    path: src/data/settings.json
+    fields:
+      - { name: shortName, label: Short name, type: string, required: true, description: "Shown as the name in the header, for example CRGD." }
+      - { name: fullName, label: Full name, type: string, description: "The organisation's full name, shown under the logo and in search results." }
+      - { name: tagline, label: Tagline, type: string, description: "For example: The Public Policy Bridge" }
+      - { name: logo, label: Logo, type: image, description: "Upload the logo here (PNG or SVG with a transparent background works best). Until a logo is uploaded, the site shows a text wordmark." }
+      - { name: logoOnDark, label: Logo for dark backgrounds, type: image, description: "Optional. A white or light version of the logo for the footer and the sticky menu bar." }
+      - { name: logoAlt, label: Logo description, type: string, description: "Read aloud by screen readers, for example: CRGD logo" }
+      - { name: logoHeight, label: Logo height in pixels, type: number, description: "Height of the logo in the header. 56 is a good starting point." }
+      - { name: showNameBesideLogo, label: Show the name and tagline beside the logo, type: boolean, description: "Switch off if the uploaded logo already contains the name." }
+      - { name: favicon, label: Browser tab icon, type: image, description: "Optional. A square image of at least 64 by 64 pixels." }
+      - { name: shareImage, label: Default sharing image, type: image, description: "Shown when a page is shared on WhatsApp, LinkedIn, X or Facebook and has no picture of its own. 1200 by 630 pixels." }
+      - { name: siteUrl, label: Website address, type: string, description: "For example https://www.crgd.org. Used only for local builds; the live site uses the address configured in GitHub Pages." }
+      - { name: visionShort, label: Vision (one line), type: text, description: "Shown in the header beside the logo." }
+      - { name: missionShort, label: Mission (one line), type: text, description: "Shown in the header beside the logo." }
+      - { name: address, label: Full address, type: text }
+      - { name: addressShort, label: Short address, type: string, description: "Shown in the top bar, for example: Pulimoodu, Thiruvananthapuram, Kerala" }
+      - { name: email, label: Main email address, type: string }
+      - { name: mediaEmail, label: Media email address, type: string }
+      - { name: careersEmail, label: Careers email address, type: string, description: "Used for job, fellowship and internship applications." }
+      - { name: submissionsEmail, label: Submissions email address, type: string, description: "Used for article pitches." }
+      - { name: phone, label: Phone number, type: string, description: "Include the country code, for example +91 471 000 0000" }
+      - { name: officeHours, label: Office hours, type: string }
+      - { name: mapEmbedUrl, label: Map embed address, type: string, description: "In Google Maps choose Share, then Embed a map, and copy only the address inside src=\"...\"." }
+      - { name: mapLink, label: Map link, type: string, description: "A normal Google Maps link, used for the Open in maps button." }
+      - name: social
+        label: Social media
+        type: object
+        description: "Paste the full address of each profile. Leave a field empty to hide that icon."
+        fields:
+          - { name: facebook, label: Facebook, type: string }
+          - { name: instagram, label: Instagram, type: string }
+          - { name: x, label: X (Twitter), type: string }
+          - { name: linkedin, label: LinkedIn, type: string }
+          - { name: youtube, label: YouTube, type: string }
+          - { name: whatsappChannel, label: WhatsApp channel, type: string }
+          - { name: threads, label: Threads, type: string }
+          - { name: spotify, label: Spotify (podcast), type: string }
+      - { name: tickerEnabled, label: Show the Latest Updates strip, type: boolean }
+      - { name: tickerLabel, label: Latest Updates strip label, type: string }
+      - { name: subscribeLabel, label: Subscribe heading, type: string }
+      - { name: supportLabel, label: Support button text, type: string }
+      - { name: newsletterFormUrl, label: Newsletter form address, type: string, description: "Optional. The form action address from Mailchimp, Buttondown, Brevo, Zoho Campaigns or similar. When set, sign ups go straight to that service." }
+      - { name: newsletterEmailField, label: Newsletter email field name, type: string, description: "The name your newsletter service uses for the email field, usually email or EMAIL." }
+      - { name: web3formsKey, label: Web3Forms access key, type: string, description: "Free key from web3forms.com. Turns on the contact form, and sends newsletter sign ups to the main email address if no newsletter form address is set." }
+      - { name: donateUrl, label: Online giving link, type: string, description: "Optional. A Razorpay, Instamojo or similar payment page." }
+      - { name: bankAccountName, label: Bank account name, type: string }
+      - { name: bankName, label: Bank name, type: string }
+      - { name: bankAccountNumber, label: Bank account number, type: string }
+      - { name: bankIfsc, label: IFSC code, type: string }
+      - { name: bankBranch, label: Bank branch, type: string }
+      - { name: upiId, label: UPI ID, type: string }
+      - { name: taxNote, label: Tax exemption note, type: text, description: "For example the 80G registration details. Leave empty if not applicable." }
+      - { name: registration, label: Legal registration line, type: text, description: "Shown at the very bottom of every page." }
+      - { name: foundedYear, label: Year founded, type: string }
+      - { name: copyrightHolder, label: Copyright holder, type: string }
+      - { name: footerNote, label: Footer description, type: text }
+      - name: fontPairing
+        label: Fonts
+        type: select
+        description: "Choose the typefaces for the whole website."
+        options:
+          values:
+            - { value: editorial, label: "Editorial: Newsreader headings with Inter text" }
+            - { value: scholarly, label: "Scholarly: Source Serif headings with Source Sans text" }
+            - { value: elegant, label: "Elegant: Cormorant Garamond headings with Montserrat text" }
+            - { value: modern, label: "Modern: Fraunces headings with Manrope text" }
+            - { value: contemporary, label: "Contemporary: DM Serif Display headings with DM Sans text" }
+      - { name: showPlaceholderLabels, label: Show placeholder labels, type: boolean, description: "While on, sample entries carry a yellow Placeholder label. Switch off before launch." }
+      - { name: analyticsId, label: Google Analytics ID, type: string, description: "Optional, for example G-XXXXXXX." }
+
+  - name: home
+    label: Home page
+    type: file
+    path: src/data/home.json
+    fields:
+      - name: hero
+        label: Opening banner
+        type: object
+        fields:
+          - { name: eyebrow, label: Small line above the heading, type: string }
+          - { name: heading, label: Heading, type: text, description: "Put a word between asterisks to set it in italics, for example *public life*." }
+          - { name: text, label: Introduction, type: text }
+          - { name: image, label: Background image, type: image, description: "Optional. Shown faintly behind the blue banner." }
+          - { name: imageAlt, label: Background image description, type: string }
+          - { name: primaryLabel, label: First button text, type: string }
+          - { name: primaryHref, label: First button link, type: string }
+          - { name: secondaryLabel, label: Second button text, type: string }
+          - { name: secondaryHref, label: Second button link, type: string }
+          - { name: featuredPublication, label: Featured publication, type: string, description: "The file name of a publication to feature, for example off-budget-borrowing-transparency. Leave empty to feature the latest publication marked Featured." }
+      - name: about
+        label: Who we are
+        type: object
+        fields:
+          - { name: show, label: Show this section, type: boolean }
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: text, label: Text, type: text }
+          - { name: linkLabel, label: Link text, type: string }
+          - { name: linkHref, label: Link, type: string }
+      - name: latest
+        label: Latest publications
+        type: object
+        fields:
+          - { name: show, label: Show this section, type: boolean }
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: count, label: Number of publications, type: number }
+      - name: centres
+        label: Research verticals
+        type: object
+        fields:
+          - { name: show, label: Show this section, type: boolean }
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: text, label: Text, type: text }
+      - name: numbers
+        label: At a glance figures
+        type: object
+        fields:
+          - { name: show, label: Show this section, type: boolean }
+          - { name: heading, label: Heading, type: string }
+          - { name: note, label: Note under the figures, type: text }
+      - name: events
+        label: Upcoming events
+        type: object
+        fields:
+          - { name: show, label: Show this section, type: boolean }
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: emptyText, label: Text when nothing is scheduled, type: text }
+      - name: programs
+        label: Programs and learning
+        type: object
+        fields:
+          - { name: show, label: Show this section, type: boolean }
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: text, label: Text, type: text }
+      - name: commentary
+        label: Commentary
+        type: object
+        fields:
+          - { name: show, label: Show this section, type: boolean }
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: count, label: Number of pieces, type: number }
+      - name: impact
+        label: Impact
+        type: object
+        fields:
+          - { name: show, label: Show this section, type: boolean }
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: count, label: Number of entries, type: number }
+      - name: founder
+        label: Founder's message
+        type: object
+        fields:
+          - { name: show, label: Show this section, type: boolean }
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: quote, label: Quotation, type: text }
+          - { name: linkLabel, label: Button text, type: string }
+          - { name: linkHref, label: Button link, type: string }
+      - name: media
+        label: In the news
+        type: object
+        fields:
+          - { name: show, label: Show this section, type: boolean }
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: count, label: Number of items, type: number }
+      - name: subscribe
+        label: Subscribe box
+        type: object
+        fields:
+          - { name: show, label: Show this section, type: boolean }
+          - { name: heading, label: Heading, type: string }
+          - { name: text, label: Text, type: text }
+      - name: support
+        label: Support box
+        type: object
+        fields:
+          - { name: show, label: Show this section, type: boolean }
+          - { name: heading, label: Heading, type: string }
+          - { name: text, label: Text, type: text }
+          - { name: buttonLabel, label: Button text, type: string }
+          - { name: buttonHref, label: Button link, type: string }
+
+  - name: navigation
+    label: Main menu
+    type: file
+    path: src/data/navigation.json
+    fields:
+      - name: menus
+        label: Menu headings
+        type: object
+        list: true
+        description: "Each heading opens a large drop down panel. The footer links are built from the same menu."
+        fields:
+          - { name: label, label: Heading, type: string, required: true }
+          - { name: href, label: Overview page link, type: string, required: true }
+          - { name: intro, label: Short introduction, type: text }
+          - name: columns
+            label: Columns
+            type: object
+            list: true
+            fields:
+              - { name: heading, label: Column heading, type: string }
+              - name: autoFill
+                label: Fill automatically
+                type: select
+                description: "Choose Research centres to list every research vertical in this column automatically."
+                options:
+                  values:
+                    - { value: none, label: "No, use the links below" }
+                    - { value: centres, label: "Research centres" }
+              - name: links
+                label: Links
+                type: object
+                list: true
+                fields:
+                  - { name: label, label: Text, type: string }
+                  - { name: href, label: Link, type: string, description: "A page address such as /about, or a full web address." }
+
+  - name: sections
+    label: Section introductions and categories
+    type: file
+    path: src/data/sections.json
+    fields:
+      - name: people
+        label: People
+        type: object
+        fields: &hubWithCategories
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: intro, label: Introduction, type: text }
+          - { name: image, label: Banner image, type: image }
+          - { name: imageAlt, label: Banner image description, type: string }
+          - name: categories
+            label: Categories
+            type: object
+            list: true
+            description: "Edit the names and descriptions here. Keep the web address of existing categories unchanged, because entries refer to it."
+            fields:
+              - { name: slug, label: Web address, type: string }
+              - { name: label, label: Name, type: string }
+              - { name: singular, label: Name for one item, type: string }
+              - { name: description, label: Description, type: text }
+              - { name: groups, label: People groups listed (People only), type: string, list: true }
+      - name: research
+        label: Research
+        type: object
+        fields: &hub
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: intro, label: Introduction, type: text }
+          - { name: image, label: Banner image, type: image }
+          - { name: imageAlt, label: Banner image description, type: string }
+      - { name: learning, label: Learning, type: object, fields: *hubWithCategories }
+      - { name: programs, label: Programs, type: object, fields: *hubWithCategories }
+      - { name: publications, label: Publications, type: object, fields: *hubWithCategories }
+      - { name: impact, label: Impact, type: object, fields: *hubWithCategories }
+      - { name: events, label: Events, type: object, fields: *hub }
+      - { name: media, label: Media, type: object, fields: *hubWithCategories }
+      - { name: careers, label: Careers, type: object, fields: *hub }
+      - { name: annualReports, label: Annual reports, type: object, fields: *hub }
+      - { name: locations, label: Locations, type: object, fields: *hub }
+      - { name: updates, label: Latest updates, type: object, fields: *hub }
+
+  # ------------------------------------------------------------------ #
+  # Pages                                                               #
+  # ------------------------------------------------------------------ #
+  - name: pages
+    label: Pages
+    type: collection
+    path: src/content/pages
+    filename: '{fields.slug}.md'
+    view:
+      fields: [title, section, updated]
+      primary: title
+    fields:
+      - { name: slug, label: Web address, type: string, required: true, description: "Lowercase words joined by hyphens, for example code-of-conduct. Becomes the page address. Set it once, when creating the page." }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: navLabel, label: Short name for menus, type: string }
+      - name: section
+        label: Section
+        type: select
+        description: "Policies appear in the footer. The others decide which pages are listed together in the sidebar."
+        options:
+          values: [About, Careers, Engage, Policies, Standalone]
+      - { name: eyebrow, label: Small heading above the title, type: string }
+      - { name: summary, label: Summary, type: text, required: true, description: "One or two sentences shown under the title and in search results." }
+      - { name: image, label: Image, type: image }
+      - { name: imageAlt, label: Image description, type: string }
+      - { name: imageCaption, label: Image caption, type: string }
+      - { name: person, label: Featured person, type: string, description: "Optional. The People file name of someone to introduce at the top, for example founder." }
+      - { name: showContactForm, label: Show the contact form, type: boolean }
+      - { name: showSubscribeForm, label: Show the subscribe form, type: boolean }
+      - { name: showMap, label: Show the office map, type: boolean }
+      - { name: showDonationDetails, label: Show bank and online giving details, type: boolean }
+      - { name: hideSidebar, label: Hide the sidebar, type: boolean }
+      - { name: updated, label: Last updated, type: date }
+      - { name: order, label: Order, type: number }
+      - { name: placeholder, label: Placeholder, type: boolean, description: "Tick while the page still contains sample text." }
+      - { name: body, label: Content, type: rich-text, description: "You can write {{email}}, {{phone}}, {{careersEmail}}, {{mediaEmail}} or {{submissionsEmail}} and the value from Site settings is filled in." }
+
+  # ------------------------------------------------------------------ #
+  # People                                                              #
+  # ------------------------------------------------------------------ #
+  - name: people
+    label: People
+    type: collection
+    path: src/content/people
+    filename: '{fields.slug}.md'
+    view:
+      fields: [name, role, groups]
+      primary: name
+    fields:
+      - { name: slug, label: Web address, type: string, required: true, description: "The name in lowercase with hyphens, for example anjali-menon. Use this to credit the person on publications and events." }
+      - { name: name, label: Full name, type: string, required: true, description: "Include a title if the person uses one, for example Dr. or Prof." }
+      - { name: photo, label: Photograph, type: image, description: "A portrait, ideally 800 by 1000 pixels. A placeholder with initials is shown until one is uploaded." }
+      - { name: photoAlt, label: Photograph description, type: string }
+      - { name: role, label: Role at CRGD, type: string }
+      - name: groups
+        label: Listed under
+        type: select
+        options:
+          multiple: true
+          values:
+            - { value: founder, label: Founder }
+            - { value: co-founder, label: Co-Founder }
+            - { value: governing-board, label: Governing Board }
+            - { value: advisory-board, label: Advisory Board }
+            - { value: scholar, label: Scholar }
+            - { value: mentor, label: Mentor }
+            - { value: patron, label: Patron }
+            - { value: associate, label: "Team: Associate" }
+            - { value: fellow, label: "Team: Fellow" }
+            - { value: researcher, label: "Team: Researcher" }
+            - { value: intern, label: "Team: Intern" }
+            - { value: contributor, label: "Team: Contributor" }
+      - { name: affiliation, label: Current position or institution, type: string }
+      - name: centres
+        label: Research verticals
+        type: select
+        options: &centres
+          multiple: true
+          values:
+            - { value: governance-finance-accountability, label: "Governance, Finance and Accountability" }
+            - { value: education, label: "Education" }
+            - { value: health-and-demography, label: "Health & Demography" }
+            - { value: employment, label: "Employment" }
+            - { value: federalism, label: "Federalism" }
+            - { value: tourism-and-culture, label: "Tourism & Culture" }
+            - { value: mobility, label: "Mobility" }
+            - { value: agriculture-and-rural-development, label: "Agriculture & Rural Development" }
+            - { value: strategic-affairs-and-planning, label: "Strategic Affairs and Planning" }
+            - { value: science-energy-tech-and-ai, label: "Science, Energy, Tech & AI" }
+            - { value: maritime-economy, label: "Maritime Economy" }
+            - { value: society-law-and-policy, label: "Society, Law and Policy" }
+            - { value: institutions-and-social-justice, label: "Institutions and Social Justice" }
+            - { value: economy, label: "Economy" }
+            - { value: environment-and-disaster-management, label: "Environment & Disaster Management" }
+            - { value: state-and-politics, label: "State & Politics" }
+            - { value: urbanisation, label: "Urbanisation" }
+            - { value: elections-narratives-and-public-perceptions, label: "Elections, Narratives and Public Perceptions" }
+      - { name: expertise, label: Areas of expertise, type: string, list: true }
+      - { name: shortBio, label: Short biography, type: text, description: "Two or three sentences, shown on cards and under articles." }
+      - { name: email, label: Email, type: string }
+      - { name: linkedin, label: LinkedIn, type: string }
+      - { name: x, label: X (Twitter), type: string }
+      - { name: website, label: Website, type: string }
+      - { name: scholar, label: Google Scholar, type: string }
+      - { name: orcid, label: ORCID, type: string }
+      - { name: featured, label: Featured, type: boolean }
+      - { name: order, label: Order, type: number, description: "Lower numbers are listed first." }
+      - { name: placeholder, label: Placeholder, type: boolean, description: "Tick while this is a sample profile." }
+      - { name: body, label: Full biography, type: rich-text }
+
+  # ------------------------------------------------------------------ #
+  # Research                                                            #
+  # ------------------------------------------------------------------ #
+  - name: centres
+    label: Research verticals
+    type: collection
+    path: src/content/centres
+    filename: '{fields.slug}.md'
+    view:
+      fields: [title, order]
+      primary: title
+    fields:
+      - { name: slug, label: Web address, type: string, required: true, description: "Set once. If you add a new vertical, also add it to the Research verticals list in .pages.yml so it can be chosen on other entries." }
+      - { name: title, label: Name, type: string, required: true }
+      - { name: shortTitle, label: One line description, type: string }
+      - { name: summary, label: Summary, type: text, required: true }
+      - { name: image, label: Image, type: image }
+      - { name: imageAlt, label: Image description, type: string }
+      - { name: imageCaption, label: Image caption, type: string }
+      - { name: focusAreas, label: Focus areas, type: string, list: true }
+      - { name: keyQuestions, label: Questions we are asking, type: text, list: true }
+      - { name: leads, label: Leads, type: string, list: true, description: "People web addresses, for example scholar-one." }
+      - { name: featured, label: Featured, type: boolean }
+      - { name: order, label: Order, type: number, description: "Sets the number shown beside the vertical." }
+      - { name: placeholder, label: Placeholder, type: boolean }
+      - { name: body, label: Description, type: rich-text }
+
+  - name: publications
+    label: Publications
+    type: collection
+    path: src/content/publications
+    filename: '{fields.slug}.md'
+    view:
+      fields: [title, type, date]
+      primary: title
+    fields:
+      - { name: slug, label: Web address, type: string, required: true, description: "Short, lowercase, words joined by hyphens. Never change it after publishing." }
+      - { name: title, label: Title, type: string, required: true }
+      - name: type
+        label: Type
+        type: select
+        required: true
+        options:
+          values:
+            - { value: policy-briefs, label: Policy Brief }
+            - { value: long-form, label: Long Form }
+            - { value: policy-reports, label: Policy Report }
+            - { value: analysis, label: Analysis }
+            - { value: special-reports, label: Special Report }
+            - { value: commentary, label: Commentary }
+            - { value: explainers, label: Explainer }
+            - { value: opinion, label: Opinion }
+            - { value: blogs, label: Blog }
+            - { value: young-thoughts, label: Young Thoughts }
+            - { value: expert-view, label: Expert View }
+            - { value: reviews, label: Review }
+            - { value: books-and-journals, label: Book or Journal }
+            - { value: internship-reports, label: Internship Report }
+            - { value: podcasts, label: Podcast }
+            - { value: videos, label: Video }
+      - { name: date, label: Date published, type: date, required: true }
+      - { name: updated, label: Date updated, type: date }
+      - { name: authors, label: Authors, type: string, list: true, description: "A People web address (for example scholar-one) links to the profile. A plain name appears as text, which suits guest authors." }
+      - { name: summary, label: Summary, type: text, required: true, description: "Two sentences, shown on cards and in search results." }
+      - { name: image, label: Cover image, type: image, description: "Landscape, ideally 1600 by 900 pixels." }
+      - { name: imageAlt, label: Cover image description, type: string }
+      - { name: imageCaption, label: Cover image caption and credit, type: string }
+      - { name: centres, label: Research verticals, type: select, options: *centres }
+      - { name: tags, label: Topics, type: string, list: true }
+      - { name: pdf, label: PDF, type: file, description: "Upload the full document. A download button appears." }
+      - { name: mediaUrl, label: Audio or video link, type: string, description: "For podcasts and videos: a YouTube, Vimeo, Spotify or SoundCloud link." }
+      - { name: duration, label: Duration, type: string, description: "For podcasts and videos, for example 32 minutes." }
+      - { name: originallyPublishedIn, label: First published in, type: string, description: "For opinion pieces that first appeared elsewhere, for example the name of a newspaper." }
+      - { name: externalUrl, label: Link to the original, type: string }
+      - { name: pages, label: Number of pages, type: string }
+      - { name: publisher, label: Publisher (books), type: string }
+      - { name: isbn, label: ISBN (books), type: string }
+      - name: language
+        label: Language
+        type: select
+        options:
+          values: [English, Malayalam, Hindi, Bilingual]
+      - { name: featured, label: Featured, type: boolean, description: "Featured publications can appear in the home page banner." }
+      - { name: placeholder, label: Placeholder, type: boolean }
+      - { name: body, label: Full text, type: rich-text }
+
+  # ------------------------------------------------------------------ #
+  # Learning, programs, impact                                          #
+  # ------------------------------------------------------------------ #
+  - name: learning
+    label: Learning
+    type: collection
+    path: src/content/learning
+    filename: '{fields.slug}.md'
+    view:
+      fields: [title, category, status]
+      primary: title
+    fields:
+      - { name: slug, label: Web address, type: string, required: true }
+      - { name: title, label: Title, type: string, required: true }
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          values:
+            - { value: academy, label: CRGD Academy }
+            - { value: courses, label: Course }
+            - { value: dialogue, label: Dialogue }
+            - { value: academic-programs, label: Academic Program }
+            - { value: collaborations, label: Collaboration }
+            - { value: colloquium, label: Colloquium }
+      - name: status
+        label: Status
+        type: select
+        options:
+          values: [Registrations open, Upcoming, Ongoing, Open for partnerships, Registrations closed, Completed]
+      - { name: summary, label: Summary, type: text, required: true }
+      - { name: image, label: Image, type: image }
+      - { name: imageAlt, label: Image description, type: string }
+      - { name: startDate, label: Start date, type: date }
+      - { name: format, label: Format, type: string, description: "For example: Online, In person, Hybrid" }
+      - { name: duration, label: Duration, type: string }
+      - { name: schedule, label: Schedule, type: string }
+      - { name: fee, label: Fee, type: string }
+      - { name: level, label: Level, type: string }
+      - { name: faculty, label: Faculty, type: string, list: true, description: "People web addresses or names." }
+      - { name: outcomes, label: Learning outcomes, type: string, list: true }
+      - { name: partner, label: Partner name, type: string }
+      - { name: partnerLogo, label: Partner logo, type: image }
+      - { name: partnerUrl, label: Partner website, type: string }
+      - { name: registrationUrl, label: Registration link, type: string }
+      - { name: centres, label: Research verticals, type: select, options: *centres }
+      - { name: featured, label: Featured, type: boolean }
+      - { name: order, label: Order, type: number }
+      - { name: placeholder, label: Placeholder, type: boolean }
+      - { name: body, label: Description, type: rich-text }
+
+  - name: programs
+    label: Programs
+    type: collection
+    path: src/content/programs
+    filename: '{fields.slug}.md'
+    view:
+      fields: [title, category, status, deadline]
+      primary: title
+    fields:
+      - { name: slug, label: Web address, type: string, required: true }
+      - { name: title, label: Title, type: string, required: true }
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          values:
+            - { value: fellowships, label: Fellowship }
+            - { value: internships, label: Internship }
+            - { value: coordinator-program, label: Co-ordinator Program }
+            - { value: campus-clubs, label: Campus Club }
+      - name: status
+        label: Status
+        type: select
+        options:
+          values: [Applications open, Rolling applications, Registrations open, Coming soon, Applications closed, Ongoing]
+      - { name: summary, label: Summary, type: text, required: true }
+      - { name: image, label: Image, type: image }
+      - { name: imageAlt, label: Image description, type: string }
+      - { name: deadline, label: Closing date, type: date }
+      - { name: startDate, label: Start date, type: date }
+      - { name: duration, label: Duration, type: string }
+      - { name: commitment, label: Time commitment, type: string }
+      - { name: location, label: Location, type: string }
+      - { name: stipend, label: Stipend, type: string }
+      - { name: eligibility, label: Who can apply, type: string, list: true }
+      - { name: benefits, label: What participants receive, type: string, list: true }
+      - { name: applyUrl, label: Online application link, type: string }
+      - { name: applyEmail, label: Application email, type: string, description: "Leave empty to use the careers email from Site settings." }
+      - { name: centres, label: Research verticals, type: select, options: *centres }
+      - { name: featured, label: Featured, type: boolean }
+      - { name: order, label: Order, type: number }
+      - { name: placeholder, label: Placeholder, type: boolean }
+      - { name: body, label: Description, type: rich-text }
+
+  - name: impact
+    label: Impact
+    type: collection
+    path: src/content/impact
+    filename: '{fields.slug}.md'
+    view:
+      fields: [title, category, status]
+      primary: title
+    fields:
+      - { name: slug, label: Web address, type: string, required: true }
+      - { name: title, label: Title, type: string, required: true }
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          values:
+            - { value: advocacy, label: Advocacy }
+            - { value: ongoing, label: Ongoing }
+            - { value: accomplished, label: Accomplished }
+            - { value: awards-and-honours, label: "Awards & Honours" }
+      - { name: status, label: Status, type: string, description: "For example: Ongoing, Completed" }
+      - { name: summary, label: Summary, type: text, required: true }
+      - { name: image, label: Image, type: image }
+      - { name: imageAlt, label: Image description, type: string }
+      - { name: date, label: Date, type: date }
+      - { name: period, label: Period, type: string, description: "For example: 2026 to 2028" }
+      - { name: awardedBy, label: Awarded by (awards only), type: string }
+      - { name: partners, label: Partners, type: string, list: true }
+      - { name: outcomes, label: Results, type: string, list: true }
+      - { name: people, label: People involved, type: string, list: true }
+      - { name: centres, label: Research verticals, type: select, options: *centres }
+      - { name: featured, label: Featured, type: boolean }
+      - { name: order, label: Order, type: number }
+      - { name: placeholder, label: Placeholder, type: boolean }
+      - { name: body, label: Description, type: rich-text }
+
+  # ------------------------------------------------------------------ #
+  # Events and media                                                    #
+  # ------------------------------------------------------------------ #
+  - name: events
+    label: Events
+    type: collection
+    path: src/content/events
+    filename: '{fields.slug}.md'
+    view:
+      fields: [title, startDate, type]
+      primary: title
+    fields:
+      - { name: slug, label: Web address, type: string, required: true }
+      - { name: title, label: Title, type: string, required: true }
+      - name: type
+        label: Type
+        type: select
+        options:
+          values: [Lecture, Public lecture, Roundtable, Panel discussion, Conference, Workshop, Webinar, Dialogue, Colloquium, Book launch, Seminar]
+      - { name: startDate, label: Date, type: date, required: true, description: "Events move from Upcoming to Past automatically after this date (or the end date)." }
+      - { name: endDate, label: End date, type: date, description: "Only for events longer than a day." }
+      - { name: startTime, label: Start time, type: string, description: "24 hour clock, for example 17:00" }
+      - { name: endTime, label: End time, type: string, description: "24 hour clock, for example 18:30" }
+      - name: mode
+        label: Format
+        type: select
+        options:
+          values: [In person, Online, Hybrid]
+      - { name: venue, label: Venue, type: string }
+      - { name: city, label: City, type: string }
+      - { name: summary, label: Summary, type: text, required: true }
+      - { name: image, label: Image, type: image }
+      - { name: imageAlt, label: Image description, type: string }
+      - { name: speakers, label: Speakers, type: string, list: true, description: "People web addresses or names." }
+      - { name: moderators, label: Moderators, type: string, list: true }
+      - { name: centres, label: Research verticals, type: select, options: *centres }
+      - { name: registrationUrl, label: Registration link, type: string }
+      - { name: registrationNote, label: Entry note, type: string, description: "For example: Free and open to all" }
+      - { name: recordingUrl, label: Recording link, type: string, description: "After the event: a YouTube or Vimeo link." }
+      - { name: reportPdf, label: Event report, type: file }
+      - { name: gallery, label: Photograph album, type: string, description: "The file name of an album in Photographs." }
+      - { name: featured, label: Featured, type: boolean }
+      - { name: placeholder, label: Placeholder, type: boolean }
+      - { name: body, label: Description, type: rich-text }
+
+  - name: media
+    label: Media
+    type: collection
+    path: src/content/media
+    filename: '{fields.slug}.md'
+    view:
+      fields: [title, category, date]
+      primary: title
+    fields:
+      - { name: slug, label: Web address, type: string, required: true }
+      - { name: title, label: Title, type: string, required: true }
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          values:
+            - { value: press-releases, label: Press Release }
+            - { value: interviews, label: Interview }
+            - { value: speeches, label: Speech }
+            - { value: archives, label: Archive }
+            - { value: in-the-news, label: CRGD in News }
+            - { value: mentions, label: Mention }
+      - { name: date, label: Date, type: date, required: true }
+      - { name: outlet, label: Newspaper, channel or forum, type: string }
+      - { name: externalUrl, label: Link to the original, type: string }
+      - { name: summary, label: Summary, type: text }
+      - { name: image, label: Image, type: image }
+      - { name: imageAlt, label: Image description, type: string }
+      - { name: videoUrl, label: Video or audio link, type: string }
+      - { name: pdf, label: PDF, type: file }
+      - { name: people, label: People featured, type: string, list: true }
+      - { name: featured, label: Featured, type: boolean }
+      - { name: placeholder, label: Placeholder, type: boolean }
+      - { name: body, label: Text, type: rich-text }
+
+  - name: galleries
+    label: Photographs
+    type: collection
+    path: src/content/galleries
+    filename: '{fields.slug}.md'
+    view:
+      fields: [title, date]
+      primary: title
+    fields:
+      - { name: slug, label: Web address, type: string, required: true }
+      - { name: title, label: Album title, type: string, required: true }
+      - { name: date, label: Date, type: date, required: true }
+      - { name: location, label: Place, type: string }
+      - { name: summary, label: Summary, type: text }
+      - { name: image, label: Cover image, type: image, description: "Optional. The first photograph is used if empty." }
+      - { name: imageAlt, label: Cover image description, type: string }
+      - { name: event, label: Related event, type: string, description: "The file name of the event, for example budget-decoded-2026." }
+      - name: photos
+        label: Photographs
+        type: object
+        list: true
+        fields:
+          - { name: image, label: Photograph, type: image }
+          - { name: caption, label: Caption, type: string }
+          - { name: credit, label: Photographer, type: string }
+      - { name: placeholder, label: Placeholder, type: boolean }
+      - { name: body, label: Description, type: rich-text }
+
+  # ------------------------------------------------------------------ #
+  # About and careers                                                   #
+  # ------------------------------------------------------------------ #
+  - name: reports
+    label: Annual reports
+    type: collection
+    path: src/content/reports
+    filename: '{fields.slug}.md'
+    view:
+      fields: [title, year]
+      primary: title
+    fields:
+      - { name: slug, label: Web address, type: string, required: true }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: year, label: Year, type: string, required: true, description: "For example 2025–26" }
+      - { name: date, label: Date published, type: date, required: true }
+      - { name: summary, label: Summary, type: text }
+      - { name: image, label: Cover, type: image }
+      - { name: imageAlt, label: Cover description, type: string }
+      - { name: pdf, label: Report PDF, type: file }
+      - { name: highlights, label: Highlights, type: string, list: true }
+      - { name: placeholder, label: Placeholder, type: boolean }
+      - { name: body, label: Introduction, type: rich-text }
+
+  - name: openings
+    label: Job openings
+    type: collection
+    path: src/content/openings
+    filename: '{fields.slug}.md'
+    view:
+      fields: [title, status, deadline]
+      primary: title
+    fields:
+      - { name: slug, label: Web address, type: string, required: true }
+      - { name: title, label: Position, type: string, required: true }
+      - name: status
+        label: Status
+        type: select
+        options:
+          values: [Open, Closed]
+      - name: type
+        label: Type
+        type: select
+        options:
+          values: [Full time, Part time, Contract, Consultant, Volunteer]
+      - { name: team, label: Team or vertical, type: string }
+      - { name: location, label: Location, type: string }
+      - { name: workMode, label: Work mode, type: string, description: "On site, Hybrid or Remote" }
+      - { name: posted, label: Date posted, type: date }
+      - { name: deadline, label: Closing date, type: date }
+      - { name: summary, label: Summary, type: text }
+      - { name: responsibilities, label: Responsibilities, type: string, list: true }
+      - { name: qualifications, label: Qualifications, type: string, list: true }
+      - { name: applyUrl, label: Online application link, type: string }
+      - { name: applyEmail, label: Application email, type: string }
+      - { name: image, label: Image, type: image }
+      - { name: placeholder, label: Placeholder, type: boolean }
+      - { name: body, label: Description, type: rich-text }
+
+  - name: locations
+    label: Locations
+    type: collection
+    path: src/content/locations
+    filename: '{fields.slug}.md'
+    view:
+      fields: [name, status]
+      primary: name
+    fields:
+      - { name: slug, label: Web address, type: string, required: true }
+      - { name: name, label: Name, type: string, required: true }
+      - name: status
+        label: Status
+        type: select
+        options:
+          values: [Headquarters, Regional centre, Planned]
+      - { name: city, label: City, type: string }
+      - { name: address, label: Address, type: text }
+      - { name: phone, label: Phone, type: string }
+      - { name: email, label: Email, type: string }
+      - { name: hours, label: Opening hours, type: string }
+      - { name: mapLink, label: Map link, type: string }
+      - { name: mapEmbedUrl, label: Map embed address, type: string }
+      - { name: summary, label: Summary, type: text }
+      - { name: image, label: Image, type: image, description: "Shown when there is no map." }
+      - { name: imageAlt, label: Image description, type: string }
+      - { name: order, label: Order, type: number }
+      - { name: placeholder, label: Placeholder, type: boolean }
+      - { name: body, label: Description, type: rich-text }
+
+  - name: updates
+    label: Latest updates
+    type: collection
+    path: src/content/updates
+    filename: '{fields.slug}.md'
+    view:
+      fields: [title, date, pinned]
+      primary: title
+    fields:
+      - { name: slug, label: Web address, type: string, required: true }
+      - { name: title, label: Headline, type: string, required: true, description: "Shown in the Latest Updates strip under the menu." }
+      - { name: date, label: Date, type: date, required: true }
+      - { name: summary, label: Summary, type: text }
+      - { name: link, label: Link, type: string, description: "Optional. Where the headline should lead, for example /programs/fellowships. Without a link it opens this update." }
+      - { name: linkLabel, label: Link text, type: string }
+      - { name: ticker, label: Show in the Latest Updates strip, type: boolean }
+      - { name: pinned, label: Pin to the top, type: boolean }
+      - { name: image, label: Image, type: image }
+      - { name: imageAlt, label: Image description, type: string }
+      - { name: placeholder, label: Placeholder, type: boolean }
+      - { name: body, label: Text, type: rich-text }

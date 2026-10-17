@@ -1,0 +1,46 @@
+---
+import ListingPage from '../../../components/ListingPage.astro';
+import ItemCard from '../../../components/ItemCard.astro';
+import { getMedia, href } from '../../../lib/content';
+import { sections, categories, formatDate, type Category } from '../../../lib/site';
+
+export function getStaticPaths() {
+  return categories('media')
+    .filter((c) => c.slug !== 'photographs')
+    .map((c) => ({ params: { category: c.slug }, props: { cat: c } }));
+}
+const { cat } = Astro.props as { cat: Category };
+const items = (await getMedia()).filter((i) => i.data.category === cat.slug);
+const textOnly = ['press-releases', 'in-the-news', 'mentions', 'archives'].includes(cat.slug);
+---
+
+<ListingPage
+  title={cat.label}
+  description={cat.description}
+  eyebrow={sections.media.title}
+  crumbs={[{ label: 'Media', href: '/media' }, { label: cat.label }]}
+  siblings={categories('media').map((c) => ({ label: c.label, href: `/media/${c.slug}` }))}
+  allHref="/media"
+  allLabel="Media centre"
+>
+  {items.length > 0 ? (
+    <div class="grid grid-3">
+      {items.map((m) => (
+        <ItemCard
+          title={m.data.title}
+          link={href.media(m)}
+          label={m.data.outlet || cat.label}
+          summary={m.data.summary}
+          image={m.data.image}
+          imageAlt={m.data.imageAlt}
+          showImage={!textOnly || !!m.data.image}
+          placeholder={m.data.placeholder}
+          mark={m.data.videoUrl ? '▶' : undefined}
+          meta={[formatDate(m.data.date), m.data.outlet ? cat.label : undefined]}
+        />
+      ))}
+    </div>
+  ) : (
+    <div class="empty"><p>Nothing has been added under {cat.label} yet.</p></div>
+  )}
+</ListingPage>

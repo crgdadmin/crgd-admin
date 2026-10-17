@@ -1,0 +1,265 @@
+---
+import Brand from './Brand.astro';
+import Icon from './Icon.astro';
+import { getCentres, href } from '../lib/content';
+import { site, navigation, url, telHref, socialLinks, orgName } from '../lib/site';
+
+const centres = await getCentres();
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const base = url('/').replace(/\/$/, '');
+const local = path.startsWith(base) ? path.slice(base.length) || '/' : path;
+
+const menus = navigation.menus.map((menu, index) => {
+  const columns = menu.columns.map((column) => ({
+    ...column,
+    links:
+      column.autoFill === 'centres'
+        ? [
+            ...centres.map((c, i) => ({ label: c.data.title, href: href.centre(c), number: String(i + 1).padStart(2, '0') })),
+            ...column.links.map((l) => ({ ...l, number: '', all: true })),
+          ]
+        : column.links.map((l) => ({ ...l, number: '' })),
+  }));
+  const hrefs = [menu.href, ...columns.flatMap((c) => c.links.map((l) => l.href))];
+  const section = menu.href.split('/')[1];
+  const active = hrefs.some((h) => h !== '/' && (local === h || local.startsWith(`${h}/`))) || local.split('/')[1] === section;
+  return { ...menu, columns, active, id: `mega-${index}` };
+});
+---
+
+<div class="utility">
+  <div class="wrap">
+    <ul class="utility-contact">
+      {site.email && (
+        <li>
+          <Icon name="mail" />
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </li>
+      )}
+      {site.phone && (
+        <li class="hide-small">
+          <Icon name="phone" />
+          <a href={telHref(site.phone)}>{site.phone}</a>
+        </li>
+      )}
+      {site.addressShort && (
+        <li class="hide-small">
+          <Icon name="pin" />
+          <a href={url('/contact')}>{site.addressShort}</a>
+        </li>
+      )}
+    </ul>
+    <ul class="utility-actions">
+      {socialLinks.length > 0 && (
+        <li>
+          <ul class="social" aria-label="Social media">
+            {socialLinks.map((s) => (
+              <li>
+                <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={`${orgName} on ${s.label}`}>
+                  <Icon name={s.key} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </li>
+      )}
+      <li><a class="label" href={url('/subscribe')}>Subscribe</a></li>
+      <li>
+        <a class="label utility-support" href={url('/support')}>
+          <Icon name="heart" class="icon" />
+          Support {orgName}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <Brand />
+    {(site.visionShort || site.missionShort) && (
+      <dl class="masthead-statements">
+        {site.visionShort && (
+          <div>
+            <dt>Vision</dt>
+            <dd><a href={url('/vision')}>{site.visionShort}</a></dd>
+          </div>
+        )}
+        {site.missionShort && (
+          <div>
+            <dt>Mission</dt>
+            <dd><a href={url('/mission')}>{site.missionShort}</a></dd>
+          </div>
+        )}
+      </dl>
+    )}
+  </div>
+</header>
+
+<nav class="nav" id="site-nav" aria-label="Main" data-menu="closed" data-search="closed">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href={url('/')} aria-label={`${orgName} home`}>
+      {site.logoOnDark ? <img src={url(site.logoOnDark)} alt="" /> : orgName}
+    </a>
+    <div class="nav-collapse" id="nav-collapse">
+      <ul class="nav-list">
+        <li class="nav-home">
+          <a class="nav-trigger" href={url('/')} aria-current={local === '/' ? 'page' : undefined} aria-label="Home">
+            <Icon name="home" />
+          </a>
+        </li>
+        {menus.map((menu) => (
+          <li data-dropdown data-open="false">
+            <button
+              class:list={['nav-trigger', { 'is-active': menu.active }]}
+              type="button"
+              aria-expanded="false"
+              aria-controls={menu.id}
+            >
+              {menu.label}
+              <span class="caret" aria-hidden="true"></span>
+            </button>
+            <div class="mega" id={menu.id}>
+              <div class="wrap mega-inner">
+                <div class="mega-intro">
+                  <h2>{menu.label}</h2>
+                  {menu.intro && <p>{menu.intro}</p>}
+                  <a class="text-link" href={url(menu.href)}>Overview</a>
+                </div>
+                <div class:list={['mega-columns', { 'is-wide': menu.columns.some((c) => c.autoFill === 'centres') }]}>
+                  {menu.columns.map((column) => (
+                    <div>
+                      <h3>{column.heading}</h3>
+                      <ul class:list={{ 'centre-list': column.autoFill === 'centres' }}>
+                        {column.links
+                          .filter((l) => !('all' in l))
+                          .map((link) => (
+                            <li>
+                              <a href={url(link.href)} aria-current={local === link.href ? 'page' : undefined}>
+                                {link.number && <span class="numeral">{link.number}</span>}
+                                <span>{link.label}</span>
+                              </a>
+                            </li>
+                          ))}
+                      </ul>
+                      {column.links
+                        .filter((l) => 'all' in l)
+                        .map((link) => (
+                          <p class="mega-all"><a class="text-link" href={url(link.href)}>{link.label}</a></p>
+                        ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="nav-tools">
+      <button class="icon-button nav-search-toggle" type="button" aria-expanded="false" aria-controls="search-panel" aria-label="Search the website">
+        <Icon name="search" />
+      </button>
+      <button class="icon-button nav-toggle" type="button" aria-expanded="false" aria-controls="nav-collapse" aria-label="Open the menu">
+        <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+  <div class="search-panel" id="search-panel">
+    <div class="wrap">
+      <form action={url('/search')} method="get" role="search">
+        <label class="sr-only" for="nav-q">Search the website</label>
+        <input type="search" id="nav-q" name="q" placeholder="Search publications, people, events and more" autocomplete="off" />
+        <button class="btn btn-light" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const nav = document.getElementById('site-nav');
+  if (nav) {
+    const desktop = window.matchMedia('(min-width: 1024px)');
+    const items = Array.from(nav.querySelectorAll<HTMLElement>('[data-dropdown]'));
+    const menuToggle = nav.querySelector<HTMLButtonElement>('.nav-toggle');
+    const searchToggle = nav.querySelector<HTMLButtonElement>('.nav-search-toggle');
+    const searchInput = nav.querySelector<HTMLInputElement>('#nav-q');
+    let hoverTimer: number | undefined;
+
+    const setOpen = (item: HTMLElement, open: boolean) => {
+      item.dataset.open = String(open);
+      item.querySelector('.nav-trigger')?.setAttribute('aria-expanded', String(open));
+    };
+    const closeAll = (except?: HTMLElement) => items.forEach((i) => i !== except && setOpen(i, false));
+    const setSearch = (open: boolean) => {
+      nav.dataset.search = open ? 'open' : 'closed';
+      searchToggle?.setAttribute('aria-expanded', String(open));
+      if (open) {
+        closeAll();
+        window.setTimeout(() => searchInput?.focus(), 30);
+      }
+    };
+
+    items.forEach((item) => {
+      const trigger = item.querySelector<HTMLButtonElement>('.nav-trigger');
+      trigger?.addEventListener('click', () => {
+        const open = item.dataset.open !== 'true';
+        closeAll(item);
+        setOpen(item, open);
+        setSearch(false);
+      });
+      item.addEventListener('mouseenter', () => {
+        if (!desktop.matches) return;
+        window.clearTimeout(hoverTimer);
+        hoverTimer = window.setTimeout(() => {
+          closeAll(item);
+          setOpen(item, true);
+        }, 90);
+      });
+      item.addEventListener('mouseleave', () => {
+        if (!desktop.matches) return;
+        window.clearTimeout(hoverTimer);
+        hoverTimer = window.setTimeout(() => setOpen(item, false), 160);
+      });
+      item.addEventListener('focusout', (event) => {
+        if (desktop.matches && !item.contains(event.relatedTarget as Node)) setOpen(item, false);
+      });
+    });
+
+    menuToggle?.addEventListener('click', () => {
+      const open = nav.dataset.menu !== 'open';
+      nav.dataset.menu = open ? 'open' : 'closed';
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.setAttribute('aria-label', open ? 'Close the menu' : 'Open the menu');
+      document.body.style.overflow = open && !desktop.matches ? 'hidden' : '';
+      setSearch(false);
+    });
+
+    searchToggle?.addEventListener('click', () => setSearch(nav.dataset.search !== 'open'));
+
+    document.addEventListener('click', (event) => {
+      if (!nav.contains(event.target as Node)) {
+        closeAll();
+        setSearch(false);
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      const open = items.find((i) => i.dataset.open === 'true');
+      closeAll();
+      setSearch(false);
+      open?.querySelector<HTMLButtonElement>('.nav-trigger')?.focus();
+    });
+    desktop.addEventListener('change', () => {
+      nav.dataset.menu = 'closed';
+      document.body.style.overflow = '';
+      closeAll();
+    });
+
+    // Show a compact name in the bar once the masthead has scrolled away.
+    const masthead = document.querySelector('.masthead');
+    if (masthead && 'IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => nav.classList.toggle('is-stuck', !entry.isIntersecting)).observe(masthead);
+    }
+  }
+</script>

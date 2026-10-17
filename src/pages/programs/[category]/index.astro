@@ -1,0 +1,42 @@
+---
+import ListingPage from '../../../components/ListingPage.astro';
+import ItemCard from '../../../components/ItemCard.astro';
+import { getPrograms, href } from '../../../lib/content';
+import { sections, categories, formatDate, type Category } from '../../../lib/site';
+
+export function getStaticPaths() {
+  return categories('programs').map((c) => ({ params: { category: c.slug }, props: { cat: c } }));
+}
+const { cat } = Astro.props as { cat: Category };
+const items = (await getPrograms()).filter((p) => p.data.category === cat.slug);
+---
+
+<ListingPage
+  title={cat.label}
+  description={cat.description}
+  eyebrow={sections.programs.title}
+  crumbs={[{ label: 'Programs', href: '/programs' }, { label: cat.label }]}
+  siblings={categories('programs').map((c) => ({ label: c.label, href: `/programs/${c.slug}` }))}
+  allHref="/programs"
+  allLabel="All programs"
+>
+  {items.length > 0 ? (
+    <div class="grid grid-3">
+      {items.map((p) => (
+        <ItemCard
+          title={p.data.title}
+          link={href.program(p)}
+          label={cat.label}
+          summary={p.data.summary}
+          image={p.data.image}
+          imageAlt={p.data.imageAlt}
+          status={p.data.status}
+          placeholder={p.data.placeholder}
+          meta={[p.data.deadline ? `Apply by ${formatDate(p.data.deadline)}` : undefined, p.data.duration, p.data.location]}
+        />
+      ))}
+    </div>
+  ) : (
+    <div class="empty"><p>There are no {cat.label.toLowerCase()} listed at the moment. Subscribe to email updates to hear when the next call opens.</p></div>
+  )}
+</ListingPage>

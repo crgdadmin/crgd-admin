@@ -1,0 +1,70 @@
+name: Build and deploy the website
+
+on:
+  # Every save in Pages CMS is a commit to main, so the site rebuilds after each edit.
+  push:
+    branches: [main]
+  # Rebuild every night at midnight India time, so events move from
+  # "Upcoming" to "Past" on their own.
+  schedule:
+    - cron: '30 18 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Read the GitHub Pages address
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Install
+        run: npm ci
+
+      - name: Check content files
+        run: node scripts/check-frontmatter.mjs
+
+      - name: Build the website
+        run: npm run build
+        env:
+          SITE_URL: ${{ steps.pages.outputs.origin }}
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+
+      - name: Check internal links
+        run: npm run check-links
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+
+      - name: Upload the website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

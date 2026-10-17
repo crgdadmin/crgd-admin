@@ -1,0 +1,141 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Picture from '../components/Picture.astro';
+import AsideNav from '../components/AsideNav.astro';
+import ContactForm from '../components/ContactForm.astro';
+import SubscribeForm from '../components/SubscribeForm.astro';
+import PlaceholderNote from '../components/PlaceholderNote.astro';
+import Icon from '../components/Icon.astro';
+import { getCollection, render } from 'astro:content';
+import { getPages, resolvePeople, href } from '../lib/content';
+import { site, navigation, url, formatDate, telHref, orgName } from '../lib/site';
+
+export async function getStaticPaths() {
+  // These addresses belong to listing pages built elsewhere in src/pages.
+  const reserved = new Set(['people', 'research', 'learning', 'programs', 'publications', 'impact', 'events', 'media', 'careers', 'annual-reports', 'locations', 'updates', 'search', '404', 'index', 'home']);
+  const pages = await getCollection('pages');
+  return pages.filter((p) => !reserved.has(p.id)).map((page) => ({ params: { page: page.id }, props: { page } }));
+}
+
+const { page } = Astro.props;
+const d = page.data;
+const { Content } = await render(page);
+
+// The sidebar lists the menu column this page belongs to, or else the pages in the same section.
+const all = await getPages();
+const own = `/${page.id}`;
+const column = navigation.menus.flatMap((m) => m.columns).find((c) => c.links.some((l) => l.href === own));
+const sectionLinks = column
+  ? column.links
+  : all.filter((p) => p.data.section === d.section).map((p) => ({ label: p.data.navLabel || p.data.title, href: href.page(p) }));
+const sidebarHeading = column?.heading ?? (d.section === 'Policies' ? 'Policies' : 'In this section');
+
+const [featured] = d.person ? await resolvePeople([d.person]) : [];
+const crumbs =
+  d.section === 'About'
+    ? [{ label: 'About', href: '/about' }, { label: d.navLabel || d.title }]
+    : [{ label: d.navLabel || d.title }];
+if (page.id === 'about') crumbs.splice(0, 1);
+---
+
+<Base title={d.title} description={d.summary} image={d.image} imageAlt={d.imageAlt}>
+  <PageHead eyebrow={d.eyebrow || d.section} title={d.title} lede={d.summary} crumbs={crumbs} image={d.image} />
+
+  <section class="band">
+    <div class:list={['wrap', 'layout-main', { 'no-aside': d.hideSidebar }]}>
+      <div>
+        <PlaceholderNote show={d.placeholder} what="page" />
+
+        {featured?.person && (
+          <div class="author-box" style="margin-bottom:2.5rem">
+            <div class="avatar large">
+              <Picture src={featured.person.data.photo} alt={featured.person.data.photoAlt || featured.name} name={featured.name} variant="fill" />
+            </div>
+            <div>
+              <h3><a href={url(featured.href!)}>{featured.name}</a></h3>
+              {featured.person.data.role && <p class="meta" style="margin:0">{featured.person.data.role}</p>}
+              {featured.person.data.shortBio && <p>{featured.person.data.shortBio}</p>}
+            </div>
+          </div>
+        )}
+
+        {d.image && (
+          <figure style="margin:0 0 2.5rem">
+            <Picture src={d.image} alt={d.imageAlt} variant="wide" />
+            {d.imageCaption && <figcaption class="figure-caption">{d.imageCaption}</figcaption>}
+          </figure>
+        )}
+
+        <div class="prose">
+          <Content />
+        </div>
+
+        {d.showDonationDetails && (
+          <div class="grid grid-2" style="margin-top:3rem" id="give">
+            <div class="aside-box">
+              <h2>Bank transfer</h2>
+              <dl class="facts">
+                <div><dt>Account name</dt><dd>{site.bankAccountName}</dd></div>
+                <div><dt>Bank</dt><dd>{site.bankName}</dd></div>
+                <div><dt>Account number</dt><dd>{site.bankAccountNumber}</dd></div>
+                <div><dt>IFSC</dt><dd>{site.bankIfsc}</dd></div>
+                <div><dt>Branch</dt><dd>{site.bankBranch}</dd></div>
+                {site.upiId && <div><dt>UPI</dt><dd>{site.upiId}</dd></div>}
+              </dl>
+              {site.taxNote && <p class="meta" style="margin-top:1rem">{site.taxNote}</p>}
+            </div>
+            <div class="aside-box dark on-dark">
+              <h2>Give online</h2>
+              <p>
+                {site.donateUrl
+                  ? `Contributions can be made securely online. You will receive a receipt from ${orgName} by email.`
+                  : `Online giving will open shortly. Until then, please use a bank transfer and email us the details so we can send a receipt.`}
+              </p>
+              {site.donateUrl ? (
+                <a class="btn btn-light" href={site.donateUrl} target="_blank" rel="noopener noreferrer">Contribute online</a>
+              ) : (
+                <a class="btn btn-light" href={`mailto:${site.email}?subject=${encodeURIComponent(`Supporting ${orgName}`)}`}>Write to us</a>
+              )}
+            </div>
+          </div>
+        )}
+
+        {d.showSubscribeForm && (
+          <div class="aside-box" style="margin-top:3rem">
+            <h2>{site.subscribeLabel}</h2>
+            <SubscribeForm id="page-subscribe" light showName />
+          </div>
+        )}
+
+        {d.showContactForm && (
+          <div style="margin-top:3.5rem">
+            <ContactForm />
+          </div>
+        )}
+
+        {d.showMap && site.mapEmbedUrl && (
+          <div style="margin-top:3rem">
+            <iframe class="map" src={site.mapEmbedUrl} title={`Map showing the ${orgName} office`} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        )}
+
+        {d.updated && <p class="meta" style="margin-top:3rem">Last updated {formatDate(d.updated)}</p>}
+      </div>
+
+      {!d.hideSidebar && (
+        <aside class="aside">
+          <AsideNav links={sectionLinks} heading={sidebarHeading} />
+          <div class="aside-box">
+            <h2>Contact</h2>
+            <ul class="footer-contact" style="margin:0">
+              {site.address && <li><Icon name="pin" /><span>{site.address}</span></li>}
+              {site.email && <li><Icon name="mail" /><a href={`mailto:${site.email}`}>{site.email}</a></li>}
+              {site.phone && <li><Icon name="phone" /><a href={telHref(site.phone)}>{site.phone}</a></li>}
+            </ul>
+          </div>
+        </aside>
+      )}
+    </div>
+  </section>
+</Base>

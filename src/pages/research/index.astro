@@ -1,0 +1,59 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Spectrum from '../../components/Spectrum.astro';
+import Picture from '../../components/Picture.astro';
+import CtaPair from '../../components/CtaPair.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import PublicationCard from '../../components/PublicationCard.astro';
+import { getCentres, getPublications, href } from '../../lib/content';
+import { sections, url } from '../../lib/site';
+
+const centres = await getCentres();
+const publications = await getPublications();
+const s = sections.research;
+const counts = new Map(centres.map((c) => [c.id, publications.filter((p) => p.data.centres.includes(c.id)).length]));
+---
+
+<Base title={s.title} description={s.intro}>
+  <PageHead eyebrow={s.eyebrow} title={s.title} lede={s.intro} image={s.image} crumbs={[{ label: 'Research' }]} />
+
+  <section class="band">
+    <div class="wrap">
+      <SectionHead eyebrow="At a glance" title={`${centres.length} research verticals`} text="Choose a vertical to read its questions, see who works on it and find everything it has published." />
+      <Spectrum items={centres.map((c) => ({ title: c.data.title, href: href.centre(c), summary: c.data.summary }))} />
+    </div>
+  </section>
+
+  <section class="band band-tint">
+    <div class="wrap">
+      <SectionHead eyebrow="In detail" title="Research centres" />
+      <div class="grid grid-3">
+        {centres.map((c, i) => (
+          <article class="card">
+            <Picture src={c.data.image} alt={c.data.imageAlt} label={`Vertical ${String(i + 1).padStart(2, '0')}`} mark={String(i + 1).padStart(2, '0')} seed={c.id} placeholder={c.data.placeholder} />
+            <div class="card-body">
+              <h3><a href={url(href.centre(c))}>{c.data.title}</a></h3>
+              {c.data.summary && <p>{c.data.summary}</p>}
+              {c.data.focusAreas.length > 0 && (
+                <ul class="tag-row">{c.data.focusAreas.slice(0, 4).map((f) => <li><span class="tag">{f}</span></li>)}</ul>
+              )}
+              <p class="card-foot">{counts.get(c.id) ?? 0} publications</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {publications.length > 0 && (
+    <section class="band">
+      <div class="wrap">
+        <SectionHead eyebrow="New" title="Recent research" link="/publications" linkLabel="All publications" />
+        <div class="grid grid-3">{publications.filter((p) => !['podcasts', 'videos'].includes(p.data.type)).slice(0, 3).map((p) => <PublicationCard item={p} />)}</div>
+      </div>
+    </section>
+  )}
+
+  <CtaPair id="research" />
+</Base>

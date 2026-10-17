@@ -1,0 +1,239 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import PeopleGroup from '../../components/PeopleGroup.astro';
+import Picture from '../../components/Picture.astro';
+import PublicationCard from '../../components/PublicationCard.astro';
+import EventCard from '../../components/EventCard.astro';
+import ItemCard from '../../components/ItemCard.astro';
+import AsideNav from '../../components/AsideNav.astro';
+import PlaceholderNote from '../../components/PlaceholderNote.astro';
+import Share from '../../components/Share.astro';
+import Icon from '../../components/Icon.astro';
+import Waves from '../../components/Waves.astro';
+import { render } from 'astro:content';
+import {
+  getPeople,
+  getPublications,
+  getEvents,
+  getMedia,
+  getLearning,
+  getImpact,
+  centresFor,
+  personMatches,
+  groupLabels,
+  groupPage,
+  href,
+  type Person,
+} from '../../lib/content';
+import { categories, category, sections, url, formatDate, categoryLabel } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const people = await getPeople();
+  const groups = categories('people');
+  const groupSlugs = new Set(groups.map((g) => g.slug));
+  return [
+    ...groups.map((g) => ({ params: { slug: g.slug }, props: { kind: 'group' as const, group: g.slug } })),
+    ...people
+      .filter((p) => !groupSlugs.has(p.id))
+      .map((person) => ({ params: { slug: person.id }, props: { kind: 'person' as const, person } })),
+  ];
+}
+
+type Props = { kind: 'group'; group: string } | { kind: 'person'; person: Person };
+const props = Astro.props as Props;
+const people = await getPeople();
+const groupLinks = [{ label: 'All people', href: '/people' }, ...categories('people').map((g) => ({ label: g.label, href: `/people/${g.slug}` }))];
+
+let groupView: ReturnType<typeof category> | undefined;
+let person: Person | undefined;
+if (props.kind === 'group') groupView = category('people', props.group);
+else person = props.person;
+
+const profile = person
+  ? await (async () => {
+      const d = person.data;
+      const { Content } = await render(person);
+      const [pubs, events, media, learning, impact, centres] = await Promise.all([
+        getPublications(),
+        getEvents(),
+        getMedia(),
+        getLearning(),
+        getImpact(),
+        centresFor(d.centres),
+      ]);
+      return {
+        d,
+        Content,
+        centres,
+        pubs: pubs.filter((p) => personMatches(person!, p.data.authors)),
+        events: events.filter((e) => personMatches(person!, [...e.data.speakers, ...e.data.moderators])),
+        media: media.filter((m) => personMatches(person!, m.data.people)),
+        teaching: learning.filter((l) => personMatches(person!, l.data.faculty)),
+        impact: impact.filter((i) => personMatches(person!, i.data.people)),
+        hasBody: !!person.body?.trim(),
+      };
+    })()
+  : undefined;
+
+const links = profile
+  ? [
+      profile.d.email && { icon: 'mail', label: 'Email', href: `mailto:${profile.d.email}` },
+      profile.d.linkedin && { icon: 'linkedin', label: 'LinkedIn', href: profile.d.linkedin },
+      profile.d.x && { icon: 'x', label: 'X', href: profile.d.x },
+      profile.d.website && { icon: 'globe', label: 'Website', href: profile.d.website },
+      profile.d.scholar && { icon: 'book', label: 'Google Scholar', href: profile.d.scholar },
+      profile.d.orcid && { icon: 'link', label: 'ORCID', href: profile.d.orcid },
+    ].filter(Boolean) as { icon: string; label: string; href: string }[]
+  : [];
+
+const personSchema = profile && person
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: profile.d.name,
+      jobTitle: profile.d.role,
+      description: profile.d.shortBio,
+      knowsAbout: profile.d.expertise,
+      url: new URL(url(href.person(person)), Astro.site).toString(),
+      sameAs: links.filter((l) => l.href.startsWith('http')).map((l) => l.href),
+    }
+  : undefined;
+---
+
+{groupView && (
+  <Base title={groupView.label} description={groupView.description}>
+    <PageHead
+      eyebrow="People"
+      title={groupView.label}
+      lede={groupView.description}
+      crumbs={[{ label: 'About', href: '/about' }, { label: 'People', href: '/people' }, { label: groupView.label }]}
+    />
+    <section class="band">
+      <div class="wrap layout-main">
+        <div>
+          <PeopleGroup people={people} groups={groupView.groups ?? []} split={(groupView.groups?.length ?? 0) > 1} showBio />
+        </div>
+        <aside class="aside">
+          <AsideNav links={groupLinks} heading="People" />
+          <div class="aside-box">
+            <h2>Join us</h2>
+            <p>Fellowships, internships and positions at CRGD are listed on the careers page.</p>
+            <a class="btn btn-outline" href={url('/careers')}>Careers</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </Base>
+)}
+
+{profile && person && (
+  <Base title={profile.d.name} description={profile.d.shortBio || `${profile.d.name}, ${profile.d.role ?? ''}`} image={profile.d.photo} type="profile" schema={personSchema}>
+    <section class="page-head" style="padding-bottom:clamp(2rem,1.5rem + 2vw,3rem)">
+      <Waves lines={10} opacity={0.1} />
+      <div class="wrap">
+        <nav aria-label="Breadcrumb">
+          <ol class="crumbs">
+            <li><a href={url('/')}>Home</a></li>
+            <li><a href={url('/people')}>People</a></li>
+            <li><span aria-current="page">{profile.d.name}</span></li>
+          </ol>
+        </nav>
+        <div class="profile-head">
+          <div class="profile-photo">
+            <Picture src={profile.d.photo} alt={profile.d.photoAlt || `Photograph of ${profile.d.name}`} name={profile.d.name} variant="fill" eager placeholder={profile.d.placeholder} />
+          </div>
+          <div>
+            <ul class="tag-row" style="margin-bottom:1rem">
+              {profile.d.groups.map((g) => {
+                const link = groupPage(g);
+                return <li>{link ? <a class="tag" href={url(link)}>{groupLabels[g]?.replace(/s$/, '') ?? g}</a> : <span class="tag">{g}</span>}</li>;
+              })}
+            </ul>
+            <h1 style="margin-bottom:0.4rem">{profile.d.name}</h1>
+            {profile.d.role && <p class="lede" style="margin:0">{profile.d.role}</p>}
+            {profile.d.affiliation && <p class="meta" style="margin-top:0.4rem">{profile.d.affiliation}</p>}
+            {links.length > 0 && (
+              <ul class="share" style="margin-top:1.2rem">
+                {links.map((l) => (
+                  <li><a href={l.href} target={l.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" aria-label={l.label} title={l.label}><Icon name={l.icon} /></a></li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap layout-main">
+        <div>
+          <PlaceholderNote show={profile.d.placeholder} what="profile" />
+          {profile.d.shortBio && <p class="lede" style="color:var(--ink)">{profile.d.shortBio}</p>}
+          {profile.hasBody && <div class="prose"><profile.Content /></div>}
+
+          {profile.pubs.length > 0 && (
+            <div class="group-block">
+              <div class="group-head"><h2>Publications</h2><span class="meta">{profile.pubs.length}</span></div>
+              <div class="grid grid-2">{profile.pubs.slice(0, 8).map((p) => <PublicationCard item={p} />)}</div>
+            </div>
+          )}
+          {profile.events.length > 0 && (
+            <div class="group-block">
+              <div class="group-head"><h2>Events</h2></div>
+              <div class="grid grid-2">{profile.events.slice(0, 6).map((e) => <EventCard event={e} />)}</div>
+            </div>
+          )}
+          {profile.teaching.length > 0 && (
+            <div class="group-block">
+              <div class="group-head"><h2>Teaching</h2></div>
+              <div class="grid grid-2">
+                {profile.teaching.map((l) => (
+                  <ItemCard title={l.data.title} link={href.learning(l)} label={categoryLabel('learning', l.data.category)} summary={l.data.summary} showImage={false} />
+                ))}
+              </div>
+            </div>
+          )}
+          {(profile.media.length > 0 || profile.impact.length > 0) && (
+            <div class="group-block">
+              <div class="group-head"><h2>In the media and in practice</h2></div>
+              <ul class="item-list">
+                {profile.media.map((m) => (
+                  <li>
+                    <p class="label card-type">{m.data.outlet || categoryLabel('media', m.data.category)}</p>
+                    <h3><a href={url(href.media(m))}>{m.data.title}</a></h3>
+                    <p class="meta">{formatDate(m.data.date)}</p>
+                  </li>
+                ))}
+                {profile.impact.map((i) => (
+                  <li>
+                    <p class="label card-type">{categoryLabel('impact', i.data.category)}</p>
+                    <h3><a href={url(href.impact(i))}>{i.data.title}</a></h3>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+        <aside class="aside">
+          {profile.d.expertise.length > 0 && (
+            <div class="aside-box">
+              <h2>Expertise</h2>
+              <ul class="tag-row">{profile.d.expertise.map((e) => <li><span class="tag">{e}</span></li>)}</ul>
+            </div>
+          )}
+          {profile.centres.length > 0 && (
+            <nav class="aside-box aside-nav" aria-label="Research areas">
+              <h2>Research areas</h2>
+              <ul>{profile.centres.map((c) => <li><a href={url(href.centre(c))}>{c.data.title}</a></li>)}</ul>
+            </nav>
+          )}
+          <div class="aside-box">
+            <h2>Share this profile</h2>
+            <Share title={`${profile.d.name}, ${sections.people.title}`} />
+          </div>
+        </aside>
+      </div>
+    </section>
+  </Base>
+)}

@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import EventCard from '../../components/EventCard.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import CtaPair from '../../components/CtaPair.astro';
+import { splitEvents } from '../../lib/content';
+import { sections } from '../../lib/site';
+
+const s = sections.events;
+const { upcoming, past } = await splitEvents();
+---
+
+<Base title={s.title} description={s.intro}>
+  <PageHead eyebrow={s.eyebrow} title={s.title} lede={s.intro} image={s.image} crumbs={[{ label: 'Events' }]} />
+  <section class="band">
+    <div class="wrap">
+      <SectionHead eyebrow="Coming up" title="Upcoming events" link="/events/upcoming" linkLabel="All upcoming" />
+      {upcoming.length > 0 ? (
+        <div class="grid grid-3">{upcoming.slice(0, 6).map((e) => <EventCard event={e} image />)}</div>
+      ) : (
+        <div class="empty"><p>No events are scheduled right now. Subscribe to email updates to hear about the next one.</p></div>
+      )}
+    </div>
+  </section>
+  {past.length > 0 && (
+    <section class="band band-tint">
+      <div class="wrap">
+        <SectionHead eyebrow="Archive" title="Past events" link="/events/past" linkLabel="All past events" />
+        <div class="grid grid-3">{past.slice(0, 6).map((e) => <EventCard event={e} />)}</div>
+      </div>
+    </section>
+  )}
+  <CtaPair id="events" />
+</Base>

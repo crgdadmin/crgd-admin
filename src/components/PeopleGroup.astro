@@ -1,0 +1,33 @@
+---
+import PersonCard from './PersonCard.astro';
+import { groupLabels, type Person } from '../lib/content';
+
+/* A heading and a grid of people. The Team listing splits into its sub groups. */
+interface Props {
+  people: Person[];
+  groups: string[];
+  split?: boolean;
+  showBio?: boolean;
+}
+const { people, groups, split = false, showBio = false } = Astro.props;
+const blocks = split
+  ? groups
+      .map((g) => ({ group: g, label: groupLabels[g] ?? g, members: people.filter((p) => p.data.groups.includes(g)) }))
+      .filter((b) => b.members.length > 0)
+  : [{ group: '', label: '', members: people.filter((p) => p.data.groups.some((g) => groups.includes(g))) }];
+---
+
+{blocks.map((block) => (
+  <div class="group-block" id={block.group || undefined}>
+    {block.label && (
+      <div class="group-head"><h3 style="margin:0">{block.label}</h3><span class="meta">{block.members.length}</span></div>
+    )}
+    {block.members.length > 0 ? (
+      <div class="grid grid-4">
+        {block.members.map((p) => <PersonCard person={p} showBio={showBio} />)}
+      </div>
+    ) : (
+      <div class="empty"><p>Profiles will be added here shortly.</p></div>
+    )}
+  </div>
+))}

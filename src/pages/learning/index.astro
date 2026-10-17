@@ -1,0 +1,51 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import CategoryTiles from '../../components/CategoryTiles.astro';
+import ItemCard from '../../components/ItemCard.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import CtaPair from '../../components/CtaPair.astro';
+import { getLearning, href } from '../../lib/content';
+import { sections, categories, categoryLabel, formatDate } from '../../lib/site';
+
+const s = sections.learning;
+const items = await getLearning();
+const current = items.filter((i) => /open|ongoing|upcoming|soon/i.test(i.data.status)).slice(0, 6);
+const tiles = categories('learning').map((c) => ({
+  label: c.label,
+  href: `/learning/${c.slug}`,
+  description: c.description,
+  count: items.filter((i) => i.data.category === c.slug).length,
+  countLabel: 'listed',
+}));
+---
+
+<Base title={s.title} description={s.intro}>
+  <PageHead eyebrow={s.eyebrow} title={s.title} lede={s.intro} image={s.image} crumbs={[{ label: 'Learning' }]} />
+  <section class="band">
+    <div class="wrap"><CategoryTiles items={tiles} /></div>
+  </section>
+  {current.length > 0 && (
+    <section class="band band-tint">
+      <div class="wrap">
+        <SectionHead eyebrow="Now enrolling" title="Courses, dialogues and programs" />
+        <div class="grid grid-3">
+          {current.map((i) => (
+            <ItemCard
+              title={i.data.title}
+              link={href.learning(i)}
+              label={categoryLabel('learning', i.data.category)}
+              summary={i.data.summary}
+              image={i.data.image}
+              imageAlt={i.data.imageAlt}
+              status={i.data.status}
+              placeholder={i.data.placeholder}
+              meta={[i.data.startDate ? `Starts ${formatDate(i.data.startDate)}` : undefined, i.data.format]}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+  <CtaPair id="learning" />
+</Base>

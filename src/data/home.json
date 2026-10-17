@@ -1,0 +1,88 @@
+{
+  "hero": {
+    "eyebrow": "Independent public policy research · Thiruvananthapuram",
+    "heading": "Bridging evidence and the decisions that shape public life.",
+    "text": "CRGD studies how Kerala and India are governed, and puts what it finds in front of the people who make, implement and live with public policy. Our work is independent, non partisan and free to read.",
+    "image": "",
+    "imageAlt": "",
+    "primaryLabel": "Explore our research",
+    "primaryHref": "/research",
+    "secondaryLabel": "Read the latest publications",
+    "secondaryHref": "/publications",
+    "featuredPublication": ""
+  },
+  "about": {
+    "show": true,
+    "eyebrow": "Who we are",
+    "heading": "A bridge between research, citizens and decision makers",
+    "text": "Public policy in India is too often made without good evidence and debated without good faith. CRGD was founded to change that, starting from Kerala. We produce rigorous research, translate it for the people who need it, and create spaces where students, officials, scholars and citizens can reason through hard questions together.",
+    "linkLabel": "Read our story",
+    "linkHref": "/about"
+  },
+  "centres": {
+    "show": true,
+    "eyebrow": "Research",
+    "heading": "Eighteen verticals, one standard of evidence",
+    "text": "Each research vertical is led by people who know its subject and its institutions. Choose a vertical to see its questions, its people and its publications."
+  },
+  "latest": {
+    "show": true,
+    "eyebrow": "Publications",
+    "heading": "Latest research and analysis",
+    "count": 6
+  },
+  "numbers": {
+    "show": true,
+    "heading": "CRGD at a glance",
+    "note": "These figures are counted automatically from the website's content and change as new work is published."
+  },
+  "events": {
+    "show": true,
+    "eyebrow": "Events",
+    "heading": "Upcoming events",
+    "emptyText": "No events are scheduled at the moment. Subscribe to email updates to hear about the next one."
+  },
+  "programs": {
+    "show": true,
+    "eyebrow": "Programs and learning",
+    "heading": "Learn public policy by doing it",
+    "text": "Fellowships, internships, campus clubs and the CRGD Academy offer a way in for students, young professionals and mid career practitioners."
+  },
+  "commentary": {
+    "show": true,
+    "eyebrow": "Commentary",
+    "heading": "Opinion, commentary and young voices",
+    "count": 5
+  },
+  "impact": {
+    "show": true,
+    "eyebrow": "Impact",
+    "heading": "From findings to change",
+    "count": 3
+  },
+  "founder": {
+    "show": true,
+    "eyebrow": "A message from our founder",
+    "quote": "A policy is a promise made in public. Our job is to help that promise be made well, kept honestly and examined without fear.",
+    "linkLabel": "Read the founder's message",
+    "linkHref": "/our-founder"
+  },
+  "media": {
+    "show": true,
+    "eyebrow": "Media",
+    "heading": "CRGD in the news",
+    "count": 4
+  },
+  "subscribe": {
+    "show": true,
+    "heading": "Subscribe to email updates",
+    "text": "One email a fortnight with our newest research, upcoming events and calls for applications. No spam, and you can unsubscribe at any time."
+  },
+  "support": {
+    "show": true,
+    "heading": "Support CRGD: The Public Policy Bridge",
+    "text": "Independent research depends on people who value it. Your contribution funds fellowships, field work and free public events, and it never buys a conclusion.",
+    "buttonLabel": "Ways to support",
+    "buttonHref": "/support"
+  }
+}

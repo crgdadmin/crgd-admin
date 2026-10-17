@@ -1,0 +1,23 @@
+---
+import { url } from '../lib/site';
+
+interface Props {
+  items: { label: string; href: string; description?: string; count?: number; countLabel?: string }[];
+  dark?: boolean;
+  numbered?: boolean;
+}
+const { items, dark = false, numbered = true } = Astro.props;
+---
+
+<div class="grid grid-3">
+  {items.map((item, i) => (
+    <a class:list={['tile', { 'tile-dark': dark }]} href={url(item.href)}>
+      {numbered && <span class="numeral" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>}
+      <h3>{item.label}</h3>
+      {item.description && <p>{item.description}</p>}
+      {typeof item.count === 'number' && (
+        <span class="count">{item.count} {item.countLabel ?? (item.count === 1 ? 'item' : 'items')}</span>
+      )}
+    </a>
+  ))}
+</div>

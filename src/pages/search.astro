@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { url, orgName } from '../lib/site';
+---
+
+<Base title="Search" description={`Search publications, people, events, programs and pages across the ${orgName} website.`}>
+  <PageHead eyebrow="Find" title="Search" lede={`Search across publications, people, research centres, events, programs, courses, media and every page on the ${orgName} website.`} crumbs={[{ label: 'Search' }]} light />
+
+  <section class="band">
+    <div class="wrap-narrow" style="max-width:calc(900px + var(--gutter) * 2)">
+      <form class="subscribe-form light" id="search-form" role="search" data-index={url('/search-index.json')}>
+        <label class="sr-only" for="q">Search terms</label>
+        <input type="search" id="q" name="q" placeholder="For example: fiscal federalism, fellowship, migration" autocomplete="off" style="flex:1 1 20rem" />
+        <button class="btn" type="submit">Search</button>
+      </form>
+      <ul class="pills" id="search-types" style="margin-top:1.4rem" hidden></ul>
+      <p class="result-count" id="search-status" role="status" aria-live="polite">Type a word or a phrase to search the whole website.</p>
+      <ul class="item-list" id="search-results"></ul>
+    </div>
+  </section>
+</Base>
+
+<script>
+  type Entry = { type: string; title: string; summary: string; url: string; body: string; date?: string };
+  const form = document.getElementById('search-form') as HTMLFormElement;
+  const input = document.getElementById('q') as HTMLInputElement;
+  const list = document.getElementById('search-results')!;
+  const status = document.getElementById('search-status')!;
+  const typesBar = document.getElementById('search-types')!;
+  let index: Entry[] | null = null;
+  let activeType = '';
+
+  const load = async () => {
+    if (!index) index = await (await fetch(form.dataset.index!)).json();
+    return index!;
+  };
+  const escapeHtml = (v: string) => v.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+  const highlight = (text: string, words: string[]) => {
+    let out = escapeHtml(text);
+    words.forEach((w) => {
+      if (w.length < 2) return;
+      out = out.replace(new RegExp(`(${w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'), '<mark>$1</mark>');
+    });
+    return out;
+  };
+
+  const run = async (term: string) => {
+    const query = term.trim().toLowerCase();
+    if (!query) {
+      list.innerHTML = '';
+      typesBar.hidden = true;
+      status.textContent = 'Type a word or a phrase to search the whole website.';
+      return;
+    }
+    const data = await load();
+    const words = query.split(/\s+/).filter(Boolean);
+    const scored = data
+      .map((item) => {
+        const title = item.title.toLowerCase();
+        const hay = `${title} ${item.summary} ${item.body}`.toLowerCase();
+        if (!words.every((w) => hay.includes(w))) return null;
+        const score = words.reduce((s, w) => s + (title.includes(w) ? 5 : 0) + (item.summary.toLowerCase().includes(w) ? 2 : 0) + 1, 0) + (title.includes(query) ? 10 : 0);
+        return { item, score };
+      })
+      .filter((x): x is { item: Entry; score: number } => !!x)
+      .sort((a, b) => b.score - a.score || (b.item.date ?? '').localeCompare(a.item.date ?? ''));
+
+    const types = [...new Set(scored.map((s) => s.item.type))];
+    if (activeType && !types.includes(activeType)) activeType = '';
+    typesBar.hidden = types.length < 2;
+    typesBar.innerHTML = ['', ...types]
+      .map((t) => `<li><a href="#" data-type="${escapeHtml(t)}" ${t === activeType ? 'aria-current="page"' : ''}>${t ? escapeHtml(t) : 'All results'} <span class="meta">${t ? scored.filter((s) => s.item.type === t).length : scored.length}</span></a></li>`)
+      .join('');
+
+    const shown = scored.filter((s) => !activeType || s.item.type === activeType).slice(0, 60);
+    status.textContent = scored.length
+      ? `${scored.length} ${scored.length === 1 ? 'result' : 'results'} for “${term.trim()}”.`
+      : `Nothing matches “${term.trim()}”. Try a single keyword, a surname, or browse the publications.`;
+    list.innerHTML = shown
+      .map(
+        ({ item }) => `<li>
+          <p class="label card-type">${escapeHtml(item.type)}${item.date ? `<span class="dot">${escapeHtml(item.date)}</span>` : ''}</p>
+          <h3><a href="${item.url}">${highlight(item.title, words)}</a></h3>
+          ${item.summary ? `<p>${highlight(item.summary, words)}</p>` : ''}
+        </li>`,
+      )
+      .join('');
+    const params = new URLSearchParams({ q: term.trim() });
+    history.replaceState(null, '', `?${params}`);
+  };
+
+  let timer: number | undefined;
+  form.addEventListener('submit', (e) => { e.preventDefault(); run(input.value); });
+  input.addEventListener('input', () => { window.clearTimeout(timer); timer = window.setTimeout(() => run(input.value), 160); });
+  typesBar.addEventListener('click', (e) => {
+    const a = (e.target as HTMLElement).closest('a');
+    if (!a) return;
+    e.preventDefault();
+    activeType = a.dataset.type ?? '';
+    run(input.value);
+  });
+  const initial = new URLSearchParams(window.location.search).get('q');
+  if (initial) { input.value = initial; run(initial); } else { input.focus(); }
+</script>
+
+<style>
+  :global(#search-results mark) { background: var(--mist-blue); color: var(--deep-navy); padding: 0 0.1em; border-radius: 2px; }
+</style>

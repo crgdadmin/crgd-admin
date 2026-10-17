@@ -1,0 +1,22 @@
+---
+import Picture from './Picture.astro';
+import { href, type Person } from '../lib/content';
+import { url } from '../lib/site';
+
+interface Props {
+  person: Person;
+  showBio?: boolean;
+}
+const { person, showBio = false } = Astro.props;
+const d = person.data;
+---
+
+<article class="card person-card">
+  <Picture src={d.photo} alt={d.photoAlt || `Photograph of ${d.name}`} name={d.name} variant="portrait" placeholder={d.placeholder} />
+  <div class="card-body">
+    <h3><a href={url(href.person(person))}>{d.name}</a></h3>
+    {d.role && <p class="role">{d.role}</p>}
+    {d.affiliation && <p class="affiliation">{d.affiliation}</p>}
+    {showBio && d.shortBio && <p>{d.shortBio}</p>}
+  </div>
+</article>

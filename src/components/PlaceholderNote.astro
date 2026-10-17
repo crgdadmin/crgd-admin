@@ -1,0 +1,20 @@
+---
+import { showPlaceholders } from '../lib/site';
+
+/* A visible reminder, shown only while "Show placeholder labels" is on in Site settings. */
+interface Props {
+  show?: boolean;
+  what?: string;
+}
+const { show = false, what = 'entry' } = Astro.props;
+---
+
+{show && showPlaceholders && (
+  <div class="placeholder-note" role="note">
+    <span aria-hidden="true">✎</span>
+    <span>
+      <strong>Placeholder {what}.</strong> This text and any images are samples that show how the page will look. Replace
+      them in the CMS, then switch off the "Placeholder" tick box on this entry.
+    </span>
+  </div>
+)}

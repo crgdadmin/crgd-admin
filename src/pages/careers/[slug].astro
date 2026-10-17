@@ -1,0 +1,75 @@
+---
+import DetailPage from '../../components/DetailPage.astro';
+import { render } from 'astro:content';
+import { getOpenings, href, type Opening } from '../../lib/content';
+import { formatDate, site } from '../../lib/site';
+
+export async function getStaticPaths() {
+  return (await getOpenings()).map((item) => ({ params: { slug: item.id }, props: { item } }));
+}
+const { item } = Astro.props as { item: Opening };
+const d = item.data;
+const { Content } = await render(item);
+const openings = await getOpenings();
+const email = d.applyEmail || site.careersEmail;
+const open = d.status === 'Open';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'JobPosting',
+  title: d.title,
+  description: d.summary,
+  datePosted: d.posted?.toISOString().slice(0, 10),
+  validThrough: d.deadline?.toISOString().slice(0, 10),
+  employmentType: d.type.toUpperCase().replace(/\s+/g, '_'),
+  hiringOrganization: { '@type': 'Organization', name: site.fullName },
+  jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: 'Thiruvananthapuram', addressRegion: 'Kerala', addressCountry: 'IN' } },
+};
+---
+
+<DetailPage
+  title={d.title}
+  description={d.summary}
+  eyebrow={`${d.type}${d.team ? ` · ${d.team}` : ''}`}
+  crumbs={[{ label: 'Careers', href: '/careers' }, { label: d.title }]}
+  image={d.image}
+  imageAlt={d.imageAlt}
+  placeholder={d.placeholder}
+  what="job opening"
+  schema={open ? schema : undefined}
+  facts={[
+    { label: 'Status', value: d.status },
+    { label: 'Apply by', value: d.deadline ? formatDate(d.deadline) : undefined },
+    { label: 'Type', value: d.type },
+    { label: 'Location', value: d.location },
+    { label: 'Work mode', value: d.workMode },
+    { label: 'Posted', value: d.posted ? formatDate(d.posted) : undefined },
+  ]}
+  actions={open ? [
+    { label: 'Apply online', href: d.applyUrl, primary: true, icon: 'external' },
+    { label: 'Apply by email', href: email ? `mailto:${email}?subject=${encodeURIComponent(`Application: ${d.title}`)}` : undefined, primary: !d.applyUrl, icon: 'mail' },
+  ] : []}
+  navHeading="Other openings"
+  navLinks={openings.filter((o) => o.id !== item.id).map((o) => ({ label: o.data.title, href: href.opening(o) }))}
+>
+  <Content />
+  <Fragment slot="after">
+    {d.responsibilities.length > 0 && (
+      <div class="group-block">
+        <div class="group-head"><h2>What you will do</h2></div>
+        <ul class="prose">{d.responsibilities.map((r) => <li>{r}</li>)}</ul>
+      </div>
+    )}
+    {d.qualifications.length > 0 && (
+      <div class="group-block">
+        <div class="group-head"><h2>What we are looking for</h2></div>
+        <ul class="prose">{d.qualifications.map((q) => <li>{q}</li>)}</ul>
+      </div>
+    )}
+    {open && (
+      <div class="notice" style="margin-top:2.5rem">
+        <p>To apply, send a CV, a cover letter of no more than one page and one writing sample to <a href={`mailto:${email}`}>{email}</a> with the position title in the subject line. CRGD is an equal opportunity employer and welcomes applications from women, persons with disabilities and people from historically marginalised communities.</p>
+      </div>
+    )}
+  </Fragment>
+</DetailPage>

@@ -1,0 +1,64 @@
+---
+import DetailPage from '../../../components/DetailPage.astro';
+import { render } from 'astro:content';
+import { getMedia, resolvePeople, href, type MediaItem } from '../../../lib/content';
+import { categoryLabel, categories, formatDate, url, embedUrl, isAudio, joinNames } from '../../../lib/site';
+
+export async function getStaticPaths() {
+  const valid = new Set(categories('media').map((c) => c.slug));
+  return (await getMedia())
+    .filter((m) => valid.has(m.data.category) && m.data.category !== 'photographs')
+    .map((item) => ({ params: { category: item.data.category, slug: item.id }, props: { item } }));
+}
+const { item } = Astro.props as { item: MediaItem };
+const d = item.data;
+const { Content } = await render(item);
+const label = categoryLabel('media', d.category);
+const siblings = (await getMedia()).filter((m) => m.data.category === d.category).slice(0, 12);
+const people = await resolvePeople(d.people);
+const player = embedUrl(d.videoUrl);
+const external = d.category === 'in-the-news' || d.category === 'mentions';
+---
+
+<DetailPage
+  title={d.title}
+  description={d.summary}
+  eyebrow={d.outlet ? `${label} · ${d.outlet}` : label}
+  crumbs={[{ label: 'Media', href: '/media' }, { label, href: `/media/${d.category}` }, { label: d.title }]}
+  image={d.image}
+  imageAlt={d.imageAlt}
+  imageCaption={d.imageCaption}
+  showImage={!player}
+  placeholder={d.placeholder}
+  what={label.toLowerCase()}
+  type="article"
+  published={d.date}
+  facts={[
+    { label: 'Date', value: formatDate(d.date) },
+    { label: external ? 'Published in' : 'Outlet', value: d.outlet },
+    { label: 'Featuring', value: joinNames(people.map((p) => p.name)) || undefined },
+  ]}
+  actions={[
+    { label: external ? 'Read the original' : 'View source', href: d.externalUrl, primary: true, icon: 'external' },
+    { label: 'Download PDF', href: d.pdf, icon: 'download' },
+  ]}
+  navHeading={label}
+  navLinks={siblings.map((m) => ({ label: m.data.title, href: href.media(m) }))}
+>
+  <Content />
+  <Fragment slot="before">
+    {player && (
+      <div class:list={['embed', { audio: isAudio(d.videoUrl) }]} style="margin-bottom:2.5rem">
+        <iframe src={player} title={d.title} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    )}
+  </Fragment>
+  <Fragment slot="aside">
+    {people.some((p) => p.href) && (
+      <nav class="aside-box aside-nav" aria-label="People">
+        <h2>People</h2>
+        <ul>{people.filter((p) => p.href).map((p) => <li><a href={url(p.href!)}>{p.name}</a></li>)}</ul>
+      </nav>
+    )}
+  </Fragment>
+</DetailPage>

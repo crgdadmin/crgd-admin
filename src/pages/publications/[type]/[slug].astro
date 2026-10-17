@@ -1,0 +1,232 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Picture from '../../../components/Picture.astro';
+import PublicationCard from '../../../components/PublicationCard.astro';
+import PlaceholderNote from '../../../components/PlaceholderNote.astro';
+import Share from '../../../components/Share.astro';
+import CtaPair from '../../../components/CtaPair.astro';
+import Waves from '../../../components/Waves.astro';
+import Icon from '../../../components/Icon.astro';
+import { render } from 'astro:content';
+import { getPublications, resolvePeople, centresFor, relatedPublications, publicationTypeLabel, href, type Publication } from '../../../lib/content';
+import { categories, url, asset, formatDate, readingTime, embedUrl, isAudio, joinNames, orgTitle, orgFullName, site } from '../../../lib/site';
+
+export async function getStaticPaths() {
+  const valid = new Set(categories('publications').map((c) => c.slug));
+  return (await getPublications())
+    .filter((p) => valid.has(p.data.type))
+    .map((item) => ({ params: { type: item.data.type, slug: item.id }, props: { item } }));
+}
+
+const { item } = Astro.props as { item: Publication };
+const d = item.data;
+const { Content, headings } = await render(item);
+const all = await getPublications();
+const authors = await resolvePeople(d.authors);
+const centres = await centresFor(d.centres);
+const related = relatedPublications(all, item, 3);
+const typeLabel = publicationTypeLabel(d.type);
+const typePlural = publicationTypeLabel(d.type, false);
+const minutes = readingTime(item.body);
+const player = embedUrl(d.mediaUrl);
+const toc = headings.filter((h) => h.depth === 2);
+const canonical = new URL(url(href.publication(item)), Astro.site).toString();
+const year = formatDate(d.date, 'year');
+const citation = `${authors.length ? joinNames(authors.map((a) => a.name)) : orgFullName} (${year}). ${d.title}. ${typeLabel}. ${orgTitle}, Thiruvananthapuram.${d.isbn ? ` ISBN ${d.isbn}.` : ''} ${canonical}`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': d.type === 'videos' ? 'VideoObject' : d.type === 'podcasts' ? 'PodcastEpisode' : d.type === 'books-and-journals' ? 'Book' : 'Article',
+  headline: d.title,
+  name: d.title,
+  description: d.summary,
+  datePublished: d.date.toISOString(),
+  dateModified: (d.updated ?? d.date).toISOString(),
+  uploadDate: d.type === 'videos' ? d.date.toISOString() : undefined,
+  thumbnailUrl: d.type === 'videos' && d.image ? new URL(asset(d.image), Astro.site).toString() : undefined,
+  author: authors.map((a) => ({ '@type': 'Person', name: a.name, url: a.href ? new URL(url(a.href), Astro.site).toString() : undefined })),
+  publisher: { '@type': 'Organization', name: orgFullName },
+  image: d.image ? new URL(asset(d.image), Astro.site).toString() : undefined,
+  isbn: d.isbn,
+  inLanguage: d.language === 'Malayalam' ? 'ml' : d.language === 'Hindi' ? 'hi' : 'en',
+  mainEntityOfPage: canonical,
+  keywords: d.tags.join(', ') || undefined,
+};
+---
+
+<Base title={d.title} description={d.summary} image={d.image} imageAlt={d.imageAlt} type="article" published={d.date} modified={d.updated} authors={authors.map((a) => a.name)} schema={schema}>
+  <section class="page-head">
+    <Waves lines={10} opacity={0.1} />
+    <div class="wrap">
+      <nav aria-label="Breadcrumb">
+        <ol class="crumbs">
+          <li><a href={url('/')}>Home</a></li>
+          <li><a href={url('/publications')}>Publications</a></li>
+          <li><a href={url(href.publicationType(d.type))}>{typePlural}</a></li>
+          <li><span aria-current="page">{d.title.length > 60 ? `${d.title.slice(0, 58)}…` : d.title}</span></li>
+        </ol>
+      </nav>
+      <p class="eyebrow">{typeLabel}{centres[0] && <span class="dot">{centres[0].data.title}</span>}</p>
+      <h1>{d.title}</h1>
+      {d.summary && <p class="lede">{d.summary}</p>}
+      <div class="byline">
+        {authors.map((a) => (
+          <div class="person-row">
+            <div class="avatar"><Picture src={a.person?.data.photo} alt="" name={a.name} variant="fill" /></div>
+            <div style="line-height:1.3">
+              {a.href ? <a href={url(a.href)}>{a.name}</a> : <span style="color:#fff;font-weight:500">{a.name}</span>}
+              {a.person?.data.role && <div class="meta" style="font-size:0.8rem">{a.person.data.role}</div>}
+            </div>
+          </div>
+        ))}
+        <p class="byline-meta" style="margin:0">
+          <time datetime={d.date.toISOString()}>{formatDate(d.date)}</time>
+          {d.duration ? <span class="dot">{d.duration}</span> : <span class="dot">{minutes} min read</span>}
+          {d.language && d.language !== 'English' && <span class="dot">{d.language}</span>}
+          {d.updated && <span class="dot">Updated {formatDate(d.updated)}</span>}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap layout-main">
+      <article>
+        <PlaceholderNote show={d.placeholder} what={typeLabel.toLowerCase()} />
+
+        {player && (
+          <div class:list={['embed', { audio: isAudio(d.mediaUrl) }]} style="margin-bottom:2.5rem">
+            <iframe src={player} title={d.title} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        )}
+
+        {!player && (d.image || d.placeholder) && (
+          <figure style="margin:0 0 2.5rem">
+            <Picture src={d.image} alt={d.imageAlt} label={typeLabel} seed={item.id} variant="wide" eager />
+            {d.imageCaption && <figcaption class="figure-caption">{d.imageCaption}</figcaption>}
+          </figure>
+        )}
+
+        {d.originallyPublishedIn && (
+          <p class="notice" style="margin-bottom:2rem">
+            This piece was first published in {d.externalUrl ? <a href={d.externalUrl} target="_blank" rel="noopener noreferrer">{d.originallyPublishedIn}</a> : d.originallyPublishedIn}.
+          </p>
+        )}
+
+        <div class="prose"><Content /></div>
+
+        {d.tags.length > 0 && (
+          <ul class="tag-row" style="margin-top:2.5rem" aria-label="Topics">
+            {d.tags.map((t) => <li><a class="tag" href={url(`/search?q=${encodeURIComponent(t)}`)}>{t}</a></li>)}
+          </ul>
+        )}
+
+        {d.type === 'opinion' || d.type === 'expert-view' || d.type === 'young-thoughts' || d.type === 'blogs' ? (
+          <p class="meta" style="margin-top:2rem">The views expressed are the author's own and do not represent an institutional position of {orgTitle}.</p>
+        ) : null}
+
+        {authors.some((a) => a.person) && (
+          <div class="group-block">
+            <div class="group-head"><h2>About the {authors.length > 1 ? 'authors' : 'author'}</h2></div>
+            {authors.filter((a) => a.person).map((a) => (
+              <div class="author-box">
+                <div class="avatar large"><Picture src={a.person!.data.photo} alt="" name={a.name} variant="fill" /></div>
+                <div>
+                  <h3><a href={url(a.href!)}>{a.name}</a></h3>
+                  {a.person!.data.role && <p class="meta" style="margin:0">{a.person!.data.role}</p>}
+                  {a.person!.data.shortBio && <p>{a.person!.data.shortBio}</p>}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </article>
+
+      <aside class="aside">
+        {(d.pdf || d.externalUrl) && (
+          <div class="aside-box dark on-dark">
+            <h2>Read the full {typeLabel.toLowerCase()}</h2>
+            {d.pdf && (
+              <a class="btn btn-light" href={asset(d.pdf)} download><Icon name="download" />Download PDF</a>
+            )}
+            {d.externalUrl && !d.originallyPublishedIn && (
+              <a class="btn btn-ghost" href={d.externalUrl} target="_blank" rel="noopener noreferrer"><Icon name="external" />Open link</a>
+            )}
+            {(d.pages || d.isbn || d.publisher) && (
+              <p class="meta" style="margin:1rem 0 0">{[d.pages && `${d.pages} pages`, d.publisher, d.isbn && `ISBN ${d.isbn}`].filter(Boolean).join(' · ')}</p>
+            )}
+          </div>
+        )}
+        {toc.length >= 3 && (
+          <nav class="aside-box toc" aria-label="Contents">
+            <h2>Contents</h2>
+            <ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+          </nav>
+        )}
+        {centres.length > 0 && (
+          <nav class="aside-box aside-nav" aria-label="Research areas">
+            <h2>Research areas</h2>
+            <ul>{centres.map((c) => <li><a href={url(href.centre(c))}>{c.data.title}</a></li>)}</ul>
+          </nav>
+        )}
+        <div class="aside-box">
+          <h2>Cite this</h2>
+          <p class="cite-box" id="citation">{citation}</p>
+          <button class="btn btn-outline btn-small" type="button" data-copy="#citation">Copy citation</button>
+        </div>
+        <div class="aside-box">
+          <h2>Share</h2>
+          <Share title={d.title} />
+          <p class="meta" style="margin:1rem 0 0">Free to republish with credit. <a href={url('/copyright-and-republishing')}>Republishing rules</a></p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  {related.length > 0 && (
+    <section class="band band-tint related">
+      <div class="wrap">
+        <div class="section-head"><h2>Related reading</h2><a class="text-link" href={url('/publications')}>All publications</a></div>
+        <div class="grid grid-3">{related.map((p) => <PublicationCard item={p} />)}</div>
+      </div>
+    </section>
+  )}
+
+  <CtaPair id="publication" />
+</Base>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const text = document.querySelector(button.dataset.copy!)?.textContent ?? '';
+      try {
+        await navigator.clipboard.writeText(text.trim());
+        const label = button.textContent;
+        button.textContent = 'Copied';
+        window.setTimeout(() => (button.textContent = label), 1600);
+      } catch {
+        window.prompt('Copy this citation', text.trim());
+      }
+    });
+  });
+
+  // Highlight the section being read in the contents list.
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.toc a'));
+  if (links.length && 'IntersectionObserver' in window) {
+    const map = new Map(links.map((a) => [decodeURIComponent(a.hash.slice(1)), a]));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          links.forEach((a) => a.classList.remove('is-active'));
+          map.get(entry.target.id)?.classList.add('is-active');
+        });
+      },
+      { rootMargin: '-20% 0px -70% 0px' },
+    );
+    map.forEach((_, id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+  }
+</script>

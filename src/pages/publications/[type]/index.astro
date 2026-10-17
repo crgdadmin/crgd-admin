@@ -1,0 +1,46 @@
+---
+import ListingPage from '../../../components/ListingPage.astro';
+import PublicationCard from '../../../components/PublicationCard.astro';
+import { getPublications } from '../../../lib/content';
+import { sections, categories, type Category } from '../../../lib/site';
+
+export function getStaticPaths() {
+  return categories('publications').map((c) => ({ params: { type: c.slug }, props: { cat: c } }));
+}
+const { cat } = Astro.props as { cat: Category };
+const items = (await getPublications()).filter((p) => p.data.type === cat.slug);
+---
+
+<ListingPage
+  title={cat.label}
+  description={cat.description}
+  eyebrow={sections.publications.title}
+  crumbs={[{ label: 'Publications', href: '/publications' }, { label: cat.label }]}
+  siblings={categories('publications').map((c) => ({ label: c.label, href: `/publications/${c.slug}` }))}
+  allHref="/publications"
+  allLabel="All publications"
+>
+  {items.length > 0 ? (
+    <div class="grid grid-3" data-paged>
+      {items.map((p, i) => <PublicationCard item={p} eager={i < 3} />)}
+    </div>
+  ) : (
+    <div class="empty"><p>No {cat.label.toLowerCase()} have been published yet. Subscribe to email updates to be told when the first one appears.</p></div>
+  )}
+  <div class="load-more"><button class="btn btn-outline" type="button" data-more hidden>Show more</button></div>
+</ListingPage>
+
+<script>
+  const grid = document.querySelector<HTMLElement>('[data-paged]');
+  const more = document.querySelector<HTMLButtonElement>('[data-more]');
+  if (grid && more) {
+    const items = Array.from(grid.children) as HTMLElement[];
+    let shown = 12;
+    const render = () => {
+      items.forEach((el, i) => (el.hidden = i >= shown));
+      more.hidden = items.length <= shown;
+    };
+    more.addEventListener('click', () => { shown += 12; render(); });
+    render();
+  }
+</script>

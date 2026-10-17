@@ -1,0 +1,326 @@
+---
+import Base from '../layouts/Base.astro';
+import Waves from '../components/Waves.astro';
+import Picture from '../components/Picture.astro';
+import PublicationCard from '../components/PublicationCard.astro';
+import EventCard from '../components/EventCard.astro';
+import ItemCard from '../components/ItemCard.astro';
+import SectionHead from '../components/SectionHead.astro';
+import Spectrum from '../components/Spectrum.astro';
+import CtaPair from '../components/CtaPair.astro';
+import Icon from '../components/Icon.astro';
+import {
+  getCentres,
+  getPublications,
+  splitEvents,
+  getPeople,
+  getPrograms,
+  getLearning,
+  getImpact,
+  getMedia,
+  resolvePeople,
+  href,
+  publicationTypeLabel,
+} from '../lib/content';
+import { home, site, url, formatDate, categories, categoryLabel, orgName, orgFullName, sections } from '../lib/site';
+
+const [centres, publications, { upcoming, past }, people, programs, learning, impact, media] = await Promise.all([
+  getCentres(),
+  getPublications(),
+  splitEvents(),
+  getPeople(),
+  getPrograms(),
+  getLearning(),
+  getImpact(),
+  getMedia(),
+]);
+
+const listen = ['podcasts', 'videos'];
+const commentaryTypes = ['commentary', 'opinion', 'blogs', 'young-thoughts', 'expert-view', 'explainers'];
+const research = publications.filter((p) => !listen.includes(p.data.type));
+
+const hero = home.hero;
+const featured =
+  publications.find((p) => p.id === hero.featuredPublication) ??
+  research.find((p) => p.data.featured) ??
+  research[0];
+
+const latest = research.filter((p) => p.id !== featured?.id && !commentaryTypes.includes(p.data.type)).slice(0, home.latest.count || 6);
+const commentary = publications.filter((p) => commentaryTypes.includes(p.data.type)).slice(0, home.commentary.count || 5);
+const commentaryAuthors = await Promise.all(commentary.map((p) => resolvePeople(p.data.authors)));
+const listening = publications.filter((p) => listen.includes(p.data.type)).slice(0, 2);
+const founder = people.find((p) => p.data.groups.includes('founder'));
+const news = media.filter((m) => ['in-the-news', 'mentions', 'interviews'].includes(m.data.category)).slice(0, home.media.count || 4);
+const impactItems = [...impact.filter((i) => i.data.featured), ...impact.filter((i) => !i.data.featured)].slice(0, home.impact.count || 3);
+const nextEvents = (upcoming.length ? upcoming : past).slice(0, 3);
+
+const programCats = categories('programs').map((c) => ({
+  ...c,
+  count: programs.filter((p) => p.data.category === c.slug).length,
+}));
+
+const stats = [
+  { value: centres.length, label: 'Research verticals' },
+  { value: research.length, label: 'Publications' },
+  { value: upcoming.length + past.length, label: 'Events convened' },
+  { value: programs.length + learning.length, label: 'Programs and courses' },
+  { value: people.length, label: 'People in the network' },
+];
+
+const headingHtml = hero.heading.replace(/\*(.+?)\*/g, '<em>$1</em>');
+---
+
+<Base
+  title="Home"
+  description={`${orgName} (${orgFullName}) is an independent public policy research institution in Thiruvananthapuram. ${site.missionShort ?? ''}`}
+>
+  <section class="hero on-dark">
+    {hero.image && (
+      <div class="hero-bg" aria-hidden="true"><img src={url(hero.image)} alt="" fetchpriority="high" /></div>
+    )}
+    <Waves />
+    <div class="wrap hero-grid">
+      <div>
+        {hero.eyebrow && <p class="eyebrow">{hero.eyebrow}</p>}
+        <h1 set:html={headingHtml} />
+        <p class="lede">{hero.text}</p>
+        <div class="btn-row">
+          <a class="btn btn-light" href={url(hero.primaryHref)}>{hero.primaryLabel}</a>
+          <a class="btn btn-ghost" href={url(hero.secondaryHref)}>{hero.secondaryLabel}</a>
+        </div>
+      </div>
+      {featured && (
+        <aside class="hero-feature" aria-label="Featured publication">
+          <Picture
+            src={featured.data.image}
+            alt={featured.data.imageAlt}
+            label={publicationTypeLabel(featured.data.type)}
+            seed={featured.id}
+            placeholder={featured.data.placeholder}
+            eager
+          />
+          <p class="label" style="color:var(--cloud-blue)">Featured · {publicationTypeLabel(featured.data.type)}</p>
+          <h2><a href={url(href.publication(featured))}>{featured.data.title}</a></h2>
+          {featured.data.summary && <p>{featured.data.summary}</p>}
+          <a class="text-link" style="color:#fff" href={url(href.publication(featured))}>Read now</a>
+        </aside>
+      )}
+    </div>
+  </section>
+  <div class="palette-strip" aria-hidden="true">{Array.from({ length: 10 }, () => <span></span>)}</div>
+
+  {home.about.show && (
+    <section class="band">
+      <div class="wrap split-wide split" style="align-items:start">
+        <div>
+          <p class="eyebrow">{home.about.eyebrow}</p>
+          <h2>{home.about.heading}</h2>
+          <p class="lede">{home.about.text}</p>
+          <p><a class="text-link" href={url(home.about.linkHref)}>{home.about.linkLabel}</a></p>
+        </div>
+        <ol class="spectrum statements" aria-label="Vision, mission and values">
+          {[
+            { label: 'Vision', text: site.visionShort, link: '/vision', bg: '#112a46', fg: '#fff' },
+            { label: 'Mission', text: site.missionShort, link: '/mission', bg: '#34506d', fg: '#fff' },
+            { label: 'Values', text: 'Independence, rigour, openness and respect for every citizen the policy will touch.', link: '/our-approach', bg: '#e1e8f0', fg: '#0a1b2e' },
+          ].map((row, i) => (
+            <li>
+              <a href={url(row.link)} style={`--bg:${row.bg};--fg:${row.fg}`}>
+                <span class="numeral">{String(i + 1).padStart(2, '0')}</span>
+                <span class="rule" aria-hidden="true"></span>
+                <span class="name">{row.label}<span class="desc">{row.text}</span></span>
+                <Icon name="arrow" class="go" />
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  )}
+
+  {home.latest.show && latest.length > 0 && (
+    <section class="band band-tint">
+      <div class="wrap">
+        <SectionHead eyebrow={home.latest.eyebrow} title={home.latest.heading} link="/publications" linkLabel="All publications" />
+        <div class="grid grid-3">
+          {latest.map((p) => <PublicationCard item={p} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {home.centres.show && (
+    <section class="band">
+      <div class="wrap">
+        <SectionHead eyebrow={home.centres.eyebrow} title={home.centres.heading} text={home.centres.text} link="/research" linkLabel="All research" />
+        <Spectrum items={centres.map((c) => ({ title: c.data.title, href: href.centre(c), summary: c.data.shortTitle }))} twoColumns descriptions={false} />
+      </div>
+    </section>
+  )}
+
+  {home.numbers.show && (
+    <section class="band band-dark on-dark" style="position:relative;overflow:hidden;isolation:isolate">
+      <Waves lines={10} opacity={0.08} />
+      <div class="wrap">
+        <div class="section-head"><h2>{home.numbers.heading}</h2></div>
+        <div class="stats">
+          {stats.map((s) => (
+            <div><span class="numeral">{String(s.value).padStart(2, '0')}</span><span class="label">{s.label}</span></div>
+          ))}
+        </div>
+        {home.numbers.note && <p class="meta" style="margin-top:1.6rem">{home.numbers.note}</p>}
+      </div>
+    </section>
+  )}
+
+  {home.events.show && (
+    <section class="band">
+      <div class="wrap">
+        <SectionHead
+          eyebrow={home.events.eyebrow}
+          title={upcoming.length ? home.events.heading : 'Recent events'}
+          link={upcoming.length ? '/events/upcoming' : '/events/past'}
+          linkLabel={upcoming.length ? 'All upcoming events' : 'Past events'}
+        />
+        {nextEvents.length > 0 ? (
+          <div class="grid grid-3">{nextEvents.map((e) => <EventCard event={e} image />)}</div>
+        ) : (
+          <div class="empty"><p>{home.events.emptyText}</p></div>
+        )}
+      </div>
+    </section>
+  )}
+
+  {home.programs.show && (
+    <section class="band band-tint">
+      <div class="wrap">
+        <SectionHead eyebrow={home.programs.eyebrow} title={home.programs.heading} text={home.programs.text} link="/programs" linkLabel="All programs" />
+        <div class="grid grid-4">
+          {programCats.map((c, i) => (
+            <a class="tile" href={url(`/programs/${c.slug}`)}>
+              <span class="numeral" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{c.label}</h3>
+              <p>{c.description?.split('. ')[0]}.</p>
+              <span class="count">{c.count} {c.count === 1 ? 'program' : 'programs'}</span>
+            </a>
+          ))}
+        </div>
+        <div class="split" style="margin-top:var(--gap);background:var(--midnight-blue);border-radius:var(--radius-lg);padding:clamp(1.6rem,1rem + 2vw,2.6rem);color:#dbe5ef">
+          <div class="on-dark">
+            <p class="eyebrow">{sections.learning.eyebrow}</p>
+            <h3 style="font-size:1.7rem">{categoryLabel('learning', 'academy')}</h3>
+            <p style="color:var(--cloud-blue);margin:0">{categories('learning')[0]?.description}</p>
+          </div>
+          <ul class="tag-row" style="justify-content:flex-end">
+            {categories('learning').map((c) => (
+              <li><a class="btn btn-ghost btn-small" href={url(`/learning/${c.slug}`)}>{c.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {home.commentary.show && commentary.length > 0 && (
+    <section class="band">
+      <div class="wrap split-wide split" style="align-items:start">
+        <div>
+          <SectionHead eyebrow={home.commentary.eyebrow} title={home.commentary.heading} link="/publications/commentary" linkLabel="More commentary" />
+          <ul class="item-list">
+            {commentary.map((p, i) => (
+              <li>
+                <p class="label card-type">{publicationTypeLabel(p.data.type)}</p>
+                <h3><a href={url(href.publication(p))}>{p.data.title}</a></h3>
+                <p class="meta">
+                  {commentaryAuthors[i].map((a) => a.name).join(', ')}
+                  {commentaryAuthors[i].length > 0 && <span class="dot"></span>}
+                  <time datetime={p.data.date.toISOString()}>{formatDate(p.data.date)}</time>
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <SectionHead eyebrow="Listen and watch" title="Podcasts and videos" link="/publications/podcasts" linkLabel="All episodes" as="h3" />
+          <div class="grid">
+            {listening.map((p) => <PublicationCard item={p} />)}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {home.impact.show && impactItems.length > 0 && (
+    <section class="band band-tint">
+      <div class="wrap">
+        <SectionHead eyebrow={home.impact.eyebrow} title={home.impact.heading} link="/impact" linkLabel="All impact" />
+        <div class="grid grid-3">
+          {impactItems.map((i) => (
+            <ItemCard
+              title={i.data.title}
+              link={href.impact(i)}
+              label={categoryLabel('impact', i.data.category)}
+              summary={i.data.summary}
+              image={i.data.image}
+              imageAlt={i.data.imageAlt}
+              status={i.data.status}
+              placeholder={i.data.placeholder}
+              meta={[i.data.period || (i.data.date ? formatDate(i.data.date, 'month') : undefined)]}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {home.founder.show && (
+    <section class="band band-navy on-dark" style="position:relative;overflow:hidden;isolation:isolate">
+      <Waves lines={12} opacity={0.1} />
+      <div class="wrap split" style="grid-template-columns:minmax(0,260px) minmax(0,1fr)">
+        <div class="profile-photo">
+          <Picture src={founder?.data.photo} alt={founder?.data.photoAlt || `Photograph of ${founder?.data.name ?? 'the founder'}`} name={founder?.data.name ?? 'Founder'} variant="fill" placeholder={founder?.data.placeholder} />
+        </div>
+        <figure class="quote">
+          <p class="eyebrow">{home.founder.eyebrow}</p>
+          <blockquote><p>{home.founder.quote}</p></blockquote>
+          <figcaption>
+            {founder && <p style="margin:0;color:#fff;font-weight:600">{founder.data.name}</p>}
+            {founder?.data.role && <p class="meta" style="margin:0">{founder.data.role}</p>}
+            <p style="margin-top:1.4rem"><a class="btn btn-light" href={url(home.founder.linkHref)}>{home.founder.linkLabel}</a></p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  )}
+
+  {home.media.show && news.length > 0 && (
+    <section class="band">
+      <div class="wrap">
+        <SectionHead eyebrow={home.media.eyebrow} title={home.media.heading} link="/media" linkLabel="Media centre" />
+        <div class="grid grid-4">
+          {news.map((m) => (
+            <ItemCard
+              title={m.data.title}
+              link={href.media(m)}
+              label={m.data.outlet || categoryLabel('media', m.data.category)}
+              image={m.data.image}
+              imageAlt={m.data.imageAlt}
+              placeholder={m.data.placeholder}
+              meta={[formatDate(m.data.date), categoryLabel('media', m.data.category)]}
+              showImage={false}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <CtaPair id="home" />
+</Base>
+
+<style>
+  @media (max-width: 900px) {
+    .band-navy .split { grid-template-columns: 1fr !important; }
+    .band-navy .profile-photo { max-width: 220px; }
+  }
+</style>

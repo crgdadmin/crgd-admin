@@ -1,0 +1,21 @@
+{
+  "name": "crgd-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Website of CRGD: The Public Policy Bridge. Astro static site edited through Pages CMS.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check-links": "node scripts/check-links.mjs",
+    "astro": "astro"
+  },
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "dependencies": {
+    "@astrojs/markdown-satteri": "^0.4.3",
+    "astro": "~7.3.0"
+  }
+}

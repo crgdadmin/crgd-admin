@@ -1,0 +1,50 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import CategoryTiles from '../../components/CategoryTiles.astro';
+import ItemCard from '../../components/ItemCard.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import CtaPair from '../../components/CtaPair.astro';
+import { getImpact, href } from '../../lib/content';
+import { sections, categories, categoryLabel, formatDate } from '../../lib/site';
+
+const s = sections.impact;
+const items = await getImpact();
+const tiles = categories('impact').map((c) => ({
+  label: c.label,
+  href: `/impact/${c.slug}`,
+  description: c.description,
+  count: items.filter((i) => i.data.category === c.slug).length,
+  countLabel: 'entries',
+}));
+---
+
+<Base title={s.title} description={s.intro}>
+  <PageHead eyebrow={s.eyebrow} title={s.title} lede={s.intro} image={s.image} crumbs={[{ label: 'Impact' }]} />
+  <section class="band">
+    <div class="wrap"><CategoryTiles items={tiles} /></div>
+  </section>
+  {items.length > 0 && (
+    <section class="band band-tint">
+      <div class="wrap">
+        <SectionHead eyebrow="Record" title="Recent impact" />
+        <div class="grid grid-3">
+          {items.slice(0, 9).map((i) => (
+            <ItemCard
+              title={i.data.title}
+              link={href.impact(i)}
+              label={categoryLabel('impact', i.data.category)}
+              summary={i.data.summary}
+              image={i.data.image}
+              imageAlt={i.data.imageAlt}
+              status={i.data.status}
+              placeholder={i.data.placeholder}
+              meta={[i.data.period || (i.data.date ? formatDate(i.data.date, 'month') : undefined), i.data.awardedBy]}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+  <CtaPair id="impact" />
+</Base>
