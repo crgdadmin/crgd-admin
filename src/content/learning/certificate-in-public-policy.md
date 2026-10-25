@@ -11,7 +11,6 @@ fee: "[Course fee], with need based scholarships"
 level: Introductory. No prior study of policy needed.
 faculty:
   - scholar-one
-  - co-founder-two
   - mentor-one
 outcomes:
   - Explain how policy is made in India, from the Union to the panchayat

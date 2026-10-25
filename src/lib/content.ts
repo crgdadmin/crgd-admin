@@ -121,7 +121,6 @@ export function peopleInGroups(people: Person[], groups: string[] = []): Person[
 
 export const groupLabels: Record<string, string> = {
   founder: 'Founder',
-  'co-founder': 'Co-Founder',
   'governing-board': 'Governing Board',
   'advisory-board': 'Advisory Board',
   scholar: 'Scholar',

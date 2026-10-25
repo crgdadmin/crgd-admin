@@ -45,4 +45,6 @@ CRGD's research is free to read, its events are mostly free to attend and its fe
 
 Every contribution receives a receipt by email. Please write to [{{email}}](mailto:{{email}}) after a bank transfer with your name, postal address, PAN (if you require a tax receipt) and the transaction reference.
 
-[Placeholder: confirm the organisation's legal and tax status, and whether contributions from outside India can be accepted under the Foreign Contribution (Regulation) Act, before this page goes live.]
+CRGD is a registered non-profit institution, Registration No. TVM/594/2026.
+
+[Placeholder: confirm the tax status (Section 12A and 80G) and whether contributions from outside India can be accepted under the Foreign Contribution (Regulation) Act, before this page goes live.]

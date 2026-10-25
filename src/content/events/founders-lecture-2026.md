@@ -10,7 +10,7 @@ city: Thiruvananthapuram
 mode: In person
 speakers: []
 moderators:
-  - co-founder-two
+  - scholar-one
 centres:
   - state-and-politics
 summary: The inaugural Founders' Lecture, on the distance between evidence, citizens and decision makers, and what an independent institution can do to close it.

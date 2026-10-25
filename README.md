@@ -18,7 +18,7 @@ Built with [Astro](https://astro.build), edited with [Pages CMS](https://pagescm
 ## What is on the site
 
 - **Home** with logo, tagline, vision and mission in the header, a Latest Updates strip, featured research, the eighteen research verticals, live figures, upcoming events, programs, commentary, impact, the founder's message, coverage, and the two calls to action from the brief: *Subscribe to email updates* and *Support CRGD: The Public Policy Bridge*.
-- **About**: the story, vision, mission, founder's message, how we work, independence and funding, research standards, editorial policy, submissions, annual reports, location, careers, and people pages for co-founders, governing board, advisory board, scholars, mentors, team and patrons, each with individual profiles.
+- **About**: the story, vision, mission, founder's message, how we work, independence and funding, research standards, editorial policy, submissions, annual reports, location, careers, and people pages for the governing board, advisory board, scholars, mentors, team and patrons, each with individual profiles.
 - **Research**: eighteen verticals, each with its own page, questions, people and publications.
 - **Learning**: CRGD Academy, courses, dialogue, academic programs, collaborations and colloquium.
 - **Programs**: fellowships, internships, the co-ordinator program and campus clubs.

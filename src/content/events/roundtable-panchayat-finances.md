@@ -12,7 +12,7 @@ speakers:
   - scholar-one
   - adviser-one
 moderators:
-  - co-founder-one
+  - adviser-two
 centres:
   - federalism
   - governance-finance-accountability

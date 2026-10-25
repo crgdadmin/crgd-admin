@@ -6,7 +6,7 @@ status: Ongoing
 format: In person
 duration: Quarterly sessions
 faculty:
-  - co-founder-one
+  - scholar-one
 summary: A series of small, structured dialogues between people who disagree about how Kerala should balance economic growth and welfare spending.
 image: ""
 imageAlt: ""

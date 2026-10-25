@@ -359,7 +359,6 @@ content:
           multiple: true
           values:
             - { value: founder, label: Founder }
-            - { value: co-founder, label: Co-Founder }
             - { value: governing-board, label: Governing Board }
             - { value: advisory-board, label: Advisory Board }
             - { value: scholar, label: Scholar }

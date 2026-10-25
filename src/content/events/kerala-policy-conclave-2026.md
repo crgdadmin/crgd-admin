@@ -15,7 +15,7 @@ speakers:
   - associate-one
   - scholar-two
 moderators:
-  - co-founder-one
+  - scholar-one
 centres:
   - health-and-demography
   - employment

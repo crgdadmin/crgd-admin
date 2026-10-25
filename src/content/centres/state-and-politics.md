@@ -18,7 +18,7 @@ keyQuestions:
   - What is the relationship between political parties and civil society organisations?
   - How does Kerala's political culture compare with that of other states?
 leads:
-  - co-founder-one
+  - scholar-one
 featured: false
 placeholder: false
 order: 16

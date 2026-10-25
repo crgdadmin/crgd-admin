@@ -4,7 +4,7 @@ title: How We Choose Our Research Questions
 type: blogs
 date: 2026-05-06
 authors:
-  - co-founder-one
+  - scholar-one
 centres:
   - state-and-politics
 tags:

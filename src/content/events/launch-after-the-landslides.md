@@ -13,7 +13,7 @@ speakers:
   - scholar-three
   - fellow-two
 moderators:
-  - co-founder-one
+  - scholar-two
 centres:
   - environment-and-disaster-management
 summary: The launch of CRGD's special report on landslide risk in Kerala's hill districts, with a panel discussion on preparedness, land use and rehabilitation.

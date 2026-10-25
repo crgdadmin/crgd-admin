@@ -28,15 +28,16 @@ Everything below is a placeholder or an assumption that must be confirmed. All o
 - [ ] Bank account name, bank, account number, IFSC and branch.
 - [ ] UPI ID and online giving link, if any.
 - [ ] Tax exemption note (12A, 80G) or delete it.
-- [ ] Remove the placeholder paragraph about legal and tax status and foreign contributions once confirmed.
-- [ ] Legal registration line at the foot of every page (Site settings > Legal registration line): add the registration number and date.
+- [ ] Remove the placeholder paragraph about tax status and foreign contributions on the Support page once confirmed.
+- [x] Legal registration line at the foot of every page: Registration No. TVM/594/2026 (Site settings > Legal registration line).
 
 ## People
 
 - [x] The Governing Board (11 members) and Amal Chandra's profile are filled in from the content Amal provided.
 - [ ] Complete the board roles that were left unfinished: Deeksha Tyagi (no role given), Rohini ("Member and Director, ..."), Ajay P. Karuvally ("Director, ...") and Ashraf Nehal ("Member and ...").
 - [ ] Add photographs and short biographies for every board member.
-- [ ] Replace the 25 remaining placeholder profiles (Co-Founders, Advisory Board, Scholars, Mentors, Team, Patrons) with real people, or delete any that are not needed.
+- [ ] Replace the 23 remaining placeholder profiles (Advisory Board, Scholars, Mentors, Team, Patrons) with real people, or delete any that are not needed.
+- [x] The Co-Founders section has been removed (The Statement Fellowship obligation).
 - [ ] When renaming a person's file, update the authors, speakers and leads that referred to the old web address (search the CMS for the old name).
 
 ## Founder's message

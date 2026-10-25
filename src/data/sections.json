@@ -7,14 +7,6 @@
     "imageAlt": "",
     "categories": [
       {
-        "slug": "co-founders",
-        "label": "Co-Founders",
-        "groups": [
-          "co-founder"
-        ],
-        "description": "The people who built CRGD with the founder and continue to shape its direction."
-      },
-      {
         "slug": "governing-board",
         "label": "Governing Board",
         "groups": [
