@@ -16,7 +16,7 @@ const height = Number(site.logoHeight) || 56;
 const showName = !logo || site.showNameBesideLogo !== false;
 ---
 
-<a class="brand" href={url('/')} aria-label={`${orgName}, ${orgTagline}: home`}>
+<a class="brand" href={url('/')} aria-label={`${orgFullName} (${orgName}): ${orgTagline}, home`}>
   {logo ? (
     <img src={asset(logo)} alt={site.logoAlt || `${orgName} logo`} style={`max-height:${compact ? Math.min(height, 32) : height}px`} />
   ) : (
@@ -25,8 +25,8 @@ const showName = !logo || site.showNameBesideLogo !== false;
   {showName && !compact && (
     <span class="brand-text">
       <span class="brand-name">{orgName}</span>
-      {orgTagline && <span class="brand-tagline">{orgTagline}</span>}
       {showFull && orgFullName !== orgName && <span class="brand-full">{orgFullName}</span>}
+      {orgTagline && <span class="brand-tagline">{orgTagline}</span>}
     </span>
   )}
 </a>

@@ -331,16 +331,25 @@ button { font: inherit; }
   line-height: 1;
   letter-spacing: 0.02em;
 }
-.brand-tagline {
-  margin-top: 0.4rem;
+/* The full name, in capitals, carries more weight than the tagline below it. */
+.brand-full {
+  margin-top: 0.45rem;
   font-family: var(--text);
-  font-size: 0.66rem;
-  font-weight: 600;
-  letter-spacing: 0.24em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  line-height: 1.35;
   text-transform: uppercase;
+  color: var(--deep-navy);
+}
+.brand-tagline {
+  margin-top: 0.15rem;
+  font-family: var(--display), serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.3;
   color: var(--blue-slate);
 }
-.brand-full { font-family: var(--text); font-size: 0.78rem; color: var(--subtle); margin-top: 0.25rem; line-height: 1.3; }
 
 .masthead-motto { text-align: right; max-width: 40rem; }
 .motto {
@@ -359,7 +368,8 @@ button { font: inherit; }
 @media (max-width: 1023px) { .masthead-motto { display: none; } }
 @media (max-width: 520px) {
   .brand-mark { width: 44px; height: 44px; font-size: 0.9rem; }
-  .brand-full { display: none; }
+  .brand-full { font-size: 0.6rem; letter-spacing: 0.06em; margin-top: 0.35rem; }
+  .brand-tagline { font-size: 0.82rem; }
   .brand img { max-width: 170px; max-height: 46px; }
 }
 
@@ -1226,8 +1236,8 @@ a.tag:hover { background: var(--mist-blue); color: var(--deep-navy); }
 .footer a:not(.btn):hover { color: #fff; text-decoration: underline; }
 .footer-top { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 2.5rem 4rem; padding: clamp(3rem, 2rem + 3vw, 4.5rem) 0 2.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
 .footer .brand { color: #fff; }
+.footer .brand-full { color: #fff; }
 .footer .brand-tagline { color: var(--foggy-blue); }
-.footer .brand-full { color: var(--dusk-blue); }
 .footer-about { margin-top: 1.3rem; max-width: 34rem; color: var(--foggy-blue); }
 .footer-contact { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: 0.65rem; }
 .footer-contact li { display: grid; grid-template-columns: 20px 1fr; gap: 0.75rem; align-items: start; }

@@ -33,7 +33,7 @@ On **3 October 2026**, the founding General Body unanimously resolved to establi
 ## Explore CRGD
 
 - [Our Vision](/vision) and [Our Mission](/mission)
-- [Founder's Message](/our-founder)
+- [Founder's Message](/our-founder#founders-message)
 - [How We Work](/our-approach)
 - [Governing Board](/people/governing-board)
 - [Research verticals](/research)
