@@ -4,7 +4,6 @@ title: "The Public Policy Bridge: Essays on Governing Kerala"
 type: books-and-journals
 date: 2026-10-10
 authors:
-  - founder
   - co-founder-one
 centres:
   - state-and-politics

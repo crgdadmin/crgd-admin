@@ -1,8 +1,9 @@
 {
   "hero": {
-    "eyebrow": "Independent public policy research · Thiruvananthapuram",
-    "heading": "Bridging evidence and the decisions that shape public life.",
-    "text": "CRGD studies how Kerala and India are governed, and puts what it finds in front of the people who make, implement and live with public policy. Our work is independent, non partisan and free to read.",
+    "eyebrow": "CRGD | The Public Policy Bridge",
+    "heading": "Ideas That Matter. Research That Informs. Policies That Transform.",
+    "text": "An independent, non-partisan public policy institution advancing liberty, democratic governance and development through critical inquiry, independent scholarship and transformative policy vision.",
+    "subline": "Bridging Knowledge, Policy, and Public Purpose.",
     "image": "",
     "imageAlt": "",
     "primaryLabel": "Explore our research",
@@ -14,10 +15,26 @@
   "about": {
     "show": true,
     "eyebrow": "Who we are",
-    "heading": "A bridge between research, citizens and decision makers",
-    "text": "Public policy in India is too often made without good evidence and debated without good faith. CRGD was founded to change that, starting from Kerala. We produce rigorous research, translate it for the people who need it, and create spaces where students, officials, scholars and citizens can reason through hard questions together.",
+    "heading": "About CRGD",
+    "text": "The Centre for Research on Governance and Development (CRGD): The Public Policy Bridge is an independent, non-partisan research and advocacy institution dedicated to advancing liberty, knowledge, democracy, accountable governance, and development.\n\nFounded on the conviction that public policy must be informed by evidence, guided by reason, and judged by its outcomes, CRGD seeks to bridge the divide between academic scholarship, institutions, and the realities of society.",
+    "statement": "CRGD stands for the liberty, the responsibility to reason, and the imperative to reform and responsible interventions.",
     "linkLabel": "Read our story",
     "linkHref": "/about"
+  },
+  "commitments": {
+    "show": true,
+    "eyebrow": "What we stand for",
+    "heading": "Our Core Commitments",
+    "items": [
+      "Research Excellence",
+      "Liberty & Democracy",
+      "Dialogue & Pluralism",
+      "Innovation & Policy Solutions",
+      "Institutional Reform",
+      "Impact & Public Purpose"
+    ],
+    "linkLabel": "How we work",
+    "linkHref": "/our-approach"
   },
   "centres": {
     "show": true,
@@ -63,7 +80,7 @@
   "founder": {
     "show": true,
     "eyebrow": "A message from our founder",
-    "quote": "A policy is a promise made in public. Our job is to help that promise be made well, kept honestly and examined without fear.",
+    "quote": "At CRGD, we believe that ideas must withstand scrutiny, institutions must be responsible, and development must ultimately enlarge human freedom.",
     "linkLabel": "Read the founder's message",
     "linkHref": "/our-founder"
   },

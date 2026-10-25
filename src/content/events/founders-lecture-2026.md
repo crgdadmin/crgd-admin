@@ -8,8 +8,7 @@ endTime: "18:30"
 venue: "[Venue name], near the Government Secretariat"
 city: Thiruvananthapuram
 mode: In person
-speakers:
-  - founder
+speakers: []
 moderators:
   - co-founder-two
 centres:

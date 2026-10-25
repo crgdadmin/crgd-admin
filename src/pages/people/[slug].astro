@@ -72,6 +72,8 @@ const profile = person
         teaching: learning.filter((l) => personMatches(person!, l.data.faculty)),
         impact: impact.filter((i) => personMatches(person!, i.data.people)),
         hasBody: !!person.body?.trim(),
+        // Skip the lead line when the biography already opens with it.
+        showLede: !!d.shortBio && !person.body?.trim().startsWith(d.shortBio.trim()),
       };
     })()
   : undefined;
@@ -170,7 +172,7 @@ const personSchema = profile && person
       <div class="wrap layout-main">
         <div>
           <PlaceholderNote show={profile.d.placeholder} what="profile" />
-          {profile.d.shortBio && <p class="lede" style="color:var(--ink)">{profile.d.shortBio}</p>}
+          {profile.showLede && <p class="lede" style="color:var(--ink)">{profile.d.shortBio}</p>}
           {profile.hasBody && <div class="prose"><profile.Content /></div>}
 
           {profile.pubs.length > 0 && (

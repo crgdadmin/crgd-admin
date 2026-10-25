@@ -18,9 +18,9 @@ We are glad to hear from researchers, officials, journalists, students, teachers
 
 ## Our office
 
-**CRGD**\
-25/125, Near Govt. Secretariat, Pulimoodu\
-Thiruvananthapuram - 695001, Kerala, India
+**Centre for Research on Governance and Development (CRGD): The Public Policy Bridge**\
+25/125, Near Government Secretariat, Pulimoodu\
+Thiruvananthapuram, Keralam – 695001, India
 
 Email: [{{email}}](mailto:{{email}})\
 Phone: {{phone}}

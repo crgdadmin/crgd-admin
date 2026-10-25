@@ -4,11 +4,11 @@ Everything below is a placeholder or an assumption that must be confirmed. All o
 
 ## Identity
 
-- [ ] **Full name.** Site settings > Full name is set to *Centre for Research in Governance and Development* as a working guess. Confirm the exact expansion of CRGD.
+- [x] **Name.** Centre for Research on Governance and Development (CRGD): The Public Policy Bridge, with the institutional tagline *Independent Research. Informed Dialogue. Transformative Policy.*
 - [ ] **Logo.** Upload in Site settings > Logo, and a light version in *Logo for dark backgrounds*. If the logo contains the name, switch off *Show the name and tagline beside the logo*.
 - [ ] **Favicon and sharing image.** Optional uploads in Site settings; defaults are provided.
 - [ ] **Fonts.** The brief left the font open. The default is Editorial (Newsreader and Inter). Four other pairings are available in Site settings > Fonts.
-- [ ] **Year founded** in Site settings.
+- [x] **Year founded** is 2026 (founding General Body, 3 October 2026).
 
 ## Contact details
 
@@ -29,18 +29,21 @@ Everything below is a placeholder or an assumption that must be confirmed. All o
 - [ ] UPI ID and online giving link, if any.
 - [ ] Tax exemption note (12A, 80G) or delete it.
 - [ ] Remove the placeholder paragraph about legal and tax status and foreign contributions once confirmed.
-- [ ] Legal registration line at the foot of every page (Site settings > Legal registration line).
+- [ ] Legal registration line at the foot of every page (Site settings > Legal registration line): add the registration number and date.
 
 ## People
 
-- [ ] Replace the 29 placeholder profiles (Founder, Co-Founders, Governing Board, Advisory Board, Scholars, Mentors, Team, Patrons) with real people, photographs and biographies. Delete any profiles that are not needed.
+- [x] The Governing Board (11 members) and Amal Chandra's profile are filled in from the content Amal provided.
+- [ ] Complete the board roles that were left unfinished: Deeksha Tyagi (no role given), Rohini ("Member and Director, ..."), Ajay P. Karuvally ("Director, ...") and Ashraf Nehal ("Member and ...").
+- [ ] Add photographs and short biographies for every board member.
+- [ ] Replace the 25 remaining placeholder profiles (Co-Founders, Advisory Board, Scholars, Mentors, Team, Patrons) with real people, or delete any that are not needed.
 - [ ] When renaming a person's file, update the authors, speakers and leads that referred to the old web address (search the CMS for the old name).
 
 ## Founder's message
 
-- [ ] Add the founder's name and photograph to the founder's profile.
-- [ ] Complete the paragraph about **The Statement Fellowship** on the Our Founder page. The brief asked for it to be mentioned; the details were not given.
-- [ ] Have the founder read and adjust the message so it is in their own voice. Update the home page quotation in Home page > Founder's message.
+- [x] Founder's Message, About the Founder, About, Our Story, Vision, Mission, Core Commitments, How We Work and Editorial Policy use Amal's own text.
+- [ ] Add Amal Chandra's photograph (People > Amal Chandra > Photograph).
+- [ ] How We Work: Amal listed four principles with headings only. Add a sentence under each if wanted.
 
 ## Sample content
 

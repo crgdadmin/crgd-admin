@@ -79,22 +79,14 @@ const menus = navigation.menus.map((menu, index) => {
 <header class="masthead">
   <div class="wrap">
     <Brand />
-    {(site.visionShort || site.missionShort) && (
-      <dl class="masthead-statements">
-        {site.visionShort && (
-          <div>
-            <dt>Vision</dt>
-            <dd><a href={url('/vision')}>{site.visionShort}</a></dd>
-          </div>
-        )}
-        {site.missionShort && (
-          <div>
-            <dt>Mission</dt>
-            <dd><a href={url('/mission')}>{site.missionShort}</a></dd>
-          </div>
-        )}
-      </dl>
-    )}
+    <div class="masthead-motto">
+      {site.motto && <p class="motto">{site.motto}</p>}
+      <ul class="masthead-links" aria-label="About CRGD">
+        {site.visionShort && <li><a href={url('/vision')}>Vision</a></li>}
+        {site.missionShort && <li><a href={url('/mission')}>Mission</a></li>}
+        <li><a href={url('/our-founder')}>Founder's Message</a></li>
+      </ul>
+    </div>
   </div>
 </header>
 

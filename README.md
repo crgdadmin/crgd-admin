@@ -1,6 +1,6 @@
 # CRGD: The Public Policy Bridge
 
-The complete website for CRGD, an independent public policy research institution in Thiruvananthapuram. Front end, written content, placeholders for everything still to come, search, feeds, and a browser based CMS so the whole site can be edited without touching code.
+The complete website for the Centre for Research on Governance and Development (CRGD): The Public Policy Bridge, an independent, non-partisan research and advocacy institution in Thiruvananthapuram, Keralam. Front end, written content, placeholders for everything still to come, search, feeds, and a browser based CMS so the whole site can be edited without touching code.
 
 **Live at https://irijournal.github.io/Website-for-Amal/**
 

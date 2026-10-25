@@ -18,8 +18,9 @@ content:
     path: src/data/settings.json
     fields:
       - { name: shortName, label: Short name, type: string, required: true, description: "Shown as the name in the header, for example CRGD." }
-      - { name: fullName, label: Full name, type: string, description: "The organisation's full name, shown under the logo and in search results." }
-      - { name: tagline, label: Tagline, type: string, description: "For example: The Public Policy Bridge" }
+      - { name: fullName, label: Full name, type: string, description: "The organisation's full name, shown under the logo and in search results: Centre for Research on Governance and Development" }
+      - { name: tagline, label: Name tagline, type: string, description: "Shown under the short name: The Public Policy Bridge" }
+      - { name: motto, label: Institutional tagline, type: string, description: "Shown in the header beside the logo and in the footer: Independent Research. Informed Dialogue. Transformative Policy." }
       - { name: logo, label: Logo, type: image, description: "Upload the logo here (PNG or SVG with a transparent background works best). Until a logo is uploaded, the site shows a text wordmark." }
       - { name: logoOnDark, label: Logo for dark backgrounds, type: image, description: "Optional. A white or light version of the logo for the footer and the sticky menu bar." }
       - { name: logoAlt, label: Logo description, type: string, description: "Read aloud by screen readers, for example: CRGD logo" }
@@ -28,8 +29,8 @@ content:
       - { name: favicon, label: Browser tab icon, type: image, description: "Optional. A square image of at least 64 by 64 pixels." }
       - { name: shareImage, label: Default sharing image, type: image, description: "Shown when a page is shared on WhatsApp, LinkedIn, X or Facebook and has no picture of its own. 1200 by 630 pixels." }
       - { name: siteUrl, label: Website address, type: string, description: "For example https://www.crgd.org. Used only for local builds; the live site uses the address configured in GitHub Pages." }
-      - { name: visionShort, label: Vision (one line), type: text, description: "Shown in the header beside the logo." }
-      - { name: missionShort, label: Mission (one line), type: text, description: "Shown in the header beside the logo." }
+      - { name: visionShort, label: Vision statement, type: text, description: "Shown on the home page. The full Vision page is under Pages." }
+      - { name: missionShort, label: Mission statement, type: text, description: "Shown on the home page. The full Mission page is under Pages." }
       - { name: address, label: Full address, type: text }
       - { name: addressShort, label: Short address, type: string, description: "Shown in the top bar, for example: Pulimoodu, Thiruvananthapuram, Kerala" }
       - { name: email, label: Main email address, type: string }
@@ -98,6 +99,7 @@ content:
           - { name: eyebrow, label: Small line above the heading, type: string }
           - { name: heading, label: Heading, type: text, description: "Put a word between asterisks to set it in italics, for example *public life*." }
           - { name: text, label: Introduction, type: text }
+          - { name: subline, label: Line under the introduction, type: string, description: "For example: Bridging Knowledge, Policy, and Public Purpose." }
           - { name: image, label: Background image, type: image, description: "Optional. Shown faintly behind the blue banner." }
           - { name: imageAlt, label: Background image description, type: string }
           - { name: primaryLabel, label: First button text, type: string }
@@ -112,7 +114,18 @@ content:
           - { name: show, label: Show this section, type: boolean }
           - { name: eyebrow, label: Small heading, type: string }
           - { name: heading, label: Heading, type: string }
-          - { name: text, label: Text, type: text }
+          - { name: text, label: Text, type: text, description: "Leave a blank line between paragraphs." }
+          - { name: statement, label: Statement shown beside the vision and mission, type: text }
+          - { name: linkLabel, label: Link text, type: string }
+          - { name: linkHref, label: Link, type: string }
+      - name: commitments
+        label: Core commitments
+        type: object
+        fields:
+          - { name: show, label: Show this section, type: boolean }
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: items, label: Commitments, type: string, list: true }
           - { name: linkLabel, label: Link text, type: string }
           - { name: linkHref, label: Link, type: string }
       - name: latest
@@ -445,14 +458,14 @@ content:
             - { value: analysis, label: Analysis }
             - { value: special-reports, label: Special Report }
             - { value: commentary, label: Commentary }
-            - { value: explainers, label: Explainer }
+            - { value: explainers, label: Explainers }
             - { value: opinion, label: Opinion }
             - { value: blogs, label: Blog }
             - { value: young-thoughts, label: Young Thoughts }
             - { value: expert-view, label: Expert View }
             - { value: reviews, label: Review }
             - { value: books-and-journals, label: Book or Journal }
-            - { value: internship-reports, label: Internship Report }
+            - { value: internship-reports, label: Internship/Fellowship Report }
             - { value: podcasts, label: Podcast }
             - { value: videos, label: Video }
       - { name: date, label: Date published, type: date, required: true }

@@ -4,14 +4,13 @@ title: "The Bridge, Episode 1: What Is a Think Tank For?"
 type: podcasts
 date: 2026-09-10
 authors:
-  - founder
   - researcher-one
 centres:
   - state-and-politics
 tags:
   - Podcast
   - About CRGD
-summary: In the first episode of CRGD's podcast, the founder talks about why the institution was created, what a think tank can and cannot do, and why it is based in Thiruvananthapuram.
+summary: In the first episode of CRGD's podcast, the team talks about why the institution was created, what a think tank can and cannot do, and why it is based in Thiruvananthapuram.
 image: ""
 imageAlt: ""
 mediaUrl: ""

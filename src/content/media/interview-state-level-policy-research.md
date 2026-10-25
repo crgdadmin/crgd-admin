@@ -5,9 +5,8 @@ category: interviews
 date: 2026-10-16
 outlet: "[Newspaper name]"
 externalUrl: ""
-people:
-  - founder
-summary: CRGD's founder speaks about the institution's aims, its independence and why Kerala needs more policy research of its own.
+people: []
+summary: A placeholder for an interview given by a CRGD representative about the institution's aims and independence.
 image: ""
 imageAlt: ""
 placeholder: true

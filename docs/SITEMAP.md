@@ -22,7 +22,7 @@ Every item in the website brief and where it lives. Addresses are relative to th
 | About us (The story) | `/about` |
 | Vision | `/vision` |
 | Mission | `/mission` |
-| Our Founder, with The Statement Fellowship and a brief message | `/our-founder` |
+| Our Founder, with The Statement Fellowship and a brief message | `/our-founder` (Founder's Message and About the Founder); The Statement Fellowship is told in Our Story on `/about` |
 | Co-Founders | `/people/co-founders` |
 | People | `/people` |
 | Governing Board | `/people/governing-board` |

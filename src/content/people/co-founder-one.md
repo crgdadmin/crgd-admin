@@ -4,7 +4,6 @@ name: "Co-Founder Name One"
 role: "Co-Founder and Director, Research"
 groups:
   - "co-founder"
-  - "governing-board"
 affiliation: "[Current position, institution]"
 centres:
   - "state-and-politics"

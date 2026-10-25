@@ -146,7 +146,7 @@
   "publications": {
     "eyebrow": "Publications",
     "title": "Publications",
-    "intro": "Everything CRGD publishes is free to read, free to share with credit and written to be understood by people who are not specialists. Filter by type, research vertical or year, or search titles, summaries, authors and topics.",
+    "intro": "CRGD publishes research, analysis, commentary and more across sixteen categories, each serving a distinct intellectual and public purpose. Filter by type, research vertical or year, or search titles, summaries, authors and topics.",
     "image": "",
     "imageAlt": "",
     "categories": [
@@ -154,97 +154,97 @@
         "slug": "policy-briefs",
         "label": "Policy Briefs",
         "singular": "Policy Brief",
-        "description": "Short, decision ready documents of two to six pages. Each brief states a problem, sets out the evidence and ends with specific recommendations."
+        "description": "Concise, evidence-based assessments of specific policy problems, accompanied by actionable recommendations."
       },
       {
         "slug": "long-form",
         "label": "Long Form",
         "singular": "Long Form",
-        "description": "Extended essays and narrative studies that take the time a complex subject deserves, written for readers who want depth without jargon."
+        "description": "Extended essays exploring complex political, economic, social and institutional questions in depth."
       },
       {
         "slug": "policy-reports",
         "label": "Policy Reports",
         "singular": "Policy Report",
-        "description": "Full research reports with methods, data and findings, reviewed internally and by at least one external expert before publication."
+        "description": "Comprehensive research publications examining policy frameworks, institutional performance and reform alternatives."
       },
       {
         "slug": "analysis",
         "label": "Analysis",
         "singular": "Analysis",
-        "description": "Data driven pieces that examine a budget, a bill, a scheme or a statistic and explain what it really shows."
+        "description": "Structured, evidence-led examinations of contemporary developments, policy decisions, emerging trends and their wider implications."
       },
       {
         "slug": "special-reports",
         "label": "Special Reports",
         "singular": "Special Report",
-        "description": "Flagship studies on issues of unusual importance, often produced across several research verticals and released with a public event."
+        "description": "Focused investigations and thematic studies addressing issues of exceptional public or institutional significance."
       },
       {
         "slug": "commentary",
         "label": "Commentary",
         "singular": "Commentary",
-        "description": "Quick, reasoned responses by CRGD researchers to developments in policy and public life."
+        "description": "Interpretative perspectives on contemporary affairs, public institutions and policy debates."
       },
       {
         "slug": "explainers",
-        "label": "Explainer",
+        "label": "Explainers",
         "singular": "Explainer",
-        "description": "Plain language guides to how something works: a law, an institution, a process or a scheme."
+        "description": "Accessible, factually grounded examinations of complex concepts, issues, legislation, institutions and policy developments."
       },
       {
         "slug": "opinion",
         "label": "Opinion",
         "singular": "Opinion",
-        "description": "Signed opinion pieces, including those first published in newspapers and magazines. Views are the authors' own."
+        "description": "Clearly articulated arguments presenting original perspectives on matters of public interest."
       },
       {
         "slug": "blogs",
         "label": "Blogs",
         "singular": "Blog",
-        "description": "Shorter, informal writing from the CRGD team: field notes, reading lists, reflections and work in progress."
+        "description": "Concise reflections, observations and discussions exploring emerging issues, experiences and ideas."
       },
       {
         "slug": "young-thoughts",
         "label": "Young Thoughts",
         "singular": "Young Thoughts",
-        "description": "Writing by students, interns and campus club members, edited and mentored by CRGD researchers. The best new voices in public policy start here."
+        "description": "A dedicated platform for students and emerging thinkers to contribute original ideas, critical reflections and informed perspectives."
       },
       {
         "slug": "expert-view",
         "label": "Expert View",
         "singular": "Expert View",
-        "description": "Invited contributions from practitioners and scholars outside CRGD, offering a perspective drawn from long experience."
+        "description": "Specialist contributions from scholars, practitioners and professionals drawing upon recognised expertise and experience."
       },
       {
         "slug": "reviews",
         "label": "Reviews",
         "singular": "Review",
-        "description": "Reviews of books, reports and policy documents that matter to the way Kerala and India are governed."
+        "description": "Critical assessments of publications, policies, intellectual contributions and other works of public or academic significance."
       },
       {
         "slug": "books-and-journals",
         "label": "Books & Journals",
         "singular": "Book or Journal",
-        "description": "Books, edited volumes and journal issues published by CRGD or written by its researchers."
+        "description": "Scholarly discussions, reviews and assessments of books, academic journals and significant research literature."
       },
       {
         "slug": "internship-reports",
-        "label": "Internship Reports",
-        "singular": "Internship Report",
-        "description": "Research reports produced by CRGD interns at the end of their internships, published when they meet CRGD's editorial standard."
+        "label": "Internship/Fellowship Reports",
+        "singular": "Internship/Fellowship Report",
+        "description": "Selected research outputs, field observations and analytical reports developed through CRGD's internship/fellowship programmes."
       },
       {
         "slug": "podcasts",
         "label": "Podcasts",
         "singular": "Podcast",
-        "description": "Conversations with researchers, officials and citizens about the policy questions that shape everyday life."
+        "description": "Recorded conversations, interviews and discussions examining ideas, institutions and contemporary policy questions."
       },
       {
         "slug": "videos",
         "label": "Videos",
         "singular": "Video",
-        "description": "Recorded lectures, explainers, panel discussions and short films from CRGD."
+        "description": "Interviews, lectures, explainers, discussions and other audiovisual contributions to public knowledge."
       }
     ]
   },

@@ -31,7 +31,7 @@ For broadcast interviews, please give as much notice as you can and tell us whet
 
 You are welcome to quote our publications and reproduce our charts with credit to CRGD and a link to the original where possible. Our [copyright and republishing](/copyright-and-republishing) page explains the terms.
 
-When describing CRGD, please use: *"CRGD, an independent public policy research institution based in Thiruvananthapuram."*
+When describing CRGD, please use: *"The Centre for Research on Governance and Development (CRGD): The Public Policy Bridge, an independent, non-partisan research and advocacy institution based in Thiruvananthapuram."*
 
 ## Logo and photographs
 

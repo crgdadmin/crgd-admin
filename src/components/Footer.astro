@@ -28,6 +28,7 @@ const columns = navigation.menus.map((menu) => {
     <div class="footer-top">
       <div>
         <Brand dark />
+        {site.motto && <p class="motto">{site.motto}</p>}
         {site.footerNote && <p class="footer-about">{site.footerNote}</p>}
         <ul class="footer-contact">
           {site.address && (
@@ -89,7 +90,7 @@ const columns = navigation.menus.map((menu) => {
 
     <div class="footer-bottom">
       <div>
-        <span>© {year} {site.copyrightHolder || orgName}. {orgTitle}.</span>
+        <span>© {year} {site.copyrightHolder || orgTitle}. All rights reserved.</span>
         {site.registration && <p class="footer-legal">{site.registration}</p>}
       </div>
       <ul>

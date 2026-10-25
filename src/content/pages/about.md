@@ -1,51 +1,40 @@
 ---
 slug: about
-title: "About Us: The Story"
+title: About CRGD
 navLabel: About Us
 section: About
-eyebrow: About CRGD
-summary: CRGD is an independent public policy research institution in Thiruvananthapuram. It exists to close the distance between evidence, citizens and the people who make decisions.
+eyebrow: About Us
+summary: An independent, non-partisan research and advocacy institution dedicated to advancing liberty, knowledge, democracy, accountable governance, and development.
 image: ""
 imageAlt: ""
-updated: 2026-10-15
+updated: 2026-10-25
 order: 1
 placeholder: false
 ---
 
-CRGD began with a simple observation. The decisions that shape daily life in Kerala, about schools, hospitals, roads, police, water, jobs and welfare, are mostly made a short walk from where our office now stands, near the Government Secretariat in Thiruvananthapuram. Yet much of the serious research on those decisions is produced far away, published in forms that busy people rarely read, and arrives after the decision has been made.
+The **Centre for Research on Governance and Development (CRGD): The Public Policy Bridge** is an independent, non-partisan research and advocacy institution dedicated to advancing liberty, knowledge, democracy, accountable governance, and development.
 
-We call ourselves **The Public Policy Bridge** because that distance is the problem we set out to solve.
+Founded on the conviction that public policy must be informed by evidence, guided by reason, and judged by its outcomes, CRGD seeks to bridge the divide between academic scholarship, institutions, and the realities of society. We undertake rigorous, inter/multi-disciplinary research, critically examine existing policies as well as practices, and develop innovative, practical solutions to complex civic, governance and development challenges.
 
-## Three gaps we bridge
+Rooted in profound intellectual vision and public purpose, we advance in-depth critical research, informed discourses and evidence-based policy action through scholarly publications, strategic partnerships and constructive engagement with policymakers and civil society, contributing to stronger institutions and meaningful institutional reforms.
 
-**Between research and decisions.** Good evidence exists on many policy questions, but it is scattered across journals, government reports and datasets. We gather it, test it, add new evidence where it is missing, and present it in forms that legislators, officials and journalists can use in the time they have.
+**CRGD stands for the liberty, the responsibility to reason, and the imperative to reform and responsible interventions.**
 
-**Between government and citizens.** Policy is too often explained only after it is announced, and debated only in partisan terms. We publish plain language explainers, hold public dialogues and listen to the people a policy will affect before we make recommendations.
+## Our Story
 
-**Between generations.** The next generation of public servants, researchers, journalists and political leaders is in Kerala's colleges and universities today. Through fellowships, internships, campus clubs and the CRGD Academy, we give them a way into serious policy work.
+### From an Idea to an Institution
 
-## Why a state focused think tank
+The **Centre for Research on Governance and Development (CRGD): The Public Policy Bridge** was envisioned and founded by **Amal Chandra**, whose engagement with public affairs, policy research, and institutional processes revealed a persistent disconnect between academic knowledge, public decision-making and societal realities. Drawing on years of intellectual exchange, critical reflection, and collective brainstorming, he brought together diverse ideas, identified institutional gaps, and assembled a brilliant team committed to addressing them. A shared intellectual pursuit gradually evolved into a vision for an independent institution that connects scholarship with the practical demands of governance and development.
 
-In India, states account for a majority of public spending and deliver most of the services citizens use. Health, school education, policing, agriculture, local government and much of welfare are run by states. Yet policy research capacity is concentrated in a few national centres. Kerala, with its distinctive record in human development, decentralisation and migration, and its new challenges in ageing, public finances, climate risk and employment, needs institutions that study it closely and continuously.
+The founding team comprises **young professionals, all under thirty**, with established records of academic achievement, research, publications, institutional leadership and international exposure. Their multidisciplinary experience spans public policy, scientific research, academia, civic engagement and collaborations with governments, research institutions and organisations across different levels. The vision acquired a structured institutional framework through **The Statement Fellowship**, a programme of Students For Liberty, during which Amal Chandra developed the proposal into an independent, non-profit research institution headquartered in Thiruvananthapuram, Keralam. **CRGD is an entirely autonomous institution, neither affiliated with nor a constituent body of Students For Liberty.**
 
-CRGD works on Kerala first, on India as a whole where national decisions matter to the state, and on comparisons with other states and countries wherever they help.
+On **3 October 2026**, the founding General Body unanimously resolved to establish CRGD, adopting its constitutional framework and constituting its first Governing Body. Rooted in Keralam, nationally engaged and internationally oriented, **CRGD** embodies an ambition extending beyond the creation of another policy organisation: to build an enduring intellectual institution that questions established assumptions, connects knowledge with institutional practice, and contributes to consequential public policy and governance reforms. **Its founding conviction remains that the enduring value of ideas lies in their capacity to inform decisions, strengthen institutions, and advance human progress.**
 
-## How we are organised
+## Explore CRGD
 
-Our research is organised into [eighteen verticals](/research), from Governance, Finance and Accountability to Elections, Narratives and Public Perceptions. Each vertical is led by people who know its subject and its institutions. Our [learning](/learning) and [programs](/programs) arms train students and practitioners. Our [events](/events) bring people together, and our [publications](/publications) are free for anyone to read.
-
-CRGD is governed by a [Governing Board](/people/governing-board) and advised by an [Advisory Board](/people/advisory-board) of people with long experience in public life. Our [independence and funding policy](/independence-and-funding) explains how we protect our work from outside influence.
-
-## What we promise
-
-- We will follow the evidence, including when it is inconvenient to us or to those who fund us.
-- We will be non partisan. We do not campaign for or against any political party.
-- We will be open about our methods, our data and our funding.
-- We will write for the people who need to understand, not only for specialists.
-- We will correct our mistakes publicly.
-
-## Where we are going
-
-In our first years we are building the core: a research team, a set of verticals with clear questions, a learning program for young people, and relationships with the institutions we hope to inform. In time, we plan to open [regional centres](/locations) so that our work is closer to the communities it studies.
-
-If you share these aims, there are many ways to be part of the story: [read our work](/publications), [join a program](/programs), [come to an event](/events), [work with us](/careers) or [support CRGD](/support).
+- [Our Vision](/vision) and [Our Mission](/mission)
+- [Founder's Message](/our-founder)
+- [How We Work](/our-approach)
+- [Governing Board](/people/governing-board)
+- [Research verticals](/research)
+- [Editorial Policy](/editorial-policy)

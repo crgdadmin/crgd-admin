@@ -1,43 +1,53 @@
 ---
 slug: our-founder
-title: A Message from Our Founder
+title: Founder's Message
 navLabel: Our Founder
 section: About
 eyebrow: Our Founder
-summary: Why CRGD was founded, what it hopes to become, and an invitation to be part of it.
-person: founder
+summary: A message from Amal Chandra, Founder & President of the Centre for Research on Governance and Development (CRGD).
 image: ""
 imageAlt: ""
-updated: 2026-10-15
+updated: 2026-10-25
 order: 4
-placeholder: true
+placeholder: false
 ---
 
-Dear reader,
+**Ideas acquire public value when they challenge assumptions, inform decisions, and improve institutions with global visibility. To me, public policy is applied political science.**
 
-Thank you for visiting CRGD.
+The defining challenges of our time are not just economic or political; they are fundamentally questions of civil society and governance. How societies create and distribute opportunity, protect liberty, exercise public power, and respond to emerging challenges depends on the quality of their laws, institutions, and the evidence informing their decisions.
 
-I have spent much of my working life close to public decisions, close enough to see how much depends on them and how often they are made without the evidence, the time or the range of voices they deserve. I have also seen how much good work goes unused: careful studies that never reach the people who could act on them, and thoughtful citizens who are never asked.
+India's remarkable economic and democratic journey illustrates both the possibilities of progress and the persistence of institutional contradictions. Economic growth has not eliminated inequality of opportunity; technological advancement has not automatically ensured accountability; and democratic participation, however extensive, cannot substitute for institutional integrity, constitutional safeguards and informed public deliberation.
 
-CRGD was founded to bridge that distance. We call it The Public Policy Bridge because a bridge is useful only when people cross it, in both directions. Research must travel to those who decide, and the concerns of citizens must travel back to those who study and govern.
+The **Centre for Research on Governance and Development (CRGD): The Public Policy Bridge** was founded to engage seriously with these questions and beyond, thus contributing to more rigorous, independent and solutions-oriented public policy interventions.
 
-## The Statement Fellowship
+Our conviction is fundamental: research must challenge conventions and advance understanding; advocacy must be grounded in reason rather than rhetoric; and public policy must transcend political expediency to confront structural challenges. Their ultimate worth lies not in the ideas they generate or the attention they command, but in the institutions they improve, the reforms they enable, and the enduring public value they create.
 
-[Placeholder: add two or three sentences here about The Statement Fellowship: what it is, the founder's association with it, and how it shaped the founding of CRGD or continues within it.]
+CRGD is committed to intellectual independence, methodological rigour and constructive engagement across ideological and institutional boundaries. Our non-partisanship does not imply indifference to democratic principles, institutional failures or the misuse of public authority. Rather, it demands that we assess policies consistently, question power responsibly and allow evidence, not political allegiance, to shape our conclusions.
 
-## What I ask of CRGD
+We seek to bring together global scholars, policymakers, practitioners and emerging thinkers to generate original research, encourage critical dialogue and develop practical responses to pressing policy challenges. Our commitment to liberty, reason, constitutional democracy, economic opportunity and accountable governance will remain central to this endeavour.
 
-I have asked my colleagues to hold to a few simple rules. Follow the evidence, especially when it is inconvenient. Be fair to those you disagree with. Write so that a busy person can understand. Admit mistakes quickly. Remember that every policy lands on real people, and listen to them before you recommend anything.
+We recognise that no single institution or intellectual tradition holds a monopoly over good ideas. Progress depends on openness to disagreement, the willingness to revise established assumptions and the capacity to translate knowledge into responsible action in liberty.
 
-I have also asked that CRGD be a place where young people learn by doing. Many of the most important contributions to our work will come from fellows, interns and members of our campus clubs, and I hope some of them will go on to lead public institutions in Kerala and beyond.
+Our ambition is not simply to add another institution to the policy landscape, but to establish one whose credibility rests on the quality of its research, whose independence is evident in the integrity of its work, and whose relevance is demonstrated through its contributions.
 
-## An invitation
+**At CRGD, we believe that ideas must withstand scrutiny, institutions must be responsible, and development must ultimately enlarge human freedom.**
 
-CRGD is young. We are building our research, our programs and our partnerships step by step, and we will make mistakes along the way. I invite you to read our work and tell us where we are wrong, to attend our events, to join our programs, and, if you value what we do, to support it.
+**Amal Chandra**\
+Founder & President\
+Centre for Research on Governance & Development (CRGD)
 
-Public policy is not only for governments. It belongs to all of us.
+## About the Founder
 
-With warm regards,
+### Amal Chandra
 
-**Founder Name**
-Founder and Chairperson, CRGD
+**Founder & President, Centre for Research on Governance & Development (CRGD)**
+
+Amal Chandra is an author, public policy analyst, political commentator, and columnist whose work focuses on democracy, governance, strategic affairs, accountability, and public policy.
+
+He serves as National Affairs Editor at *The Open Tab* and as The Statement Fellow and South Asia Coordinator at Students For Liberty (SFL). His debut book, *The Essential* (2023), features a foreword by Adv. Salman Khurshid, former Union Minister of External Affairs, and was launched by Dr. Shashi Tharoor alongside Adv. V.D. Satheesan, the current CM of Keralam.
+
+His professional experience spans government, public policy research, development programmes and parliamentary affairs. He previously worked with the Kerala Development and Innovation Strategic Council (K-DISC), the PMPY–UNICEF programme at the Central University of Gujarat, and the Centre for Public Policy Research (CPPR) through a youth leadership fellowship in collaboration with Atlas Network, USA. He has worked closely with Dr. Shashi Tharoor and served as a Policy Officer of the Congress party and a Research Associate to Adv. Dean Kuriakose, Member of Parliament. He has also held student leadership positions at University College, Thiruvananthapuram, and Pondicherry Central University.
+
+A Gold Medallist in Political Science and a participant in international liberty and public policy forums, Chandra contributes extensively to national and international policy discourse. His writings and research contributions have appeared in publications and platforms including the American Institute for Economic Research, Observer Research Foundation, *Indian Journal of Public Administration*, *Global Policy*, *Modern Diplomacy*, *South Asia Voices*, *East Asia Forum*, SAGE and *The UnPopulist*.
+
+[View Amal Chandra's profile](/people/amal-chandra)

@@ -4,7 +4,6 @@ name: "Co-Founder Name Two"
 role: "Co-Founder and Director, Programs"
 groups:
   - "co-founder"
-  - "governing-board"
 affiliation: "[Current position, institution]"
 centres:
   - "education"

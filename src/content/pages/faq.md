@@ -15,7 +15,7 @@ placeholder: false
 ## About CRGD
 
 **What is CRGD?**
-CRGD is an independent public policy research institution based in Thiruvananthapuram. Its name for itself, The Public Policy Bridge, describes its purpose: connecting research, citizens and decision makers.
+The Centre for Research on Governance and Development (CRGD): The Public Policy Bridge is an independent, non-partisan research and advocacy institution dedicated to advancing liberty, knowledge, democracy, accountable governance, and development. It is headquartered in Thiruvananthapuram, Keralam. Read [about CRGD](/about).
 
 **Is CRGD part of the government?**
 No. CRGD is independent of government. It may carry out research commissioned by public bodies, but only on terms that protect its independence. See [independence and funding](/independence-and-funding).

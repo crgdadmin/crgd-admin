@@ -1,17 +1,16 @@
 ---
 slug: founding-statement
-title: Founding Statement of CRGD
+title: Founding resolution of the General Body
 category: archives
-date: 2025-08-15
-people:
-  - founder
-  - co-founder-one
-  - co-founder-two
-summary: The statement of purpose adopted by CRGD's founders when the institution was established.
+date: 2026-10-03
+people: []
+summary: On 3 October 2026, the founding General Body unanimously resolved to establish CRGD, adopting its constitutional framework and constituting its first Governing Body.
 image: ""
 imageAlt: ""
 pdf: ""
 placeholder: true
 ---
 
-[Placeholder: reproduce the founding statement, or upload it as a PDF in the "PDF" field. Check the date above.]
+On 3 October 2026, the founding General Body unanimously resolved to establish the Centre for Research on Governance and Development (CRGD): The Public Policy Bridge, adopting its constitutional framework and constituting its first Governing Body.
+
+[Placeholder: upload the resolution or the Memorandum of Association as a PDF in the "PDF" field, or delete this entry.]
