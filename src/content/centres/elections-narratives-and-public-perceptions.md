@@ -1,10 +1,9 @@
 ---
 slug: elections-narratives-and-public-perceptions
-title: Elections, Narratives and Public Perceptions
+title: Elections, Narratives and Perceptions
 shortTitle: Voters, campaigns, media and the stories that shape opinion
-summary: How citizens form political opinions, how elections are fought, and how narratives, media and misinformation shape public perceptions of policy.
-image: ""
-imageAlt: ""
+summary: How citizens form political opinions, how elections are fought, and how
+  narratives, media and misinformation shape public perceptions of policy.
 focusAreas:
   - Electoral behaviour and turnout
   - Campaigns and political communication
@@ -13,17 +12,18 @@ focusAreas:
   - Survey methods
   - Electoral reform
 keyQuestions:
-  - What do voters in Kerala care about when they choose, and how is that changing?
-  - How do policy debates become political narratives, and what is lost along the way?
+  - What do voters in Kerala care about when they choose, and how is that
+    changing?
+  - How do policy debates become political narratives, and what is lost along
+    the way?
   - How does misinformation spread in Malayalam, and what slows it down?
   - How can opinion surveys be made more transparent and more reliable?
 leads:
   - researcher-one
 featured: false
-placeholder: false
 order: 18
+placeholder: false
 ---
-
 Public policy is shaped by what people believe as much as by what is true. This vertical studies elections, political communication and public opinion, and the space between evidence and perception.
 
 ## Why it matters
