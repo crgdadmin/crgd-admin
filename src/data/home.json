@@ -2,15 +2,12 @@
   "hero": {
     "eyebrow": "CRGD | The Public Policy Bridge",
     "heading": "Ideas That Matter. Research That Informs. Policies That Transform.",
-    "text": "An independent, non-partisan public policy institution advancing liberty, democratic governance and development through critical inquiry, independent scholarship and transformative policy vision.",
+    "text": "An independent, non-partisan public policy institution (think tank) advancing liberty, democratic governance and development through critical inquiry, independent scholarship and transformative policy vision.",
     "subline": "Bridging Knowledge, Policy, and Public Purpose.",
-    "image": "",
-    "imageAlt": "",
     "primaryLabel": "Explore our research",
     "primaryHref": "/research",
     "secondaryLabel": "Read the latest publications",
-    "secondaryHref": "/publications",
-    "featuredPublication": ""
+    "secondaryHref": "/publications"
   },
   "about": {
     "show": true,
@@ -36,17 +33,17 @@
     "linkLabel": "How we work",
     "linkHref": "/our-approach"
   },
-  "centres": {
-    "show": true,
-    "eyebrow": "Research",
-    "heading": "Eighteen verticals, one standard of evidence",
-    "text": "Each research vertical is led by people who know its subject and its institutions. Choose a vertical to see its questions, its people and its publications."
-  },
   "latest": {
     "show": true,
     "eyebrow": "Publications",
     "heading": "Latest research and analysis",
     "count": 6
+  },
+  "centres": {
+    "show": true,
+    "eyebrow": "Research",
+    "heading": "Eighteen verticals, one standard of evidence",
+    "text": "Each research vertical is led by people who know its subject and its institutions. Choose a vertical to see its questions, its people and its publications."
   },
   "numbers": {
     "show": true,
