@@ -1,32 +1,29 @@
 ---
 slug: amal-chandra
-name: "Amal Chandra"
-role: "Founder, President and CEO"
+name: Amal Chandra
+photo: /uploads/Amal, Image .jpeg
+role: Founder, President and CEO
 groups:
   - founder
   - governing-board
-affiliation: "Founder and President, Centre for Research on Governance and Development (CRGD)"
-centres: []
+affiliation: "Founder, President, and CEO, Centre for Research on Governance and
+  Development (CRGD): The Public Policy Bridge"
 expertise:
-  - "Democracy"
-  - "Governance"
-  - "Strategic affairs"
-  - "Accountability"
-  - "Public policy"
-photo: ""
-photoAlt: ""
-shortBio: "Amal Chandra is an author, public policy analyst, political commentator, and columnist whose work focuses on democracy, governance, strategic affairs, accountability, and public policy."
-email: ""
-linkedin: ""
-x: ""
-website: ""
-scholar: ""
-orcid: ""
+  - Democracy
+  - Governance
+  - Strategic affairs
+  - Accountability
+  - Public policy
+shortBio: Amal Chandra is an author, public policy analyst, political
+  commentator, and columnist whose work focuses on democracy, governance,
+  strategic affairs, accountability, and public policy.
+email: president@crgd.in  |  amalchandra@crgd.in
+linkedin: https://www.linkedin.com/in/amal-chandra-7aa947115
+x: https://x.com/ens_socialis
 featured: true
-placeholder: false
 order: 1
+placeholder: false
 ---
-
 Amal Chandra is an author, public policy analyst, political commentator, and columnist whose work focuses on democracy, governance, strategic affairs, accountability, and public policy.
 
 He serves as National Affairs Editor at *The Open Tab* and as The Statement Fellow and South Asia Coordinator at Students For Liberty (SFL). His debut book, *The Essential* (2023), features a foreword by Adv. Salman Khurshid, former Union Minister of External Affairs, and was launched by Dr. Shashi Tharoor alongside Adv. V.D. Satheesan, the current CM of Keralam.
