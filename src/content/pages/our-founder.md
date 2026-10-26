@@ -6,8 +6,6 @@ section: About
 eyebrow: About Us
 summary: "Amal Chandra, Founder, President, and CEO of the Centre for Research
   on Governance and Development (CRGD): The Public Policy Bridge"
-image: /uploads/Headshot, Chandra.png
-imageAlt: Amal Chandra at Asia Liberty Forum, Jakarta, 2025
 person: amal-chandra
 showContactForm: false
 showSubscribeForm: false
