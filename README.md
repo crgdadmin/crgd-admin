@@ -2,7 +2,7 @@
 
 The complete website for the Centre for Research on Governance and Development (CRGD): The Public Policy Bridge, an independent, non-partisan research and advocacy institution in Thiruvananthapuram, Keralam. Front end, written content, placeholders for everything still to come, search, feeds, and a browser based CMS so the whole site can be edited without touching code.
 
-**Live at https://irijournal.github.io/Website-for-Amal/**
+**Live at https://crgdadmin.github.io/crgd-admin/**
 
 Built with [Astro](https://astro.build), edited with [Pages CMS](https://pagescms.org), hosted free on GitHub Pages. It follows the same approach as the International Research Insights website, at roughly twice the size.
 

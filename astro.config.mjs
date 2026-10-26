@@ -4,7 +4,7 @@ import { satteri } from '@astrojs/markdown-satteri';
 
 // The live address of the website. The deploy workflow passes SITE_URL and
 // BASE_PATH from GitHub Pages, so a project address such as
-// https://irijournal.github.io/Website-for-Amal and a custom domain both work
+// https://crgdadmin.github.io/crgd-admin and a custom domain both work
 // without code changes. For local builds the domain in settings.json is used.
 const settings = JSON.parse(readFileSync(new URL('./src/data/settings.json', import.meta.url), 'utf8'));
 const site = process.env.SITE_URL || settings.siteUrl || 'https://example.org';

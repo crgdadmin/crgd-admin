@@ -54,5 +54,5 @@ Everything below is a placeholder or an assumption that must be confirmed. All o
 
 ## Domain
 
-- [x] The site is live at https://irijournal.github.io/Website-for-Amal/
+- [x] The site is live at https://crgdadmin.github.io/crgd-admin/
 - [ ] Optional: connect a domain (see `DEPLOY.md`, section 5) and set Site settings > Website address.

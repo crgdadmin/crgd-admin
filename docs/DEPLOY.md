@@ -4,7 +4,7 @@ The site is a static website built by GitHub Actions and served by GitHub Pages,
 
 ## 1. How publishing works
 
-The site is live at **https://irijournal.github.io/Website-for-Amal/**.
+The site is live at **https://crgdadmin.github.io/crgd-admin/**.
 
 1. Every save in Pages CMS (and every push to `main`) runs the **Build and deploy the website** workflow in the Actions tab.
 2. The workflow checks the content files, builds the site, checks every internal link, and publishes the result to the `gh-pages` branch.
@@ -43,7 +43,7 @@ Choose one:
 1. Buy the domain from any registrar.
 2. In the repository, create the file `public/CNAME` containing only the domain, for example `www.crgd.org` (in Pages CMS or on GitHub: Add file > Create new file).
 3. In **Settings > Pages > Custom domain**, enter the same domain and save. GitHub shows the DNS records to add.
-4. At the registrar, add the records GitHub lists: a `CNAME` record for `www` pointing to `irijournal.github.io`, and the four `A` records for the bare domain.
+4. At the registrar, add the records GitHub lists: a `CNAME` record for `www` pointing to `crgdadmin.github.io`, and the four `A` records for the bare domain.
 5. When the DNS check passes, tick **Enforce HTTPS**.
 6. Update Site settings > **Website address** and the email addresses.
 
