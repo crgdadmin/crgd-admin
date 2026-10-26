@@ -28,7 +28,7 @@ Public policy is shaped by what people believe as much as by what is true. This 
 
 ## Why it matters
 
-Kerala has high turnout and a highly engaged electorate. Political messages now travel through television, newspapers, social media and messaging groups, often in Malayalam, and often faster than they can be checked. Understanding how opinions form helps policy makers communicate honestly and helps citizens evaluate what they hear.
+Kerala has high turnout and a highly engaged electorate. Political messages now travel through television, newspapers, social media and messaging groups, often in Malayalam, and often faster than they can be checked. Understanding how opinions form helps policymakers communicate honestly and helps citizens evaluate what they hear.
 
 ## How we work
 
@@ -37,4 +37,4 @@ Kerala has high turnout and a highly engaged electorate. Political messages now 
 - **Information integrity.** We study misinformation and the effectiveness of responses to it.
 - **Survey research.** We design and publish surveys with full methodology and data.
 
-All survey work follows CRGD's research standards, including publication of questionnaires, sampling methods and margins of error.
+All survey work follows CRGD's research standards, including publication of questionnaires, sampling methods, and margins of error.
