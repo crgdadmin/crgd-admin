@@ -14,17 +14,18 @@ const { dark = false, compact = false, showFull = true } = Astro.props;
 const logo = dark ? site.logoOnDark || site.logo : site.logo;
 const height = Number(site.logoHeight) || 56;
 const showName = !logo || site.showNameBesideLogo !== false;
+const showShort = !logo || site.showShortNameBesideLogo !== false;
 ---
 
 <a class="brand" href={url('/')} aria-label={`${orgFullName} (${orgName}): ${orgTagline}, home`}>
   {logo ? (
-    <img src={asset(logo)} alt={site.logoAlt || `${orgName} logo`} style={`max-height:${compact ? Math.min(height, 32) : height}px`} />
+    <img src={asset(logo)} alt={site.logoAlt || `${orgName} logo`} style={`--logo-height:${compact ? Math.min(height, 32) : height}px`} />
   ) : (
     <span class="brand-mark" aria-hidden="true">{orgName.slice(0, 4)}</span>
   )}
   {showName && !compact && (
-    <span class="brand-text">
-      <span class="brand-name">{orgName}</span>
+    <span class:list={['brand-text', { 'no-short': !showShort }]}>
+      {showShort && <span class="brand-name">{orgName}</span>}
       {showFull && orgFullName !== orgName && <span class="brand-full">{orgFullName}</span>}
       {orgTagline && <span class="brand-tagline">{orgTagline}</span>}
     </span>

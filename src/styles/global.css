@@ -307,7 +307,7 @@ button { font: inherit; }
 
 .brand { display: inline-flex; align-items: center; gap: 0.95rem; text-decoration: none; color: var(--ink); min-width: 0; }
 .brand:hover { color: var(--ink); }
-.brand img { width: auto; max-width: 240px; object-fit: contain; }
+.brand img { width: auto; max-width: 240px; max-height: var(--logo-height, 56px); object-fit: contain; }
 .brand-mark {
   display: grid;
   place-items: center;
@@ -350,6 +350,10 @@ button { font: inherit; }
   line-height: 1.3;
   color: var(--blue-slate);
 }
+/* Beside a logo that already shows CRGD: the full name and tagline only, set off by a rule. */
+.brand-text.no-short { padding-left: 1.1rem; border-left: 1px solid var(--line); }
+.brand-text.no-short .brand-full { margin-top: 0; font-size: 0.8rem; }
+.brand-text.no-short .brand-tagline { margin-top: 0.3rem; font-size: 1.08rem; }
 
 .masthead-motto { text-align: right; max-width: 40rem; }
 .motto {
@@ -370,6 +374,9 @@ button { font: inherit; }
   .brand-mark { width: 44px; height: 44px; font-size: 0.9rem; }
   .brand-full { font-size: 0.6rem; letter-spacing: 0.06em; margin-top: 0.35rem; }
   .brand-tagline { font-size: 0.82rem; }
+  .brand-text.no-short { padding-left: 0.8rem; }
+  .brand-text.no-short .brand-full { font-size: 0.62rem; }
+  .brand-text.no-short .brand-tagline { font-size: 0.86rem; margin-top: 0.15rem; }
   .brand img { max-width: 170px; max-height: 46px; }
 }
 
@@ -387,7 +394,7 @@ button { font: inherit; }
 .nav-inner { display: flex; align-items: stretch; justify-content: space-between; gap: 0.75rem; min-height: var(--nav-height); }
 .nav-brand { display: none; align-items: center; gap: 0.6rem; color: #fff; text-decoration: none; font-family: var(--display); font-weight: 600; font-size: 1.15rem; letter-spacing: 0.04em; }
 .nav.is-stuck .nav-brand { display: inline-flex; }
-.nav-brand img { max-height: 30px; width: auto; }
+.nav-brand img { max-height: 40px; width: auto; }
 .nav-collapse { display: flex; align-items: stretch; }
 .nav-list { list-style: none; display: flex; align-items: stretch; margin: 0; padding: 0; }
 .nav-list > li { position: static; display: flex; }
@@ -1237,6 +1244,7 @@ a.tag:hover { background: var(--mist-blue); color: var(--deep-navy); }
 .footer-top { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 2.5rem 4rem; padding: clamp(3rem, 2rem + 3vw, 4.5rem) 0 2.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
 .footer .brand { color: #fff; }
 .footer .brand-full { color: #fff; }
+.footer .brand-text.no-short { border-left-color: rgba(255, 255, 255, 0.22); }
 .footer .brand-tagline { color: var(--foggy-blue); }
 .footer-about { margin-top: 1.3rem; max-width: 34rem; color: var(--foggy-blue); }
 .footer-contact { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: 0.65rem; }

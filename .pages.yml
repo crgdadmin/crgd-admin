@@ -24,8 +24,9 @@ content:
       - { name: logo, label: Logo, type: image, description: "Upload the logo here (PNG or SVG with a transparent background works best). Until a logo is uploaded, the site shows a text wordmark." }
       - { name: logoOnDark, label: Logo for dark backgrounds, type: image, description: "Optional. A white or light version of the logo for the footer and the sticky menu bar." }
       - { name: logoAlt, label: Logo description, type: string, description: "Read aloud by screen readers, for example: CRGD logo" }
-      - { name: logoHeight, label: Logo height in pixels, type: number, description: "Height of the logo in the header. 56 is a good starting point." }
+      - { name: logoHeight, label: Logo height in pixels, type: number, description: "Height of the logo in the header. 84 suits the CRGD logo." }
       - { name: showNameBesideLogo, label: Show the name and tagline beside the logo, type: boolean, description: "Switch off if the uploaded logo already contains the name." }
+      - { name: showShortNameBesideLogo, label: Show the short name beside the logo, type: boolean, description: "Switch off when the logo already shows CRGD, so only the full name and tagline appear beside it." }
       - { name: favicon, label: Browser tab icon, type: image, description: "Optional. A square image of at least 64 by 64 pixels." }
       - { name: shareImage, label: Default sharing image, type: image, description: "Shown when a page is shared on WhatsApp, LinkedIn, X or Facebook and has no picture of its own. 1200 by 630 pixels." }
       - { name: siteUrl, label: Website address, type: string, description: "For example https://www.crgd.org. Used only for local builds; the live site uses the address configured in GitHub Pages." }

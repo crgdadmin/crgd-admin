@@ -5,8 +5,7 @@ Everything below is a placeholder or an assumption that must be confirmed. All o
 ## Identity
 
 - [x] **Name.** Centre for Research on Governance and Development (CRGD): The Public Policy Bridge, with the institutional tagline *Independent Research. Informed Dialogue. Transformative Policy.*
-- [ ] **Logo.** Upload in Site settings > Logo, and a light version in *Logo for dark backgrounds*. If the logo contains the name, switch off *Show the name and tagline beside the logo*.
-- [ ] **Favicon and sharing image.** Optional uploads in Site settings; defaults are provided.
+- [x] **Logo.** The CRGD logo is in Site settings > Logo, with a white version for the footer and menu bar, the browser tab icon and the sharing image. All the files are in the media library under `uploads/logo`.
 - [ ] **Fonts.** The brief left the font open. The default is Editorial (Newsreader and Inter). Four other pairings are available in Site settings > Fonts.
 - [x] **Year founded** is 2026 (founding General Body, 3 October 2026).
 

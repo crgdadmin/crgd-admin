@@ -28,7 +28,7 @@ To give a colleague access, add them as a collaborator on the GitHub repository 
 
 ## Uploading the logo
 
-Site settings > **Logo** > choose or upload an image > Save. A PNG or SVG with a transparent background works best. Upload a white version in **Logo for dark backgrounds** for the footer. If the logo already contains the name, switch off *Show the name and tagline beside the logo*.
+Site settings > **Logo** > choose or upload an image > Save. A PNG or SVG with a transparent background works best. Upload a white version in **Logo for dark backgrounds** for the footer and the menu bar. The current logo already shows CRGD, so *Show the short name beside the logo* is switched off and only the full name and tagline appear beside it. If a new logo contains the whole name, switch off *Show the name and tagline beside the logo* too. The logo files, including the full logo with the name lines, are in the media library under `uploads/logo`.
 
 ## Images everywhere
 
