@@ -1,6 +1,6 @@
 ---
 slug: tourism-and-culture
-title: Tourism & Culture
+title: Tourism and Culture
 shortTitle: Visitors, heritage and the creative economy
 summary: How tourism and cultural life can bring prosperity to communities without eroding the places, traditions and environments that attract visitors in the first place.
 image: ""

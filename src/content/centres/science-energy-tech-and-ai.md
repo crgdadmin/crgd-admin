@@ -1,6 +1,6 @@
 ---
 slug: science-energy-tech-and-ai
-title: Science, Energy, Tech & AI
+title: Science, Energy, Tech and AI
 shortTitle: Technology, energy transition and artificial intelligence
 summary: How science, technology, clean energy and artificial intelligence can serve the public, and how they should be governed.
 image: ""

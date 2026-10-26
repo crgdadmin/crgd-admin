@@ -22,7 +22,7 @@ Every item in the website brief and where it lives. Addresses are relative to th
 | About us (The story) | `/about` |
 | Vision | `/vision` |
 | Mission | `/mission` |
-| Our Founder, with The Statement Fellowship and a brief message | `/our-founder` (About the Founder, then Founder's Message); The Statement Fellowship is told in Our Story on `/about` |
+| Our Founder, with The Statement Fellowship and a brief message | `/our-founder` (name, title and headshot in the header, then About the Founder) and `/founders-message`; The Statement Fellowship is told in Our Story on `/about` |
 | Co-Founders | Removed at CRGD's request (The Statement Fellowship obligation) |
 | People | `/people` |
 | Governing Board | `/people/governing-board` |

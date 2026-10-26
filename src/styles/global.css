@@ -683,6 +683,18 @@ button { font: inherit; }
 .page-head .eyebrow { color: var(--cloud-blue); }
 .page-head .meta { color: var(--foggy-blue); }
 .page-head-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: end; }
+/* A person named in the page header, as on Our Founder: name, title and headshot. */
+.head-person { margin-top: 1.6rem; padding-left: 1.1rem; border-left: 3px solid var(--cloud-blue); }
+.head-person-name { margin: 0; font-family: var(--display); font-size: clamp(1.6rem, 1.2rem + 1.3vw, 2.25rem); font-weight: 600; line-height: 1.15; }
+.head-person-name a { color: #fff; text-decoration: none; }
+.head-person-name a:hover { text-decoration: underline; text-underline-offset: 0.15em; }
+.head-person-title { margin: 0.45rem 0 0; max-width: 40rem; font-size: 0.86rem; font-weight: 600; letter-spacing: 0.08em; line-height: 1.5; text-transform: uppercase; color: var(--cloud-blue); }
+.head-portrait { position: relative; width: clamp(150px, 10rem + 6vw, 250px); aspect-ratio: 4 / 5; border-radius: var(--radius-lg); overflow: hidden; background: var(--ocean-depth); box-shadow: var(--shadow-lg); border: 4px solid rgba(255, 255, 255, 0.14); }
+.head-portrait img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 640px) {
+  .page-head-grid:has(> .head-portrait) { grid-template-columns: 1fr; }
+  .page-head-grid > .head-portrait { order: -1; width: 150px; }
+}
 .page-head-image { position: absolute; inset: 0; z-index: -1; }
 .page-head-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.25; }
 .page-head-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10, 27, 46, 0.95) 35%, rgba(10, 27, 46, 0.6)); }
@@ -1394,3 +1406,7 @@ main:focus { outline: none; }
 @media (max-width: 860px) { .commitment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 480px) { .commitment-grid { grid-template-columns: minmax(0, 1fr); } .commitment-grid li { min-height: 0; gap: 0.8rem; } }
 .footer .motto { color: var(--cloud-blue); font-size: 1.05rem; margin-top: 1rem; text-align: left; }
+
+/* Newsreader has a smaller x-height than a sans text face, so running text is set a little larger. */
+html[data-fonts='newsreader'] body { font-size: 1.125rem; }
+html[data-fonts='newsreader'] .prose { font-size: 1.16rem; }

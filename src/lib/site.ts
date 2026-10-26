@@ -251,6 +251,12 @@ export function toneFor(seed: string, tones = 6): number {
 /* ------------------------------------------------------------------------ */
 
 export const fontPairings: Record<string, { label: string; display: string; text: string; href: string }> = {
+  newsreader: {
+    label: 'Newsreader throughout: one serif for headings and text',
+    display: "'Newsreader', 'Georgia', serif",
+    text: "'Newsreader', 'Georgia', serif",
+    href: 'family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800',
+  },
   editorial: {
     label: 'Editorial: Newsreader headings with Inter text',
     display: "'Newsreader', 'Georgia', serif",

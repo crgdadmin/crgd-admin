@@ -80,6 +80,7 @@ content:
         description: "Choose the typefaces for the whole website."
         options:
           values:
+            - { value: newsreader, label: "Newsreader throughout: one serif for headings and text" }
             - { value: editorial, label: "Editorial: Newsreader headings with Inter text" }
             - { value: scholarly, label: "Scholarly: Source Serif headings with Source Sans text" }
             - { value: elegant, label: "Elegant: Cormorant Garamond headings with Montserrat text" }
@@ -379,20 +380,20 @@ content:
           values:
             - { value: governance-finance-accountability, label: "Governance, Finance and Accountability" }
             - { value: education, label: "Education" }
-            - { value: health-and-demography, label: "Health & Demography" }
+            - { value: health-and-demography, label: "Health and Demography" }
             - { value: employment, label: "Employment" }
             - { value: federalism, label: "Federalism" }
-            - { value: tourism-and-culture, label: "Tourism & Culture" }
+            - { value: tourism-and-culture, label: "Tourism and Culture" }
             - { value: mobility, label: "Mobility" }
-            - { value: agriculture-and-rural-development, label: "Agriculture & Rural Development" }
+            - { value: agriculture-and-rural-development, label: "Agriculture and Rural Development" }
             - { value: strategic-affairs-and-planning, label: "Strategic Affairs and Planning" }
-            - { value: science-energy-tech-and-ai, label: "Science, Energy, Tech & AI" }
+            - { value: science-energy-tech-and-ai, label: "Science, Energy, Tech and AI" }
             - { value: maritime-economy, label: "Maritime Economy" }
             - { value: society-law-and-policy, label: "Society, Law and Policy" }
             - { value: institutions-and-social-justice, label: "Institutions and Social Justice" }
             - { value: economy, label: "Economy" }
-            - { value: environment-and-disaster-management, label: "Environment & Disaster Management" }
-            - { value: state-and-politics, label: "State & Politics" }
+            - { value: environment-and-disaster-management, label: "Environment and Disaster Management" }
+            - { value: state-and-politics, label: "State and Politics" }
             - { value: urbanisation, label: "Urbanisation" }
             - { value: elections-narratives-and-public-perceptions, label: "Elections, Narratives and Public Perceptions" }
       - { name: expertise, label: Areas of expertise, type: string, list: true }
@@ -611,7 +612,7 @@ content:
             - { value: advocacy, label: Advocacy }
             - { value: ongoing, label: Ongoing }
             - { value: accomplished, label: Accomplished }
-            - { value: awards-and-honours, label: "Awards & Honours" }
+            - { value: awards-and-honours, label: "Awards and Honours" }
       - { name: status, label: Status, type: string, description: "For example: Ongoing, Completed" }
       - { name: summary, label: Summary, type: text, required: true }
       - { name: image, label: Image, type: image }

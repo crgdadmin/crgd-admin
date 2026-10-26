@@ -61,11 +61,12 @@ const organisation = {
   sameAs: socialLinks.map((s) => s.href).filter((h) => !/^https:\/\/(www\.)?[a-z]+\.com\/?$/.test(h)),
 };
 const graphs = [organisation, ...(Array.isArray(schema) ? schema : schema ? [schema] : [])];
-const fontVars = `:root{--display:${font.display};--text:${font.text};}`;
+// html:root outranks the defaults in global.css, which load after this tag.
+const fontVars = `html:root{--display:${font.display};--text:${font.text};}`;
 ---
 
 <!doctype html>
-<html lang="en-IN">
+<html lang="en-IN" data-fonts={site.fontPairing ?? 'editorial'}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

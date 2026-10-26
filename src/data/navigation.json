@@ -26,6 +26,10 @@
               "href": "/our-founder"
             },
             {
+              "label": "Founder's Message",
+              "href": "/founders-message"
+            },
+            {
               "label": "How We Work",
               "href": "/our-approach"
             },
@@ -238,7 +242,7 @@
               "href": "/publications/special-reports"
             },
             {
-              "label": "Books & Journals",
+              "label": "Books and Journals",
               "href": "/publications/books-and-journals"
             },
             {
@@ -319,7 +323,7 @@
               "href": "/impact/accomplished"
             },
             {
-              "label": "Awards & Honours",
+              "label": "Awards and Honours",
               "href": "/impact/awards-and-honours"
             }
           ]

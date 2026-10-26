@@ -8,7 +8,7 @@ summary: The principles and standards that govern everything CRGD publishes, fro
 image: ""
 imageAlt: ""
 updated: 2026-10-25
-order: 8
+order: 9
 placeholder: false
 ---
 
@@ -52,7 +52,7 @@ CRGD publishes research, analysis, commentary and more across the following cate
 10. **Young Thoughts:** A dedicated platform for students and emerging thinkers to contribute original ideas, critical reflections and informed perspectives.
 11. **Expert View:** Specialist contributions from scholars, practitioners and professionals drawing upon recognised expertise and experience.
 12. **Reviews:** Critical assessments of publications, policies, intellectual contributions and other works of public or academic significance.
-13. **Books & Journals:** Scholarly discussions, reviews and assessments of books, academic journals and significant research literature.
+13. **Books and Journals:** Scholarly discussions, reviews and assessments of books, academic journals and significant research literature.
 14. **Internship/Fellowship Reports:** Selected research outputs, field observations and analytical reports developed through CRGD's internship/fellowship programmes.
 15. **Podcasts:** Recorded conversations, interviews and discussions examining ideas, institutions and contemporary policy questions.
 16. **Videos:** Interviews, lectures, explainers, discussions and other audiovisual contributions to public knowledge.

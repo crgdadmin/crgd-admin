@@ -6,7 +6,7 @@ Everything below is a placeholder or an assumption that must be confirmed. All o
 
 - [x] **Name.** Centre for Research on Governance and Development (CRGD): The Public Policy Bridge, with the institutional tagline *Independent Research. Informed Dialogue. Transformative Policy.*
 - [x] **Logo.** The CRGD logo is in Site settings > Logo, with a white version for the footer and menu bar, the browser tab icon and the sharing image. All the files are in the media library under `uploads/logo`.
-- [ ] **Fonts.** The brief left the font open. The default is Editorial (Newsreader and Inter). Four other pairings are available in Site settings > Fonts.
+- [x] **Fonts.** Newsreader is used for all text, as CRGD asked (Site settings > Fonts > Newsreader throughout). Five other pairings remain available there.
 - [x] **Year founded** is 2026 (founding General Body, 3 October 2026).
 
 ## Contact details
@@ -42,7 +42,7 @@ Everything below is a placeholder or an assumption that must be confirmed. All o
 ## Founder's message
 
 - [x] Founder's Message, About the Founder, About, Our Story, Vision, Mission, Core Commitments, How We Work and Editorial Policy use Amal's own text.
-- [ ] Add Amal Chandra's photograph (People > Amal Chandra > Photograph).
+- [ ] Add Amal Chandra's headshot (People > Amal Chandra > Photograph). It appears in the Our Founder page header, on his profile and on the home page.
 - [ ] How We Work: Amal listed four principles with headings only. Add a sentence under each if wanted.
 
 ## Sample content

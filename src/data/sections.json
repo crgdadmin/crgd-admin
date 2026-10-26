@@ -216,7 +216,7 @@
       },
       {
         "slug": "books-and-journals",
-        "label": "Books & Journals",
+        "label": "Books and Journals",
         "singular": "Book or Journal",
         "description": "Scholarly discussions, reviews and assessments of books, academic journals and significant research literature."
       },
@@ -264,7 +264,7 @@
       },
       {
         "slug": "awards-and-honours",
-        "label": "Awards & Honours",
+        "label": "Awards and Honours",
         "description": "Recognition received by CRGD and its people for their work."
       }
     ]

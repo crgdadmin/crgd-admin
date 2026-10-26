@@ -4,19 +4,16 @@ title: Our Founder
 navLabel: Our Founder
 section: About
 eyebrow: About Us
-summary: About Amal Chandra, Founder & President of the Centre for Research on Governance and Development (CRGD), and his Founder's Message.
+summary: "Amal Chandra, Founder and President of the Centre for Research on Governance and Development (CRGD): The Public Policy Bridge."
 image: ""
 imageAlt: ""
 updated: 2026-10-25
 order: 4
+person: amal-chandra
 placeholder: false
 ---
 
 ## About the Founder
-
-### Amal Chandra
-
-**Founder & President, Centre for Research on Governance & Development (CRGD)**
 
 Amal Chandra is an author, public policy analyst, political commentator, and columnist whose work focuses on democracy, governance, strategic affairs, accountability, and public policy.
 
@@ -26,30 +23,4 @@ His professional experience spans government, public policy research, developmen
 
 A Gold Medallist in Political Science and a participant in international liberty and public policy forums, Chandra contributes extensively to national and international policy discourse. His writings and research contributions have appeared in publications and platforms including the American Institute for Economic Research, Observer Research Foundation, *Indian Journal of Public Administration*, *Global Policy*, *Modern Diplomacy*, *South Asia Voices*, *East Asia Forum*, SAGE and *The UnPopulist*.
 
-[View Amal Chandra's profile](/people/amal-chandra)
-
-## Founder's Message
-
-**Ideas acquire public value when they challenge assumptions, inform decisions, and improve institutions with global visibility. To me, public policy is applied political science.**
-
-The defining challenges of our time are not just economic or political; they are fundamentally questions of civil society and governance. How societies create and distribute opportunity, protect liberty, exercise public power, and respond to emerging challenges depends on the quality of their laws, institutions, and the evidence informing their decisions.
-
-India's remarkable economic and democratic journey illustrates both the possibilities of progress and the persistence of institutional contradictions. Economic growth has not eliminated inequality of opportunity; technological advancement has not automatically ensured accountability; and democratic participation, however extensive, cannot substitute for institutional integrity, constitutional safeguards and informed public deliberation.
-
-The **Centre for Research on Governance and Development (CRGD): The Public Policy Bridge** was founded to engage seriously with these questions and beyond, thus contributing to more rigorous, independent and solutions-oriented public policy interventions.
-
-Our conviction is fundamental: research must challenge conventions and advance understanding; advocacy must be grounded in reason rather than rhetoric; and public policy must transcend political expediency to confront structural challenges. Their ultimate worth lies not in the ideas they generate or the attention they command, but in the institutions they improve, the reforms they enable, and the enduring public value they create.
-
-CRGD is committed to intellectual independence, methodological rigour and constructive engagement across ideological and institutional boundaries. Our non-partisanship does not imply indifference to democratic principles, institutional failures or the misuse of public authority. Rather, it demands that we assess policies consistently, question power responsibly and allow evidence, not political allegiance, to shape our conclusions.
-
-We seek to bring together global scholars, policymakers, practitioners and emerging thinkers to generate original research, encourage critical dialogue and develop practical responses to pressing policy challenges. Our commitment to liberty, reason, constitutional democracy, economic opportunity and accountable governance will remain central to this endeavour.
-
-We recognise that no single institution or intellectual tradition holds a monopoly over good ideas. Progress depends on openness to disagreement, the willingness to revise established assumptions and the capacity to translate knowledge into responsible action in liberty.
-
-Our ambition is not simply to add another institution to the policy landscape, but to establish one whose credibility rests on the quality of its research, whose independence is evident in the integrity of its work, and whose relevance is demonstrated through its contributions.
-
-**At CRGD, we believe that ideas must withstand scrutiny, institutions must be responsible, and development must ultimately enlarge human freedom.**
-
-**Amal Chandra**\
-Founder & President\
-Centre for Research on Governance & Development (CRGD)
+Read the [Founder's Message](/founders-message) or view [Amal Chandra's profile](/people/amal-chandra).

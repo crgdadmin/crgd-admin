@@ -1,6 +1,6 @@
 ---
 slug: state-and-politics
-title: State & Politics
+title: State and Politics
 shortTitle: Government, legislature, parties and political culture
 summary: "How the state is governed in practice: the legislature, the executive, political parties and the political culture that shapes public decisions."
 image: ""

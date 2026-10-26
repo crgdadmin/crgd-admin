@@ -27,11 +27,11 @@
     "heading": "Our Core Commitments",
     "items": [
       "Research Excellence",
-      "Liberty & Democracy",
-      "Dialogue & Pluralism",
-      "Innovation & Policy Solutions",
+      "Liberty and Democracy",
+      "Dialogue and Pluralism",
+      "Innovation and Policy Solutions",
       "Institutional Reform",
-      "Impact & Public Purpose"
+      "Impact and Public Purpose"
     ],
     "linkLabel": "How we work",
     "linkHref": "/our-approach"
@@ -82,7 +82,7 @@
     "eyebrow": "A message from our founder",
     "quote": "At CRGD, we believe that ideas must withstand scrutiny, institutions must be responsible, and development must ultimately enlarge human freedom.",
     "linkLabel": "Read the founder's message",
-    "linkHref": "/our-founder#founders-message"
+    "linkHref": "/founders-message"
   },
   "media": {
     "show": true,

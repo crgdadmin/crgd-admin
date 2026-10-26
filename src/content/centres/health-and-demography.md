@@ -1,6 +1,6 @@
 ---
 slug: health-and-demography
-title: Health & Demography
+title: Health and Demography
 shortTitle: Public health, ageing and population change
 summary: How a society that has largely won the battles against early death and high fertility can meet its next challenges, from chronic disease to an ageing population.
 image: ""

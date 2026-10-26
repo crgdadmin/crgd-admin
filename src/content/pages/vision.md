@@ -17,10 +17,10 @@ placeholder: false
 ## Our Core Commitments
 
 - *Research Excellence*
-- *Liberty & Democracy*
-- *Dialogue & Pluralism*
-- *Innovation & Policy Solutions*
+- *Liberty and Democracy*
+- *Dialogue and Pluralism*
+- *Innovation and Policy Solutions*
 - *Institutional Reform*
-- *Impact & Public Purpose*
+- *Impact and Public Purpose*
 
 Read [Our Mission](/mission) and [How We Work](/our-approach).

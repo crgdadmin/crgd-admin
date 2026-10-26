@@ -5,7 +5,7 @@ role: "Founder, President and CEO"
 groups:
   - founder
   - governing-board
-affiliation: "Founder & President, Centre for Research on Governance & Development (CRGD)"
+affiliation: "Founder and President, Centre for Research on Governance and Development (CRGD)"
 centres: []
 expertise:
   - "Democracy"
@@ -35,4 +35,4 @@ His professional experience spans government, public policy research, developmen
 
 A Gold Medallist in Political Science and a participant in international liberty and public policy forums, Chandra contributes extensively to national and international policy discourse. His writings and research contributions have appeared in publications and platforms including the American Institute for Economic Research, Observer Research Foundation, *Indian Journal of Public Administration*, *Global Policy*, *Modern Diplomacy*, *South Asia Voices*, *East Asia Forum*, SAGE and *The UnPopulist*.
 
-Read his [Founder's Message](/our-founder#founders-message).
+Read his [Founder's Message](/founders-message).

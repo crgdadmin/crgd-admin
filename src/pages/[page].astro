@@ -40,25 +40,33 @@ if (page.id === 'about') crumbs.splice(0, 1);
 ---
 
 <Base title={d.title} description={d.summary} image={d.image} imageAlt={d.imageAlt}>
-  <PageHead eyebrow={d.eyebrow || d.section} title={d.title} lede={d.summary} crumbs={crumbs} image={d.image} />
+  <PageHead eyebrow={d.eyebrow || d.section} title={d.title} lede={featured?.person ? undefined : d.summary} crumbs={crumbs} image={d.image}>
+    {featured?.person && (
+      <div class="head-person">
+        <p class="head-person-name"><a href={url(featured.href!)}>{featured.name}</a></p>
+        {(featured.person.data.affiliation || featured.person.data.role) && (
+          <p class="head-person-title">{featured.person.data.affiliation || featured.person.data.role}</p>
+        )}
+      </div>
+    )}
+    {featured?.person && (
+      <div class="head-portrait" slot="side">
+        <Picture
+          src={featured.person.data.photo}
+          alt={featured.person.data.photoAlt || `Photograph of ${featured.name}`}
+          name={featured.name}
+          variant="fill"
+          eager
+          placeholder={featured.person.data.placeholder}
+        />
+      </div>
+    )}
+  </PageHead>
 
   <section class="band">
     <div class:list={['wrap', 'layout-main', { 'no-aside': d.hideSidebar }]}>
       <div>
         <PlaceholderNote show={d.placeholder} what="page" />
-
-        {featured?.person && (
-          <div class="author-box" style="margin-bottom:2.5rem">
-            <div class="avatar large">
-              <Picture src={featured.person.data.photo} alt={featured.person.data.photoAlt || featured.name} name={featured.name} variant="fill" />
-            </div>
-            <div>
-              <h3><a href={url(featured.href!)}>{featured.name}</a></h3>
-              {featured.person.data.role && <p class="meta" style="margin:0">{featured.person.data.role}</p>}
-              {featured.person.data.shortBio && <p>{featured.person.data.shortBio}</p>}
-            </div>
-          </div>
-        )}
 
         {d.image && (
           <figure style="margin:0 0 2.5rem">

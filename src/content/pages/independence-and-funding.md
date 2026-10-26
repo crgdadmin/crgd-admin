@@ -8,7 +8,7 @@ summary: How CRGD is funded, what it will and will not accept, and how it protec
 image: ""
 imageAlt: ""
 updated: 2026-10-15
-order: 6
+order: 7
 placeholder: false
 ---
 

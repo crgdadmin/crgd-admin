@@ -1,6 +1,6 @@
 ---
 slug: agriculture-and-rural-development
-title: Agriculture & Rural Development
+title: Agriculture and Rural Development
 shortTitle: Farms, food, plantations and village economies
 summary: The future of farming and rural livelihoods in a state where land is scarce, labour is costly and the climate is changing.
 image: ""

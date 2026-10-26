@@ -1,6 +1,6 @@
 ---
 slug: environment-and-disaster-management
-title: Environment & Disaster Management
+title: Environment and Disaster Management
 shortTitle: Climate, ecology, floods, landslides and resilience
 summary: Protecting the ecology of the Western Ghats, the coast and the wetlands, and preparing communities for floods, landslides and a changing climate.
 image: ""
