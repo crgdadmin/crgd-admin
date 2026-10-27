@@ -2,7 +2,7 @@
 slug: lekshmi-narayan
 name: Lekshmi Narayan
 photo: /uploads/Lekshmi, Image.png
-role: Vice President. Head, Society, Law and Policy
+role: Vice President.Head, Society, Law and Policy
 groups:
   - governing-board
 centres:
