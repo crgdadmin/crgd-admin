@@ -1,10 +1,9 @@
 ---
 slug: state-and-politics
-title: State and Politics
+title: Gender, State and Politics
 shortTitle: Government, legislature, parties and political culture
-summary: "How the state is governed in practice: the legislature, the executive, political parties and the political culture that shapes public decisions."
-image: ""
-imageAlt: ""
+summary: "How the state is governed in practice: the legislature, the executive,
+  political parties and the political culture that shapes public decisions."
 focusAreas:
   - Functioning of the legislature
   - Coalition politics
@@ -13,17 +12,18 @@ focusAreas:
   - Public opinion
   - Comparative state politics
 keyQuestions:
-  - How much time does the legislature spend scrutinising laws and budgets, and how could it spend more?
+  - How much time does the legislature spend scrutinising laws and budgets, and
+    how could it spend more?
   - How do coalitions shape the policies that governments adopt?
-  - What is the relationship between political parties and civil society organisations?
+  - What is the relationship between political parties and civil society
+    organisations?
   - How does Kerala's political culture compare with that of other states?
 leads:
   - scholar-one
 featured: false
-placeholder: false
 order: 16
+placeholder: false
 ---
-
 Kerala's politics is intensely participatory, closely contested and often polarised. This vertical studies the institutions and practices of government and politics with the same evidence based approach CRGD applies to policy.
 
 ## Why it matters
