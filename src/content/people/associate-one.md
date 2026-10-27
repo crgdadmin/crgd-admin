@@ -2,10 +2,9 @@
 slug: associate-one
 name: Madhurima
 photo: /uploads/WA_1793087819711 - Madhurima.jpg
-role: Research Associate
+role: Research Associate, CRGD
 groups:
   - associate
-affiliation: CRGD
 centres:
   - employment
 expertise:
