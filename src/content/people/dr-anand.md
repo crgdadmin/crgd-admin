@@ -1,22 +1,11 @@
 ---
 slug: dr-anand
-name: "Dr. Anand"
-role: "Secretary and Director, Public Policy Development"
+name: Dr. Anand Chekkottu Parambil
+role: Secretary and Director, Public Policy Development
 groups:
   - governing-board
-affiliation: ""
-centres: []
-expertise: []
-photo: ""
-photoAlt: ""
-shortBio: ""
-email: ""
-linkedin: ""
-x: ""
-website: ""
-scholar: ""
-orcid: ""
+email: secretary@crgd.in
 featured: false
-placeholder: false
 order: 2
+placeholder: false
 ---
