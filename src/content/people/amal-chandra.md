@@ -2,12 +2,10 @@
 slug: amal-chandra
 name: Amal Chandra
 photo: /uploads/Amal, Image .jpeg
-role: Founder, President and CEO
+role: Founder, President and CEO, CRGD
 groups:
   - founder
   - governing-board
-affiliation: "Founder, President, and CEO, Centre for Research on Governance and
-  Development (CRGD): The Public Policy Bridge"
 expertise:
   - Democracy
   - Governance
