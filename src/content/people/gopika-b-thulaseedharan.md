@@ -8,6 +8,6 @@ groups:
 centres:
   - elections-narratives-and-public-perceptions
 featured: false
-order: 5
+order: 7
 placeholder: false
 ---
