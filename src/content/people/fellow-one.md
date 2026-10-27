@@ -1,6 +1,7 @@
 ---
 slug: fellow-one
 name: Rachita Mansingh
+photo: /uploads/file_0000000055b88211b6332cbf92ee1c39 - Rachita Mansingh-1.png
 role: Research Fellow, CRGD
 groups:
   - fellow
