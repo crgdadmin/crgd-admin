@@ -1,22 +1,13 @@
 ---
 slug: gopika-b-thulaseedharan
-name: "Gopika B. Thulaseedharan"
-role: "Vice President"
+name: Gopika B. Thulaseedharan
+photo: /uploads/GopikaBT, Headshot.png
+role: Vice President
 groups:
   - governing-board
-affiliation: ""
-centres: []
-expertise: []
-photo: ""
-photoAlt: ""
-shortBio: ""
-email: ""
-linkedin: ""
-x: ""
-website: ""
-scholar: ""
-orcid: ""
+centres:
+  - elections-narratives-and-public-perceptions
 featured: false
-placeholder: false
 order: 5
+placeholder: false
 ---
