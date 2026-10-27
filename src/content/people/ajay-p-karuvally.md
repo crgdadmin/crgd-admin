@@ -1,22 +1,15 @@
 ---
 slug: ajay-p-karuvally
-name: "Ajay P. Karuvally"
-role: "Director"
+name: Ajay P. Karuvally
+photo: /uploads/Ajay, CRGD (2).png
+role: "Director, Research "
 groups:
   - governing-board
-affiliation: ""
-centres: []
-expertise: []
-photo: ""
-photoAlt: ""
-shortBio: ""
-email: ""
-linkedin: ""
-x: ""
-website: ""
-scholar: ""
-orcid: ""
+centres:
+  - mobility
+  - urbanisation
+  - elections-narratives-and-public-perceptions
 featured: false
-placeholder: false
 order: 8
+placeholder: false
 ---
