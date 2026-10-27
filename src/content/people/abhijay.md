@@ -2,10 +2,9 @@
 slug: abhijay
 name: "Abhijay A. "
 photo: /uploads/1000599020.jpg
-role: Treasurer and Director, Policy Advocacy
+role: Executive Director, CRGD Academy and Strategic Affairs
 groups:
   - governing-board
-affiliation: Executive Director, CRGD Academy and Strategic Affairs
 centres:
   - education
 shortBio: >-
