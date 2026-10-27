@@ -1,28 +1,31 @@
 ---
 slug: fellow-one
-name: "Research Fellow One"
-role: "Research Fellow, Health and Social Justice"
+name: Rachita Mansingh
+role: Research Fellow, CRGD
 groups:
-  - "fellow"
-affiliation: "CRGD, Thiruvananthapuram"
+  - fellow
 centres:
-  - "health-and-demography"
-  - "institutions-and-social-justice"
+  - health-and-demography
+  - institutions-and-social-justice
 expertise:
-  - "Public health"
-  - "Social policy"
-photo: ""
-photoAlt: ""
-shortBio: "[Placeholder] Two sentences on this fellow's background and the fellowship project they are working on."
-email: ""
-linkedin: ""
-x: ""
-website: ""
-scholar: ""
-orcid: ""
-featured: false
-placeholder: true
-order: 42
----
+  - Public health
+  - Social policy
+shortBio: >-
+  Rachita Mansingh is a PhD scholar in the Department of Politics and
+  International Studies at Pondicherry University, specialising in climate
+  governance. She holds undergraduate and postgraduate degrees in Political
+  Science, providing her with a strong academic foundation in politics and
+  governance.
 
-[Placeholder] Replace this text with a biography of 80 to 200 words. Include the person's current position, education, earlier roles, areas of expertise and, for researchers, notable publications. Write in the third person and keep it factual.
+
+  Her research focuses on the political and institutional dimensions of climate
+  change, with broader interests in governance, emerging global challenges, and
+  interdisciplinary approaches to public policy. She is committed to
+  contributing to rigorous and meaningful academic discourse on climate and
+  governance.
+linkedin: https://www.linkedin.com/in/rachita-mansingh-408233224?utm_source=share_via&utm_content=profile&utm_medium=member_android
+x: https://x.com/RachitaMansingh
+featured: false
+order: 42
+placeholder: false
+---
