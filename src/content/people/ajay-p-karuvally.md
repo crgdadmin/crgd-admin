@@ -10,6 +10,6 @@ centres:
   - urbanisation
   - elections-narratives-and-public-perceptions
 featured: false
-order: 8
+order: 5
 placeholder: false
 ---
