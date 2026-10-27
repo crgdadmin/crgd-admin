@@ -8,6 +8,6 @@ groups:
 shortBio: "Deeksha Tyagi is a Fellow at the Mercatus Centre, George Mason
   University, USA. "
 featured: false
-order: 3
+order: 2
 placeholder: false
 ---
