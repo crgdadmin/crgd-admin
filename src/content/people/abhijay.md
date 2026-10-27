@@ -1,7 +1,7 @@
 ---
 slug: abhijay
 name: "Abhijay A. "
-role: Treasurer and Director, Academy and Policy Training
+role: Treasurer and Director, Policy Advocacy
 groups:
   - governing-board
 featured: false
