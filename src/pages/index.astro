@@ -117,14 +117,18 @@ const headingHtml = hero.heading
 
   {home.about.show && (
     <section class="band">
-      <div class="wrap split-wide split" style="align-items:start">
-        <div>
-          <p class="eyebrow">{home.about.eyebrow}</p>
-          <h2>{home.about.heading}</h2>
-          {home.about.text.split(/\n\s*\n/).map((para, i) => <p class:list={{ lede: i === 0 }}>{para}</p>)}
-          <p><a class="text-link" href={url(home.about.linkHref)}>{home.about.linkLabel}</a></p>
+      <div class="wrap">
+        <div class="about-intro">
+          <div>
+            <p class="eyebrow">{home.about.eyebrow}</p>
+            <h2>{home.about.heading}</h2>
+          </div>
+          <div>
+            {home.about.text.split(/\n\s*\n/).map((para, i) => <p class:list={{ lede: i === 0 }}>{para}</p>)}
+            <p><a class="text-link" href={url(home.about.linkHref)}>{home.about.linkLabel}</a></p>
+          </div>
         </div>
-        <ol class="spectrum statements" aria-label="Vision, mission and commitment">
+        <ol class="statements" aria-label="Vision, mission and commitment">
           {[
             { label: 'Vision', text: site.visionShort, link: '/vision', bg: '#112a46', fg: '#fff' },
             { label: 'Mission', text: site.missionShort, link: '/mission', bg: '#34506d', fg: '#fff' },
@@ -132,10 +136,12 @@ const headingHtml = hero.heading
           ].map((row, i) => (
             <li>
               <a href={url(row.link)} style={`--bg:${row.bg};--fg:${row.fg}`}>
-                <span class="numeral">{String(i + 1).padStart(2, '0')}</span>
-                <span class="rule" aria-hidden="true"></span>
-                <span class="name">{row.label}<span class="desc">{row.text}</span></span>
-                <Icon name="arrow" class="go" />
+                <span class="statement-head">
+                  <span class="numeral">{String(i + 1).padStart(2, '0')}</span>
+                  <span class="name">{row.label}</span>
+                  <Icon name="arrow" class="go" />
+                </span>
+                <span class="desc">{row.text}</span>
               </a>
             </li>
           ))}
@@ -145,7 +151,7 @@ const headingHtml = hero.heading
   )}
 
   {home.commitments.show && home.commitments.items.length > 0 && (
-    <section class="band band-navy on-dark commitments" style="position:relative;overflow:hidden;isolation:isolate">
+    <section class="band band-tight band-navy on-dark commitments" style="position:relative;overflow:hidden;isolation:isolate">
       <Waves lines={10} opacity={0.08} />
       <div class="wrap">
         <SectionHead eyebrow={home.commitments.eyebrow} title={home.commitments.heading} link={home.commitments.linkHref} linkLabel={home.commitments.linkLabel} />

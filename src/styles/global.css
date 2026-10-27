@@ -1361,9 +1361,24 @@ main:focus { outline: none; }
 .aside .facts > div { grid-template-columns: 1fr; gap: 0.2rem; padding: 0.7rem 0; }
 .aside .facts dd { overflow-wrap: break-word; }
 
-/* Vision, mission and values rows on the home page */
-.spectrum.statements a { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-.spectrum.statements .desc { display: block !important; font-size: 1rem; line-height: 1.5; margin-top: 0.35rem; }
+/* Home page: who we are, with vision, mission and values as three boxes in a row */
+.about-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 1rem clamp(2rem, 1rem + 4vw, 5rem); align-items: start; }
+.about-intro h2 { margin-bottom: 0; }
+.about-intro p:last-child { margin-bottom: 0; }
+.statements { list-style: none; margin: clamp(1.8rem, 1.2rem + 2vw, 3rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-radius: var(--radius-lg); overflow: hidden; }
+.statements a { display: flex; flex-direction: column; gap: 0.7rem; height: 100%; padding: 1.2rem 1.4rem 1.3rem; background: var(--bg); color: var(--fg); text-decoration: none; transition: filter 0.25s var(--ease); }
+.statements a:hover { filter: brightness(1.08); }
+.statements li:last-child a:hover { filter: brightness(0.97); }
+.statements .statement-head { display: flex; align-items: center; gap: 0.7rem; }
+.statements .numeral { font-size: 1.15rem; line-height: 1; opacity: 0.75; }
+.statements .name { flex: 1; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; }
+.statements .go { width: 16px; height: 16px; opacity: 0.6; transition: transform 0.25s var(--ease); }
+.statements a:hover .go { transform: translateX(3px); }
+.statements .desc { font-size: 0.92rem; line-height: 1.5; }
+@media (max-width: 900px) {
+  .about-intro { grid-template-columns: minmax(0, 1fr); }
+  .statements { grid-template-columns: minmax(0, 1fr); }
+}
 
 @media (max-width: 520px) {
   .brand-mark { font-size: 0.66rem; }
@@ -1399,12 +1414,12 @@ main:focus { outline: none; }
 
 /* Home page: hero subline and core commitments */
 .hero-subline { margin: -0.4rem 0 0; font-family: var(--display), serif; font-style: italic; font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.25rem); color: #fff; }
-.commitment-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-radius: var(--radius-lg); overflow: hidden; }
-.commitment-grid li { display: flex; flex-direction: column; justify-content: space-between; gap: 2.2rem; min-height: 11rem; padding: 1.5rem 1.6rem; background: var(--bg); color: var(--fg); }
-.commitment-grid .numeral { font-size: clamp(1.8rem, 1.4rem + 1vw, 2.4rem); line-height: 1; opacity: 0.85; }
-.commitment-grid .commitment-name { font-family: var(--display), serif; font-style: italic; font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.55rem); line-height: 1.25; }
-@media (max-width: 860px) { .commitment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 480px) { .commitment-grid { grid-template-columns: minmax(0, 1fr); } .commitment-grid li { min-height: 0; gap: 0.8rem; } }
+.commitment-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; border-radius: var(--radius-lg); overflow: hidden; }
+.commitment-grid li { display: flex; flex-direction: column; gap: 0.9rem; padding: 1.1rem 1.2rem 1.2rem; background: var(--bg); color: var(--fg); }
+.commitment-grid .numeral { font-size: 1.15rem; line-height: 1; opacity: 0.75; }
+.commitment-grid .commitment-name { font-family: var(--display), serif; font-style: italic; font-size: clamp(1.05rem, 1rem + 0.25vw, 1.2rem); line-height: 1.25; }
+@media (max-width: 1023px) { .commitment-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .commitment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .footer .motto { color: var(--cloud-blue); font-size: 1.05rem; margin-top: 1rem; text-align: left; }
 
 /* Newsreader has a smaller x-height than a sans text face, so running text is set a little larger. */
