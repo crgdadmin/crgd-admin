@@ -23,6 +23,5 @@ linkedin: https://www.linkedin.com/in/vaneesha-hansel-0a496b211?utm_source=share
 x: https://x.com/Vaneeshahsl
 featured: false
 order: 43
-placeholder: true
+placeholder: false
 ---
-[Placeholder] Replace this text with a biography of 80 to 200 words. Include the person's current position, education, earlier roles, areas of expertise and, for researchers, notable publications. Write in the third person and keep it factual.
