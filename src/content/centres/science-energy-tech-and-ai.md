@@ -1,10 +1,9 @@
 ---
 slug: science-energy-tech-and-ai
-title: Science, Energy, Tech and AI
+title: Science, Energy, Fintech and AI
 shortTitle: Technology, energy transition and artificial intelligence
-summary: How science, technology, clean energy and artificial intelligence can serve the public, and how they should be governed.
-image: ""
-imageAlt: ""
+summary: How science, technology, clean energy and artificial intelligence can
+  serve the public, and how they should be governed.
 focusAreas:
   - Artificial intelligence in government
   - Digital public infrastructure
@@ -13,17 +12,18 @@ focusAreas:
   - Startups and innovation policy
   - Science funding and research institutions
 keyQuestions:
-  - Where can artificial intelligence improve public services, and where should it not be used at all?
+  - Where can artificial intelligence improve public services, and where should
+    it not be used at all?
   - How should government protect citizens' data while using it to plan better?
   - How fast can the state move to clean power, and who pays for the transition?
-  - What makes an innovation ecosystem produce lasting firms rather than short lived ones?
+  - What makes an innovation ecosystem produce lasting firms rather than short
+    lived ones?
 leads:
   - researcher-three
 featured: true
-placeholder: false
 order: 10
+placeholder: false
 ---
-
 Technology is changing how governments work, how people earn and how energy is produced. This vertical studies those changes with a public interest lens: what helps citizens, what harms them, and what rules are needed.
 
 ## Why it matters
