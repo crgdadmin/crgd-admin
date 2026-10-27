@@ -1,22 +1,11 @@
 ---
 slug: deeksha-tyagi
-name: "Deeksha Tyagi"
-role: ""
+name: Deeksha Tyagi
+photo: /uploads/Deeksha, Headshot (1).jpeg
+role: Director, Programs
 groups:
   - governing-board
-affiliation: ""
-centres: []
-expertise: []
-photo: ""
-photoAlt: ""
-shortBio: ""
-email: ""
-linkedin: ""
-x: ""
-website: ""
-scholar: ""
-orcid: ""
 featured: false
-placeholder: false
 order: 3
+placeholder: false
 ---
