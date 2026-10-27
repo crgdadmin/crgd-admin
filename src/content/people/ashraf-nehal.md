@@ -1,22 +1,10 @@
 ---
 slug: ashraf-nehal
-name: "Ashraf Nehal"
-role: "Member"
+name: Ashraf Nehal
+role: Director, Global Affairs and Climate Change
 groups:
   - governing-board
-affiliation: ""
-centres: []
-expertise: []
-photo: ""
-photoAlt: ""
-shortBio: ""
-email: ""
-linkedin: ""
-x: ""
-website: ""
-scholar: ""
-orcid: ""
 featured: false
-placeholder: false
 order: 9
+placeholder: false
 ---
