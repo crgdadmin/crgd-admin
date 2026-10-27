@@ -5,6 +5,8 @@ photo: /uploads/1 - Rohini Sreenivasan.jpg
 role: "Director, Agriculture and Rural Development "
 groups:
   - governing-board
+centres:
+  - agriculture-and-rural-development
 shortBio: >-
   Rohini Sreenivasan is an agri-food professional working across food loss and
   waste, value chains, and sustainability. Through engagements with FAO and
