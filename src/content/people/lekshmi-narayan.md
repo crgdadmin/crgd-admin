@@ -1,22 +1,15 @@
 ---
 slug: lekshmi-narayan
-name: "Lekshmi Narayan"
-role: "Vice President"
+name: Lekshmi Narayan
+photo: /uploads/Lekshmi, Image.png
+role: Vice President. Head, Society, Law and Policy
 groups:
   - governing-board
-affiliation: ""
-centres: []
-expertise: []
-photo: ""
-photoAlt: ""
-shortBio: ""
-email: ""
-linkedin: ""
-x: ""
-website: ""
-scholar: ""
-orcid: ""
+centres:
+  - society-law-and-policy
+shortBio: Lekshmi Narayan is a writer and law student with experience engaging
+  with the Legislature and the Election Commission.
 featured: false
+order: -16
 placeholder: false
-order: 7
 ---
