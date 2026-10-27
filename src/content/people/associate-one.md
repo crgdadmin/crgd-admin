@@ -1,27 +1,32 @@
 ---
 slug: associate-one
-name: "Research Associate One"
-role: "Research Associate, Employment"
+name: Madhurima
+photo: /uploads/WA_1793087819711 - Madhurima.jpg
+role: Research Associate
 groups:
-  - "associate"
-affiliation: "CRGD, Thiruvananthapuram"
+  - associate
+affiliation: CRGD
 centres:
-  - "employment"
+  - employment
 expertise:
-  - "Labour economics"
-  - "Migration"
-photo: ""
-photoAlt: ""
-shortBio: "[Placeholder] Two sentences on this associate's education, research interests and current work at CRGD."
-email: ""
-linkedin: ""
-x: ""
-website: ""
-scholar: ""
-orcid: ""
-featured: false
-placeholder: true
-order: 40
----
+  - International Affairs
+shortBio: >-
+  Madhurima holds a Master’s degree in International Relations, Security and
+  Strategy from O.P. Jindal Global University and a Master’s degree in Peace and
+  Conflict Studies and Management from Sikkim University.
 
-[Placeholder] Replace this text with a biography of 80 to 200 words. Include the person's current position, education, earlier roles, areas of expertise and, for researchers, notable publications. Write in the third person and keep it factual.
+
+  She is an alumna of the Gandhi-King Scholarly Exchange Initiative at the
+  University of Alabama, the Young South Asian Leaders Initiative at the
+  University of Nebraska at Omaha, and the Regional Centre for Strategic Studies
+  in Sri Lanka.
+
+
+  She speaks Hindi, Telugu, and Marathi, and has basic to intermediate
+  proficiency in Japanese, German, and Mandarin Chinese.
+linkedin: https://www.linkedin.com/in/madhurima-90446a3a4
+x: "@Madhurima_007711"
+featured: false
+order: 40
+placeholder: true
+---
