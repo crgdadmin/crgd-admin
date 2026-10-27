@@ -1,13 +1,10 @@
 ---
 slug: kochi-regional-centre
-name: Kochi Regional Centre
+name: Delhi Regional Centre
 status: Planned
-city: Kochi
-summary: A planned regional centre in Kochi, focusing on the economy, ports, urbanisation and the central districts.
-image: ""
-imageAlt: ""
-placeholder: true
+city: New Delhi
+summary: "A planned regional centre in Delhi "
 order: 2
+placeholder: true
 ---
-
-[Placeholder: describe plans for a regional centre in central Kerala, including its focus and expected opening. Change the status to "Regional centre" when it opens, and add the address and map.]
+[Placeholder: describe plans for a regional centre in Delhi and the expected opening. Change the status to "Regional centre" when it opens, and add the address and map.]
