@@ -10,6 +10,6 @@ centres:
 shortBio: Lekshmi Narayan is a writer and law student with experience engaging
   with the Legislature and the Election Commission.
 featured: false
-order: -16
+order: 5
 placeholder: false
 ---
