@@ -1,27 +1,17 @@
 ---
 slug: associate-two
-name: "Research Associate Two"
-role: "Research Associate, Agriculture and Rural Development"
+name: "Neha Yadav "
+photo: /uploads/IMG_20261028_231944 - Neha Yadav.png
+role: Senior Associate, Economics
 groups:
-  - "associate"
-affiliation: "CRGD, Thiruvananthapuram"
+  - associate
 centres:
-  - "agriculture-and-rural-development"
-expertise:
-  - "Agricultural economics"
-  - "Rural livelihoods"
-photo: ""
-photoAlt: ""
-shortBio: "[Placeholder] Two sentences on this associate's education, research interests and current work at CRGD."
-email: ""
-linkedin: ""
-x: ""
-website: ""
-scholar: ""
-orcid: ""
+  - economy
+shortBio: Neha Yadav is an economist by training, with academic experience at
+  IIT Delhi and Hindu College. She has worked with the Madhya Pradesh Education
+  Department, UNFPA, The YP Foundation, and other organisations.
+linkedin: https://www.linkedin.com/in/neha-yadav-3bb0a6211
 featured: false
-placeholder: true
 order: 41
+placeholder: false
 ---
-
-[Placeholder] Replace this text with a biography of 80 to 200 words. Include the person's current position, education, earlier roles, areas of expertise and, for researchers, notable publications. Write in the third person and keep it factual.
