@@ -2,7 +2,7 @@
 slug: associate-two
 name: "Neha Yadav "
 photo: /uploads/IMG_20261028_231944 - Neha Yadav.png
-role: Associate, Economics
+role: Research Associate, Economics
 groups:
   - associate
 centres:
