@@ -1,7 +1,7 @@
 ---
 slug: diksha-yadhav
 name: Diksha Yadhav
-photo: /uploads/image-removebg-preview.png
+photo: /uploads/image-removebg-preview-1.png
 role: Director, Political Studies
 groups:
   - governing-board
