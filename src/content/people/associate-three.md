@@ -17,6 +17,6 @@ shortBio: Dr, Roshan Babu is a medical graduate from AIIMS Raipur who
   technology and society.
 linkedin: https://www.linkedin.com/in/drroshanbabu?utm_source=share_via&utm_content=profile&utm_medium=member_ios
 x: https://x.com/i_ron_man36?s=11
-featured: true
+featured: false
 placeholder: false
 ---
