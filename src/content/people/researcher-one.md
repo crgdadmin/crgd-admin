@@ -7,7 +7,8 @@ groups:
   - researcher
 centres:
   - education
-  - elections-narratives-and-public-perceptions
+  - institutions-and-social-justice
+  - society-law-and-policy
 shortBio: >-
   Sana Muhammed is a second-year Political Science (Honours) student at Hindu
   College, University of Delhi. She is deeply interested in public policy and
