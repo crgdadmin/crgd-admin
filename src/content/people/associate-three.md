@@ -2,7 +2,9 @@
 slug: associate-three
 name: "Dr. Roshan Babu "
 photo: /uploads/IMG_6123 - Roshan Babu.jpeg
-photoAlt: Senior Research Associate
+role: Senior Research Associate
+groups:
+  - associate
 centres:
   - education
   - health-and-demography
