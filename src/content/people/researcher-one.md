@@ -1,28 +1,32 @@
 ---
 slug: researcher-one
-name: "Researcher One"
-role: "Researcher, Education and Public Opinion"
+name: Sana Muhammed
+photo: /uploads/sana - Sana Muhammed.jpeg
+role: Researcher
 groups:
-  - "researcher"
-affiliation: "CRGD, Thiruvananthapuram"
+  - researcher
 centres:
-  - "education"
-  - "elections-narratives-and-public-perceptions"
-expertise:
-  - "Education policy"
-  - "Survey research"
-photo: ""
-photoAlt: ""
-shortBio: "[Placeholder] Two sentences on this researcher's education, research interests and current projects."
-email: ""
-linkedin: ""
-x: ""
-website: ""
-scholar: ""
-orcid: ""
-featured: false
-placeholder: true
-order: 44
----
+  - education
+  - elections-narratives-and-public-perceptions
+shortBio: >-
+  Sana Muhammed is a second-year Political Science (Honours) student at Hindu
+  College, University of Delhi. She is deeply interested in public policy and
+  governance, particularly in understanding why promising ideas often struggle
+  when translated into practice.
 
-[Placeholder] Replace this text with a biography of 80 to 200 words. Include the person's current position, education, earlier roles, areas of expertise and, for researchers, notable publications. Write in the third person and keep it factual.
+
+  She has won several national-level policy case competitions. Her fellowship
+  experience in Dholpur, Rajasthan, where she worked closely with students at
+  the grassroots, further shaped her understanding of the importance of
+  context-sensitive policymaking.
+
+
+  Sana is keen to work at the intersection of research, institutions, and
+  grassroots realities, with a particular interest in bridging the gap between
+  policy design and implementation.
+linkedin: linkedin.com/in/sana-muhammed-56673a380
+x: https://x.com/_Sana_muhammed
+featured: false
+order: 44
+placeholder: false
+---
