@@ -1,6 +1,6 @@
 ---
 slug: associate-three
-name: Dr. Roshan Babu
+name: "Dr. Roshan Babu "
 photo: /uploads/IMG_6123 - Roshan Babu.jpeg
 photoAlt: Senior Research Associate
 centres:
