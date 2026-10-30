@@ -2,7 +2,7 @@
 slug: fellow-two
 name: Vaneesha Punnepalli
 photo: /uploads/IMG-20261028-WA0003(1).jpeg
-role: Research Fellow, CRGD
+role: Fellow, CRGD
 groups:
   - fellow
 centres:
