@@ -1,6 +1,7 @@
 ---
 slug: scholar-two
 name: Dr. Areeba Ahsanat Moazzam
+photo: /uploads/areeba_headshot_-_Areeba_Moazzam-removebg-preview.png
 role: Scholar, Economy and Maritime Studies
 groups:
   - scholar
