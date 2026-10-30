@@ -2,6 +2,7 @@
 slug: scholar-three
 name: Dr. Aditya Agrawal
 photo: /uploads/Aditya Agrawal (1).jpg
+role: Senior Scholar
 groups:
   - scholar
 centres:
