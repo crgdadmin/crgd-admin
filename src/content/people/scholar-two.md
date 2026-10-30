@@ -42,8 +42,7 @@ shortBio: >-
   events, and serves as Editor-in-Chief of the annual magazine.
 linkedin: www.linkedin.com/in/dr-areeba-moazzam
 x: https://x.com/moazzam_ar4401?s=11
-featured: true
+featured: false
 order: 21
-placeholder: true
+placeholder: false
 ---
-[Placeholder] Replace this text with a biography of 80 to 200 words. Include the person's current position, education, earlier roles, areas of expertise and, for researchers, notable publications. Write in the third person and keep it factual.
