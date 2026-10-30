@@ -7,9 +7,6 @@ groups:
   - advisory-board
 centres:
   - governance-finance-accountability
-expertise:
-  - Public administration
-  - Policy implementation
 shortBio: >-
   Dr. Amna Mirza is an academician, author, social entrepreneur, and artist,
   currently serving as an Associate Professor at SPM College, University of
