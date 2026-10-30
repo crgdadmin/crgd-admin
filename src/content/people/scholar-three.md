@@ -1,11 +1,13 @@
 ---
 slug: scholar-three
 name: Dr. Aditya Agrawal
+photo: /uploads/Aditya Agrawal (1).jpg
 groups:
   - scholar
 centres:
   - society-law-and-policy
   - strategic-affairs-and-planning
+  - institutions-and-social-justice
 expertise:
   - Law and society
   - Strategic studies
