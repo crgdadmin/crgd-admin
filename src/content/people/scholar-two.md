@@ -1,7 +1,7 @@
 ---
 slug: scholar-two
 name: Dr. Areeba Ahsanat Moazzam
-photo: /uploads/areeba_headshot_-_Areeba_Moazzam-removebg-preview.png
+photo: /uploads/WhatsApp Image 2026-10-30 at 16.13.04.jpeg
 role: Senior Scholar
 groups:
   - scholar
