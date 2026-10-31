@@ -1,8 +1,8 @@
 ---
-slug: peace-conflict-and-security-studies
-title: Peace, Conflict and Security Studies
+slug: peace-conflict-and-security
+title: "Peace, Conflict and Security "
 summary: >-
-  The Peace, Conflict and Security Studies vertical at CRGD examines the causes,
+  The Peace, Conflict and Security vertical at CRGD examines the causes,
   dynamics, and consequences of conflict, as well as the institutions and
   strategies that support peace, stability, and reconciliation. Its work spans
   conflict prevention, peacebuilding, mediation, security, humanitarian
