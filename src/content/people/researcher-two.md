@@ -18,6 +18,5 @@ shortBio: Thirunavukarasu S is a doctoral researcher at the Department of
 linkedin: https://www.linkedin.com/in/thirunavukarasu-subramani-44a020242?utm_source=share_via&utm_content=profile&utm_medium=member_android
 featured: false
 order: 45
-placeholder: true
+placeholder: false
 ---
-[Placeholder] Replace this text with a biography of 80 to 200 words. Include the person's current position, education, earlier roles, areas of expertise and, for researchers, notable publications. Write in the third person and keep it factual.
