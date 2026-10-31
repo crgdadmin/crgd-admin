@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//CRGD//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:kerala-policy-conclave-2026@crgd.in
+DTSTAMP:20261031T191435Z
+DTSTART:20261127T040000Z
+DTEND:20261128T120000Z
+SUMMARY:Kerala Policy Conclave 2026: Ageing\, Work and Migration
+DESCRIPTION:A two day conference on three forces reshaping Kerala's societ
+ y and economy\, with researchers\, officials\, employers\, unions and civi
+ l society.\n\nhttps://crgd.in/events/kerala-policy-conclave-2026/
+LOCATION:[Conference venue]\, Thiruvananthapuram
+URL:https://crgd.in/events/kerala-policy-conclave-2026/
+END:VEVENT
+END:VCALENDAR

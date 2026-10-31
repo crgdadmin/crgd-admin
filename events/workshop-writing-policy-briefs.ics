@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//CRGD//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:workshop-writing-policy-briefs@crgd.in
+DTSTAMP:20261031T191435Z
+DTSTART:20270116T043000Z
+DTEND:20270116T103000Z
+SUMMARY:Workshop: Writing Policy Briefs That Get Read
+DESCRIPTION:A practical one day workshop for researchers\, students and ci
+ vil society professionals on turning research into short\, persuasive brie
+ fs for decision makers.\n\nhttps://crgd.in/events/workshop-writing-policy-
+ briefs/
+LOCATION:CRGD office\, Pulimoodu\, Thiruvananthapuram
+URL:https://crgd.in/events/workshop-writing-policy-briefs/
+END:VEVENT
+END:VCALENDAR

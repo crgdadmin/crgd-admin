@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//CRGD//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:launch-after-the-landslides@crgd.in
+DTSTAMP:20261031T191435Z
+DTSTART:20260718T103000Z
+DTEND:20260718T123000Z
+SUMMARY:Report Launch and Panel: After the Landslides
+DESCRIPTION:The launch of CRGD's special report on landslide risk in Keral
+ a's hill districts\, with a panel discussion on preparedness\, land use an
+ d rehabilitation.\n\nhttps://crgd.in/events/launch-after-the-landslides/
+LOCATION:[Venue name]\, Thiruvananthapuram
+URL:https://crgd.in/events/launch-after-the-landslides/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//CRGD//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:colloquium-return-migration@crgd.in
+DTSTAMP:20261031T191435Z
+DTSTART:20260924T093000Z
+DTEND:20260924T113000Z
+SUMMARY:Colloquium: Return Migration\, Work in Progress
+DESCRIPTION:A research colloquium in which work in progress on return migr
+ ation from the Gulf was presented to scholars and practitioners for critic
+ al feedback.\n\nhttps://crgd.in/events/colloquium-return-migration/
+LOCATION:CRGD office\, Pulimoodu\, Thiruvananthapuram
+URL:https://crgd.in/events/colloquium-return-migration/
+END:VEVENT
+END:VCALENDAR

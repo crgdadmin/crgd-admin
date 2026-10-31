@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//CRGD//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:environment-day-dialogue-coast@crgd.in
+DTSTAMP:20261031T191435Z
+DTSTART:20260605T043000Z
+DTEND:20260605T070000Z
+SUMMARY:World Environment Day Dialogue: Living with a Changing Coast
+DESCRIPTION:A dialogue held in a coastal community\, bringing fishworkers\
+ , local representatives\, engineers and researchers together to discuss er
+ osion and protection.\n\nhttps://crgd.in/events/environment-day-dialogue-c
+ oast/
+LOCATION:[Coastal community hall]\, Thiruvananthapuram
+URL:https://crgd.in/events/environment-day-dialogue-coast/
+END:VEVENT
+END:VCALENDAR

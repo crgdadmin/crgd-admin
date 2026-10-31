@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//CRGD//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:webinar-reading-the-coast@crgd.in
+DTSTAMP:20261031T191435Z
+DTSTART:20261209T130000Z
+DTEND:20261209T141500Z
+SUMMARY:Webinar: Reading the Coast\, Erosion\, Ports and Communities
+DESCRIPTION:An online discussion of how Kerala's coast is changing\, and h
+ ow decisions about sea walls\, ports and relocation can be made more fairl
+ y.\n\nhttps://crgd.in/events/webinar-reading-the-coast/
+LOCATION:Online
+URL:https://crgd.in/events/webinar-reading-the-coast/
+END:VEVENT
+END:VCALENDAR
