@@ -1,6 +1,7 @@
 ---
 slug: researcher-two
 name: Thirunavukarasu S.
+photo: /uploads/FB_IMG_1793450089855.jpg.jpeg
 role: Senior Researcher
 groups:
   - researcher
