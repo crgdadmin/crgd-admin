@@ -5,9 +5,6 @@ photo: /uploads/FB_IMG_1793531377437 - pranoy lahiri.jpg
 role: Researcher and Cartoonist
 groups:
   - researcher
-centres:
-  - environment-and-disaster-management
-  - science-energy-tech-and-ai
 shortBio: Nithi Lahiri holds a Master's degree in Political Science from the
   University of Calcutta. A researcher with a keen interest in political
   cartooning, she views it as a powerful medium for portraying society,
