@@ -7,7 +7,7 @@ groups:
   - researcher
 centres:
   - tourism-and-culture
-shortBio: Thirunavukarasu S is a doctoral researcher at the Department of
+shortBio: Thirunavukarasu S. is a doctoral researcher at the Department of
   Defence and Strategic Studies, University of Madras, and a recipient of the
   UGC Junior Research Fellowship. He has previously worked with political
   consultancy firms including I-PAC, Buzz and Chatter, and Voice of Commons. His
