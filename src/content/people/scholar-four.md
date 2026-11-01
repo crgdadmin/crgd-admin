@@ -2,7 +2,7 @@
 slug: scholar-four
 name: Dr. Manpreet Kaur Gill
 photo: /uploads/Manpreet (1).jpg
-role: Scholar
+role: Senior Scholar
 groups:
   - scholar
 shortBio: >-
