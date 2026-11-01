@@ -1,29 +1,21 @@
 ---
 slug: researcher-three
-name: "Researcher Three"
-role: "Researcher, Environment and Technology"
+name: Nithi Lahiri
+photo: /uploads/FB_IMG_1793531377437 - pranoy lahiri.jpg
+role: Researcher and Cartoonist
 groups:
-  - "researcher"
-affiliation: "CRGD, Thiruvananthapuram"
+  - researcher
 centres:
-  - "environment-and-disaster-management"
-  - "science-energy-tech-and-ai"
-expertise:
-  - "Climate adaptation"
-  - "Energy"
-  - "Technology policy"
-photo: ""
-photoAlt: ""
-shortBio: "[Placeholder] Two sentences on this researcher's education, research interests and current projects."
-email: ""
-linkedin: ""
-x: ""
-website: ""
-scholar: ""
-orcid: ""
+  - environment-and-disaster-management
+  - science-energy-tech-and-ai
+shortBio: Nithi Lahiri holds a Master's degree in Political Science from the
+  University of Calcutta. A researcher with a keen interest in political
+  cartooning, she views it as a powerful medium for portraying society,
+  highlighting contemporary issues, and expressing critical perspectives. She
+  has transformed her hobbies into passions, bringing together her interests in
+  research, politics, and creative expression.
+linkedin: https://www.linkedin.com/in/nithi-lahiri-24677a424?utm_source=share_via&utm_content=profile&utm_medium=member_android
 featured: false
-placeholder: true
 order: 46
+placeholder: false
 ---
-
-[Placeholder] Replace this text with a biography of 80 to 200 words. Include the person's current position, education, earlier roles, areas of expertise and, for researchers, notable publications. Write in the third person and keep it factual.
