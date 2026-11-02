@@ -1,7 +1,7 @@
 ---
 slug: associate-six
 name: Medha Tushti
-photo: /uploads/WEBSITE - Medha Tushti.jpg
+photo: /uploads/WhatsApp Image 2026-11-02 at 11.04.13 (1).jpeg
 role: Research Associate
 groups:
   - associate
