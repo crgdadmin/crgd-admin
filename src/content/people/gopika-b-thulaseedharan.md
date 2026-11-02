@@ -2,7 +2,7 @@
 slug: gopika-b-thulaseedharan
 name: Gopika B. Thulaseedharan
 photo: /uploads/GopikaBT, Headshot.png
-role: Vice President and Head, Impact Projects
+role: Vice PresidentHead, Impact Projects
 groups:
   - governing-board
 centres:
