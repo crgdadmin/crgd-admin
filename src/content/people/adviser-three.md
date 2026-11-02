@@ -1,27 +1,35 @@
 ---
 slug: adviser-three
-name: "Adviser Three"
-role: "Member, Advisory Board"
+name: Dr. P.V. Unnikrishnan
+photo: /uploads/New_Unni Photo - Unnikrishnan Potheri Vasudevan.jpeg
+role: Member, Advisory Board
 groups:
-  - "advisory-board"
-affiliation: "[For example: legal scholar or senior advocate]"
+  - advisory-board
 centres:
-  - "society-law-and-policy"
-expertise:
-  - "Constitutional law"
-  - "Access to justice"
-photo: ""
-photoAlt: ""
-shortBio: "[Placeholder] One or two sentences on this adviser's experience and the areas in which they advise CRGD."
-email: ""
-linkedin: ""
-x: ""
-website: ""
-scholar: ""
-orcid: ""
-featured: false
-placeholder: true
-order: 12
----
+  - society-law-and-policy
+shortBio: >-
+  Dr. P. V. Unnikrishnan is a public policy practitioner, researcher, and
+  institution-builder with over three decades of experience in democratic
+  decentralisation, digital governance, innovation, and inclusive development.
+  He formerly served as Member Secretary of the Kerala Development and
+  Innovation Strategic Council (K-DISC), Ex-Officio Secretary to the Government
+  of Kerala, and a non-ministerial Member of the Kerala State Planning Board.
 
-[Placeholder] Replace this text with a biography of 80 to 200 words. Include the person's current position, education, earlier roles, areas of expertise and, for researchers, notable publications. Write in the third person and keep it factual.
+
+  He previously led the Information Kerala Mission as Executive Mission Director
+  and subsequently served as its Vice-Chairman and Chief Information Officer.
+  His academic engagements include serving as an Honorary Professor at the Tata
+  Institute of Social Sciences (TISS) and contributing to research on
+  decentralisation, livelihoods, and social entrepreneurship.
+
+
+  His research and professional interests encompass human-centred technology,
+  participatory governance, knowledge-economy transitions, and sustainable local
+  development. He holds a PhD from the University of Kerala, where his doctoral
+  research examined the strategic management of information technology in
+  developing-country contexts.
+x: https://www.linkedin.com/in/pvunnikrishnan/
+featured: false
+order: 12
+placeholder: false
+---
