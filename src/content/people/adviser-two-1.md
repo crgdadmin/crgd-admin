@@ -10,7 +10,7 @@ centres:
   - society-law-and-policy
   - strategic-affairs-and-planning
 shortBio: Somesh Goyal, IPS, is the former Director General of Police (DGP) of
-  Himachal Pradesh
+  Himachal Pradesh.
 featured: false
 order: 2
 placeholder: false
