@@ -2,7 +2,7 @@
 slug: amal-chandra
 name: Amal Chandra
 photo: /uploads/Amal, Image .jpeg
-role: Founder, President and CEO, CRGD
+role: Founder, President and CEO
 groups:
   - founder
   - governing-board
