@@ -6,7 +6,13 @@ role: Member, Advisory Board
 groups:
   - advisory-board
 centres:
+  - employment
+  - strategic-affairs-and-planning
+  - institutions-and-social-justice
+  - economy
   - society-law-and-policy
+  - science-energy-tech-and-ai
+  - education
 shortBio: >-
   Dr. P. V. Unnikrishnan is a public policy practitioner, researcher, and
   institution-builder with over three decades of experience in democratic
