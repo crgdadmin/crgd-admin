@@ -3,76 +3,70 @@
     "eyebrow": "About CRGD",
     "title": "People",
     "intro": "CRGD is governed by a board, advised by people who have spent their working lives in public institutions, and run by a team of researchers, fellows and interns. Every one of them is listed here, with the work they have done for CRGD.",
-    "image": "",
-    "imageAlt": "",
     "categories": [
       {
         "slug": "governing-board",
         "label": "Governing Board",
+        "description": "The Governing Board holds final responsibility for CRGD's direction, finances and integrity. It approves the annual plan and budget, appoints the leadership and safeguards the independence of research.",
         "groups": [
           "governing-board"
-        ],
-        "description": "The Governing Board holds final responsibility for CRGD's direction, finances and integrity. It approves the annual plan and budget, appoints the leadership and safeguards the independence of research."
+        ]
       },
       {
         "slug": "advisory-board",
         "label": "Advisory Board",
+        "description": "Senior practitioners and scholars who advise on research priorities, review the quality of major studies and open doors to the institutions CRGD seeks to inform. Advisers serve in a personal capacity.",
         "groups": [
           "advisory-board"
-        ],
-        "description": "Senior practitioners and scholars who advise on research priorities, review the quality of major studies and open doors to the institutions CRGD seeks to inform. Advisers serve in a personal capacity."
+        ]
       },
       {
         "slug": "scholars",
         "label": "Scholars",
+        "description": "Academics and senior researchers who lead or anchor work in one or more of CRGD's research verticals.",
         "groups": [
           "scholar"
-        ],
-        "description": "Academics and senior researchers who lead or anchor work in one or more of CRGD's research verticals."
+        ]
       },
       {
         "slug": "mentors",
         "label": "Mentors",
+        "description": "Experienced professionals who guide CRGD's fellows, interns and campus clubs, one conversation at a time.",
         "groups": [
           "mentor"
-        ],
-        "description": "Experienced professionals who guide CRGD's fellows, interns and campus clubs, one conversation at a time."
+        ]
       },
       {
         "slug": "team",
         "label": "Team",
+        "description": "The associates, fellows, researchers, interns, and contributors are the active pillars of our research, writing, outreach, and events.",
         "groups": [
           "associate",
           "fellow",
           "researcher",
           "intern",
           "contributor"
-        ],
-        "description": "The associates, fellows, researchers, interns and contributors who do the daily work of research, writing, outreach and events."
+        ]
       },
       {
         "slug": "patrons",
         "label": "Patrons",
+        "description": "Individuals whose support and standing have helped CRGD establish itself. Patrons do not direct research.",
         "groups": [
           "patron"
-        ],
-        "description": "Individuals whose support and standing have helped CRGD establish itself. Patrons do not direct research."
+        ]
       }
     ]
   },
   "research": {
     "eyebrow": "Research",
     "title": "Research verticals and centres",
-    "intro": "CRGD's research is organised into eighteen verticals. Each one asks a small number of hard questions about how Kerala and India are governed, and answers them with data, field work and comparison. The verticals talk to each other: few real policy problems stay inside one subject.",
-    "image": "",
-    "imageAlt": ""
+    "intro": "CRGD's research is organised into eighteen verticals. Each one asks a small number of hard questions about how Kerala and India are governed, and answers them with data, field work and comparison. The verticals talk to each other: few real policy problems stay inside one subject."
   },
   "learning": {
     "eyebrow": "Learning",
     "title": "Learning at CRGD",
     "intro": "Good policy needs people who can read a budget, question a dataset and write a clear note to a minister. The CRGD Academy and its dialogues, colloquia and academic programs exist to build those skills in students, public servants, journalists and citizens.",
-    "image": "",
-    "imageAlt": "",
     "categories": [
       {
         "slug": "academy",
@@ -110,8 +104,6 @@
     "eyebrow": "Programs",
     "title": "Programs",
     "intro": "CRGD's programs are how new people enter public policy. Fellows take on a full research project, interns work alongside researchers, coordinators carry CRGD's work into their colleges and districts, and campus clubs make policy a subject students argue about.",
-    "image": "",
-    "imageAlt": "",
     "categories": [
       {
         "slug": "fellowships",
@@ -139,8 +131,6 @@
     "eyebrow": "Publications",
     "title": "Publications",
     "intro": "CRGD publishes research, analysis, commentary and more across sixteen categories, each serving a distinct intellectual and public purpose. Filter by type, research vertical or year, or search titles, summaries, authors and topics.",
-    "image": "",
-    "imageAlt": "",
     "categories": [
       {
         "slug": "policy-briefs",
@@ -244,8 +234,6 @@
     "eyebrow": "Impact",
     "title": "Impact",
     "intro": "Research matters when it changes something: a rule, a budget line, a public conversation, the way an office works. This section records what CRGD has set out to change, what it is working on now, what has been achieved and the recognition that has followed.",
-    "image": "",
-    "imageAlt": "",
     "categories": [
       {
         "slug": "advocacy",
@@ -272,16 +260,12 @@
   "events": {
     "eyebrow": "Events",
     "title": "Events",
-    "intro": "CRGD convenes lectures, roundtables, workshops and conferences in Thiruvananthapuram, across Kerala and online. Most events are free and open to the public. Recordings and written summaries are published afterwards.",
-    "image": "",
-    "imageAlt": ""
+    "intro": "CRGD convenes lectures, roundtables, workshops and conferences in Thiruvananthapuram, across Kerala and online. Most events are free and open to the public. Recordings and written summaries are published afterwards."
   },
   "media": {
     "eyebrow": "Media",
     "title": "Media centre",
     "intro": "Official statements, interviews, speeches, photographs and coverage of CRGD's work. Journalists can reach the media team directly for comment, data or interviews with our researchers.",
-    "image": "",
-    "imageAlt": "",
     "categories": [
       {
         "slug": "press-releases",
@@ -323,29 +307,21 @@
   "careers": {
     "eyebrow": "Careers",
     "title": "Careers at CRGD",
-    "intro": "CRGD hires people who are curious, careful with evidence and able to write clearly for readers who are busy. Current openings are listed below, along with fellowships and internships for those earlier in their careers.",
-    "image": "",
-    "imageAlt": ""
+    "intro": "CRGD hires people who are curious, careful with evidence and able to write clearly for readers who are busy. Current openings are listed below, along with fellowships and internships for those earlier in their careers."
   },
   "annualReports": {
     "eyebrow": "About CRGD",
     "title": "Annual Reports",
-    "intro": "Each year CRGD publishes an account of what it did, what it spent and what it learned, including a summary of its finances and its sources of funding.",
-    "image": "",
-    "imageAlt": ""
+    "intro": "Each year CRGD publishes an account of what it did, what it spent and what it learned, including a summary of its finances and its sources of funding."
   },
   "locations": {
     "eyebrow": "About CRGD",
     "title": "Location",
-    "intro": "CRGD works from its headquarters in Thiruvananthapuram, close to the Government Secretariat. Regional centres are planned so that the institution can be closer to the places it studies.",
-    "image": "",
-    "imageAlt": ""
+    "intro": "CRGD works from its headquarters in Thiruvananthapuram, close to the Government Secretariat. Regional centres are planned so that the institution can be closer to the places it studies."
   },
   "updates": {
     "eyebrow": "News",
     "title": "Latest updates",
-    "intro": "Announcements, calls for applications and news from CRGD.",
-    "image": "",
-    "imageAlt": ""
+    "intro": "Announcements, calls for applications and news from CRGD."
   }
 }
