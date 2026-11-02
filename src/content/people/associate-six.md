@@ -3,6 +3,8 @@ slug: associate-six
 name: Medha Tushti
 photo: /uploads/WEBSITE - Medha Tushti.jpg
 role: Research Associate
+groups:
+  - associate
 centres:
   - science-energy-tech-and-ai
   - strategic-affairs-and-planning
