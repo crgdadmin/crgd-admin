@@ -50,6 +50,6 @@ shortBio: >-
   and globally engaged approach to scholarship, public life, and social
   innovation.
 featured: false
-order: 10
+order: 1
 placeholder: false
 ---
