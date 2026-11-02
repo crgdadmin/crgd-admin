@@ -8,6 +8,7 @@ groups:
 centres:
   - education
   - health-and-demography
+  - science-energy-tech-and-ai
 shortBio: Dr. Roshan Babu is a medical graduate from AIIMS Raipur who
   transitioned into artificial intelligence, research, and business strategy. He
   currently works with AxiLearn, focusing on AI-driven education, product
