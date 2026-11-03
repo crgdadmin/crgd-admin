@@ -39,7 +39,7 @@ shortBio: >-
   significant contributions to academic administration, faculty development,
   public scholarship, and community engagement.
 linkedin: https://www.linkedin.com/in/josukutty-c-abraham-3973b06b/
-featured: false
+featured: true
 order: 4
 placeholder: false
 ---
