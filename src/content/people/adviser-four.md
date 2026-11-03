@@ -5,7 +5,6 @@ photo: /uploads/Josukutty  c a - Josukutty C A.jpg
 role: Member, Advisory Board
 groups:
   - advisory-board
-affiliation: "[For example: public health specialist]"
 centres:
   - education
   - strategic-affairs-and-planning
