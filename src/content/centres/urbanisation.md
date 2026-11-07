@@ -1,10 +1,9 @@
 ---
 slug: urbanisation
-title: Urbanisation
+title: Urban Affairs
 shortTitle: Cities, towns, housing and urban services
-summary: How a state where town and village blur into each other can plan for housing, water, waste, transport and public space.
-image: ""
-imageAlt: ""
+summary: How a state where town and village blur into each other can plan for
+  housing, water, waste, transport and public space.
 focusAreas:
   - Urban planning and land use
   - Housing
@@ -13,17 +12,19 @@ focusAreas:
   - Municipal finance and governance
   - Public space
 keyQuestions:
-  - How should planning work in places that are urban in character but rural in administration?
-  - What is the most effective way to manage solid waste in dense, mixed settlements?
+  - How should planning work in places that are urban in character but rural in
+    administration?
+  - What is the most effective way to manage solid waste in dense, mixed
+    settlements?
   - How can municipalities raise more of their own revenue fairly?
-  - What kind of housing do young families and migrant workers need, and who will build it?
+  - What kind of housing do young families and migrant workers need, and who
+    will build it?
 leads:
   - fellow-two
 featured: false
-placeholder: false
 order: 17
+placeholder: false
 ---
-
 Much of Kerala is neither clearly urban nor clearly rural. Census figures over recent decades have shown a large rise in places with urban characteristics that are still governed as panchayats. This continuum creates particular challenges for planning and services.
 
 ## Why it matters
