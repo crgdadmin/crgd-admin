@@ -15,5 +15,6 @@ summary: >-
   strengthening resilience, and building more peaceful, inclusive, and
   accountable societies.
 featured: false
+order: 20
 placeholder: false
 ---
