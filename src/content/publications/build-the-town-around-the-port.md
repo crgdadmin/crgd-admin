@@ -3,8 +3,10 @@ slug: build-the-town-around-the-port
 title: The Port Is Built. Now Build the Town Around It.
 type: commentary
 date: 2026-10-14
-authors:
-  - scholar-two
+updated: 2026-11-07
+summary: A transhipment port creates few jobs by itself. Whether
+  Thiruvananthapuram benefits depends on the logistics, housing, skills and
+  services that grow around it, and on planning that starts now.
 centres:
   - maritime-economy
   - urbanisation
@@ -12,14 +14,9 @@ tags:
   - Vizhinjam
   - Ports
   - Urban planning
-summary: A transhipment port creates few jobs by itself. Whether Thiruvananthapuram benefits depends on the logistics, housing, skills and services that grow around it, and on planning that starts now.
-image: ""
-imageAlt: ""
 featured: false
-placeholder: true
-order: 50
+placeholder: false
 ---
-
 The Vizhinjam International Seaport has been discussed for so long that its arrival can feel like the end of a story. It is the beginning of one.
 
 Transhipment ports move containers from very large ships to smaller ones. Much of that cargo never leaves the port. A port of this kind can be highly automated, which means that the number of jobs inside the gate is modest. The larger economic effect comes from what develops around it: logistics parks, ship services, warehousing, repair, finance, hospitality, and the housing and services that the people working in them need.
@@ -36,4 +33,3 @@ Three things should be at the top of the agenda.
 
 The port is a large public investment. Its return will be measured not in containers handled, but in what it does for the people of Thiruvananthapuram and the coast.
 
-*[Placeholder publication. Replace with real CRGD commentary.]*
