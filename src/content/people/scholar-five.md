@@ -1,6 +1,6 @@
 ---
 slug: scholar-five
-name: Sisira Vasan
+name: Dr. Sisira Vasan
 photo: /uploads/Sisira.jpg
 groups:
   - scholar
