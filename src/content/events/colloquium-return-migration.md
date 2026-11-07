@@ -3,7 +3,6 @@ slug: colloquium-return-migration
 title: "Colloquium: Return Migration, Work in Progress"
 type: Colloquium
 startDate: 2026-09-24
-endDate: 2026-11-07
 startTime: 15:00
 endTime: 17:00
 mode: Hybrid
