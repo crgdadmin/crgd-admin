@@ -3,9 +3,9 @@ slug: kerala-policy-conclave-2026
 title: "Kerala Policy Conclave 2027: Ageing, Work and Migration"
 type: Conference
 startDate: 2027-05-07
+endDate: 2026-11-07
 mode: In person
-venue: "[Conference venue]"
-city: Thiruvananthapuram
+city: Yet to be confirmed.
 summary: A two day conference on three forces reshaping Kerala's society and
   economy, with researchers, officials, employers, unions and civil society.
 centres:
