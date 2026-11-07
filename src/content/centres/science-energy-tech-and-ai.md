@@ -1,6 +1,6 @@
 ---
 slug: science-energy-tech-and-ai
-title: Science, Technology, and Innovation
+title: Science, Technology, and Innovation (STI)
 shortTitle: Technology, energy transition and artificial intelligence
 summary: How science, technology, clean energy and artificial intelligence can
   serve the public, and how they should be governed.
