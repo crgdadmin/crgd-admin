@@ -2,6 +2,7 @@
 slug: scholar-five
 name: Dr. Sisira Vasan
 photo: /uploads/Sisira.jpg
+role: Senior Scholar
 groups:
   - scholar
 affiliation: Scholar
