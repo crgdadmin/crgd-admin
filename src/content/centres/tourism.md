@@ -26,6 +26,6 @@ summary: >-
   communities, positioning tourism as a driver of livelihood generation,
   regional competitiveness, cultural exchange and sustainable development.
 featured: false
-order: -2
+order: 21
 placeholder: false
 ---
