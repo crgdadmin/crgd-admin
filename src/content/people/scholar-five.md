@@ -5,7 +5,6 @@ photo: /uploads/Sisira.jpg
 role: Senior Scholar
 groups:
   - scholar
-affiliation: Scholar
 centres:
   - strategic-affairs-and-planning
 shortBio: Dr. Sisira K. G. is currently an Assistant Professor and Head of the
