@@ -1,34 +1,21 @@
 ---
 slug: kerala-policy-conclave-2026
-title: "Kerala Policy Conclave 2026: Ageing, Work and Migration"
+title: "Kerala Policy Conclave 2027: Ageing, Work and Migration"
 type: Conference
-startDate: 2026-11-27
-endDate: 2026-11-28
-startTime: "09:30"
-endTime: "17:30"
+startDate: 2027-05-07
+mode: In person
 venue: "[Conference venue]"
 city: Thiruvananthapuram
-mode: In person
-speakers:
-  - adviser-four
-  - fellow-one
-  - associate-one
-  - scholar-two
-moderators:
-  - scholar-one
+summary: A two day conference on three forces reshaping Kerala's society and
+  economy, with researchers, officials, employers, unions and civil society.
 centres:
   - health-and-demography
   - employment
   - economy
-summary: A two day conference on three forces reshaping Kerala's society and economy, with researchers, officials, employers, unions and civil society.
-registrationUrl: ""
 registrationNote: Registration required. Concessional places for students.
-image: ""
-imageAlt: ""
 featured: true
-placeholder: true
+placeholder: false
 ---
-
 Kerala's population is ageing quickly. The nature of work is changing. Patterns of migration out of, into and back to the state are shifting. Each of these is usually discussed on its own. The Kerala Policy Conclave brings them together, because their effects on families, public finances and the economy are closely connected.
 
 ## Day one: a society growing older
@@ -48,5 +35,3 @@ Kerala's population is ageing quickly. The nature of work is changing. Patterns 
 ## Who should attend
 
 Policy makers, officials, researchers, employers, trade unions, civil society organisations, journalists and students.
-
-*[Placeholder event. Confirm the venue, programme and speakers before publishing.]*
