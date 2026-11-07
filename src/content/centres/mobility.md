@@ -1,10 +1,9 @@
 ---
 slug: mobility
-title: Mobility
+title: Mobility, Trade and Logistics
 shortTitle: Transport, roads, rail and safe streets
-summary: How people and goods move across a densely settled state, and how transport policy can make journeys safer, cleaner, fairer and quicker.
-image: ""
-imageAlt: ""
+summary: How people and goods move across a densely settled state, and how
+  transport policy can make journeys safer, cleaner, fairer and quicker.
 focusAreas:
   - Public transport and buses
   - Rail and metro systems
@@ -14,16 +13,16 @@ focusAreas:
   - Freight and logistics
 keyQuestions:
   - Why has public bus use declined, and what would bring passengers back?
-  - Which large transport projects are worth their cost, and how should that be judged?
+  - Which large transport projects are worth their cost, and how should that be
+    judged?
   - What would it take to halve road deaths in Kerala?
   - How should streets be redesigned for the people who walk on them?
 leads:
   - fellow-two
 featured: false
-placeholder: false
 order: 7
+placeholder: false
 ---
-
 Kerala's settlements run almost continuously along its coast and midlands, which makes transport both essential and difficult. Roads are crowded, private vehicle ownership has grown quickly and road safety remains a serious concern.
 
 ## Why it matters
