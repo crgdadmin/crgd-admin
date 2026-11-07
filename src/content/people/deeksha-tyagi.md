@@ -5,6 +5,7 @@ photo: /uploads/Deeksha, Headshot (1).jpeg
 role: Director, International Programs
 groups:
   - governing-board
+email: deeksha@crgd.in
 linkedin: https://www.linkedin.com/in/deeksha-tyagi-9bab002b2/
 x: https://x.com/deekshatyagii
 featured: false
