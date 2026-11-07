@@ -17,5 +17,6 @@ summary: >-
   contemporary debates in international relations through research, commentary,
   dialogue, and public scholarship.
 featured: false
+order: 19
 placeholder: false
 ---
