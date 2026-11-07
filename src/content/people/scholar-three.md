@@ -30,6 +30,6 @@ shortBio: >-
   to legal education and scholarship.
 linkedin: https://share.google/ORkPROV0xEljIpCcQ
 featured: false
-order: 22
+order: 25
 placeholder: false
 ---
