@@ -1,10 +1,9 @@
 ---
 slug: maritime-economy
-title: Maritime Economy
+title: Energy, Trade, and Maritime Affairs
 shortTitle: Ports, fisheries, coasts and the blue economy
-summary: Ports, shipping, fisheries and coastal communities, and how Kerala can build a maritime economy that is prosperous, fair and sustainable.
-image: ""
-imageAlt: ""
+summary: Ports, shipping, fisheries and coastal communities, and how Kerala can
+  build a maritime economy that is prosperous, fair and sustainable.
 focusAreas:
   - Ports and transhipment
   - Fisheries and fishing communities
@@ -13,17 +12,18 @@ focusAreas:
   - Coastal tourism
   - Marine ecology
 keyQuestions:
-  - What will a deep water transhipment port mean for Thiruvananthapuram's economy, and for the coast around it?
-  - How can traditional fishing communities share in the growth of the maritime economy?
+  - What will a deep water transhipment port mean for Thiruvananthapuram's
+    economy, and for the coast around it?
+  - How can traditional fishing communities share in the growth of the maritime
+    economy?
   - Which approaches to coastal erosion work, and which make it worse?
   - How should fish stocks be managed so that they last?
 leads:
   - scholar-two
 featured: true
-placeholder: false
 order: 11
+placeholder: false
 ---
-
 Kerala has a long coastline, a major port at Kochi, a new deep water transhipment port at Vizhinjam near Thiruvananthapuram, and fishing communities whose history goes back centuries. The maritime economy is one of the state's largest opportunities and most delicate balancing acts.
 
 ## Why it matters
