@@ -3,11 +3,11 @@ slug: roundtable-panchayat-finances
 title: "Roundtable: Panchayat Finances After Three Decades"
 type: Roundtable
 startDate: 2027-08-07
+endDate: 2026-11-07
 startTime: 10:30
 endTime: 13:00
 mode: Hybrid
-venue: CRGD office, Pulimoodu
-city: Thiruvananthapuram
+venue: To be confirmed.
 summary: Elected representatives, officials and researchers discuss the findings
   of CRGD's report on local government finances, and what reforms should come
   next.
