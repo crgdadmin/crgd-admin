@@ -68,6 +68,6 @@ shortBio: >-
   Relations. A keen enthusiast of languages, he is fluent in seven languages.
 linkedin: https://www.linkedin.com/in/dr-nanda-kishor-m-s-mphil-phd-05161524/
 featured: false
-order: -6
+order: 26
 placeholder: false
 ---
