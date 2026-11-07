@@ -10,8 +10,6 @@ city: Thiruvananthapuram
 summary: A dialogue held in a coastal community, bringing fishworkers, local
   representatives, engineers and researchers together to discuss erosion and
   protection.
-speakers:
-  - scholar-two
 centres:
   - maritime-economy
   - environment-and-disaster-management
