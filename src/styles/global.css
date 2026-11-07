@@ -354,7 +354,7 @@ button { font: inherit; }
 .brand-text.no-short { padding-left: 1.1rem; border-left: 1px solid var(--line); }
 .brand-text.no-short .brand-full {
     margin-top: 0;
-    font-family: var(--display), Georgia, serif;
+    font-family: var(--display), serif;
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: 0.07em;
