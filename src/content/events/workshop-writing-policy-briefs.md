@@ -8,7 +8,6 @@ startTime: 10:00
 endTime: 16:00
 mode: In person
 venue: To be confirmed.
-city: Thiruvananthapuram
 summary: A practical one day workshop for researchers, students and civil
   society professionals on turning research into short, persuasive briefs for
   decision makers.
