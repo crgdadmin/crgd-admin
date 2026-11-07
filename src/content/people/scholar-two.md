@@ -44,6 +44,6 @@ shortBio: >-
 linkedin: www.linkedin.com/in/dr-areeba-moazzam
 x: https://x.com/moazzam_ar4401?s=11
 featured: false
-order: 21
+order: 24
 placeholder: false
 ---
