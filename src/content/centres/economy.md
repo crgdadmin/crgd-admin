@@ -1,10 +1,9 @@
 ---
 slug: economy
-title: Economy
+title: Economy and Fintech
 shortTitle: Growth, investment, remittances and enterprise
-summary: The structure and prospects of Kerala's economy, and how growth can create good jobs, public revenue and broad prosperity.
-image: ""
-imageAlt: ""
+summary: The structure and prospects of Kerala's economy, and how growth can
+  create good jobs, public revenue and broad prosperity.
 focusAreas:
   - Growth and structural change
   - Remittances and consumption
@@ -14,16 +13,16 @@ focusAreas:
   - Prices and household welfare
 keyQuestions:
   - What will drive Kerala's growth over the next decade as remittances change?
-  - Why does the state attract less private investment than its human capital would suggest?
+  - Why does the state attract less private investment than its human capital
+    would suggest?
   - What do small firms need most from government?
   - How do national economic decisions show up in Kerala household budgets?
 leads:
   - scholar-two
 featured: false
-placeholder: false
 order: 14
+placeholder: false
 ---
-
 Kerala's economy has long followed its own path: strong services, high consumption, large remittance inflows and a modest industrial base. This vertical studies how that model is changing and what policy can do to secure the next phase of growth.
 
 ## Why it matters
