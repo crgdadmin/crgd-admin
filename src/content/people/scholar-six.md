@@ -1,5 +1,5 @@
 ---
-slug: scholar-six
+slug: adviser-five
 name: "Dr. Nanda Kishor "
 photo: /uploads/WhatsApp Image 2026-11-07 at 13.10.01.jpeg
 role: Member, Advisory Board
