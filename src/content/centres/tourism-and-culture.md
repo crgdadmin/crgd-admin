@@ -1,10 +1,10 @@
 ---
 slug: tourism-and-culture
-title: Tourism and Culture
+title: Art and Culture
 shortTitle: Visitors, heritage and the creative economy
-summary: How tourism and cultural life can bring prosperity to communities without eroding the places, traditions and environments that attract visitors in the first place.
-image: ""
-imageAlt: ""
+summary: How tourism and cultural life can bring prosperity to communities
+  without eroding the places, traditions and environments that attract visitors
+  in the first place.
 focusAreas:
   - Responsible and community tourism
   - Heritage conservation
@@ -13,17 +13,18 @@ focusAreas:
   - Carrying capacity of fragile places
   - Cultural institutions
 keyQuestions:
-  - Who earns the money that tourists spend, and how much stays in local communities?
+  - Who earns the money that tourists spend, and how much stays in local
+    communities?
   - How many visitors can a hill station, a beach or a backwater sustain?
-  - How should public funds support artists, performers and cultural institutions?
+  - How should public funds support artists, performers and cultural
+    institutions?
   - What does good heritage conservation look like in a living town?
 leads:
   - researcher-two
 featured: false
-placeholder: false
 order: 6
+placeholder: false
 ---
-
 Tourism is one of Kerala's most visible industries, and culture is one of its deepest sources of identity. This vertical studies both as matters of public policy: who benefits, who bears the costs and how the long term can be protected.
 
 ## Why it matters
