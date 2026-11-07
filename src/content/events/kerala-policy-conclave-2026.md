@@ -5,7 +5,7 @@ type: Conference
 startDate: 2027-05-07
 endDate: 2026-11-07
 mode: In person
-city: Yet to be confirmed.
+city: To be confirmed.
 summary: A two day conference on three forces reshaping Kerala's society and
   economy, with researchers, officials, employers, unions and civil society.
 centres:
