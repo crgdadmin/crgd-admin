@@ -2,9 +2,9 @@
 slug: scholar-six
 name: "Dr. Nanda Kishor "
 photo: /uploads/WhatsApp Image 2026-11-07 at 13.10.01.jpeg
-role: Senior Scholar
+role: Member, Advisory Board
 groups:
-  - scholar
+  - advisory-board
 shortBio: >-
   Dr. Nanda Kishor M. S. is Head and Associate Professor in the Department of
   Politics and International Studies at Pondicherry University. He also holds
