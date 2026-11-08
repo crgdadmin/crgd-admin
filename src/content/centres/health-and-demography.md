@@ -1,10 +1,10 @@
 ---
 slug: health-and-demography
-title: Health and Demography
+title: Health and Lifestyle
 shortTitle: Public health, ageing and population change
-summary: How a society that has largely won the battles against early death and high fertility can meet its next challenges, from chronic disease to an ageing population.
-image: ""
-imageAlt: ""
+summary: How a society that has largely won the battles against early death and
+  high fertility can meet its next challenges, from chronic disease to an ageing
+  population.
 focusAreas:
   - Primary health care
   - Non communicable diseases
@@ -13,17 +13,18 @@ focusAreas:
   - Epidemic preparedness
   - Mental health
 keyQuestions:
-  - How should primary care change when most of the disease burden is chronic rather than infectious?
+  - How should primary care change when most of the disease burden is chronic
+    rather than infectious?
   - Who will care for older people in households where the young have migrated?
   - How much do families still pay out of pocket for care, and for what?
-  - What did recent outbreaks teach the state about surveillance and response, and has it been learned?
+  - What did recent outbreaks teach the state about surveillance and response,
+    and has it been learned?
 leads:
   - fellow-one
 featured: false
-placeholder: false
 order: 3
+placeholder: false
 ---
-
 Kerala's health and demographic record is often cited as a model for the developing world: long life expectancy, low infant mortality and low fertility. That success has produced a new set of problems that the existing system was not designed for.
 
 ## Why it matters
