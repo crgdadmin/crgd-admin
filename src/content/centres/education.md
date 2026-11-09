@@ -1,10 +1,9 @@
 ---
 slug: education
-title: Education
+title: Education and Human Development
 shortTitle: Learning outcomes, higher education and skills
-summary: From early childhood to university, how Kerala and India can move from near universal access to genuinely good learning for every student.
-image: ""
-imageAlt: ""
+summary: From early childhood to university, how Kerala and India can move from
+  near universal access to genuinely good learning for every student.
 focusAreas:
   - School learning outcomes
   - Higher education governance
@@ -13,17 +12,20 @@ focusAreas:
   - Skills and employability
   - Inclusive education
 keyQuestions:
-  - Now that almost every child is in school, what do they actually learn, and how do we know?
-  - Why do so many young people leave Kerala to study, and what would make them stay or return?
-  - How should public universities be governed so that they are both autonomous and accountable?
-  - What does it take to make children with disabilities full participants in ordinary classrooms?
+  - Now that almost every child is in school, what do they actually learn, and
+    how do we know?
+  - Why do so many young people leave Kerala to study, and what would make them
+    stay or return?
+  - How should public universities be governed so that they are both autonomous
+    and accountable?
+  - What does it take to make children with disabilities full participants in
+    ordinary classrooms?
 leads:
   - researcher-one
 featured: false
-placeholder: false
 order: 2
+placeholder: false
 ---
-
 Kerala's achievement in literacy and school enrolment is part of its public identity. The harder question now is quality: whether schools and colleges equip young people to think, to work and to take part in public life.
 
 ## Why it matters
