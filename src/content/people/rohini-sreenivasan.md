@@ -1,7 +1,7 @@
 ---
 slug: rohini-sreenivasan
 name: "Rohini Sreenivasan "
-photo: /uploads/1001511885.jpeg
+photo: /uploads/1001512036-removebg-preview (2).png
 role: "Director, Agriculture and Rural Development "
 groups:
   - governing-board
