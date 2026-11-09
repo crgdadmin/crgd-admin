@@ -1,7 +1,7 @@
 ---
 slug: abhijay
 name: "Abhijay A. "
-photo: /uploads/1000599020.jpg
+photo: /uploads/1001511817.png
 role: Executive Director, CRGD Academy and Strategic Affairs
 groups:
   - governing-board
