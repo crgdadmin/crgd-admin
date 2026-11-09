@@ -1,7 +1,7 @@
 ---
 slug: associate-seven
 name: Anju Maria Thomas
-photo: /uploads/Anju Maria Thomas - runes zafari.jpg
+photo: /uploads/IMG-20261109-WA0120.jpg.jpeg
 role: Associate
 groups:
   - associate
