@@ -2,7 +2,7 @@
 slug: associate-four
 name: Ammu S. Anil
 photo: /uploads/ammu headshot - ammu s anil.jpg
-role: Research Associate
+role: Associate, Political Science and IR
 groups:
   - associate
 shortBio: >-
