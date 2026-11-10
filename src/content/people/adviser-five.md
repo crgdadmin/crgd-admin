@@ -5,6 +5,7 @@ photo: /uploads/sk pic - Prof. Sony Kunjappan.jpeg
 role: Member, Advisory Board
 groups:
   - advisory-board
+affiliation: "Professor and Head, DSSM, Central University of Gujarat. "
 centres:
   - society-law-and-policy
   - education
