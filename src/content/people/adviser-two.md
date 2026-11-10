@@ -5,6 +5,7 @@ photo: /uploads/Somesh Portrait-1.jpg
 role: Member, Advisory Board
 groups:
   - advisory-board
+affiliation: "Former Director General of Police (DGP), Himachal Pradesh. "
 centres:
   - society-law-and-policy
   - institutions-and-social-justice
