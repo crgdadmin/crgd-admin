@@ -5,6 +5,7 @@ photo: /uploads/WhatsApp Image 2026-11-07 at 13.10.01.jpeg
 role: Member, Advisory Board
 groups:
   - advisory-board
+affiliation: Head, DPIS, Pondicherry University
 shortBio: >-
   Dr. Nanda Kishor M. S. is Head and Associate Professor in the Department of
   Politics and International Studies at Pondicherry University. He also holds
