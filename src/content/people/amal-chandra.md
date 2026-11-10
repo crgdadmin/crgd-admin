@@ -6,8 +6,8 @@ role: Founder, President and CEO
 groups:
   - founder
   - governing-board
-affiliation: Author, Policy Analyst and Columnist | The Statement Fellow and
-  Coordinator, SFL | National Affairs Editor, OPEN TAB
+affiliation: Author, Policy Analyst and Columnist | The Statement Fellow,
+  Students For Liberty | National Affairs Editor, OPEN TAB
 expertise:
   - Democracy
   - Governance
