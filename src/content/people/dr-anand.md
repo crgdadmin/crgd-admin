@@ -2,7 +2,7 @@
 slug: dr-anand
 name: Dr. Anand Chekkottu Parambil
 photo: /uploads/Anand - Anand C P-1.png
-role: Director, Public Policy Development
+role: Director, Research
 groups:
   - governing-board
 shortBio: >-
