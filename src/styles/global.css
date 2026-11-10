@@ -362,7 +362,8 @@ button { font: inherit; }
 }
 .brand-text.no-short .brand-tagline { margin-top: 0.3rem; font-size: 1.00rem; }
 
-.masthead-motto { text-align: right; max-width: 40rem; }
+/* The motto and the links below it run to the same length. */
+.masthead-motto { display: flex; flex-direction: column; text-align: right; max-width: 40rem; }
 .motto {
   margin: 0;
   font-family: var(--display), serif;
@@ -372,11 +373,15 @@ button { font: inherit; }
   color: var(--ocean-depth);
   text-wrap: balance;
 }
-.masthead-links { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 0.3rem 1.4rem; list-style: none; margin: 0.55rem 0 0; padding: 0; }
+.masthead-links { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.3rem 1.4rem; list-style: none; margin: 0.55rem 0 0; padding: 0; }
 .masthead-links a { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue-slate); text-decoration: none; }
 .masthead-links a:hover { color: var(--deep-navy); text-decoration: underline; }
 
 @media (max-width: 1023px) { .masthead-motto { display: none; } }
+@media (min-width: 1280px) {
+  .masthead-motto { flex: none; }
+  .motto { white-space: nowrap; }
+}
 @media (max-width: 520px) {
   .brand-mark { width: 44px; height: 44px; font-size: 0.9rem; }
   .brand-full { font-size: 0.6rem; letter-spacing: 0.06em; margin-top: 0.35rem; }
