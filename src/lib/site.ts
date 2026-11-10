@@ -15,9 +15,39 @@ export const site = settingsJson as Partial<typeof settingsJson> & {
   tagline: string;
   social?: Social;
 };
-export const home = homeJson as typeof homeJson;
-export const navigation = navigationJson as typeof navigationJson;
-export const sections = sectionsJson as typeof sectionsJson;
+/*
+ * Text in the CMS can say {{verticals}}: it becomes the number of research
+ * verticals in words, counted from the files, so it never goes out of date.
+ */
+const verticalCount = Object.keys(import.meta.glob('../content/centres/*.md')).length;
+
+const ones = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+const tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+
+export function numberWord(n: number): string {
+  if (n < 20) return ones[n];
+  if (n < 100) return tens[Math.floor(n / 10)] + (n % 10 ? `-${ones[n % 10]}` : '');
+  return String(n);
+}
+
+function fillCounts<T>(value: T): T {
+  if (typeof value === 'string') {
+    // At the start of the text or of a sentence the number takes a capital.
+    return value.replace(/\{\{\s*verticals\s*\}\}/g, (_match, offset: number, whole: string) => {
+      const word = numberWord(verticalCount);
+      return /(^|[.!?]\s+)$/.test(whole.slice(0, offset)) ? word[0].toUpperCase() + word.slice(1) : word;
+    }) as T;
+  }
+  if (Array.isArray(value)) return value.map(fillCounts) as T;
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, fillCounts(item)])) as T;
+  }
+  return value;
+}
+
+export const home = fillCounts(homeJson) as typeof homeJson;
+export const navigation = fillCounts(navigationJson) as typeof navigationJson;
+export const sections = fillCounts(sectionsJson) as typeof sectionsJson;
 
 export const orgName = site.shortName?.trim() || 'CRGD';
 export const orgFullName = site.fullName?.trim() || orgName;

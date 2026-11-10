@@ -61,7 +61,7 @@
   "research": {
     "eyebrow": "Research",
     "title": "Research verticals and centres",
-    "intro": "CRGD's research is organised into eighteen verticals. Each one asks a small number of hard questions about how Kerala and India are governed, and answers them with data, field work and comparison. The verticals talk to each other: few real policy problems stay inside one subject."
+    "intro": "CRGD's research is organised into {{verticals}} verticals. Each one asks a small number of hard questions about how Kerala and India are governed, and answers them with data, field work and comparison. The verticals talk to each other: few real policy problems stay inside one subject."
   },
   "learning": {
     "eyebrow": "Learning",

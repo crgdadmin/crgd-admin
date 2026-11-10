@@ -130,6 +130,15 @@ content:
           - { name: items, label: Commitments, type: string, list: true }
           - { name: linkLabel, label: Link text, type: string }
           - { name: linkHref, label: Link, type: string }
+      - name: albums
+        label: Recent meetings and photographs
+        type: object
+        description: "The newest albums from Media > Photographs appear here by themselves. Add an album there to put a meeting on the home page."
+        fields:
+          - { name: show, label: Show this section, type: boolean }
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: count, label: Number of albums to show, type: number }
       - name: latest
         label: Latest publications
         type: object
@@ -144,7 +153,7 @@ content:
         fields:
           - { name: show, label: Show this section, type: boolean }
           - { name: eyebrow, label: Small heading, type: string }
-          - { name: heading, label: Heading, type: string }
+          - { name: heading, label: Heading, type: string, description: "Write {{verticals}} for the number of research verticals: it is counted and filled in automatically." }
           - { name: text, label: Text, type: text }
       - name: numbers
         label: At a glance figures
@@ -232,7 +241,7 @@ content:
         fields:
           - { name: label, label: Heading, type: string, required: true }
           - { name: href, label: Overview page link, type: string, required: true }
-          - { name: intro, label: Short introduction, type: text }
+          - { name: intro, label: Short introduction, type: text, description: "Write {{verticals}} for the number of research verticals: it is counted and filled in automatically." }
           - name: columns
             label: Columns
             type: object
@@ -266,7 +275,7 @@ content:
         fields: &hubWithCategories
           - { name: eyebrow, label: Small heading, type: string }
           - { name: title, label: Title, type: string }
-          - { name: intro, label: Introduction, type: text }
+          - { name: intro, label: Introduction, type: text, description: "Write {{verticals}} for the number of research verticals: it is counted and filled in automatically." }
           - { name: image, label: Banner image, type: image }
           - { name: imageAlt, label: Banner image description, type: string }
           - name: categories
@@ -286,7 +295,7 @@ content:
         fields: &hub
           - { name: eyebrow, label: Small heading, type: string }
           - { name: title, label: Title, type: string }
-          - { name: intro, label: Introduction, type: text }
+          - { name: intro, label: Introduction, type: text, description: "Write {{verticals}} for the number of research verticals: it is counted and filled in automatically." }
           - { name: image, label: Banner image, type: image }
           - { name: imageAlt, label: Banner image description, type: string }
       - { name: learning, label: Learning, type: object, fields: *hubWithCategories }

@@ -18,13 +18,14 @@ import {
   getLearning,
   getImpact,
   getMedia,
+  getGalleries,
   resolvePeople,
   href,
   publicationTypeLabel,
 } from '../lib/content';
 import { home, site, url, formatDate, categories, categoryLabel, orgName, orgFullName, sections, spectrumColor } from '../lib/site';
 
-const [centres, publications, { upcoming, past }, people, programs, learning, impact, media] = await Promise.all([
+const [centres, publications, { upcoming, past }, people, programs, learning, impact, media, galleries] = await Promise.all([
   getCentres(),
   getPublications(),
   splitEvents(),
@@ -33,6 +34,7 @@ const [centres, publications, { upcoming, past }, people, programs, learning, im
   getLearning(),
   getImpact(),
   getMedia(),
+  getGalleries(),
 ]);
 
 const listen = ['podcasts', 'videos'];
@@ -53,6 +55,8 @@ const founder = people.find((p) => p.data.groups.includes('founder'));
 const news = media.filter((m) => ['in-the-news', 'mentions', 'interviews'].includes(m.data.category)).slice(0, home.media.count || 4);
 const impactItems = [...impact.filter((i) => i.data.featured), ...impact.filter((i) => !i.data.featured)].slice(0, home.impact.count || 3);
 const nextEvents = (upcoming.length ? upcoming : past).slice(0, 3);
+// The newest albums with real photographs, so each meeting appears here as soon as its album is added.
+const albums = galleries.filter((g) => !g.data.placeholder && g.data.photos.some((p) => p.image)).slice(0, home.albums?.count || 3);
 
 const programCats = categories('programs').map((c) => ({
   ...c,
@@ -166,6 +170,27 @@ const headingHtml = hero.heading
             );
           })}
         </ol>
+      </div>
+    </section>
+  )}
+
+  {home.albums?.show && albums.length > 0 && (
+    <section class="band">
+      <div class="wrap">
+        <SectionHead eyebrow={home.albums.eyebrow} title={home.albums.heading} link="/media/photographs" linkLabel="All photographs" />
+        <div class="grid grid-3">
+          {albums.map((g) => (
+            <ItemCard
+              title={g.data.title}
+              link={href.gallery(g)}
+              label={g.data.location || 'Photographs'}
+              summary={g.data.summary}
+              image={g.data.image || g.data.photos.find((p) => p.image)?.image}
+              imageAlt={g.data.imageAlt}
+              meta={[formatDate(g.data.date)]}
+            />
+          ))}
+        </div>
       </div>
     </section>
   )}

@@ -126,7 +126,7 @@
     {
       "label": "Research",
       "href": "/research",
-      "intro": "Eighteen research verticals, one method: evidence first, open about its assumptions, written for the people who decide.",
+      "intro": "{{verticals}} research verticals, one method: evidence first, open about its assumptions, written for the people who decide.",
       "columns": [
         {
           "heading": "Research verticals and centres",

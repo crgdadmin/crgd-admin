@@ -33,6 +33,12 @@
     "linkLabel": "How we work",
     "linkHref": "/our-approach"
   },
+  "albums": {
+    "show": true,
+    "eyebrow": "In pictures",
+    "heading": "Recent meetings and engagements",
+    "count": 3
+  },
   "latest": {
     "show": true,
     "eyebrow": "Publications",
@@ -42,7 +48,7 @@
   "centres": {
     "show": true,
     "eyebrow": "Research",
-    "heading": "Eighteen verticals, one standard of evidence",
+    "heading": "{{verticals}} verticals, one standard of evidence",
     "text": "Each research vertical is led by people who know its subject and its institutions. Choose a vertical to see its questions, its people and its publications."
   },
   "numbers": {
