@@ -16,14 +16,14 @@ CRGD welcomes contributions from researchers, practitioners, students and citize
 
 ## What we accept
 
-| Series | Who it is for | Length |
+| Series | Who it is for | Words |
 | --- | --- | --- |
-| [Expert View](/publications/expert-view) | Practitioners and scholars with long experience in a field | 1,200 to 2,000 words |
-| [Opinion](/publications/opinion) | Anyone with a well argued view on a policy question | 800 to 1,200 words |
-| [Commentary](/publications/commentary) | Timely responses to policy developments | 600 to 1,000 words |
-| [Reviews](/publications/reviews) | Reviews of books, reports and policy documents | 800 to 1,500 words |
-| [Young Thoughts](/publications/young-thoughts) | Students and people under 25, including campus club members | 600 to 1,200 words |
-| [Blogs](/publications/blogs) | Field notes, reflections and short analysis | 500 to 1,000 words |
+| [Expert View](/publications/expert-view) | Practitioners and scholars with long experience in a field | 1,200 to 2,000 |
+| [Opinion](/publications/opinion) | Anyone with a well argued view on a policy question | 800 to 1,200 |
+| [Commentary](/publications/commentary) | Timely responses to policy developments | 600 to 1,000 |
+| [Reviews](/publications/reviews) | Reviews of books, reports and policy documents | 800 to 1,500 |
+| [Young Thoughts](/publications/young-thoughts) | Students and people under 25, including campus club members | 600 to 1,200 |
+| [Blogs](/publications/blogs) | Field notes, reflections and short analysis | 500 to 1,000 |
 
 We do not normally publish unsolicited full length research reports, but we are happy to discuss collaboration on research ideas.
 

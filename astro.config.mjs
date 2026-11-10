@@ -82,6 +82,20 @@ const siteLinks = {
         ctx.wrapNode(node, { type: 'element', tagName: 'div', properties: { className: ['table-scroll'] }, children: [] });
       },
     },
+    {
+      // Each cell carries its column heading, shown beside the value when a phone stacks the rows.
+      filter: ['td'],
+      visit(node, ctx) {
+        const isElement = (child, tag) => child.type === 'element' && (!tag || child.tagName === tag);
+        const row = ctx.parent(node);
+        const table = ctx.parent(ctx.parent(row));
+        const headRow = table?.children?.find((c) => isElement(c, 'thead'))?.children?.find((c) => isElement(c, 'tr'));
+        if (!headRow) return;
+        const column = row.children.slice(0, ctx.indexOf(node)).filter((c) => isElement(c)).length;
+        const heading = headRow.children.filter((c) => isElement(c))[column];
+        if (heading) ctx.setProperty(node, 'dataLabel', ctx.textContent(heading).trim());
+      },
+    },
   ],
 };
 
