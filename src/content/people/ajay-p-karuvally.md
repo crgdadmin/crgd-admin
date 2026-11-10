@@ -2,7 +2,7 @@
 slug: ajay-p-karuvally
 name: Ajay P. Karuvally
 photo: /uploads/Ajay, CRGD (2).png
-role: "Director, Research "
+role: "Director, Public Policy Development "
 groups:
   - governing-board
 centres:
