@@ -73,6 +73,7 @@ const coverage = items.filter((i) => ['in-the-news', 'mentions', 'interviews'].i
             <ItemCard
               title={g.data.title}
               link={href.gallery(g)}
+              data={{ kind: 'album' }}
               label="Photographs"
               image={g.data.image || g.data.photos.find((p) => p.image)?.image}
               imageAlt={g.data.imageAlt}

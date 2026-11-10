@@ -1,17 +1,17 @@
 ---
 slug: meeting-with-vasuki-ias
-title: Meeting with Vasuki IAS
+title: Meeting with Dr. K. Vasuki IAS
 date: 2026-11-09
 location: ""
-summary: The CRGD team with Vasuki IAS.
+summary: Members of the CRGD team called on Dr. K. Vasuki IAS and shared the newly released CRGD logo with her.
 image: /uploads/crgd-team-with-vasuki-ias.jpg
-imageAlt: The CRGD team with Vasuki IAS, holding the framed CRGD logo.
+imageAlt: Dr. K. Vasuki IAS with members of the CRGD team, holding the framed CRGD logo.
 photos:
   - image: /uploads/crgd-team-with-vasuki-ias.jpg
-    caption: The CRGD team with Vasuki IAS, holding the framed CRGD logo.
+    caption: Dr. K. Vasuki IAS with members of the CRGD team, holding the framed CRGD logo.
     credit: ""
 featured: false
 placeholder: false
 ---
 
-The CRGD team met Vasuki IAS.
+Members of the CRGD team called on Dr. K. Vasuki IAS and shared the newly released CRGD logo with her. CRGD thanks her for her time.

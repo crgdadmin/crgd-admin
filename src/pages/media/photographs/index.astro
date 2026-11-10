@@ -23,6 +23,7 @@ const galleries = await getGalleries();
         <ItemCard
           title={g.data.title}
           link={href.gallery(g)}
+          data={{ kind: 'album' }}
           label={g.data.location || 'Album'}
           summary={g.data.summary}
           image={g.data.image || g.data.photos.find((p) => p.image)?.image}
