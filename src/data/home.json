@@ -33,12 +33,6 @@
     "linkLabel": "How we work",
     "linkHref": "/our-approach"
   },
-  "albums": {
-    "show": true,
-    "eyebrow": "In pictures",
-    "heading": "Recent meetings and engagements",
-    "count": 3
-  },
   "latest": {
     "show": true,
     "eyebrow": "Publications",
@@ -66,7 +60,7 @@
     "show": true,
     "eyebrow": "Programs and learning",
     "heading": "Learn public policy by doing it",
-    "text": "Fellowships, internships, campus clubs and the CRGD Academy offer a way in for students, young professionals and mid career practitioners."
+    "text": "Fellowships, internships, campus clubs, and the CRGD Academy offer a way in for students, young professionals, and mid-career practitioners."
   },
   "commentary": {
     "show": true,
