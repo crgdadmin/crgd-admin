@@ -3,6 +3,12 @@ slug: adviser-five
 name: "Prof. Sony Kunjappan "
 photo: /uploads/sk pic - Prof. Sony Kunjappan.jpeg
 role: Member, Advisory Board
+groups:
+  - advisory-board
+centres:
+  - society-law-and-policy
+  - education
+  - institutions-and-social-justice
 shortBio: >-
   An accomplished academician specialising in Criminology, Social Management,
   Criminal Justice Governance, and Public Policy, with expertise in police
