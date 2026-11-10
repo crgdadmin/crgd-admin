@@ -29,15 +29,14 @@ shortBio: >-
   of national and international developments.
 
 
-  At the Centre for Research on Governance and Development (CRGD), he serves as
-  Executive Director – Academy and Policy Strategy and a Member of the Governing
-  Body. In this capacity, he contributes to institutional strategy, policy
-  development, academic engagement, and international collaborations. His
-  responsibilities include strengthening CRGD's engagement with universities,
-  research institutions, and policy stakeholders; developing meaningful
-  institutional partnerships; and advancing evidence-informed research,
-  dialogue, and policy initiatives on issues of national and international
-  significance.
+  At CRGD, he serves as Executive Director for its Academy and Strategic Affairs
+  and a Member of the Governing Body. In this capacity, he contributes to
+  strategic affairs, policy development, academic engagement, and
+  collaborations. His responsibilities include strengthening CRGD Academy's
+  engagement with universities, research institutions, and policy stakeholders;
+  developing meaningful institutional partnerships; and advancing
+  evidence-informed research, dialogue, and policy initiatives on issues of
+  national and international significance.
 email: abhijay@cgrd.in
 linkedin: https://www.linkedin.com/in/abhijay-a-?utm_source=share_via&utm_content=profile&utm_medium=member_android
 x: https://x.com/Abhijay_A_
