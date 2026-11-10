@@ -28,6 +28,6 @@ shortBio: >-
   critical and analytical thinking, and promoting ethical awareness, social
   responsibility, and social justice.
 x: "@sonycug"
-featured: false
+featured: true
 placeholder: false
 ---
