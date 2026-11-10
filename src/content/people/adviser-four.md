@@ -5,6 +5,8 @@ photo: /uploads/Josukutty  c a - Josukutty C A.jpg
 role: Member, Advisory Board
 groups:
   - advisory-board
+affiliation: "Director, Kerala University Campus and Honorary Director, Survey
+  Research Centre. "
 centres:
   - education
   - strategic-affairs-and-planning
