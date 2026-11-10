@@ -1,12 +1,12 @@
 ---
 slug: shashi-tharoor-releases-crgd-logo
-title: Dr. Shashi Tharoor, four-term Member of Parliament, bestselling author of
-  27 books, former United Nations Under-Secretary-General, and former Minister
-  of State for Human Resource Development and External Affairs, Government of
-  India, unveils the logo of CRGD.
+title: Dr. Shashi Tharoor, Member of Parliament, released the logo of CRGD and
+  wished the new think tank success, growth, and impact.
 date: 2026-11-10
-summary: Dr. Shashi Tharoor, MP, released the logo of CRGD and wished the new
-  think tank success, growth, and impact.
+summary: Dr. Shashi Tharoor, four-term Member of Parliament, bestselling author
+  of 27 books, former United Nations Under-Secretary-General, and former
+  Minister of State for Human Resource Development and External Affairs,
+  Government of India, unveiled the logo of CRGD.
 image: /uploads/shashi-tharoor-releases-crgd-logo.jpg
 imageAlt: Dr. Shashi Tharoor, MP, holding the framed CRGD logo with our founder
   Mr. Amal Chandra and members of the board.
