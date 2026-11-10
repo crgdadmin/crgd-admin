@@ -18,7 +18,7 @@ const flag = (fallback = false) => z.preprocess(blank, z.boolean().default(fallb
 const order = () => z.preprocess(blank, z.coerce.number().default(50));
 const list = () =>
   z.preprocess(
-    (value) => (Array.isArray(value) ? value.filter((item) => item !== null && item !== '').map(String) : []),
+    (value) => (Array.isArray(value) ? value.map((item) => String(item ?? '').trim()).filter(Boolean) : []),
     z.array(z.string()),
   );
 
@@ -33,7 +33,13 @@ const common = {
   order: order(),
 };
 
-const load = (folder: string) => glob({ pattern: '**/*.md', base: `./src/content/${folder}` });
+// The web address comes from the slug field. A space typed by mistake at either end would end up in the URL, so it is trimmed.
+const load = (folder: string) =>
+  glob({
+    pattern: '**/*.md',
+    base: `./src/content/${folder}`,
+    generateId: ({ entry, data }) => String(data.slug ?? '').trim() || entry.replace(/\.md$/, ''),
+  });
 
 const pages = defineCollection({
   loader: load('pages'),

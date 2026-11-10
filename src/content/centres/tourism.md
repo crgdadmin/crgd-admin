@@ -1,6 +1,6 @@
 ---
-slug: "tourism "
-title: "Tourism "
+slug: tourism
+title: Tourism
 shortTitle: Promoting sustainable, inclusive and responsible tourism through
   evidence-based research, policy advocacy and innovative approaches to tourism
   governance and development.

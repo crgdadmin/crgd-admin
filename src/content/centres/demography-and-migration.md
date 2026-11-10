@@ -1,6 +1,6 @@
 ---
-slug: "dempgraphy-and-migration "
-title: "Demography and Migration "
+slug: demography-and-migration
+title: Demography and Migration
 shortTitle: Advancing evidence-based research and policy solutions on
   demographic change, population dynamics and human mobility to promote
   inclusive development and effective governance.

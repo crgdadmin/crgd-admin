@@ -374,28 +374,13 @@ content:
       - { name: affiliation, label: Current position or institution, type: string }
       - name: centres
         label: Research verticals
-        type: select
+        type: reference
         options: &centres
+          collection: centres
+          search: title
+          value: "{fields.slug}"
+          label: "{fields.title}"
           multiple: true
-          values:
-            - { value: governance-finance-accountability, label: "Governance, Finance and Accountability" }
-            - { value: education, label: "Education" }
-            - { value: health-and-demography, label: "Health and Demography" }
-            - { value: employment, label: "Employment" }
-            - { value: federalism, label: "Federalism" }
-            - { value: tourism-and-culture, label: "Tourism and Culture" }
-            - { value: mobility, label: "Mobility" }
-            - { value: agriculture-and-rural-development, label: "Agriculture and Rural Development" }
-            - { value: strategic-affairs-and-planning, label: "Strategic Affairs and Planning" }
-            - { value: science-energy-tech-and-ai, label: "Science, Energy, Tech and AI" }
-            - { value: maritime-economy, label: "Maritime Economy" }
-            - { value: society-law-and-policy, label: "Society, Law and Policy" }
-            - { value: institutions-and-social-justice, label: "Institutions and Social Justice" }
-            - { value: economy, label: "Economy" }
-            - { value: environment-and-disaster-management, label: "Environment and Disaster Management" }
-            - { value: state-and-politics, label: "State and Politics" }
-            - { value: urbanisation, label: "Urbanisation" }
-            - { value: elections-narratives-and-public-perceptions, label: "Elections, Narratives and Public Perceptions" }
       - { name: expertise, label: Areas of expertise, type: string, list: true }
       - { name: shortBio, label: Short biography, type: text, description: "Two or three sentences, shown on cards and under articles." }
       - { name: email, label: Email, type: string }
@@ -421,7 +406,7 @@ content:
       fields: [title, order]
       primary: title
     fields:
-      - { name: slug, label: Web address, type: string, required: true, description: "Set once. If you add a new vertical, also add it to the Research verticals list in .pages.yml so it can be chosen on other entries." }
+      - { name: slug, label: Web address, type: string, required: true, description: "Set once: short, lowercase, words joined by hyphens, no spaces. A new vertical appears in the Research verticals list on people, publications, events and other entries as soon as it is saved." }
       - { name: title, label: Name, type: string, required: true }
       - { name: shortTitle, label: One line description, type: string }
       - { name: summary, label: Summary, type: text, required: true }
@@ -476,7 +461,7 @@ content:
       - { name: image, label: Cover image, type: image, description: "Landscape, ideally 1600 by 900 pixels." }
       - { name: imageAlt, label: Cover image description, type: string }
       - { name: imageCaption, label: Cover image caption and credit, type: string }
-      - { name: centres, label: Research verticals, type: select, options: *centres }
+      - { name: centres, label: Research verticals, type: reference, options: *centres }
       - { name: tags, label: Topics, type: string, list: true }
       - { name: pdf, label: PDF, type: file, description: "Upload the full document. A download button appears." }
       - { name: mediaUrl, label: Audio or video link, type: string, description: "For podcasts and videos: a YouTube, Vimeo, Spotify or SoundCloud link." }
@@ -541,7 +526,7 @@ content:
       - { name: partnerLogo, label: Partner logo, type: image }
       - { name: partnerUrl, label: Partner website, type: string }
       - { name: registrationUrl, label: Registration link, type: string }
-      - { name: centres, label: Research verticals, type: select, options: *centres }
+      - { name: centres, label: Research verticals, type: reference, options: *centres }
       - { name: featured, label: Featured, type: boolean }
       - { name: order, label: Order, type: number }
       - { name: placeholder, label: Placeholder, type: boolean }
@@ -586,7 +571,7 @@ content:
       - { name: benefits, label: What participants receive, type: string, list: true }
       - { name: applyUrl, label: Online application link, type: string }
       - { name: applyEmail, label: Application email, type: string, description: "Leave empty to use the careers email from Site settings." }
-      - { name: centres, label: Research verticals, type: select, options: *centres }
+      - { name: centres, label: Research verticals, type: reference, options: *centres }
       - { name: featured, label: Featured, type: boolean }
       - { name: order, label: Order, type: number }
       - { name: placeholder, label: Placeholder, type: boolean }
@@ -623,7 +608,7 @@ content:
       - { name: partners, label: Partners, type: string, list: true }
       - { name: outcomes, label: Results, type: string, list: true }
       - { name: people, label: People involved, type: string, list: true }
-      - { name: centres, label: Research verticals, type: select, options: *centres }
+      - { name: centres, label: Research verticals, type: reference, options: *centres }
       - { name: featured, label: Featured, type: boolean }
       - { name: order, label: Order, type: number }
       - { name: placeholder, label: Placeholder, type: boolean }
@@ -664,7 +649,7 @@ content:
       - { name: imageAlt, label: Image description, type: string }
       - { name: speakers, label: Speakers, type: string, list: true, description: "People web addresses or names." }
       - { name: moderators, label: Moderators, type: string, list: true }
-      - { name: centres, label: Research verticals, type: select, options: *centres }
+      - { name: centres, label: Research verticals, type: reference, options: *centres }
       - { name: registrationUrl, label: Registration link, type: string }
       - { name: registrationNote, label: Entry note, type: string, description: "For example: Free and open to all" }
       - { name: recordingUrl, label: Recording link, type: string, description: "After the event: a YouTube or Vimeo link." }
