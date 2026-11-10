@@ -1,7 +1,7 @@
 ---
 slug: associate-nine
 name: "Dr. Sruthi S. K. "
-photo: /uploads/IMG_6385 - Sruthi sreekumar.jpeg
+photo: /uploads/IMG_6385 - Sruthi sreekumar-1.jpeg
 role: Senior Associate
 groups:
   - associate
