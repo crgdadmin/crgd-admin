@@ -5,6 +5,7 @@ photo: /uploads/48e638cf-1e66-4639-bef0-a1ba46602c2d.jpg
 role: Member, Advisory Board
 groups:
   - advisory-board
+affiliation: Associate Professor, University of Delhi
 centres:
   - governance-finance-accountability
 shortBio: >-
