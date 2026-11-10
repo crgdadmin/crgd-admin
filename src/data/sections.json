@@ -2,12 +2,12 @@
   "people": {
     "eyebrow": "About CRGD",
     "title": "People",
-    "intro": "CRGD is governed by a board, advised by people who have spent their working lives in public institutions, and run by a team of researchers, fellows and interns. Every one of them is listed here, with the work they have done for CRGD.",
+    "intro": "CRGD is governed by a board, advised by people who have spent their working lives in reputed institutions, and run by a team of associates, researchers, fellows, and interns. Every one of them is listed here, with the work they have done for CRGD.",
     "categories": [
       {
         "slug": "governing-board",
         "label": "Governing Board",
-        "description": "The Governing Board holds final responsibility for CRGD's direction, finances and integrity. It approves the annual plan and budget, appoints the leadership and safeguards the independence of research.",
+        "description": "The Governing Board, headed by the President, is the ultimate authority and holds final responsibility for CRGD's direction, finances, and integrity. It approves the annual plan and budget, appoints the leadership, and safeguards the independence of research.",
         "groups": [
           "governing-board"
         ]
