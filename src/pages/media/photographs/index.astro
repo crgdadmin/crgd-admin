@@ -28,7 +28,7 @@ const galleries = await getGalleries();
           image={g.data.image || g.data.photos.find((p) => p.image)?.image}
           imageAlt={g.data.imageAlt}
           placeholder={g.data.placeholder}
-          meta={[formatDate(g.data.date), `${g.data.photos.length} photographs`]}
+          meta={[formatDate(g.data.date), `${g.data.photos.length} ${g.data.photos.length === 1 ? 'photograph' : 'photographs'}`]}
         />
       ))}
     </div>
