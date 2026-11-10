@@ -1,5 +1,5 @@
 ---
-slug: adviser-five
+slug: adviser-six
 name: "Prof. Sony Kunjappan "
 photo: /uploads/sk pic - Prof. Sony Kunjappan.jpeg
 role: Member, Advisory Board
