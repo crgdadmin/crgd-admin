@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import ItemCard from '../../components/ItemCard.astro';
+import CtaPair from '../../components/CtaPair.astro';
+import { applications, applicationForms, site, url } from '../../lib/site';
+
+const title = applications.title || 'Apply to CRGD';
+---
+
+<Base title={title} description={applications.intro}>
+  <PageHead eyebrow={applications.eyebrow} title={title} lede={applications.intro} crumbs={[{ label: 'About', href: '/about' }, { label: 'Careers', href: '/careers' }, { label: title }]} />
+
+  <section class="band">
+    <div class="wrap">
+      <div class="grid grid-3">
+        {applicationForms.map((f) => (
+          <ItemCard title={f.title} link={`/apply/${f.slug}`} label={f.label} summary={f.description} showImage={false} meta={['Application form']} />
+        ))}
+      </div>
+      <p class="meta" style="margin-top:2rem">
+        Read <a href={url('/work-with-us')}>how we hire</a> and how we use your information in our <a href={url('/privacy-policy')}>privacy policy</a>.
+        {site.careersEmail && <>{' '}Questions? Write to <a href={`mailto:${site.careersEmail}`}>{site.careersEmail}</a>.</>}
+      </p>
+    </div>
+  </section>
+
+  <CtaPair id="apply" />
+</Base>

@@ -112,6 +112,10 @@
               "href": "/work-with-us"
             },
             {
+              "label": "Apply to CRGD",
+              "href": "/apply"
+            },
+            {
               "label": "Fellowship",
               "href": "/programs/fellowships"
             },
@@ -207,6 +211,10 @@
             {
               "label": "Campus Clubs",
               "href": "/programs/campus-clubs"
+            },
+            {
+              "label": "How to apply",
+              "href": "/apply"
             }
           ]
         }

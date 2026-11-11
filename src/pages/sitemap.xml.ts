@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { href, getEvents } from '../lib/content';
-import { url, categories, isoDate } from '../lib/site';
+import { url, categories, isoDate, applicationForms } from '../lib/site';
 
 export const GET: APIRoute = async ({ site }) => {
   const [pages, people, centres, publications, events, programs, learning, impact, media, galleries, reports, openings, updates] = await Promise.all([
@@ -23,7 +23,7 @@ export const GET: APIRoute = async ({ site }) => {
   const entry = (path: string, lastmod?: Date) => ({ path, lastmod });
   const list = [
     entry('/'),
-    ...['/people', '/research', '/learning', '/programs', '/publications', '/impact', '/events', '/events/upcoming', '/events/past', '/media', '/media/photographs', '/annual-reports', '/careers', '/locations', '/updates', '/search'].map((p) => entry(p)),
+    ...['/people', '/research', '/learning', '/programs', '/publications', '/impact', '/events', '/events/upcoming', '/events/past', '/media', '/media/photographs', '/annual-reports', '/careers', '/apply', '/locations', '/updates', '/search'].map((p) => entry(p)),
     ...categories('people').map((c) => entry(`/people/${c.slug}`)),
     ...(['learning', 'programs', 'publications', 'impact', 'media'] as const).flatMap((s) => categories(s).filter((c) => c.slug !== 'photographs').map((c) => entry(`/${s}/${c.slug}`))),
     ...pages.map((p) => entry(href.page(p), p.data.updated)),
@@ -39,6 +39,7 @@ export const GET: APIRoute = async ({ site }) => {
     ...reports.map((r) => entry(href.report(r))),
     ...openings.map((o) => entry(href.opening(o))),
     ...updates.map((u) => entry(href.update(u), u.data.date)),
+    ...applicationForms.map((f) => entry(`/apply/${f.slug}`)),
   ];
   const seen = new Set<string>();
   const unique = list.filter((e) => (seen.has(e.path) ? false : (seen.add(e.path), true)));

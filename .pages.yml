@@ -228,6 +228,35 @@ content:
           - { name: buttonLabel, label: Button text, type: string }
           - { name: buttonHref, label: Button link, type: string }
 
+  - name: applications
+    label: Application forms
+    type: file
+    path: src/data/applications.json
+    fields:
+      - { name: eyebrow, label: Small heading, type: string }
+      - { name: title, label: Page title, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - name: forms
+        label: Forms
+        type: object
+        list: true
+        description: "Each form is built and its applications are tracked in Jotform. A program applies through the form whose program category matches its own."
+        fields:
+          - { name: slug, label: Web address, type: string, required: true, description: "The page is /apply/ followed by this." }
+          - { name: title, label: Title, type: string, required: true }
+          - { name: label, label: Small label, type: string }
+          - { name: description, label: Who it is for, type: text }
+          - { name: jotformId, label: Jotform form ID, type: string, required: true, description: "The number at the end of the form's link, form.jotform.com/..." }
+          - name: programCategory
+            label: Program category
+            type: select
+            options:
+              values:
+                - { value: fellowships, label: Fellowships }
+                - { value: internships, label: Internships }
+                - { value: coordinator-program, label: Co-ordinator Program }
+                - { value: campus-clubs, label: Campus Clubs }
+
   - name: navigation
     label: Main menu
     type: file

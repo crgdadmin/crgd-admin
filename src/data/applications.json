@@ -1,0 +1,47 @@
+{
+  "eyebrow": "Careers",
+  "title": "Apply to CRGD",
+  "intro": "Choose the form that fits you. Each takes about fifteen to twenty minutes. Keep your CV ready to upload, and a writing sample where the form asks for one.",
+  "forms": [
+    {
+      "slug": "research-team",
+      "title": "Research Associates and Researchers",
+      "label": "Research team",
+      "description": "For graduates and experienced researchers who want to join CRGD's research team, full time or part time. You will need your CV, one writing sample and a referee.",
+      "jotformId": "263146003303038",
+      "programCategory": ""
+    },
+    {
+      "slug": "fellowships",
+      "title": "Fellowships",
+      "label": "Fellowships",
+      "description": "For students, professionals and journalists applying for a CRGD fellowship with a research proposal. You will need your CV, one writing sample and a referee.",
+      "jotformId": "263145256960056",
+      "programCategory": "fellowships"
+    },
+    {
+      "slug": "internships",
+      "title": "Internships",
+      "label": "Internships",
+      "description": "For students applying for a research or communications internship. You will need your CV. A writing sample is recommended for research internships.",
+      "jotformId": "263145362682055",
+      "programCategory": "internships"
+    },
+    {
+      "slug": "coordinators",
+      "title": "Co-ordinator Program",
+      "label": "Co-ordinator Program",
+      "description": "For students and young professionals who want to represent CRGD on their campus or in their district. You will need your CV.",
+      "jotformId": "263146192649060",
+      "programCategory": "coordinator-program"
+    },
+    {
+      "slug": "policy-clubs",
+      "title": "Start a Policy Club",
+      "label": "Campus Clubs",
+      "description": "For colleges and schools registering a CRGD Policy Club. You will need details of the student lead and a faculty adviser.",
+      "jotformId": "263146202460043",
+      "programCategory": "campus-clubs"
+    }
+  ]
+}

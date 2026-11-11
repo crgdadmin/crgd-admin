@@ -1,0 +1,46 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { applications, applicationForms, site, url, type ApplicationForm } from '../../lib/site';
+
+export function getStaticPaths() {
+  return applicationForms.map((form) => ({ params: { form: form.slug }, props: { form } }));
+}
+const { form } = Astro.props as { form: ApplicationForm };
+const formUrl = `https://form.jotform.com/${form.jotformId}`;
+const frameId = `JotFormIFrame-${form.jotformId}`;
+const selector = `iframe[id='${frameId}']`;
+---
+
+<Base title={`${form.title}: application`} description={form.description}>
+  <PageHead
+    eyebrow="Application form"
+    title={form.title}
+    lede={form.description}
+    crumbs={[{ label: 'Careers', href: '/careers' }, { label: applications.title || 'Apply', href: '/apply' }, { label: form.title }]}
+  />
+
+  <section class="band">
+    <div class="wrap-narrow">
+      <p class="notice">
+        If the form does not appear below, <a href={formUrl} target="_blank" rel="noopener noreferrer">open it in a new tab</a>.
+        {site.careersEmail && <>{' '}For questions, write to <a href={`mailto:${site.careersEmail}`}>{site.careersEmail}</a>.</>}
+      </p>
+      <iframe
+        id={frameId}
+        class="application-form"
+        title={`${form.title} application form`}
+        src={formUrl}
+        allow="fullscreen"
+        loading="lazy"
+      ></iframe>
+      <p class="meta">Read how we use your information in our <a href={url('/privacy-policy')}>privacy policy</a>.</p>
+    </div>
+  </section>
+</Base>
+
+<!-- Jotform's own script grows the frame to the height of the form, so the page scrolls rather than the frame. -->
+<script is:inline src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+<script is:inline define:vars={{ selector }}>
+  if (window.jotformEmbedHandler) window.jotformEmbedHandler(selector, 'https://form.jotform.com/');
+</script>

@@ -35,7 +35,7 @@ Formal qualifications matter less than these qualities. We welcome applicants fr
 
 ## How we hire
 
-1. **Application.** A CV, a short cover letter and, for research roles, one writing sample.
+1. **Application.** Fill in the [application form](/apply) for your role or program. Keep your CV ready and, for research roles, one writing sample.
 2. **Shortlisting.** Every application is read by at least two people. We aim to tell every applicant the outcome.
 3. **Task.** Shortlisted candidates complete a short, paid task similar to the work of the role.
 4. **Conversation.** An interview with the people you would work with most closely.
@@ -47,4 +47,4 @@ CRGD is an equal opportunity employer. We actively encourage applications from w
 
 ## Current openings
 
-See [current openings](/careers), or explore [fellowships](/programs/fellowships) and [internships](/programs/internships) if you are earlier in your career. If nothing suits you right now, you are welcome to write to [{{careersEmail}}](mailto:{{careersEmail}}) with a CV and a note on what you would like to work on.
+See [current openings](/careers) and [all application forms](/apply), or explore [fellowships](/programs/fellowships) and [internships](/programs/internships) if you are earlier in your career. If nothing suits you right now, you are welcome to write to [{{careersEmail}}](mailto:{{careersEmail}}) with a CV and a note on what you would like to work on.

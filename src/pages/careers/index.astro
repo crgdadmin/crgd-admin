@@ -37,7 +37,7 @@ const programs = (await getPrograms()).filter((p) => ['fellowships', 'internship
         </div>
       ) : (
         <div class="empty">
-          <p>There are no open positions at the moment. You are welcome to send a CV and a short note on what you would like to work on to <a href={`mailto:${site.careersEmail}`}>{site.careersEmail}</a>.</p>
+          <p>There are no advertised positions at the moment, but you can still <a href={url('/apply/research-team')}>apply to join the research team</a>, or see <a href={url('/apply')}>every application form</a>. You are also welcome to write to <a href={`mailto:${site.careersEmail}`}>{site.careersEmail}</a>.</p>
         </div>
       )}
     </div>

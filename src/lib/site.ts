@@ -2,6 +2,7 @@ import settingsJson from '../data/settings.json';
 import homeJson from '../data/home.json';
 import navigationJson from '../data/navigation.json';
 import sectionsJson from '../data/sections.json';
+import applicationsJson from '../data/applications.json';
 
 /* ------------------------------------------------------------------------ */
 /* Data files edited through the CMS                                         */
@@ -43,6 +44,24 @@ function fillCounts<T>(value: T): T {
     return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, fillCounts(item)])) as T;
   }
   return value;
+}
+
+export interface ApplicationForm {
+  slug: string;
+  title: string;
+  label?: string;
+  description?: string;
+  jotformId: string;
+  programCategory?: string;
+}
+
+/** The application forms, hosted on Jotform, where submissions can be tracked. */
+export const applications = applicationsJson as Partial<typeof applicationsJson> & { forms: ApplicationForm[] };
+export const applicationForms = (applications.forms ?? []).filter((f) => f && f.slug && f.jotformId);
+
+/** The form that a program in this category applies through, if there is one. */
+export function applicationForProgram(category: string | undefined): ApplicationForm | undefined {
+  return category ? applicationForms.find((f) => f.programCategory === category) : undefined;
 }
 
 export const home = fillCounts(homeJson) as typeof homeJson;
