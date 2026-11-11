@@ -1259,7 +1259,10 @@ a.tag:hover { background: var(--mist-blue); color: var(--deep-navy); }
 
 /* -------------------------------- Gallery -------------------------------- */
 
-.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr)); gap: 0.75rem; list-style: none; padding: 0; margin: 0; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 0.75rem; list-style: none; padding: 0; margin: 0; }
+/* An album with a single photograph shows it at full width, uncropped. */
+.gallery li:only-child button { aspect-ratio: auto; }
+.gallery li:only-child img { height: auto; }
 .gallery button { all: unset; display: block; cursor: zoom-in; position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; background: var(--mist-blue); width: 100%; }
 .gallery button:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease); }
