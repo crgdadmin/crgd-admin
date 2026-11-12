@@ -273,6 +273,8 @@ button { font: inherit; }
 .utility-support:hover { background: rgba(255, 255, 255, 0.08); }
 .utility-support svg { width: 13px; height: 13px; }
 .utility-support { white-space: nowrap; }
+/* On a narrow phone the menu carries Apply, so the top bar keeps to one line of actions. */
+@media (max-width: 480px) { .utility-apply { display: none; } }
 
 .social { display: flex; align-items: center; gap: 0.25rem; list-style: none; margin: 0; padding: 0; }
 .social a {
