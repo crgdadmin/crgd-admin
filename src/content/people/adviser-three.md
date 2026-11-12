@@ -5,6 +5,7 @@ photo: /uploads/New_Unni Photo - Unnikrishnan Potheri Vasudevan.jpeg
 role: Member, Advisory Board
 groups:
   - advisory-board
+affiliation: A veteran public policy practitioner and institution-builder
 centres:
   - employment
   - strategic-affairs-and-planning
