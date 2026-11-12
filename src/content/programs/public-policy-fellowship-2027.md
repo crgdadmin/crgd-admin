@@ -17,7 +17,6 @@ eligibility:
     field based projects
   - A clear interest in public policy and a willingness to do field work
 benefits:
-  - A monthly stipend and support for field work costs
   - Supervision by a senior CRGD researcher and a mentor from outside CRGD
   - Training in research methods, policy writing and presentation
   - Publication of your work as a CRGD policy brief or report, subject to review
