@@ -13,7 +13,6 @@ eligibility:
   - Recent graduates within one year of completing their degree
   - Good written English; Malayalam is an advantage for some projects
 benefits:
-  - A monthly stipend
   - Work on a live research project in one of CRGD's verticals
   - Training sessions on research methods and policy writing
   - An internship certificate, and publication of strong internship reports
