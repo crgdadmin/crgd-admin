@@ -5,7 +5,7 @@ category: campus-clubs
 status: Registrations open
 summary: Student led clubs that read, debate and write about public policy, run
   simulations and contribute to CRGD's work.
-deadline: 2026-11-12
+deadline: 2026-12-31
 startDate: 2026-11-12
 duration: Ongoing
 commitment: Club meetings at least once a month
