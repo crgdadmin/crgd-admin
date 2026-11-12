@@ -5,7 +5,7 @@ category: internships
 status: Applications open
 summary: A six to eight week research internship over the winter break, working
   on live projects with CRGD's research team.
-deadline: 2026-11-15
+deadline: 2026-11-30
 startDate: 2026-12-07
 duration: 6 to 8 weeks
 eligibility:
