@@ -1,7 +1,7 @@
 ---
 slug: sagarika-ghose
 name: Sagarika Ghose
-photo: /uploads/homea (1).jpg
+photo: /uploads/DSC_1293 copy.jpg
 role: Member, Advisory Board
 groups:
   - advisory-board
