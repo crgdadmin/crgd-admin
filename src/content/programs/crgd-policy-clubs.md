@@ -3,9 +3,13 @@ slug: crgd-policy-clubs
 title: CRGD Policy Clubs
 category: campus-clubs
 status: Registrations open
+summary: Student led clubs that read, debate and write about public policy, run
+  simulations and contribute to CRGD's work.
+deadline: 2026-11-12
+startDate: 2026-11-12
 duration: Ongoing
 commitment: Club meetings at least once a month
-location: Colleges and universities across Kerala
+location: Colleges and universities across India
 eligibility:
   - Any group of five or more students with a faculty supporter
 benefits:
@@ -13,14 +17,10 @@ benefits:
   - Visits from CRGD researchers and guest speakers
   - Invitations to inter club events, including the annual Mock Assembly
   - Mentored writing for the Young Thoughts series
-summary: Student led clubs that read, debate and write about public policy, run simulations and contribute to CRGD's work.
-image: ""
-imageAlt: ""
 featured: true
-placeholder: true
 order: 1
+placeholder: true
 ---
-
 A CRGD Policy Club is a group of students who meet regularly to discuss public policy. Clubs choose their own topics and activities, with support from CRGD.
 
 ## Typical activities
@@ -39,5 +39,3 @@ A CRGD Policy Club is a group of students who meet regularly to discuss public p
 4. Receive the starter kit and plan your first meeting.
 
 Clubs are non partisan. They welcome members of all political views and do not campaign for any party.
-
-*[Placeholder program.]*
