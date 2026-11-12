@@ -5,7 +5,7 @@ photo: /uploads/Garimella.jpg
 role: Member, Advisory Board
 groups:
   - advisory-board
-affiliation: "Secretary to the Leader of the Opposition, Rajya Sabha "
+affiliation: "Secretary to the Leader of the Opposition in the Rajya Sabha "
 shortBio: >-
   Ravindra Garimella is a distinguished parliamentary expert and former senior
   officer of the Lok Sabha Secretariat, Parliament of India, with over 30 years
