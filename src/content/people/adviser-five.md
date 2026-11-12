@@ -28,8 +28,8 @@ shortBio: >-
   leadership, with an emphasis on integrating theory and practice, developing
   critical and analytical thinking, and promoting ethical awareness, social
   responsibility, and social justice.
-linkedin: https://www.linkedin.com/mypreferences/d/whatsapp/manage-number/
-x: "@sonycug"
+linkedin: https://www.linkedin.com/in/prof-sony-kunjappan-phd-83989688?utm_source=share_via&utm_content=profile&utm_medium=member_android
+x: https://x.com/sonycug
 featured: true
 placeholder: false
 ---
