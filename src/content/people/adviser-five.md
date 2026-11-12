@@ -28,6 +28,7 @@ shortBio: >-
   leadership, with an emphasis on integrating theory and practice, developing
   critical and analytical thinking, and promoting ethical awareness, social
   responsibility, and social justice.
+linkedin: https://www.linkedin.com/mypreferences/d/whatsapp/manage-number/
 x: "@sonycug"
 featured: true
 placeholder: false
