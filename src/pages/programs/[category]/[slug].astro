@@ -18,7 +18,7 @@ const siblings = (await getPrograms()).filter((p) => p.data.category === d.categ
 const applyEmail = d.applyEmail || site.careersEmail;
 // Without a link of its own, a program applies through the form for its category.
 const form = applicationForProgram(d.category);
-const applyUrl = d.applyUrl || (form ? `/apply/${form.slug}` : undefined);
+const applyUrl = d.applyUrl || (form?.formUrl ? `/apply/${form.slug}` : undefined);
 const canApply = /open|rolling/i.test(d.status) && !/closed/i.test(d.status);
 ---
 

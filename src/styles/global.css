@@ -1335,8 +1335,9 @@ a.tag:hover { background: var(--mist-blue); color: var(--deep-navy); }
 .map { width: 100%; aspect-ratio: 16 / 10; border: 0; border-radius: var(--radius-lg); background: var(--mist-blue); }
 .notice { padding: 1rem 1.2rem; border-left: 3px solid var(--ocean-depth); background: var(--arctic-haze); border-radius: 0 var(--radius) var(--radius) 0; font-size: 0.95rem; }
 .notice p:last-child { margin-bottom: 0; }
-/* Tall to begin with, so the form is usable even before Jotform's script sizes it. */
-.application-form { display: block; width: 100%; height: 1600px; margin: 1.6rem 0; border: 0; }
+/* An embedded Google Form cannot size itself, so the frame is tall enough for one page of the form. */
+.application-form { display: block; width: 100%; height: 2000px; margin: 1.6rem 0; border: 0; }
+@media (max-width: 640px) { .application-form { height: 2600px; } }
 .chip-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .anchor-nav { display: flex; gap: 0.4rem 1.4rem; flex-wrap: wrap; padding: 0.9rem 0; border-bottom: 1px solid var(--line); margin-bottom: 2.4rem; list-style: none; }
 .anchor-nav a { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--storm-blue); }

@@ -240,13 +240,13 @@ content:
         label: Forms
         type: object
         list: true
-        description: "Each form is built and its applications are tracked in Jotform. A program applies through the form whose program category matches its own."
+        description: "Each form is a Google Form, and its applications collect in the CRGD Applications Google Sheet. A program applies through the form whose program category matches its own. Until a form has a link, its page asks people to apply by email."
         fields:
           - { name: slug, label: Web address, type: string, required: true, description: "The page is /apply/ followed by this." }
           - { name: title, label: Title, type: string, required: true }
           - { name: label, label: Small label, type: string }
           - { name: description, label: Who it is for, type: text }
-          - { name: jotformId, label: Jotform form ID, type: string, required: true, description: "The number at the end of the form's link, form.jotform.com/..." }
+          - { name: formUrl, label: Google Form link, type: string, description: "The full public link, starting https://docs.google.com/forms/. Copy it from the Form links tab of the CRGD Applications sheet, or in the form press Send, then the link icon, without ticking Shorten URL." }
           - name: programCategory
             label: Program category
             type: select

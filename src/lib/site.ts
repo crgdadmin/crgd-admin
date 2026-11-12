@@ -51,13 +51,21 @@ export interface ApplicationForm {
   title: string;
   label?: string;
   description?: string;
-  jotformId: string;
+  formUrl?: string;
   programCategory?: string;
 }
 
-/** The application forms, hosted on Jotform, where submissions can be tracked. */
+/** The application forms, made in Google Forms, whose responses collect in a Google Sheet. */
 export const applications = applicationsJson as Partial<typeof applicationsJson> & { forms: ApplicationForm[] };
-export const applicationForms = (applications.forms ?? []).filter((f) => f && f.slug && f.jotformId);
+export const applicationForms = (applications.forms ?? []).filter((f) => f && f.slug && f.title);
+
+/** A Google Form shows without its own page furniture when it is embedded. */
+export function embeddedFormUrl(link: string): string {
+  if (!/^https:\/\/docs\.google\.com\/forms\//.test(link)) return link;
+  const address = new URL(link);
+  address.searchParams.set('embedded', 'true');
+  return address.toString();
+}
 
 /** The form that a program in this category applies through, if there is one. */
 export function applicationForProgram(category: string | undefined): ApplicationForm | undefined {
