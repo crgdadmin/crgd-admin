@@ -15,7 +15,6 @@ eligibility:
   - Enrolled in or graduated from an institution in Kerala
   - Able to commit about twelve hours a week alongside studies or work
 benefits:
-  - An honorarium on completion
   - A supervisor from CRGD's research team
   - Publication of the best work in the Young Thoughts series or as an
     internship report
