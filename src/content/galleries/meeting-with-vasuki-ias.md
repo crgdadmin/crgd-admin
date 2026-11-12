@@ -3,6 +3,7 @@ slug: meeting-with-vasuki-ias
 title: "Meeting with Dr. K. Vasuki (IAS), Secretary to the Hon'ble Governor of
   Keralam. "
 date: 2026-11-09
+summary: A delegation from the CRGD Governing Board, led by our Founder Mr. Amal Chandra, met Dr. K. Vasuki (IAS) and shared the newly released CRGD logo with her.
 image: /uploads/crgd-team-with-vasuki-ias.jpg
 imageAlt: Dr. K. Vasuki (IAS) with the CRGD team, holding the framed CRGD logo.
 photos:
