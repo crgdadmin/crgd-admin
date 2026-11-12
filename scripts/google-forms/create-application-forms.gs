@@ -17,6 +17,10 @@
  *     each form and a "Form links" tab listing every form's links.
  * Every new application is also emailed to the address set for its form.
  *
+ * If you ran an earlier version of this script, replace the code with this
+ * version, save, and run finishSetup instead: it repairs the forms already
+ * made without creating new ones.
+ *
  * Paste each form's public link into the website's CMS, under
  * Application forms, or send the "Form links" tab to whoever maintains
  * the website. Running the script a second time stops with an error
@@ -452,7 +456,9 @@ function createApplicationForms() {
 
 function buildForm(spec) {
   const form = FormApp.create(spec.title);
+  // FormApp.create names the file; the title shown at the top of the form is set separately.
   form
+    .setTitle(spec.title)
     .setDescription(spec.description)
     .setConfirmationMessage(spec.confirmation)
     .setProgressBar(true)
@@ -520,12 +526,47 @@ function nameResponseTabs(sheet) {
     const url = tab.getFormUrl();
     if (!url) return;
     try {
-      const title = FormApp.openByUrl(url).getTitle().replace(/^CRGD /, '').slice(0, 90);
-      tab.setName(title);
+      const title = formTitle(FormApp.openByUrl(url)).replace(/^CRGD /, '').slice(0, 90);
+      if (title) tab.setName(title);
     } catch (error) {
       Logger.log(`Could not rename a responses tab: ${error}`);
     }
   });
+}
+
+/** The title shown on the form, or its file name if the form has no title. */
+function formTitle(form) {
+  return form.getTitle() || DriveApp.getFileById(form.getId()).getName();
+}
+
+/**
+ * Finishes forms made by an earlier version of this script: gives each form
+ * the title shown at its top, makes sure it is published so anyone with the
+ * link can apply, and names the responses tabs. Safe to run more than once.
+ */
+function finishSetup() {
+  const folders = DriveApp.getFoldersByName(FOLDER_NAME);
+  if (!folders.hasNext()) throw new Error(`No folder called "${FOLDER_NAME}" was found. Run createApplicationForms first.`);
+  const folder = folders.next();
+
+  const files = folder.getFilesByType(MimeType.GOOGLE_FORMS);
+  while (files.hasNext()) {
+    const file = files.next();
+    const form = FormApp.openById(file.getId());
+    if (!form.getTitle()) form.setTitle(file.getName());
+    try {
+      // Newer Google Forms can be left unpublished; older accounts do not have this setting.
+      if (typeof form.isPublished === 'function' && !form.isPublished()) form.setPublished(true);
+    } catch (error) {
+      Logger.log(`Could not check whether "${file.getName()}" is published: ${error}`);
+    }
+    form.setAcceptingResponses(true);
+    Logger.log(`${form.getTitle()}: ready at ${form.getPublishedUrl()}`);
+  }
+
+  const sheets = folder.getFilesByType(MimeType.GOOGLE_SHEETS);
+  while (sheets.hasNext()) nameResponseTabs(SpreadsheetApp.openById(sheets.next().getId()));
+  Logger.log('Done.');
 }
 
 /* ---------------------------- Notifications ----------------------------- */
@@ -547,8 +588,8 @@ function emailNewApplication(e) {
   });
   const options = {
     to: to,
-    subject: `New application: ${form.getTitle()}${name ? ` from ${name}` : ''}`,
-    body: `A new response to "${form.getTitle()}".\n\n${lines.join('\n')}\nAll responses: ${form.getDestinationId() ? SpreadsheetApp.openById(form.getDestinationId()).getUrl() : form.getEditUrl()}`,
+    subject: `New application: ${formTitle(form)}${name ? ` from ${name}` : ''}`,
+    body: `A new response to "${formTitle(form)}".\n\n${lines.join('\n')}\nAll responses: ${form.getDestinationId() ? SpreadsheetApp.openById(form.getDestinationId()).getUrl() : form.getEditUrl()}`,
   };
   if (replyTo) options.replyTo = replyTo;
   MailApp.sendEmail(options);
