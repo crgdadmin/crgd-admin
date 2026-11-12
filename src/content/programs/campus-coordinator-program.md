@@ -5,7 +5,7 @@ category: coordinator-program
 status: Applications open
 summary: Student coordinators represent CRGD in their colleges, organise events,
   gather local evidence and connect their campuses with CRGD's work.
-deadline: 2026-11-12
+deadline: 2026-11-30
 startDate: 2026-11-12
 duration: One academic year
 commitment: About 4 hours a week
