@@ -33,6 +33,12 @@
     "linkLabel": "How we work",
     "linkHref": "/our-approach"
   },
+  "albums": {
+    "show": true,
+    "eyebrow": "In pictures",
+    "heading": "Recent meetings and engagements",
+    "count": 3
+  },
   "latest": {
     "show": true,
     "eyebrow": "Publications",

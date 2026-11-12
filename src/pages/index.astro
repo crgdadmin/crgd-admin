@@ -56,7 +56,15 @@ const news = media.filter((m) => ['in-the-news', 'mentions', 'interviews'].inclu
 const impactItems = [...impact.filter((i) => i.data.featured), ...impact.filter((i) => !i.data.featured)].slice(0, home.impact.count || 3);
 const nextEvents = (upcoming.length ? upcoming : past).slice(0, 3);
 // The newest albums with real photographs, so each meeting appears here as soon as its album is added.
-const albums = galleries.filter((g) => !g.data.placeholder && g.data.photos.some((p) => p.image)).slice(0, home.albums?.count || 3);
+// The section shows unless it is switched off, even if a CMS save drops its settings.
+const albumSection = {
+  show: true,
+  eyebrow: 'In pictures',
+  heading: 'Recent meetings and engagements',
+  count: 3,
+  ...(home as { albums?: Partial<{ show: boolean; eyebrow: string; heading: string; count: number }> }).albums,
+};
+const albums = galleries.filter((g) => !g.data.placeholder && g.data.photos.some((p) => p.image)).slice(0, albumSection.count || 3);
 
 const programCats = categories('programs').map((c) => ({
   ...c,
@@ -174,10 +182,10 @@ const headingHtml = hero.heading
     </section>
   )}
 
-  {home.albums?.show && albums.length > 0 && (
+  {albumSection.show !== false && albums.length > 0 && (
     <section class="band">
       <div class="wrap">
-        <SectionHead eyebrow={home.albums.eyebrow} title={home.albums.heading} link="/media/photographs" linkLabel="All photographs" />
+        <SectionHead eyebrow={albumSection.eyebrow} title={albumSection.heading} link="/media/photographs" linkLabel="All photographs" />
         <div class="grid grid-3">
           {albums.map((g) => (
             <ItemCard
