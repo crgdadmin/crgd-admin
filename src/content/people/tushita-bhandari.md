@@ -7,6 +7,9 @@ groups:
   - researcher
 affiliation: Doctoral scholar at the Nelson Mandela Centre for Peace and
   Conflict Resolution, Jamia Millia Islamia, New Delhi
+centres:
+  - peace-conflict-and-security
+  - strategic-affairs-and-planning
 shortBio: Tushita Bhandari is a researcher, public policy analyst, and doctoral
   scholar at the Nelson Mandela Centre for Peace and Conflict Resolution, Jamia
   Millia Islamia, New Delhi. Her research focuses on India–China relations,
