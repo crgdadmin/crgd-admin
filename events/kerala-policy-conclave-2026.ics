@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//CRGD//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:kerala-policy-conclave-2026@crgd.in
+DTSTAMP:20261114T144809Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270508
+SUMMARY:Kerala Policy Conclave 2027: Ageing\, Work and Migration
+DESCRIPTION:A two day conference on three forces reshaping Kerala's societ
+ y and economy\, with researchers\, officials\, employers\, unions and civi
+ l society.\n\nhttps://crgd.in/events/kerala-policy-conclave-2026/
+LOCATION:To be confirmed.
+URL:https://crgd.in/events/kerala-policy-conclave-2026/
+END:VEVENT
+END:VCALENDAR

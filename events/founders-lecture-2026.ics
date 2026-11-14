@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//CRGD//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:founders-lecture-2026@crgd.in
+DTSTAMP:20261114T144809Z
+DTSTART:20270430T113000Z
+DTEND:20270430T130000Z
+SUMMARY:Founders' Lecture 2026: Why Public Policy Needs a Bridge
+DESCRIPTION:The inaugural Founders' Lecture\, on the distance between evid
+ ence\, citizens and decision makers\, and what an independent institution 
+ can do to close it.\n\nhttps://crgd.in/events/founders-lecture-2026/
+LOCATION:To be confirmed.
+URL:https://crgd.in/events/founders-lecture-2026/
+END:VEVENT
+END:VCALENDAR
