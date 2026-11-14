@@ -22,6 +22,14 @@ const list = () =>
     z.array(z.string()),
   );
 
+/*
+ * A sample entry never names anyone. The sample profiles have been turned
+ * into real people, so a byline on sample work would credit a real person
+ * with something they did not write.
+ */
+const unnamedIfSample = <T extends z.ZodRawShape>(shape: T, fields: string[]) =>
+  z.object(shape).transform((data) => (data.placeholder ? { ...data, ...Object.fromEntries(fields.map((f) => [f, []])) } : data));
+
 /** Fields shared by almost every entry: a picture, a summary and housekeeping flags. */
 const common = {
   summary: text(),
@@ -97,7 +105,7 @@ const centres = defineCollection({
 
 const publications = defineCollection({
   loader: load('publications'),
-  schema: z.object({
+  schema: unnamedIfSample({
     title: z.string(),
     type: z.string(),
     date: z.coerce.date(),
@@ -115,12 +123,12 @@ const publications = defineCollection({
     publisher: text(),
     language: z.preprocess(blank, z.string().default('English')),
     ...common,
-  }),
+  }, ['authors']),
 });
 
 const events = defineCollection({
   loader: load('events'),
-  schema: z.object({
+  schema: unnamedIfSample({
     title: z.string(),
     type: z.preprocess(blank, z.string().default('Lecture')),
     startDate: z.coerce.date(),
@@ -139,7 +147,7 @@ const events = defineCollection({
     reportPdf: text(),
     gallery: text(),
     ...common,
-  }),
+  }, ['speakers', 'moderators']),
 });
 
 const programs = defineCollection({
@@ -165,7 +173,7 @@ const programs = defineCollection({
 
 const learning = defineCollection({
   loader: load('learning'),
-  schema: z.object({
+  schema: unnamedIfSample({
     title: z.string(),
     category: z.string(),
     status: z.preprocess(blank, z.string().default('Registrations open')),
@@ -183,12 +191,12 @@ const learning = defineCollection({
     outcomes: list(),
     centres: list(),
     ...common,
-  }),
+  }, ['faculty']),
 });
 
 const impact = defineCollection({
   loader: load('impact'),
-  schema: z.object({
+  schema: unnamedIfSample({
     title: z.string(),
     category: z.string(),
     status: text(),
@@ -200,12 +208,12 @@ const impact = defineCollection({
     centres: list(),
     people: list(),
     ...common,
-  }),
+  }, ['people']),
 });
 
 const media = defineCollection({
   loader: load('media'),
-  schema: z.object({
+  schema: unnamedIfSample({
     title: z.string(),
     category: z.string(),
     date: z.coerce.date(),
@@ -215,7 +223,7 @@ const media = defineCollection({
     videoUrl: text(),
     pdf: text(),
     ...common,
-  }),
+  }, ['people']),
 });
 
 const galleries = defineCollection({
