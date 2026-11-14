@@ -374,7 +374,15 @@ export const socialLinks = (() => {
     { key: 'threads', label: 'Threads', href: s.threads },
     { key: 'spotify', label: 'Spotify', href: s.spotify },
   ];
-  return all.filter((item): item is { key: string; label: string; href: string } => !!item.href);
+  // A link to the platform's home page, with no account in it, leads nowhere, so its icon waits until the real address is entered.
+  const isAccount = (href: string) => {
+    try {
+      return new URL(href).pathname.replace(/\/+$/, '') !== '';
+    } catch {
+      return false;
+    }
+  };
+  return all.filter((item): item is { key: string; label: string; href: string } => !!item.href && isAccount(item.href));
 })();
 
 export const showPlaceholders = site.showPlaceholderLabels !== false;

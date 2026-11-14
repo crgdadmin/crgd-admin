@@ -54,7 +54,11 @@ export const getPages = async () => (await getCollection('pages')).sort(byTitle)
 export const getPublications = async () =>
   (await getCollection('publications')).sort(newestFirst((p) => p.data.date));
 
-export const getEvents = async () => (await getCollection('events')).sort(newestFirst((e) => e.data.startDate));
+// An end date before the start is a slip in the CMS; it would file an upcoming event under past ones, so it is ignored.
+export const getEvents = async () =>
+  (await getCollection('events'))
+    .map((e) => (e.data.endDate && e.data.endDate < e.data.startDate ? { ...e, data: { ...e.data, endDate: undefined } } : e))
+    .sort(newestFirst((e) => e.data.startDate));
 
 export const getPrograms = async () => (await getCollection('programs')).sort(byTitle);
 export const getLearning = async () => (await getCollection('learning')).sort(byTitle);

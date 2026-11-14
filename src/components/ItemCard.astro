@@ -1,6 +1,6 @@
 ---
 import Picture from './Picture.astro';
-import { url } from '../lib/site';
+import { url, showPlaceholders } from '../lib/site';
 
 /* A general purpose card for programs, courses, impact stories, media items and reports. */
 interface Props {
@@ -58,6 +58,6 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
         {meta.filter(Boolean).map((m, i) => <span class:list={{ dot: i > 0 }}>{m}</span>)}
       </p>
     )}
-    {!showImage && placeholder && <p class="meta"><span class="tag">Placeholder</span></p>}
+    {!showImage && placeholder && showPlaceholders && <p class="meta"><span class="tag">Placeholder</span></p>}
   </div>
 </article>

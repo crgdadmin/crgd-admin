@@ -1,7 +1,7 @@
 ---
 import Picture from './Picture.astro';
 import { href, isUpcoming, type EventEntry } from '../lib/content';
-import { url, dateParts, dateRange, timeRange } from '../lib/site';
+import { url, dateParts, dateRange, timeRange, showPlaceholders } from '../lib/site';
 
 interface Props {
   event: EventEntry;
@@ -29,7 +29,7 @@ const upcoming = isUpcoming(event);
         {d.startTime && <span class="dot">{timeRange(d.startTime, d.endTime)}</span>}
       </p>
       {(d.venue || d.city) && <p class="meta">{[d.venue, d.city].filter(Boolean).join(', ')}</p>}
-      {!image && d.placeholder && <p class="meta"><span class="tag">Placeholder</span></p>}
+      {!image && d.placeholder && showPlaceholders && <p class="meta"><span class="tag">Placeholder</span></p>}
     </div>
   </div>
 </article>

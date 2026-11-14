@@ -1,7 +1,7 @@
 ---
 import ListingPage from '../../components/ListingPage.astro';
 import { getUpdates, href } from '../../lib/content';
-import { sections, formatDate, url } from '../../lib/site';
+import { sections, formatDate, url, showPlaceholders } from '../../lib/site';
 
 const s = sections.updates;
 const updates = await getUpdates();
@@ -12,7 +12,7 @@ const updates = await getUpdates();
     <ul class="item-list" style="max-width:52rem">
       {updates.map((u) => (
         <li>
-          <p class="meta"><time datetime={u.data.date.toISOString()}>{formatDate(u.data.date)}</time>{u.data.pinned && <span class="dot">Pinned</span>}{u.data.placeholder && <span class="dot">Placeholder</span>}</p>
+          <p class="meta"><time datetime={u.data.date.toISOString()}>{formatDate(u.data.date)}</time>{u.data.pinned && <span class="dot">Pinned</span>}{u.data.placeholder && showPlaceholders && <span class="dot">Placeholder</span>}</p>
           <h3><a href={url(href.update(u))}>{u.data.title}</a></h3>
           {u.data.summary && <p>{u.data.summary}</p>}
         </li>

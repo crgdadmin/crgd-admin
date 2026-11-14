@@ -672,7 +672,7 @@ content:
         options:
           values: [Lecture, Public lecture, Roundtable, Panel discussion, Conference, Workshop, Webinar, Dialogue, Colloquium, Book launch, Seminar]
       - { name: startDate, label: Date, type: date, required: true, description: "Events move from Upcoming to Past automatically after this date (or the end date)." }
-      - { name: endDate, label: End date, type: date, description: "Only for events longer than a day." }
+      - { name: endDate, label: End date, type: date, description: "Only for events longer than a day. Leave it empty otherwise: an end date before the start date is ignored." }
       - { name: startTime, label: Start time, type: string, description: "24 hour clock, for example 17:00" }
       - { name: endTime, label: End time, type: string, description: "24 hour clock, for example 18:30" }
       - name: mode

@@ -3,7 +3,6 @@ slug: workshop-writing-policy-briefs
 title: "Workshop: Writing Policy Briefs That Get Read"
 type: Workshop
 startDate: 2027-05-15
-endDate: 2026-11-07
 startTime: 10:00
 endTime: 16:00
 mode: In person

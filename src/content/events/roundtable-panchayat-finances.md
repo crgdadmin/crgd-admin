@@ -3,7 +3,6 @@ slug: roundtable-panchayat-finances
 title: "Roundtable: Panchayat Finances After Three Decades"
 type: Roundtable
 startDate: 2027-08-07
-endDate: 2026-11-07
 startTime: 10:30
 endTime: 13:00
 mode: Hybrid
