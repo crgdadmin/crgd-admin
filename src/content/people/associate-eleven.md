@@ -1,7 +1,7 @@
 ---
 slug: associate-eleven
 name: Siddhartha Patil
-photo: /uploads/IMG_4336_Original - Siddhartha Patil.jpeg
+photo: /uploads/IMG_4336_Original - Siddhartha Patil-1.jpeg
 role: Associate, Law and Public Policy
 groups:
   - associate
