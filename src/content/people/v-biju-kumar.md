@@ -32,5 +32,6 @@ shortBio: "Prof. V. Bijukumar is a Professor and former Chairperson of the
   (2019), and Reinventing the Congress: Economic Policies and Strategies since
   1991 (2006)."
 featured: false
+order: 5
 placeholder: false
 ---
