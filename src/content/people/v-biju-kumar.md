@@ -1,10 +1,18 @@
 ---
 slug: v-biju-kumar
 name: Prof. V. Bijukumar
+photo: /uploads/Pi7_1001526770.jpeg
 role: Member, Advisory Board
 groups:
   - advisory-board
 affiliation: Professor and former Chairperson, CPS, JNU, New Delhi
+centres:
+  - elections-narratives-and-public-perceptions
+  - foreign-policy-and-global-affairs
+  - institutions-and-social-justice
+  - society-law-and-policy
+  - strategic-affairs-and-planning
+  - peace-conflict-and-security
 shortBio: "Prof. V. Bijukumar is a Professor and former Chairperson of the
   Centre for Political Studies, School of Social Sciences, Jawaharlal Nehru
   University (JNU), New Delhi. He previously taught Political Science at Mizoram
