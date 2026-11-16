@@ -1,7 +1,7 @@
 ---
 slug: v-biju-kumar
 name: Prof. V. Bijukumar
-photo: /uploads/Pi7_1001526770.jpeg
+photo: /uploads/Biju Kumar.jpg
 role: Member, Advisory Board
 groups:
   - advisory-board
