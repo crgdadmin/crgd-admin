@@ -1,6 +1,7 @@
 ---
 slug: researcher-five
 name: Dr. Anandharuban Panchanathan
+photo: /uploads/Anandharuban Panchanathan.jpg
 role: Senior Researcher
 groups:
   - researcher
