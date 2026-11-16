@@ -1,7 +1,7 @@
 ---
 slug: adviser-four
 name: Prof. Josukutty C. A.
-photo: /uploads/Josukutty  c a - Josukutty C A.jpg
+photo: /uploads/Josukutty-Abraham.webp
 role: Member, Advisory Board
 groups:
   - advisory-board
