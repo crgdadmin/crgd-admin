@@ -1,6 +1,7 @@
 ---
 slug: walter-sylesh
 name: Walter Sylesh
+photo: /uploads/PP.JPG.jpeg
 role: Senior Scholar
 groups:
   - scholar
