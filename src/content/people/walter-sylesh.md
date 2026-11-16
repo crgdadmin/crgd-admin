@@ -4,6 +4,7 @@ name: Walter Sylesh
 role: Senior Scholar
 groups:
   - scholar
+affiliation: Cleared UPSC CSE
 shortBio: Walter Sylesh is a former Regional Coordinator for Academics and
   Research (South Asia) at Students For Liberty. He was a top-performing fellow
   of the prestigious Prometheus Fellowship Programme (2022–2024) and an alumnus
