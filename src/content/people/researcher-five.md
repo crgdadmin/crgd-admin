@@ -4,6 +4,10 @@ name: Dr. Anandharuban Panchanathan
 role: Senior Researcher
 groups:
   - researcher
+centres:
+  - environment-and-disaster-management
+  - science-energy-tech-and-ai
+  - urbanisation
 shortBio: Dr. Anandharuban Panchanathan is a Senior Hydrologist committed to
   building flood-resilient and water-secure communities in India by translating
   global engineering practices into locally relevant solutions. With over a
