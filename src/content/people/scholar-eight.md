@@ -1,6 +1,7 @@
 ---
 slug: scholar-eight
 name: Dr. Assa Aravindh
+photo: /uploads/AssaAravindhProfile - Assa Aravindh.jpg
 role: Senior Scholar
 groups:
   - scholar
