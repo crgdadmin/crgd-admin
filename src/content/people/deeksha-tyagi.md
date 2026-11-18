@@ -8,6 +8,9 @@ groups:
 email: deeksha@crgd.in
 linkedin: https://www.linkedin.com/in/deeksha-tyagi-9bab002b2/
 x: https://x.com/deekshatyagii
+shortBio: Deeksha Tyagi is the Director, International Programs at the Centre
+  for Research on Governance and Development (CRGD) and a Don Lavoie Fellow at
+  George Mason University (USA).
 featured: false
 order: 2
 placeholder: false

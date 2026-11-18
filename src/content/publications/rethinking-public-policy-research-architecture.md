@@ -1,0 +1,87 @@
+---
+slug: rethinking-public-policy-research-architecture
+title: Rethinking the Public Policy Research Architecture
+type: long-form
+date: 2026-11-18
+summary: Public policy problems rarely belong to a single discipline. Research
+  institutions should keep their specialist expertise while organising around
+  interconnected problems, and seven principles show how.
+authors:
+  - amal-chandra
+  - deeksha-tyagi
+centres: []
+tags:
+  - Policy research
+  - Multidisciplinarity
+  - Development
+  - North-East India
+image: /uploads/rethinking-policy-research-architecture.jpg
+imageAlt: A government building at the centre of a ring of connected policy
+  areas, shown as icons for the economy, environment, technology, law,
+  international affairs, finance, education and society.
+featured: true
+placeholder: false
+---
+Public policy [problems](https://academic.oup.com/policyandsociety/article/40/4/522/6509338) rarely belong to a single discipline. An employment crisis, for instance, cannot be understood through economics alone; it also involves education, demography, labour regulation, technological change, migration and institutional capacity. Climate vulnerability is environmental, economic, infrastructural and political. National security also extends beyond military preparedness to energy, maritime infrastructure, food systems, technological sovereignty and economic resilience.
+
+Yet much of the policy research [landscape](https://www.nature.com/articles/s41467-024-54703-2) remains organised around specialised disciplines and narrowly defined mandates. Specialisation has strengthened methods, advanced knowledge and enabled centres of excellence. The [difficulty](https://www.nationalacademies.org/publications/11153) arises when it becomes an organising philosophy rather than a research method, restricting the questions institutions explore. Economic analysis without social consequences, or environmental analysis without fiscal and institutional implications, remains incomplete. The [challenge](https://www.oecd.org/content/dam/oecd/en/publications/reports/2020/06/addressing-societal-challenges-using-transdisciplinary-research_41211835/0ca0ca45-en.pdf), therefore, is not to choose between specialisation and diversification, but to combine disciplinary competence with an understanding of interconnected problems.
+
+## The changing nature of policy problems
+
+The evolution of [development thinking](https://academic.oup.com/book/7951/chapter-abstract/162519012?redirectedFrom=fulltext) provides a foundation. Early [approaches](https://www.britannica.com/money/development-theory/Dependency-and-world-systems-theories) emphasised growth, industrialisation and capital accumulation. Human development challenged the assumption that economic expansion alone represented progress. Amartya Sen's [conception](https://asiasociety.org/amartya-sen-more-human-theory-development) of development as expanded human freedoms brought health, education, political participation, economic opportunity and institutions into one framework. Development became a question of what people can do and become.
+
+The [United Nations' 2030 Agenda](https://sdgs.un.org/2030agenda) and its [17 Sustainable Development Goals](https://sdgs.un.org/goals) (SDGs) recognised development as an integrated undertaking. Its [2026 progress assessment](https://desapublications.un.org/publications/sustainable-development-goals-report-2026) identifies climate change, conflict, slowing economic growth, debt pressures and declining development assistance as interconnected obstacles. Interventions in one area can strengthen or undermine outcomes elsewhere. Energy transition illustrates the point. Renewable investment involves engineering and environmental science, but also finance, land acquisition, supply chains, industrial policy, employment, trade and regulation. Treating these subjects separately can obscure what determines whether an intervention succeeds.
+
+The UN Sustainable Development Goals [Report](https://unstats.un.org/sdgs/report/2025/) 2025 reflects this challenge. Of 139 targets with trend data, only 35 per cent were on track or making moderate progress, while 18 per cent had regressed from their [2015 baseline](https://desapublications.un.org/publications/global-sustainable-development-report-2015). These figures do not establish that fragmented research caused inadequate implementation. They underline the need to understand connections between development objectives and the institutions needed to achieve them. The OECD's [2026 policy coherence analysis](https://www.oecd.org/en/publications/bridging-the-gaps-for-sustainable-development_d6b60ea7-en.html) similarly notes that governance systems struggle to manage interactions across water, energy, industry and cities. Policies designed independently can work against one another. The problem is often not an absence of knowledge, but an inability to bring relevant knowledge into the same policy conversation.
+
+## Specialisation, institutional identity and the limits of conventional structures
+
+Research institutions develop specialised identities by accumulating expertise, setting standards and building relationships within their fields. However, specialisation can become restrictive when it produces [institutional](https://www.nationalacademies.org/read/11153/chapter/2) silos. Research questions may reflect existing vertical capacities, funding and professional networks rather than the problem's significance. Researchers may have little incentive to engage with adjacent fields. The result can be specialised findings without understanding their collective implications.
+
+An institution identified exclusively with one subject may struggle to respond to challenges beyond its mandate, even when those challenges affect its core area. [Artificial Intelligence](https://www.unesco.org/en/legal-affairs/recommendation-ethics-artificial-intelligence?hub=1063) (AI) illustrates this difficulty. AI affects employment, education, privacy, competition, public administration, national security, financial regulation, and democratic participation. Its governance cannot be entrusted exclusively to technology specialists, nor can its economic consequences be assessed without technological understanding. These connections are integral to the problems themselves. Multidisciplinarity does not automatically improve an institution; breadth without intellectual coherence risks fragmented publications and superficial analysis.
+
+The answer is to retain disciplinary expertise while fostering collaboration on complex problems. Political scientists, economists, lawyers, sociologists, environmental researchers, technologists and practitioners need not become generalists, but must bring their specialised knowledge to a shared understanding of these challenges.
+
+## Beyond specialisation: the wider gaps in policy research
+
+Fragmentation extends beyond disciplinary silos to the research-to-policy chain: how priorities are selected, knowledge produced, evidence interpreted and findings translated into action. Research agendas often follow funding cycles, government priorities and media attention, leaving slow-moving, marginal or politically inconvenient issues underexamined. Independent institutions must identify neglected priorities and anticipate emerging challenges, not merely respond to crises. Population ageing, for instance, illustrates this need: the [India Ageing Report 2023](https://india.unfpa.org/en/publications/caring-our-elders-institutional-responses-india-ageing-report-2023) projects that Indians aged 60 and above will increase from 10.5 per cent of the population in 2022 to 20.8 per cent by 2050, demanding early research into pensions, health and care systems before demographic pressures become governance crises.
+
+Policy knowledge is produced and circulated unevenly, globally and within India. Of the 25 research institutes [listed](https://www.icssr.org/research-institutes-0) by the Indian Council of Social Science Research, five are in Delhi, while the eight north-eastern states have one between them. Regions distant from research centres are relatively studied less often, often from outside and through a single lens such as security. Their scholars and institutions have less voice in national debates, and their evidence travels poorly.
+
+North-East India shows the cost of this imbalance most clearly. The [Ministry of Home Affairs](https://www.mha.gov.in/north-east-division) notes that its eight states cover 7.97 per cent of India's area and 3.78 per cent of its population, include more than 200 ethnic groups, and share 5,484 km of international borders with Bangladesh, Myanmar, China, Bhutan and Nepal. Their governance arrangements are distinctive: the [Sixth Schedule](https://necouncil.gov.in/sites/default/files/uploadfiles/Schedule%20VI.pdf)'s autonomous district councils exist only in four north-eastern states, and six of the eight states have special provisions under [Articles 371A to 371H](https://www.constitutionofindia.net/parts/part-xxi/) of the Constitution. The Department of Science and Technology's [national climate vulnerability assessment](https://dst.gov.in/national-climate-vulnerability-assessment-identifies-eight-eastern-states-highly-vulnerable) placed Assam, Mizoram and Arunachal Pradesh among the eight states it rated highly vulnerable to climate change. The North Eastern Region District [SDG Index 2023–24](https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/jul/doc2025713585201.pdf) shows real progress, with 85 per cent of the 121 districts assessed classed as front runners, yet district scores still range from 58.71 to 81.43, and data gaps persist in remote and new districts. Its strategic and ecological significance demands greater understanding.
+
+Policy research prioritises codified knowledge: statistics, models and peer-reviewed studies. The experience of farmers, communities, frontline workers, traditional institutions and local governments is often dismissed as anecdote, although it can explain why a programme works in one district and fails in the next. Drawing on such knowledge does not replace empirical investigation; it helps inform applied studies, establish whether research questions reflect actual social conditions and assess whether proposed solutions are workable.
+
+Policy research often establishes what should be done but less often examines why governments act or do not, when reform becomes possible and how implementation can improve. Decentralisation is a telling example. More than three decades after the [73rd Constitutional Amendment](https://prsindia.org/policy/report-summaries/effectiveness-of-the-implementation-of-constitution-73rd-amendment-act), the Ministry of Panchayati Raj's [devolution index](https://pib.gov.in/PressReleasePage.aspx?PRID=2102965) found that devolution to rural local bodies had risen only from 39.9 per cent in 2013–14 to 43.9 per cent in 2021–22, with wide differences between states. The case for devolution is established; why some states transfer power, and others do not, is less understood.
+
+NITI Aayog's [SDG India Index 2023–24](https://www.niti.gov.in/reports-sdg) recorded an improvement in India's composite score from 57 in 2018 to 66 in 2020–21 and 71 in 2023–24. It shows why development must be assessed across multiple dimensions, not economic output alone. Composite indicators cannot, however, establish causation or reveal the institutional reasons behind each improvement; they must be complemented by field research, policy evaluation and contextual analysis.
+
+Global examples illustrate this. The World Bank’s Country Climate and Development [Reports](https://www.worldbank.org/en/publication/country-climate-development-reports), covering 103 economies, link climate action to economic development, public investment, institutional reform and social resilience, emphasising laws, coordination, planning and budgets. Similarly, the OECD’s [2026 report](https://doi.org/10.1787/9899e2fe-en), *Building Centre of Government Capabilities to Steer and Deliver Complex Priorities*, highlights cross-vertical cooperation, prioritisation and shared accountability in addressing complex challenges.
+
+These examples show why policy knowledge must travel across administrative, disciplinary and geographical boundaries. This matters especially for emerging economies in South Asia, where institutional diversity, federal arrangements, uneven infrastructure and social inequalities shape development. Research models cannot simply be transferred from one context to another, and comparative research is valuable precisely because it separates universal principles from practices that require adaptation.
+
+## Building a coherent research architecture
+
+Multidisciplinarity needs an institutional design that makes breadth meaningful.
+
+The objective is not to know everything, but to prevent inherited boundaries from limiting inquiry. Seven principles follow.
+
+First, retain specialised research leadership while encouraging cross-disciplinary collaboration. Each research area should have subject-matter leadership, clear priorities and appropriate methodological standards, but projects involving overlapping concerns should draw on several fields. A [study](https://documents1.worldbank.org/curated/en/858461494250358652/pdf/114816-WP-PUBLIC-P15665-GSU08-add-series-4UFCOPKnowledgeNoteMay.pdf) of urban flooding, for example, should bring together environmental science, finance, land-use planning, public health and disaster management. Collaboration should be based on the research question, not institutional tradition.
+
+Second, organise research around problems as well as disciplines. Thematic areas provide continuity, but cross-cutting programmes can address questions that do not fit neatly within one area. [Ageing](https://www.worldbank.org/en/brief/2022/10/31/societal-aging) and the future of social protection, for instance, require demographic analysis alongside healthcare financing, employment policy, family structures, migration and local governance.
+
+Third, protect the [independence](https://pmc.ncbi.nlm.nih.gov/articles/PMC5948260/) of the research agenda and invest in [foresight](https://www.oecd.org/en/about/programmes/strategic-foresight.html). Funding should support an institution's priorities, not set them, and some resources should be kept for important questions that have no sponsor yet. Institutions must also build the capacity to identify emerging issues before they become immediate governance crises.
+
+Fourth, widen the geography of research. Climate change, migration, maritime security, digital regulation and trade all cross national borders, and comparative research should deepen contextual understanding rather than import foreign models uncritically. Within India, under-studied regions need research produced with their own universities, scholars and institutions, not merely about them.
+
+Fifth, bridge research and public experience. Independent scholarship must remain grounded in the realities it examines. Grounded studies can expose gaps between official objectives and actual outcomes, while [community knowledge](https://www.worldbank.org/en/research/publication/localizing-development-does-participation-work) should inform both research questions and conclusions. Engaging practitioners and affected communities must strengthen, not compromise, research independence.
+
+Sixth, study implementation as seriously as policy design. Research should follow policies beyond their announcement: how they are financed, administered and received, why reforms stall, and under what conditions they succeed. This requires sustained engagement with governments and systems at the Union, state and local levels.
+
+Seventh, measure institutional performance by research quality and impact. Excellence should be judged by rigour, originality, transparency, relevance, independence, engagement with competing arguments and contribution to public problem-solving, not just publication volume or publicity. Intellectual achievements should be distinguished from organisational expansion.
+
+These principles provide a practical framework for multidisciplinary institutions. CRGD applies this approach through more than [20 thematic research verticals](/research) covering governance, finance, education, health, employment, federalism, technology, law, social justice, economy, environment, urban affairs, international relations, security, tourism, demography and migration. Its strength lies in its interconnections and shared concern with how institutions, public decisions and social conditions shape human development.
+
+This approach will also inform CRGD’s regional engagement, particularly in North-East India, through collaborations with universities, scholars, local institutions and communities on cross-border connectivity, climate adaptation, autonomous and customary governance, and service delivery in remote districts. Through shared research, interdisciplinary authorship and transparent standards, CRGD seeks to connect regional evidence with national policymaking while maintaining methodological rigour and accountability.
+
+Effective policy research must transcend disciplinary and institutional boundaries, combining specialised expertise with interdisciplinary understanding to explain problems, develop workable solutions and translate knowledge into improved public outcomes.
