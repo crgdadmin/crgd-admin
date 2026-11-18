@@ -1,6 +1,7 @@
 ---
 slug: simranjeet-kaur
 name: Simranjeet Kaur
+photo: /uploads/WhatsApp Image 2026-11-18 at 12.24.35 (1).jpeg
 role: Research Associate
 groups:
   - associate
