@@ -7,6 +7,6 @@ groups:
 shortBio: "Sreenidhi B. T. is an Indian Administrative Service (IAS) officer
   from the 2017 batch, allotted to the Rajasthan cadre. He currently serves as
   the Collector & District Magistrate of Dholpur. "
-featured: false
+featured: true
 placeholder: false
 ---
