@@ -130,7 +130,7 @@ const schema = {
         )}
 
         {d.type === 'opinion' || d.type === 'expert-view' || d.type === 'young-thoughts' || d.type === 'blogs' ? (
-          <p class="meta" style="margin-top:2rem">The views expressed are the author's own and do not represent an institutional position of {orgTitle}.</p>
+          <p class="meta" style="margin-top:2rem">The views expressed are the {authors.length > 1 ? "authors'" : "author's"} own and do not represent an institutional position of {orgTitle}.</p>
         ) : null}
 
         {authors.some((a) => a.person) && (
