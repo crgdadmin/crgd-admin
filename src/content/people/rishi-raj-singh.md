@@ -19,6 +19,6 @@ shortBio: Rishi Raj Singh is a distinguished Indian Police Service (IPS) officer
   elite Special Protection Group (SPG), an assignment that reflects his
   experience in high-security responsibilities.
 featured: false
-order: 3
+order: 2
 placeholder: false
 ---
