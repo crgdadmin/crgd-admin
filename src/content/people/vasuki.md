@@ -1,0 +1,12 @@
+---
+slug: vasuki
+name: Dr. K. Vasuki (IAS)
+photo: /uploads/images.jpeg
+role: Mentor
+groups:
+  - mentor
+affiliation: Secretary to the Hon'ble Governor of Keralam
+featured: false
+order: 1
+placeholder: false
+---
