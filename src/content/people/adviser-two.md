@@ -16,6 +16,6 @@ shortBio: >
 linkedin: www.linkedin.com/in/somesh-goyal-97bb5822
 x: "@GoyalSomes51169"
 featured: false
-order: 2
+order: 9
 placeholder: false
 ---
