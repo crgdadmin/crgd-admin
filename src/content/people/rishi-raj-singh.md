@@ -7,6 +7,6 @@ groups:
   - advisory-board
 affiliation: Former Director General of Police (DGP), Keralam
 featured: false
-order: 4
+order: 3
 placeholder: false
 ---
