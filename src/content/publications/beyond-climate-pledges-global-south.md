@@ -2,7 +2,7 @@
 slug: beyond-climate-pledges-global-south
 title: "Beyond Climate Pledges: Bridging the Adaptation and Technology Gap in the
   Global South"
-type: opinion
+type: commentary
 date: 2026-11-19
 summary: Climate disasters fall hardest on the Global South, yet adaptation
   finance and technology transfer from the Global North remain a fraction of
@@ -81,5 +81,7 @@ Adaptation must be prioritized by ensuring adequate funds, availability of techn
 Climate finance must be anchored in justice, equity and shared responsibility. As climate-induced disasters intensify, the priority must shift from prolonged negotiations to timely action, ensuring that the Global South has access to adequate financing, advanced technologies, and institutional capacity to mitigate climate risks and build resilience. The transition cannot succeed if those most vulnerable to its consequences lack the resources to respond.
 
 Preserving the planet for future generations demands a historic opportunity for the Global South to forge a collective voice and secure its rightful share of climate finance and technology. The Global North, in turn, must translate its responsibility into tangible commitments and sustained action. These are not competing obligations but interdependent imperatives: climate justice and climate action are ultimately two sides of the same coin.
+
+*Views expressed are personal and do not purport to represent the views, research, or editorial stance of the CRGD.*
 
 *Cover image: [“Nepal glacier collapse and flood (after)”](https://commons.wikimedia.org/wiki/File:Nepal_glacier_collapse_and_flood_(after)_(55504451912).jpg) by the European Space Agency (ESA), from Landsat 9 imagery taken on 26 August 2026, via Wikimedia Commons, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Cropped from the original.*

@@ -103,6 +103,10 @@ export default defineConfig({
   site,
   base,
   trailingSlash: 'ignore',
+  // Pages that moved: the old address forwards to the new one, so links already shared keep working.
+  redirects: {
+    '/publications/opinion/beyond-climate-pledges-global-south': '/publications/commentary/beyond-climate-pledges-global-south/',
+  },
   build: { format: 'directory' },
   markdown: {
     processor: satteri({ hastPlugins: [siteLinks] }),
