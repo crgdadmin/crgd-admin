@@ -1,7 +1,7 @@
 ---
 slug: shreenidhi-bt
 name: Shreenidhi B.T. (IAS)
-photo: /uploads/fffee70990324cfebde6e263ecefd214.jpg
+photo: /uploads/f21b9c3d-d000-4430-a9ae-d6784200dd8b.jpeg
 groups:
   - mentor
 affiliation: Collector & District Magistrate, Dholpur
