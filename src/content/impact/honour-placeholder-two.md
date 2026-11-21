@@ -1,17 +1,16 @@
 ---
-slug: honour-placeholder-two
-title: "[Honour or fellowship received by a CRGD researcher]"
+slug: amal-chandra-wins-global-AMR-media-2026
+title: Our Founder President Amal Chandra won the Global AMR Media Awards 2026 by GAMA
 category: awards-and-honours
+summary: "Our Founder and President, Amal Chandra, has won the Global AMR Media
+  Awards 2026, presented by the Global AMR Media Alliance (GAMA), for his
+  article on antimicrobial resistance in India, published in India Today. "
+image: /uploads/WhatsApp Image 2026-11-21 at 19.25.01.jpeg
 date: 2026-05-20
-awardedBy: "[Awarding institution]"
+awardedBy: Global AMR Media Alliance (GAMA)
 people:
-  - scholar-two
-summary: A placeholder for an honour received by a member of the CRGD team, with a note on the work it recognised.
-image: ""
-imageAlt: ""
+  - amal-chandra
 featured: false
-placeholder: true
-order: 2
+order: 1
+placeholder: false
 ---
-
-[Placeholder: describe the honour, the person who received it and the work it recognised.]
