@@ -1,7 +1,7 @@
 ---
 slug: nabeel-ashraf
 name: Nabeel Asharaf
-photo: /uploads/IMG_0552 - Nabeel Asharaf.jpeg
+photo: /uploads/WhatsApp Image 2026-11-21 at 13.32.40.jpeg
 role: Associate - Economy
 groups:
   - associate
