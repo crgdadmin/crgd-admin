@@ -25,7 +25,7 @@ shortBio: >-
   encyclopaedia *Fairs and Festivals of India*. He holds a Master's degree in
   Economics from the Delhi School of Economics and a Master of Public
   Administration from Harvard University.
-featured: false
+featured: true
 order: 5
 placeholder: false
 ---
