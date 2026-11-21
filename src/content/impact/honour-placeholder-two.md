@@ -11,7 +11,7 @@ date: 2026-05-20
 awardedBy: Global AMR Media Alliance (GAMA)
 people:
   - amal-chandra
-featured: false
+featured: true
 order: 0
 placeholder: false
 ---
