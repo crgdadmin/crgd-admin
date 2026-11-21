@@ -60,13 +60,11 @@ The student waiting for access has no reason to care whether help comes from a r
 
 References
 
-​1.​ Hammer, Michael. “Reengineering Work: Don’t Automate, Obliterate.” Harvard Business Review 68, no. 4 (July–August 1990): 104–112. ++[Original article](https://www.vincenzocalabro.it/pdf/reengineering-work-dont-automate-obliterate.pdf)++ ​
+​1.​ Hammer, Michael. “Reengineering Work: Don’t Automate, Obliterate.” Harvard Business Review 68, no. 4 (July–August 1990): 104–112. [Original article](https://www.vincenzocalabro.it/pdf/reengineering-work-dont-automate-obliterate.pdf)​
 
-2.​ Brynjolfsson, Erik, Danielle Li, and Lindsey Raymond. “Generative AI at Work.” The Quarterly Journal of Economics 140, no. 2 (May 2025): 889–942.++[doi:10.1093/qje/qjae044](https://doi.org/10.1093/qje/qjae044)++.
+2.​ Brynjolfsson, Erik, Danielle Li, and Lindsey Raymond. “Generative AI at Work.” The Quarterly Journal of Economics 140, no. 2 (May 2025): 889–942. [doi:10.1093/qje/qjae044](https://doi.org/10.1093/qje/qjae044).
 
-3.​ Humlum, Anders, and Emilie Vestergaard. Still Waters, Rapid Currents: Early Labor Market Transformation under Generative AI. NBER Working Paper 33777, May 2025, revised March 2026. ++[doi:10.3386/w33777](https://doi.org/10.3386/w33777)++. See also the authors’++[Brookings account, October 6, 2026](https://www.brookings.edu/articles/still-waters-rapid-currents-early-labor-market-transformation-under-generative-ai/)++.
+3.​ Humlum, Anders, and Emilie Vestergaard. Still Waters, Rapid Currents: Early Labor Market Transformation under Generative AI. NBER Working Paper 33777, May 2025, revised March 2026. [doi:10.3386/w33777](https://doi.org/10.3386/w33777). See also the authors’[Brookings account, October 6, 2026](https://www.brookings.edu/articles/still-waters-rapid-currents-early-labor-market-transformation-under-generative-ai/).
 
-​
-
-4. ​Dell’Acqua, Fabrizio, Edward McFowland III, Ethan Mollick, Hila Lifshitz, Katherine C. Kellogg, Saran Rajendran, Lisa Krayer, François Candelon, and Karim R. Lakhani. “Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of Artificial Intelligence on Knowledge Worker Productivity and Quality.” Organization Science, published online March 11, 2026.++[doi:10.1287/orsc.2025.21838](https://doi.org/10.1287/orsc.2025.21838)++. ++[Full published text](https://www.hbs.edu/ris/Publication%20Files/dell-acqua-et-al-2026-navigating-the-jagged-technological-frontier_5c589c8c-fbb5-458f-b285-c944746cd717.pdf)++.
+4. ​Dell’Acqua, Fabrizio, Edward McFowland III, Ethan Mollick, Hila Lifshitz, Katherine C. Kellogg, Saran Rajendran, Lisa Krayer, François Candelon, and Karim R. Lakhani. “Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of Artificial Intelligence on Knowledge Worker Productivity and Quality.” Organization Science, published online March 11, 2026.[doi:10.1287/orsc.2025.21838](https://doi.org/10.1287/orsc.2025.21838).[Full published text](https://www.hbs.edu/ris/Publication%20Files/dell-acqua-et-al-2026-navigating-the-jagged-technological-frontier_5c589c8c-fbb5-458f-b285-c944746cd717.pdf).
 
