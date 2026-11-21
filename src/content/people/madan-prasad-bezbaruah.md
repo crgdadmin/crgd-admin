@@ -26,6 +26,6 @@ shortBio: >-
   Economics from the Delhi School of Economics and a Master of Public
   Administration from Harvard University.
 featured: true
-order: 5
+order: 4
 placeholder: false
 ---
