@@ -60,7 +60,7 @@ The student waiting for access has no reason to care whether help comes from a r
 
 References
 
-​1.​ Hammer, Michael. “Reengineering Work: Don’t Automate, Obliterate.” Harvard Business Review 68, no. 4 (July–August 1990): 104–112. [Original article](https://www.vincenzocalabro.it/pdf/reengineering-work-dont-automate-obliterate.pdf)​
+​1. Hammer, Michael. “Reengineering Work: Don’t Automate, Obliterate.” Harvard Business Review 68, no. 4 (July–August 1990): 104–112. [Original article](https://www.vincenzocalabro.it/pdf/reengineering-work-dont-automate-obliterate.pdf)​
 
 2.​ Brynjolfsson, Erik, Danielle Li, and Lindsey Raymond. “Generative AI at Work.” The Quarterly Journal of Economics 140, no. 2 (May 2025): 889–942. [doi:10.1093/qje/qjae044](https://doi.org/10.1093/qje/qjae044).
 
