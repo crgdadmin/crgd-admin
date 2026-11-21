@@ -7,9 +7,9 @@ groups:
   - advisory-board
 shortBio: >-
   Mr. Madan Prasad Bezbaruah is a former Secretary to the Government of India,
-  Ministry of Tourism, and the longest-serving incumbent of the position. He
-  also served as Member of the North Eastern Council in the rank of Minister of
-  State. His distinguished administrative career includes senior assignments
+  Ministry of Tourism, and the longest-serving incumbent in the position. He
+  also served as a Member of the North Eastern Council in the rank of Minister
+  of State. His distinguished administrative career includes senior assignments
   across the Government of Assam, the Planning Commission, the Reserve Bank of
   India and the Indian High Commission in London. He chaired the committee
   constituted by the Ministry of Home Affairs to examine the concerns of people
