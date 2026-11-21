@@ -5,7 +5,6 @@ photo: /uploads/IMG_0552 - Nabeel Asharaf.jpeg
 role: Associate - Economy
 groups:
   - associate
-affiliation: RA, State Planning Board, Keralam
 centres:
   - economy
   - education
