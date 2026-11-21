@@ -12,6 +12,6 @@ awardedBy: Global AMR Media Alliance (GAMA)
 people:
   - amal-chandra
 featured: false
-order: 1
+order: 0
 placeholder: false
 ---
