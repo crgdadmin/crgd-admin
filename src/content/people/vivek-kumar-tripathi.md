@@ -1,9 +1,11 @@
 ---
 slug: vivek-kumar-tripathi
 name: Vivek Kumar Tripathi
+photo: /uploads/WhatsApp Image 2026-11-22 at 21.13.39.jpeg
 role: Researcher
 groups:
   - researcher
+affiliation: Postgraduate scholar in Development Studies at the IIT Madras
 shortBio: "Vivek Kumar Tripathi is a postgraduate scholar in Development Studies
   at the Indian Institute of Technology Madras (IIT Madras), specialising in
   International Relations, global politics and West Asian affairs. His research
