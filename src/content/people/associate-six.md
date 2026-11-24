@@ -1,7 +1,7 @@
 ---
 slug: associate-six
 name: Medha Tushti
-photo: /uploads/WhatsApp Image 2026-11-02 at 11.04.13 (1).jpeg
+photo: /uploads/Polished Garden Portrait with Car - Medha Tushti.png
 role: Research Associate, Tech Policy
 groups:
   - associate
