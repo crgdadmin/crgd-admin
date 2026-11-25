@@ -2,9 +2,9 @@
 slug: tiju-susan-thomas
 name: Tiju Susan Thomas
 photo: /uploads/Tiju-linkedin - TIJU SUSAN THOMAS.png
-role: Senior Researcher
+role: Associate - Impact Projects
 groups:
-  - researcher
+  - associate
 shortBio: A recent PhD graduate specialising in life cycle assessment (LCA) of
   sustainable construction materials, with expertise in embodied carbon
   assessment, environmental data analysis, and sustainability reporting. Trained
