@@ -1,5 +1,5 @@
 ---
-slug: adviser-six
+slug: sony-kunjappan
 name: "Prof. Sony Kunjappan "
 photo: /uploads/sk pic - Prof. Sony Kunjappan.jpeg
 role: Member, Advisory Board
@@ -30,6 +30,7 @@ shortBio: >-
   responsibility, and social justice.
 linkedin: https://www.linkedin.com/in/prof-sony-kunjappan-phd-83989688?utm_source=share_via&utm_content=profile&utm_medium=member_android
 x: https://x.com/sonycug
+website: https://profsony.in/
 featured: true
 placeholder: false
 ---
