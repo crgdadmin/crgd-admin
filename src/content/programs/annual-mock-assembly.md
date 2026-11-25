@@ -3,7 +3,7 @@ slug: annual-mock-assembly
 title: Annual Inter Club Mock Assembly
 category: campus-clubs
 status: Coming soon
-summary: Members of Policy Clubs from across Kerala come together to debate,
+summary: Members of CRGD Policy Clubs come together to debate,
   amend and vote on a draft bill in a simulated legislative assembly.
 deadline: 2026-11-12
 startDate: 2027-03-13

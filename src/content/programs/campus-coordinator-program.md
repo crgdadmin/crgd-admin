@@ -11,7 +11,7 @@ duration: One academic year
 commitment: About 4 hours a week
 location: Your own college or university
 eligibility:
-  - Students enrolled in any college or university in Kerala
+  - Students enrolled in any college or university
   - At least one year of study remaining
   - Endorsement from a faculty member
 benefits:
@@ -23,6 +23,6 @@ featured: true
 order: 1
 placeholder: true
 ---
-Campus coordinators are CRGD's link with colleges across Kerala. They organise talks and discussions, help start and sustain [Policy Clubs](/programs/campus-clubs), support CRGD surveys, and bring the concerns of students to CRGD's researchers.
+Campus coordinators are CRGD's link with colleges and universities. They organise talks and discussions, help start and sustain [Policy Clubs](/programs/campus-clubs), support CRGD surveys, and bring the concerns of students to CRGD's researchers.
 
 Coordinators meet online once a month and in person at an annual coordinators' meet.

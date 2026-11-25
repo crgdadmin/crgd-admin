@@ -12,7 +12,6 @@ commitment: Part time, about 12 hours a week
 location: Hybrid
 eligibility:
   - Final year undergraduate or postgraduate students, or recent graduates
-  - Enrolled in or graduated from an institution in Kerala
   - Able to commit about twelve hours a week alongside studies or work
 benefits:
   - A supervisor from CRGD's research team

@@ -7,7 +7,7 @@ duration: 3 months
 commitment: Part time
 location: Thiruvananthapuram and online
 eligibility:
-  - Working journalists in print, broadcast or digital media, in English or Malayalam
+  - Working journalists in print, broadcast or digital media, in any language
   - At least three years of reporting experience
 benefits:
   - Training in reading budgets, data and policy documents

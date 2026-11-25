@@ -13,8 +13,7 @@ eligibility:
   - A postgraduate degree in any discipline, or a graduate degree with at least
     two years of relevant work experience
   - Under 32 years of age on the closing date
-  - Strong written English; working knowledge of Malayalam is an advantage for
-    field based projects
+  - Strong written English
   - A clear interest in public policy and a willingness to do field work
 benefits:
   - Supervision by a senior CRGD researcher and a mentor from outside CRGD

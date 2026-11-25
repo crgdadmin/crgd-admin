@@ -11,7 +11,7 @@ duration: 6 to 8 weeks
 eligibility:
   - Undergraduate and postgraduate students of any discipline
   - Recent graduates within one year of completing their degree
-  - Good written English; Malayalam is an advantage for some projects
+  - Good written English
 benefits:
   - Work on a live research project in one of CRGD's verticals
   - Training sessions on research methods and policy writing

@@ -19,7 +19,8 @@
  *
  * If you ran an earlier version of this script, replace the code with this
  * version, save, and run finishSetup instead: it repairs the forms already
- * made without creating new ones.
+ * made without creating new ones. Then run removeKeralaQuestions once: it
+ * opens the forms to applicants from anywhere, without making new forms.
  *
  * Paste each form's public link into the website's CMS, under
  * Application forms, or send the "Form links" tab to whoever maintains
@@ -61,11 +62,7 @@ const VERTICALS = [
   'Demography and Migration',
 ];
 
-const DISTRICTS = [
-  'Thiruvananthapuram', 'Kollam', 'Pathanamthitta', 'Alappuzha', 'Kottayam', 'Idukki', 'Ernakulam',
-  'Thrissur', 'Palakkad', 'Malappuram', 'Kozhikode', 'Wayanad', 'Kannur', 'Kasaragod', 'Outside Kerala',
-];
-
+const RESEARCH_QUESTION = 'Describe one policy question you would like to research, and how you would approach it';
 const MODES = ['In person at Thiruvananthapuram', 'Remote', 'Hybrid'];
 const GENDERS = ['Woman', 'Man', 'Non-binary', 'Prefer not to say'];
 const LANGUAGES = ['English', 'Malayalam', 'Hindi', 'Tamil', 'Kannada'];
@@ -157,7 +154,7 @@ const FORMS = [
         items: [
           verticalsQuestion('CRGD research verticals you would like to work in', true),
           { type: 'para', title: 'Why do you want to work at CRGD, and what would you bring to the team?', help: '300 to 500 words.', required: true },
-          { type: 'para', title: 'Describe one policy question in Kerala or India you would like to research, and how you would approach it', help: '200 to 400 words.', required: true },
+          { type: 'para', title: RESEARCH_QUESTION, help: '200 to 400 words.', required: true },
         ],
       },
       {
@@ -315,8 +312,8 @@ const FORMS = [
         items: [
           { type: 'choice', title: 'Programme you are applying for', options: ['Campus Co-ordinator Program', 'District Co-ordinator Program'], required: true },
           { type: 'text', title: 'College or university you will represent', help: 'For the Campus Co-ordinator Program.' },
-          { type: 'dropdown', title: 'District you will represent', options: DISTRICTS, required: true },
-          { type: 'text', title: 'If outside Kerala, which city and state?' },
+          { type: 'text', title: 'City or district you will represent', required: true },
+          { type: 'text', title: 'State or country', required: true },
           { type: 'dropdown', title: 'Hours per month you can commit', options: ['Less than 10', '10 to 20', '20 to 40', 'More than 40'], required: true },
         ],
       },
@@ -371,7 +368,7 @@ const FORMS = [
           { type: 'text', title: 'Name of the institution', required: true },
           { type: 'choice', title: 'Type of institution', options: ['College', 'University department', 'School (higher secondary)'], required: true, other: true },
           { type: 'para', title: 'Full address', required: true },
-          { type: 'dropdown', title: 'District', options: DISTRICTS, required: true },
+          { type: 'text', title: 'City and state', required: true },
           { type: 'url', title: 'Institution website' },
         ],
       },
@@ -566,6 +563,40 @@ function finishSetup() {
 
   const sheets = folder.getFilesByType(MimeType.GOOGLE_SHEETS);
   while (sheets.hasNext()) nameResponseTabs(SpreadsheetApp.openById(sheets.next().getId()));
+  Logger.log('Done.');
+}
+
+/**
+ * Updates forms made by an earlier version of this script so they are open
+ * to applicants from anywhere: the Kerala district lists become free text
+ * questions and the research question no longer names Kerala. Responses
+ * already received stay in the responses sheet. Safe to run more than once.
+ */
+function removeKeralaQuestions() {
+  const folders = DriveApp.getFoldersByName(FOLDER_NAME);
+  if (!folders.hasNext()) throw new Error(`No folder called "${FOLDER_NAME}" was found.`);
+  const files = folders.next().getFilesByType(MimeType.GOOGLE_FORMS);
+  const swaps = {
+    'District you will represent': 'City or district you will represent',
+    'If outside Kerala, which city and state?': 'State or country',
+    'District': 'City and state',
+  };
+  while (files.hasNext()) {
+    const form = FormApp.openById(files.next().getId());
+    form.getItems().forEach((item) => {
+      const title = item.getTitle();
+      if (swaps[title]) {
+        const index = item.getIndex();
+        const text = form.addTextItem().setTitle(swaps[title]).setRequired(true);
+        form.moveItem(text.getIndex(), index);
+        form.deleteItem(index + 1);
+        Logger.log(`${formTitle(form)}: "${title}" is now "${swaps[title]}"`);
+      } else if (title.indexOf('policy question in Kerala or India') !== -1) {
+        item.setTitle(RESEARCH_QUESTION);
+        Logger.log(`${formTitle(form)}: research question updated`);
+      }
+    });
+  }
   Logger.log('Done.');
 }
 
