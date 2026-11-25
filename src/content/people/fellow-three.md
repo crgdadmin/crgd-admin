@@ -1,8 +1,8 @@
 ---
-slug: fellow-three
+slug: ankita-mishra
 name: Ankita Mishra
-photo: /uploads/IMG_6557 - Ankita Mishra (1).jpg
-role: Fellow, CRGD
+photo: /uploads/WhatsApp Image 2026-11-25 at 12.49.17 (1).jpeg
+role: Fellow - CRGD Academy
 groups:
   - fellow
 shortBio: Ankita Mishra recently completed her postgraduate degree in Political
