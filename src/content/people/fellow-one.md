@@ -1,8 +1,8 @@
 ---
 slug: fellow-one
 name: Rachita Mansingh
-photo: /uploads/file_0000000055b88211b6332cbf92ee1c39 - Rachita Mansingh-1.png
-role: Fellow, CRGD
+photo: /uploads/c145815a-c24e-42e5-bfd0-5447793f6711.jpeg
+role: Fellow - CRGD Academy
 groups:
   - fellow
 centres:
