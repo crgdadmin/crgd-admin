@@ -25,7 +25,8 @@
         "label": "Domain Experts",
         "description": "Academics and senior researchers who lead or anchor work in one or more of CRGD's research verticals.",
         "groups": [
-          "experts"
+          "experts",
+          "scholars"
         ]
       },
       {
