@@ -127,7 +127,7 @@ export const groupLabels: Record<string, string> = {
   founder: 'Founder',
   'governing-board': 'Governing Board',
   'advisory-board': 'Advisory Board',
-  scholar: 'Scholar',
+  scholar: 'Domain Experts',
   mentor: 'Mentor',
   patron: 'Patron',
   associate: 'Associates',

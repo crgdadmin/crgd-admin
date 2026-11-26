@@ -106,6 +106,7 @@ export default defineConfig({
   // Pages that moved: the old address forwards to the new one, so links already shared keep working.
   redirects: {
     '/publications/opinion/beyond-climate-pledges-global-south': '/publications/commentary/beyond-climate-pledges-global-south/',
+    '/people/scholars': '/people/experts/',
   },
   build: { format: 'directory' },
   markdown: {

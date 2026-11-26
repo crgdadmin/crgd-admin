@@ -401,7 +401,7 @@ content:
             - { value: founder, label: Founder }
             - { value: governing-board, label: Governing Board }
             - { value: advisory-board, label: Advisory Board }
-            - { value: scholar, label: Scholar }
+            - { value: scholar, label: Domain Expert }
             - { value: mentor, label: Mentor }
             - { value: patron, label: Patron }
             - { value: associate, label: "Team: Associate" }
