@@ -2,7 +2,7 @@
 slug: ashraf-nehal
 name: Ashraf Nehal
 photo: /uploads/Picsart_26-10-28_07-47-15-962 - Ashraf Nehal.jpg
-role: Director, Global Affairs and Climate Change
+role: Executive Director, Global Affairs and Climate Change
 groups:
   - governing-board
 shortBio: >-
