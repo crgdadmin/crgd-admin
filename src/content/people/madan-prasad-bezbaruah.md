@@ -22,7 +22,7 @@ shortBio: >-
   and Asian Development Bank. He has also chaired key RBI committees and served
   on NITI Aayog's NITI Forum for the North East. An accomplished author, he has
   written four books on tourism and served as Chief Editor of the five-volume
-  encyclopaedia *Fairs and Festivals of India*. He holds a Master's degree in
+  encyclopaedia Fairs and Festivals of India. He holds a Master's degree in
   Economics from the Delhi School of Economics and a Master of Public
   Administration from Harvard University.
 featured: true
